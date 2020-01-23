@@ -36,8 +36,8 @@ io.on('connection', function(socket){
   socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
   socket.on('chat message', msg => (
                                    magic(msg)
-                                   ? format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);})
-                                   : undefined
+                                   ? undefined
+                                   : format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);})
                                    ));
   socket.on("disconnect", () => { io.emit("chat message", `! <${names[socket.id]}> has left.`); names[socket.id] = undefined;});
 });
