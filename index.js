@@ -14,11 +14,11 @@ const apply_name = (who, name) => {
 const magic = (sender, msg) => {
   switch (msg) {
     case "/iam theop":
-      apply_name(sender, "RootUser213"); break;
+      apply_name(sender, "RootUser213"); return true;
     case "/iam Freshdude":
-      apply_name(sender, "DarkWolFR9"); break;
+      apply_name(sender, "DarkWolFR9"); return true;
     case "/iam Adam":
-      apply_name(sender, "RedRaptor69"); break;
+      apply_name(sender, "RedRaptor69"); return true;
     default:
       return false;
   }
