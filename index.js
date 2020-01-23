@@ -28,7 +28,7 @@ io.on('connection', function(socket){
   socket.emit("chat message", `! Welcome, <${names[socket.id]}>`);
   socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
   socket.on('chat message', msg => format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);}));
-  socket.on("disconnect", () => { socket.broadcast.emit("chat message", `! <${names[socket.id]}> has left.`); names[socket.id] = undefined;});
+  socket.on("disconnect", () => { io.emit("chat message", `! <${names[socket.id]}> has left.`); names[socket.id] = undefined;});
 });
 
 http.listen(port, function(){
