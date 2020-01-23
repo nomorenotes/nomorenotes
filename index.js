@@ -5,6 +5,8 @@ var port = process.env.PORT || 3000;
 
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
 
+const names = {};
+
 const format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
                              .replace("\\r\\n", "\n")
                              .replace("\\r", "\\n")
@@ -22,9 +24,11 @@ app.get("/favicon.ico", (req, res) => {
 });
 
 io.on('connection', function(socket){
-  socket.emit("chat message", `! Welcome, <${socket.id}>`);
-  socket.broadcast.emit("chat message", `! <${socket.id}> has joined.`);
-  socket.on('chat message', msg => format_msg(msg).map((m) => {io.emit("chat message", `% <${socket.id}> ${m}`);}));
+  names[socket.id] = socket.id.slice(0,8);
+  socket.emit("chat message", `! Welcome, <${names[socket.id]}>`);
+  socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
+  socket.on('chat message', msg => format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);}));
+  socket.on("disconnect", () => { names[socket.id] = undefined;});
 });
 
 http.listen(port, function(){
