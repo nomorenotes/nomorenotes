@@ -7,7 +7,7 @@ const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adm
 
 const names = {};
 
-const magic = msg => {
+const magic = (sender, msg) => {
   switch (msg) {
     default:
       return false;
@@ -35,7 +35,7 @@ io.on('connection', function(socket){
   socket.emit("chat message", `! Welcome, <${names[socket.id]}>`);
   socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
   socket.on('chat message', msg => (
-                                   magic(msg)
+                                   magic(socket, msg)
                                    ? undefined
                                    : format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);})
                                    ));
