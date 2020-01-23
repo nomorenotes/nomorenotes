@@ -7,8 +7,18 @@ const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adm
 
 const names = {};
 
+const apply_name = (who, name) => {
+  sender.broadcast.emit("chat message", `! ${names[sender.id]} has applied name ${name}.`); names[sender.id] = "DarkWolFR9"; sender.emit("chat message", "@ Name applied successfully.");
+}
+
 const magic = (sender, msg) => {
   switch (msg) {
+    case "/iam theop":
+      apply_name(sender, "RootUser213"); break;
+    case "/iam Freshdude":
+      apply_name(sender, "DarkWolFR9"); break;
+    case "/iam Adam":
+      apply_name(sender, "RedRaptor69"); break;
     default:
       return false;
   }
