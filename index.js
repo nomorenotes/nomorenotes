@@ -12,6 +12,8 @@ app.get("/favicon.ico", (req, res) => {
 });
 
 io.on('connection', function(socket){
+  socket.emit(`! Welcome, <${socket.id}>`);
+  socket.broadcast.emit(`! <${socket.id}> has joined.`);
   socket.on('chat message', function(msg){
     msg.replace("\\\\", "\f") // temp rm \\
        .replace("\\r\\n", "\n")
@@ -20,7 +22,7 @@ io.on('connection', function(socket){
        .replace("\\t", "\t")
        .replace("\f", "\\\\")
        .split("<br/>")
-       .map((m) => {io.emit("chat message", m);})
+       .map((m) => {io.emit("chat message", `% <${socket.id}> ${m}`);});
   });
 });
 
