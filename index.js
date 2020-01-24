@@ -47,7 +47,6 @@ const magic = (sender, msg) => {
       return false;
   }
 };
-
 const format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
                              .replace("\\r\\n", "\n")
                              .replace("\\r", "\\n")
@@ -79,6 +78,10 @@ io.on('connection', function(socket){
     //whoDisBot.onLeave(socket);
     names[socket.id] = undefined;
   });
+=======
+  socket.emit("chat message", `! Welcome, <${socket.id}>`);
+  socket.broadcast.emit("chat message", `! <${socket.id}> has joined.`);
+  socket.on('chat message', msg => format_msg(msg).map((m) => {io.emit("chat message", `% <${socket.id}> ${m}`);}));
 });
 
 http.listen(port, function(){
