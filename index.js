@@ -66,7 +66,7 @@ io.on('connection', function(socket){
   names[socket.id] = socket.id.slice(0,8);
   socket.emit("chat message", `! Welcome, <${names[socket.id]}>`);
   socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
-  whoDisBot.onJoin(socket);
+  //whoDisBot.onJoin(socket);
   socket.on('chat message', msg => (
                                    magic(socket, msg) ?
                                    undefined :
@@ -74,7 +74,7 @@ io.on('connection', function(socket){
                                    ));
   socket.on("disconnect", () => {
     io.emit("chat message", `! <${names[socket.id]}> has left.`);
-    whoDisBot.onLeave(socket);
+    //whoDisBot.onLeave(socket);
     names[socket.id] = undefined;
   });
 });
