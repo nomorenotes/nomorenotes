@@ -8,12 +8,19 @@ const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adm
 const names = {};
 
 const whoDisBot = {
-  botName = "WhoDisBot"
-  onJoin = (socket) => {
-    setTimeout((() => this.whoDis(socket)), 1000*Math.random());
+  botName: "WhoDisBot",
+  onJoin: (socket) => {
+    setTimeout(this.whoDis, 1000*Math.random());
   },
-  whoDis = (socket) => {
-    io.emit(
+  whoDis: () => {
+    io.emit("chat message", `& <${this.botName}> who dis?`);
+  },
+  
+  onLeave: (socket) => {
+    setTimeout(this.whoDat(socket), 1000*Math.random());
+  },
+  whoDat: () => {
+    io.emit("chat message", `& <${this.botName}> who dat?`);
   }
 };
 
@@ -59,12 +66,17 @@ io.on('connection', function(socket){
   names[socket.id] = socket.id.slice(0,8);
   socket.emit("chat message", `! Welcome, <${names[socket.id]}>`);
   socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
+  whoDisBot.onJoin(socket);
   socket.on('chat message', msg => (
                                    magic(socket, msg)
                                    ? undefined
                                    : format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);})
                                    ));
-  socket.on("disconnect", () => { io.emit("chat message", `! <${names[socket.id]}> has left.`); names[socket.id] = undefined;});
+  socket.on("disconnect", () => {
+    io.emit("chat message", `! <${names[socket.id]}> has left.`);
+    whoDisBot.onLeave(socket);
+    names[socket.id] = undefined;
+  });
 });
 
 http.listen(port, function(){
