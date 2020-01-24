@@ -28,7 +28,7 @@ const apply_name = (who, name) => {
   who.broadcast.emit("chat message", `! ${names[who.id]} has applied name ${name}.`);
   names[who.id] = name;
   who.emit("chat message", "@ Name applied successfully.");
-}
+};
 
 const magic = (sender, msg) => {
   switch (msg) {
@@ -37,14 +37,14 @@ const magic = (sender, msg) => {
     case "/iam Freshdude":
       apply_name(sender, "DarkWolf129"); return true;
     case "/iam Adam":
-      sender.disconnect();
+      sender.disconnect(); break;
       //apply_name(sender, "PoopyFace"); return true;
     case "/iam pokepat12":
       apply_name(sender, "Poképat12"); return true;
     default:
       return false;
   }
-}
+};
 
 const format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
                              .replace("\\r\\n", "\n")
@@ -68,9 +68,9 @@ io.on('connection', function(socket){
   socket.broadcast.emit("chat message", `! <${names[socket.id]}> has joined.`);
   whoDisBot.onJoin(socket);
   socket.on('chat message', msg => (
-                                   magic(socket, msg)
-                                   ? undefined
-                                   : format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);})
+                                   magic(socket, msg) ?
+                                   undefined :
+                                   format_msg(msg).map((m) => {io.emit("chat message", `% <${names[socket.id]}> ${m}`);})
                                    ));
   socket.on("disconnect", () => {
     io.emit("chat message", `! <${names[socket.id]}> has left.`);
