@@ -7,6 +7,7 @@ const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adm
 
 const names = {};
 
+/*
 const whoDisBot = {
   botName: "WhoDisBot",
   onJoin: (socket) => {
@@ -23,6 +24,7 @@ const whoDisBot = {
     io.emit("chat message", `& <${this.botName}> who dat?`);
   }
 };
+*/
 
 const apply_name = (who, name) => {
   who.broadcast.emit("chat message", `! ${names[who.id]} has applied name ${name}.`);
