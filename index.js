@@ -9,7 +9,7 @@ const names = {};
 
 const apply_name = (who, name) => {
   who.broadcast.emit("chat message", `! ${names[who.id]} has applied name ${name}.`);
-  names[who.id] = "DarkWolFR9";
+  names[who.id] = name;
   who.emit("chat message", "@ Name applied successfully.");
 }
 
