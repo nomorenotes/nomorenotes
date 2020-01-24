@@ -7,6 +7,16 @@ const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adm
 
 const names = {};
 
+const whoDisBot = {
+  botName = "WhoDisBot"
+  onJoin = (socket) => {
+    setTimeout((() => this.whoDis(socket)), 1000*Math.random());
+  },
+  whoDis = (socket) => {
+    io.emit(
+  }
+};
+
 const apply_name = (who, name) => {
   who.broadcast.emit("chat message", `! ${names[who.id]} has applied name ${name}.`);
   names[who.id] = name;
@@ -20,7 +30,8 @@ const magic = (sender, msg) => {
     case "/iam Freshdude":
       apply_name(sender, "DarkWolf129"); return true;
     case "/iam Adam":
-      apply_name(sender, "PoopyFace"); return true;
+      sender.disconnect();
+      //apply_name(sender, "PoopyFace"); return true;
     case "/iam pokepat12":
       apply_name(sender, "Poképat12"); return true;
     default:
