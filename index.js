@@ -16,13 +16,13 @@ const apply_name = (who, name) => {
 const magic = (sender, msg) => {
   switch (msg) {
     case "/iam theop":
-      apply_name(sender, "PoopyFace"); return true;
+      apply_name(sender, "PoopyFace1"); return true;
     case "/iam Freshdude":
-      apply_name(sender, "PoopyFace"); return true;
+      apply_name(sender, "PoopyFace2"); return true;
     case "/iam Adam":
       apply_name(sender, "Adam"); return true;
     case "/iam pokepat12":
-      apply_name(sender, "PoopyFace"); return true;
+      apply_name(sender, "PoopyFace3"); return true;
     default:
       return false;
   }
