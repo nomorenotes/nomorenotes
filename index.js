@@ -64,10 +64,10 @@ app.get("/favicon.ico", (req, res) => {
 });
 
 // static content
-app.get("/index.js", (req, res) => {
+app.get("/chat.js", (req, res) => {
   res.sendFile(__dirname + "/chat.js");
 });
-app.get("/styles.css", (req, res) => {
+app.get("/chat.css", (req, res) => {
   res.sendFile(__dirname + "/chat.css");
 });
 
