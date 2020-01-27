@@ -6,8 +6,14 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       $(() => {
-        // stub
-      })
+        const prev_feed = $("#prev-feed")
+        const sock = io();
+        sock.emit("chat message", "/spec");
+        sock.on("chat message", (msg) => {
+          
+          prev_feed.first().remove();
+        });
+      });
     </script>
   </head>
   <body>
