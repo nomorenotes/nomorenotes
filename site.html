@@ -8,11 +8,11 @@
       $(() => {
         const prev_feed = $("#prev-feed")
         const sock = io();
-        sock.emit("chat message", "/spec");
         sock.on("chat message", (msg) => {
-          if (prev_feed.children().size() > 5) {
+          if (prev_feed.children().size() >= 5) {
             prev_feed.first().remove();
           }
+          prev_feed.append($("<li>").text(msg));
         });
       });
     </script>
@@ -21,7 +21,7 @@
     <h1>No More Notes - <a href="/chat">Join the chat now!</a></h1>
     <fieldset>
       <legend>Latest Messages</legend>
-      <div></div>
+      <ul id="prev-feed"></ul>
     </fieldset>
     <p>This landing page is under construction.</p>
   </body>
