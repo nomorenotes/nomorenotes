@@ -10,8 +10,9 @@
         const sock = io();
         sock.emit("chat message", "/spec");
         sock.on("chat message", (msg) => {
-          if (prev_feed.children().size()
-          prev_feed.first().remove();
+          if (prev_feed.children().size() > 5) {
+            prev_feed.first().remove();
+          }
         });
       });
     </script>
