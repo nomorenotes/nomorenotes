@@ -5,6 +5,9 @@
 }
 body {
 	font: 13px Helvetica, Arial;
+	background-image: url(https://www.ouruniverseforkids.com/wp-content/uploads/2018/09/shooting-768x323.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 form {
 	padding: 3px;
