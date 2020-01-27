@@ -68,7 +68,7 @@ app.get("/index.js", (req, res) => {
   res.sendFile(__dirname + "/chat.js");
 });
 app.get("/styles.css", (req, res) => {
-  res.sendFile(__dirname + "/styles.css");
+  res.sendFile(__dirname + "/chat.css");
 });
 
 io.on('connection', function(socket){
