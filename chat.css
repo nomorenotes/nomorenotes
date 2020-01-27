@@ -26,7 +26,8 @@ form button {
 	margin: 0px;
 	position: absolute;
 	bottom: 0px;
-	left: 0px;
+	height: 100%;
+	right: 0px;
 }
 #messages {
 	list-style-type: none;
