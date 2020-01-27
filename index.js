@@ -56,7 +56,7 @@ const format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
                              .split("<br/>");
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/chat.html');
 });
 
 app.get("/favicon.ico", (req, res) => {
@@ -65,7 +65,7 @@ app.get("/favicon.ico", (req, res) => {
 
 // static content
 app.get("/index.js", (req, res) => {
-  res.sendFile(__dirname + "/client.js");
+  res.sendFile(__dirname + "/chat.js");
 });
 app.get("/styles.css", (req, res) => {
   res.sendFile(__dirname + "/styles.css");
