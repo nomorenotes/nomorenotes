@@ -55,7 +55,7 @@ const format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
                              .replace("\f", "\\\\")
                              .split("<br/>");
 
-app.get('/', function(req, res){
+app.get('/chat', function(req, res){
   res.sendFile(__dirname + '/chat.html');
 });
 
