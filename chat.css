@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 body {
-	/*/ background-image: url(https://www.ouruniverseforkids.com/wp-content/uploads/2018/09/shooting-768x323.png); */
+	/*/ background-image: url(https://www.ouruniverseforkids.com/wp-content/uploads/2018/09/shooting-768x323.png); /**/
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-color: white;
@@ -25,7 +25,7 @@ body {
 }
 #send button {
 	width: 10%;
-	background: rgb(130, 224, 255);
+	/*/ background: rgb(130, 224, 255); /**/
 	border: none;
 	padding: 0px;
 	margin: 0px;
