@@ -7,7 +7,7 @@ body {
 	/*/ background-image: url(https://www.ouruniverseforkids.com/wp-content/uploads/2018/09/shooting-768x323.png); */
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-color: red;
+	background-color: white;
 }
 #send {
 	padding: 3px;
@@ -43,7 +43,7 @@ body {
 	font: 32px /*/Helvetica, Arial*/monospace;
 	padding: 5px 10px;
 	background: rgba(0, 0, 0, 0);
-	color: white;
+	color: black;
 }
 /*
 #messages li:nth-child(odd) {
