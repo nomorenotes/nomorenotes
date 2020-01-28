@@ -2,12 +2,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	background-color: white;
 }
 body {
 	/*/ background-image: url(https://www.ouruniverseforkids.com/wp-content/uploads/2018/09/shooting-768x323.png); /**/
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-color: white;
 }
 #send {
 	padding: 3px;
