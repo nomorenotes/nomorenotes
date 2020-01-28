@@ -41,9 +41,10 @@ form button {
 	padding: 5px 10px;
 	background: rgba(0, 0, 0, 0);
 }
+/*
 #messages li:nth-child(odd) {
 	background: rgba(238, 238, 238, 10);
-}
+}*/
 #messages {
 	margin-bottom: 40px 
 }
