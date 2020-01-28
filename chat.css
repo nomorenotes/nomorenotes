@@ -49,3 +49,9 @@ form button {
 #messages {
 	margin-bottom: 40px 
 }
+
+dialog {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
