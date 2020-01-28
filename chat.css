@@ -9,19 +9,21 @@ body {
 	background-size: 100%;
 	background-color: red;
 }
-form {
+#send {
 	padding: 3px;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 }
-form input {
+#send input {
 	border: 0;
 	padding: 10px;
 	width: 90%;
 	margin: 0px;
+	color: inherit;
+	background: inherit;
 }
-form button {
+#send button {
 	width: 10%;
 	background: rgb(130, 224, 255);
 	border: none;
@@ -38,7 +40,7 @@ form button {
 	padding: 0;
 }
 #messages li {
-	font: 32px Helvetica, Arial;
+	font: 32px /*/Helvetica, Arial*/monospace;
 	padding: 5px 10px;
 	background: rgba(0, 0, 0, 0);
 	color: white;
