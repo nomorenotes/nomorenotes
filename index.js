@@ -5,7 +5,7 @@ var port = process.env.PORT || 3000;
 var passon = ((process.env.PASSON || "true") != "false");
 var passwd = (passon ? (process.env.PASSWD || "password") : "");
 
-const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
+//const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
 
 const names = {};
 
@@ -98,7 +98,7 @@ io.on('connection', function(socket){
       socket.emit("passok", true); return;
     }
   });
-});
+}});
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
