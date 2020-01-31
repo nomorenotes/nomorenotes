@@ -2,6 +2,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
+var passon = ((process.env.PASSON || "true") != "false");
+var passwd = (passon ? (process.env.PASSWD || "password") : "");
 
 //const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
 
@@ -90,7 +92,13 @@ io.on('connection', function(socket){
     //whoDisBot.onLeave(socket);
     names[socket.id] = undefined;
   });
-});
+  if (!passon) { socket.emit("passok", true);
+  socket.on("passver", (mypass) => {
+    if ((!passon) || (mypass === passwd)) {
+      socket.emit("passok", true); return;
+    }
+  });
+}});
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
