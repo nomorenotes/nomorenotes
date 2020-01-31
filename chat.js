@@ -9,6 +9,7 @@ $(function () {
   });
   $("#loginf").submit(function(){
     $("#logind").hide();
+    socket.emit("passver", $("password").val());
   });
   socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));
@@ -18,5 +19,11 @@ $(function () {
     }
     window.scrollTo(0, document.body.scrollHeight);
   });
-  
+  socket.on("passok", function(ok){
+    if (ok) {
+      $("chat").show();
+    } else {
+      history.go(-1);
+    }
+  });
 });
