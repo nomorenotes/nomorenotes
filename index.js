@@ -93,7 +93,6 @@ io.on('connection', function(socket){
   if (!passon) { socket.emit("passok", true);
   socket.on("passver", (mypass) => {
     
-    
   });
 });
 
