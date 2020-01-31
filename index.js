@@ -92,7 +92,9 @@ io.on('connection', function(socket){
   });
   if (!passon) { socket.emit("passok", true);
   socket.on("passver", (mypass) => {
-    
+    if ((!passon) || (mypass === passwd)) {
+      socket.emit("passok", true); return;
+    }
   });
 });
 
