@@ -7,6 +7,9 @@ $(function () {
     $('#m').val('');
     return false;
   });
+  $("#loginf").submit(function(){
+    $("#logind").hide();
+  });
   socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));
     if (notify) {
