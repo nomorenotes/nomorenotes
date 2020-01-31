@@ -90,8 +90,10 @@ io.on('connection', function(socket){
     //whoDisBot.onLeave(socket);
     names[socket.id] = undefined;
   });
-  socket.on("passver", (passwd) => {
+  if (!passon) { socket.emit("passok", true);
+  socket.on("passver", (mypass) => {
     // DD: data description, destroy disk, delete data
+    
     
   });
 });
