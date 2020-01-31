@@ -90,6 +90,10 @@ io.on('connection', function(socket){
     //whoDisBot.onLeave(socket);
     names[socket.id] = undefined;
   });
+  socket.on("passver", (passwd) => {
+    // DD: data description, destroy disk, delete data
+    
+  });
 });
 
 http.listen(port, function(){
