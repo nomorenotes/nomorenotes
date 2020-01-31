@@ -92,7 +92,6 @@ io.on('connection', function(socket){
   });
   if (!passon) { socket.emit("passok", true);
   socket.on("passver", (mypass) => {
-    // DD: data description, destroy disk, delete data
     
     
   });
