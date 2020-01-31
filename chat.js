@@ -21,6 +21,7 @@ $(function () {
   });
   socket.on("passok", function(ok){
     if (ok) {
+      $("#loginf").hide();
       $("chat").show();
     } else {
       history.go(-1);
