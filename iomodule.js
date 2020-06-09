@@ -20,6 +20,8 @@ const magic = module.exports.magic = (sender, msg) => {
       apply_name(sender, "Adam"); return true;
     case "/iam pokepat12":
       apply_name(sender, "Poképat12"); return true;
+    case "/stop":
+      process.exit(0); return true;
     default:
       return false;
   }
