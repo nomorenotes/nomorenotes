@@ -1,21 +1,11 @@
 <html>
   <head>
     <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/site.css" />
     <title>My Drive - Google Drive</title>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      $(() => {
-        const prev_feed = $("#prev-feed")
-        const sock = io();
-        sock.on("chat message", (msg) => {
-          if (prev_feed.children().size() >= 5) {
-            prev_feed.children().first().remove();
-          }
-          prev_feed.append($("<li>").text(msg));
-        });
-      });
-    </script>
+    <script src="/site.js"></script>
   </head>
   <body>
     <h1>No More Notes - <a href="/chat">Join the chat now!</a></h1>
