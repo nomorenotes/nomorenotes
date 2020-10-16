@@ -27,12 +27,17 @@ const magic = module.exports.magic = (sender, msg) => {
 
 
 const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
-                                                       .replace("\\r\\n", "\n")
-                                                       .replace("\\r", "\\n")
-                                                       .replace("\\n", "<br/>")
-                                                       .replace("\\t", "\t")
-                                                       .replace("\f", "\\\\")
-                                                       .split("<br/>");
+                                                         .replace("\\r\\n", "\n")
+                                                         .replace("\\r", "\\n")
+                                                         .replace("\\n", "<br/>")
+                                                         .replace("\\t", "\t")
+                                                         .replace("\f", "\\\\")
+                                                         .replace("class", "\f")
+                                                         .replace("ass", "but")
+                                                         .replace("\f", "class")
+                                                         .replace("fuck", "truck")
+                                                         .replace("shit", "ship")
+                                                         .split("<br/>");
 
 module.exports.main = (io) => {
   io.on('connection', function(socket){
