@@ -36,7 +36,7 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
                                                          .replace(/[Aa][Ss][Ss]+/, "but")
                                                          .replace("\f", "class")
                                                          .replace(/[Ff][Uu][Cc][Kk], "truck")
-                                                         .replace(/shit/i, "ship")
+                                                         .replace(/[Ss][Hh][Ii][Tt]/, "ship")
                                                          .replace(/[Bb][Ii][Tt][Cc][Hh]/, "female dog")
                                                          .split("<br/>");
 
