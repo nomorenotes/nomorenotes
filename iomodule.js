@@ -22,6 +22,8 @@ const magic = module.exports.magic = (sender, msg) => {
       apply_name(sender, "Poképat12"); return true;
     case "":
       return true;
+    case "/moo":
+      sender.emit("chat message", `${pf.cmdresp} There are no easter eggs in this program.`);
     default:
       return false;
   }
