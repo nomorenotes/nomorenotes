@@ -31,12 +31,13 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
                                                          .replace("\\r", "\\n")
                                                          .replace("\\n", "<br/>")
                                                          .replace("\\t", "\t")
-                                                         .replace("\f",  "\\\\")
+                                                         .replace("\f", "\\\\")
                                                          .replace("class", "\f")
                                                          .replace(/[Aa][Ss][Ss]+/, "but")
                                                          .replace("\f", "class")
-                                                         .replace("fuck", "truck")
-                                                         .replace("shit", "ship")
+                                                         .replace(/[Ff][Uu][Cc][Kk], "truck")
+                                                         .replace(/shit/i, "ship")
+                                                         .replace(/[Bb][Ii][Tt][Cc][Hh]/, "female dog")
                                                          .split("<br/>");
 
 module.exports.main = (io) => {
