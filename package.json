@@ -1,7 +1,7 @@
 {
-  "name": "socket-chat-example",
+  "name": "nomorenotes",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "No more notes! Instant messaging for classrooms.",
   "dependencies": {
     "express": "^4.15.2",
     "socket.io": "^2.3.0",
