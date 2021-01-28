@@ -110,6 +110,7 @@ module.exports.main = (io) => {
         console.log(`[BYBY ${socket.id.slice(0, 8)}] ${socket.id}`);
       });
     });
+    console.log(`[SELO ${socket.id.slice(0, 8)}] ${socket.id}`); 
     setTimeout(()=>socket.emit("hello"), 250);
   });
 };
