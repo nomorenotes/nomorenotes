@@ -4,7 +4,7 @@ $(function () {
   var notify = false;
   var socket = io();
   socket.on("hello", ()=>{
-    socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id));
+    socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id), "", "");
   });
   $('#send').submit(function(){
     socket.emit('chat message', $('#m').val());
