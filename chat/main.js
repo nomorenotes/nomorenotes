@@ -11,6 +11,7 @@ $(function () {
   const hello = (socket, ...args) => {
     debug(`sent hello ${JSON.stringify(args)}`);
     socket.emit("hello", ...args);
+  };
   socket.on("hello", ()=>{
     debug("recieved hello");
     hello(socket, localStorage.session ? localStorage.session : (localStorage.session = socket.id), "", "");
@@ -65,6 +66,5 @@ $(function () {
     reader.readAsDataURL(blob);
   }
 };
-  };
   }
     );
