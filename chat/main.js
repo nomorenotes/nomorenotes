@@ -7,6 +7,7 @@ $(function () {
     $('#messages').append($('<li>', {class: "debug"}).text(`DEBUG: ${d}`));
   }) :
   ((d)=>{});
+  debug("debugger activated");
   const hello = (socket, ...args) => {
     debug(`sent hello ${JSON.stringify(args)}`);
     socket.emit("hello", ...args);
