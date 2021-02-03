@@ -3,10 +3,10 @@ $(function () {
   var manotify = false;
   var notify = false;
   var socket = io();
-  const debug = (window.location.hash == "#debug") ? (() => {
-    $('#messages').append($('<li>', {class: "debug"}).text(`DEBUG: recieved hello`));
+  const debug = (window.location.hash == "#debug") ? ((d) => {
+    $('#messages').append($('<li>', {class: "debug"}).text(`DEBUG: ${d}`));
   }) :
-  (()=>{});
+  ((d)=>{});
   const hello = (socket, ...args) => {
     debug(`sent hello ${JSON.stringify(args)}`);
     socket.emit("hello", ...args);
