@@ -1,10 +1,18 @@
 $(function () {
-  if (localStorage.banned) window.location.path = "/banned"
+  if (localStorage.banned) window.location.path = "/banned";
   var manotify = false;
   var notify = false;
   var socket = io();
+  const debug = (window.location.hash == "#debug") ? (() => {
+    $('#messages').append($('<li>', {class: "debug"}).text(`DEBUG: recieved hello`));
+  }) :
+  (()=>{});
+  const hello = (socket, ...args) => {
+    debug(`sent hello ${JSON.stringify(args)}`);
+    socket.emit("hello", ...args);
   socket.on("hello", ()=>{
-    socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id), "", "");
+    debug("recieved hello");
+    hello(socket, localStorage.session ? localStorage.session : (localStorage.session = socket.id), "", "");
   });
   $('#send').submit(function(){
     socket.emit('chat message', $('#m').val());
@@ -56,4 +64,6 @@ $(function () {
     reader.readAsDataURL(blob);
   }
 };
-});
+  };
+  }
+    );
