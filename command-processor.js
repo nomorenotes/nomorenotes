@@ -1,7 +1,7 @@
 const cdict = {};
 let mes = null;
 const catchBadCommand = false;
-const {r} = require("./iomodule.js");r.away = {};
+const {r, format_msg} = require("./iomodule.js");r.away = {};
 r.away = {};
 const apply_name = module.exports.apply_name = (who, name) => {
   if (r.rnames[name]) {
@@ -192,11 +192,11 @@ const main = module.exports = (_mes) => (msg, from, sudo) => {
       case "image":
         var imageid = args.shift();
         var comment = args.join(" ");
-        mes(r.io, "msg", `${comment}<details open><summary>Image</summary><img alt="${comment}" src="${imageid}"></img></details>`); return true;
+        mes(r.io, "msg", format_msg(`${comment}<details open><summary>Image</summary><img alt="${comment}" src="${imageid}"></img></details>`)); return true;
       case "video":
         var videoid = args.shift();
         var vomment = args.join(" ");
-        mes(r.io, "msg", `${vomment}<details open><summary>Video</summary><video alt="${vomment}" src="${videoid}"></img></details>`); return true;
+        mes(r.io, "msg", format_msg(`${vomment}<details open><summary>Video</summary><video alt="${vomment}" src="${videoid}"></video></details>`)); return true;
       case "list":
         r.list.forEach(player => {
           mes(from, "cmdresp", `${r.names[player.id]}: ${r.away[player.id] || "here"}`);
