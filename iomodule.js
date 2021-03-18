@@ -83,7 +83,9 @@ module.exports.main = (io) => {
     next();
   });*/
   io.on("connection", (socket) => {
+    console.log(`[CONN ${socket.id.slice(0, 8)}] ${socket.id}`); 
     socket.on('hello', (session, uname, passw) => {
+      console.log(`[HELO ${socket.id.slice(0, 8)}] ${session}|${uname}:${passw}`);
       if (!USERDICT[uname]) {socket.emit("loginbad", `Unknown user ${uname}`);};
       if (!session) socket.emit("authenticate", session = socket.id);
       socket._id = socket.id;
@@ -105,8 +107,10 @@ module.exports.main = (io) => {
         delete senderid[socket.id];
         names[socket.id] = undefined;
         r.list.splice(r.list.indexOf(socket), 1);
+        console.log(`[BYBY ${socket.id.slice(0, 8)}] ${socket.id}`);
       });
     });
+    console.log(`[SELO ${socket.id.slice(0, 8)}] ${socket.id}`); 
     setTimeout(()=>socket.emit("hello"), 250);
   });
 };

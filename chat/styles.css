@@ -9,6 +9,10 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
+li.debug {
+	opacity: .5;
+	font-style: italic;
+}
 #send {
 	padding: 3px;
 	position: fixed;
