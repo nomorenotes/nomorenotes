@@ -1,0 +1,8 @@
+<b>Quick HTML Reference</b>
+<b>Bold: </b>&lt;b>your text&lt;/b>
+<i>Italic: </i>&lt;i>your text&lt;/i>
+<u>Underline: </u>&lt;u>your text&lt;/u>
+<strike>Strikethrough: </strike>&lt;strike>your text&lt/strike>
+<a href="#!">Link: </a>&lt;a href="your url" target=_blank>your text&lt;a>
+To send a &lt; without any bullship: &amp;lt;
+To send a &amp; without any bullship: &amp;amp;
