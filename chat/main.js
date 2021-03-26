@@ -31,7 +31,7 @@ $(function () {
     }
     window.scrollTo(0, document.body.scrollHeight);
   });
-  socket.on("ping", (wasTargeted, source) => {
+  socket.on("gotping", (wasTargeted, source) => {
     debug(`recieving ${wasTargeted} ping from ${source}`);
     alert(`${source} has pinged ${wasTargeted ? "you" : "everyone"}!`);
     
