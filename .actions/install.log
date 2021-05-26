@@ -5,10 +5,10 @@
 npm WARN nomorenotes@0.0.1 No repository field.
 npm WARN nomorenotes@0.0.1 No license field.
 
-added 868 packages from 374 contributors and audited 812 packages in 14.786s
+added 868 packages from 374 contributors and audited 812 packages in 13.767s
 
 21 packages are looking for funding
   run `npm fund` for details
 
-found 3 vulnerabilities (2 moderate, 1 high)
+found 4 vulnerabilities (2 moderate, 2 high)
   run `npm audit fix` to fix them, or `npm audit` for details
