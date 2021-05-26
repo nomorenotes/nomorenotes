@@ -1,8 +1,14 @@
 $(function () {
+  const saveable = ["name"];
   var manotify = false;
   var notify = false;
   var socket = io();
   socket.on("hello", ()=>{
+    saveable.forEach(s => {
+      if (localStorage["NMN"+s]) {
+        socket.emit("saveable", s, localStorage["NMN"+s]);
+      }
+    });
     socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id));
   });
   $('#send').submit(function(){
@@ -20,7 +26,9 @@ $(function () {
   });
   socket.on("gotping", (wasTargeted, source) => {
     alert(`${source} has pinged ${wasTargeted ? "you" : "everyone"}!`);
-    
+  });
+  socket.on("saveable", (name, value) => {
+    localStorage["NMN"+name] = value;
   });
   socket.on("edit", (id, msg) => {
     $(`#${id}`).text(msg);
