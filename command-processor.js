@@ -23,7 +23,7 @@ const apply_name = module.exports.apply_name = (who, name, talk = true) => {
     console.log(`setting ${who.id}[r.s].name = ${name}`);
     who[r.s].name = name;
     if(talk) mes(who, "cmdresp", `Name ${name} applied successfully.`, r.SYS_ID);
-    
+    who.emit("saveable", "name", name);
   }
 };
 const main = module.exports = (_mes) => (msg, from, sudo=from) => {
