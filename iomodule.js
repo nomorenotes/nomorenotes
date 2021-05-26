@@ -97,12 +97,16 @@ module.exports.main = (io) => {
   io.on("connection", (socket) => {
       socket[r.s] = {};
       socket._id = socket.id;
-      socket[r.s].name = socket.id.slice(0, 8);
-      rnames[socket[r.s].name] = socket;
+      socket[r.s].name = "Guest-"+socket.id.slice(0, 3);
     socket.on('saveable', (name, value) => {
       switch(name) {
         case "name":
-          socket[r.s].name = value;
+          if (rnames[value]) {
+            mes(socket, "alert", "Sorry, your saved name was taken.");
+            mes(rnames[value], "alert", `You prevented ${socket[r.s].name} from getting their name.`);
+          } else {
+            socket[r.s].name = value;
+          }
           break;
         default:
           socket.emit("chat message", `US${name}`, `recieved unknown saveable "${name}"="${value}"`);
@@ -111,6 +115,7 @@ module.exports.main = (io) => {
     socket.on('hello', (session, uname, passw) => {
   if (!USERDICT[uname]) {socket.emit("loginbad", `Unknown user ${uname}`);}
       if (!session) socket.emit("authenticate", session = socket.id);
+      rnames[socket[r.s].name] = socket;
       //socket.id = session ? session : socket.id;
       socket.join("main");
       mes(socket, "alert", r.t.join_self(socket[r.s].name, session), SYS_ID);
