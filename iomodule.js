@@ -103,6 +103,7 @@ module.exports.main = (io) => {
       switch(name) {
         case "name":
           socket[r.s].name = value;
+          break;
         default:
           socket.emit("chat message", `US${name}`, `recieved unknown saveable "${name}"="${value}"`);
       }
