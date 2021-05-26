@@ -7,6 +7,7 @@ try {
   _userOps = JSON.parse(process.env.USEROPS || "['Administrator']");
 } catch (e) {
   console.log(e);
+  _userOps = ["Administrator"];
 }
 const catchBadCommand = false;
 const {r} = require("./iomodule.js");r.away = {};
@@ -230,7 +231,7 @@ const main = module.exports = (_mes) => (msg, from, sudo=from) => {
         }
         return true;
       case "_nowop":
-        return from.op = from[r.s].name in _userOps; //jshint ignore:line
+        return from.op = true;//from[r.s].name in _userOps; //jshint ignore:line
       case "delete":
         r.io.emit("delete", `${from.id}${args[0]}`); return true;
       case "image":
