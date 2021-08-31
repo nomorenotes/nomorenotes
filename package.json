@@ -4,7 +4,7 @@
   "description": "No more notes! Instant messaging for classrooms.",
   "dependencies": {
     "express": "^4.15.2",
-    "socket.io": "^4.0.1",
+    "socket.io": "^4.2.0",
     "supports-color": "8.1.1",
     "heroku-client": "3.1.0"
   },
