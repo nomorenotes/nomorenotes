@@ -1,4 +1,5 @@
 if (location.protocol === "http:") location.protocol = "https:";
+else if (localStorage.banExpiry && +localStorage.banExpiry > Date.now()) location.pathname = "/chat";
 else $(function () {
   
   const saveable = ["name"];
