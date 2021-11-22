@@ -81,3 +81,6 @@ spoiler:hover {
   background: rgba(30, 30, 30, 1);
   color: white;
 }
+box {
+	outline: thin solid black;
+}
