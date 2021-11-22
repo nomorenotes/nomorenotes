@@ -61,14 +61,14 @@ else $(function () {
     };
     reader.readAsDataURL(blob);
   }
-  window.sendCommand = (cmd) => {
-    socket.emit("chat message", cmd);
-    $("#m").val("");
-  }
-  window.showCommand = (cmd) => {
-    $("#m").val(cmd);
-  }
 };
+window.sendCommand = (cmd) => {
+  socket.emit("chat message", cmd);
+  $("#m").val("");
+}
+window.showCommand = (cmd) => {
+  $("#m").val(cmd);
+}
 })
 document.addEventListener("keydown", e => {
 	if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "d") {
