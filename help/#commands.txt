@@ -9,3 +9,4 @@
 <b>/kick <i>[name]</i></b> - forcefully remove a user
 <b>/preban</b> - prepare to ban
 <b>/ban <i>[name]</i></b> - ban a user after running <b>/preban</b>
+<b>/code</b> - start working on nomorenotes
