@@ -303,7 +303,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
               .filter(name => (from.op || !name.startsWith("#")));
             mes(sudo, "cmdresp", `List of help articles (use <box>/help filename</box> to read):  ${files.map(f => `<button onclick="sendCommand('/help ${f}')">${f}</button>`).join(", ")}`);
 
-            
+
             return true;
           });
         }
