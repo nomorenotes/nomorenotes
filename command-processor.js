@@ -169,10 +169,10 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
           } return true;
         case "preban":
-          let toban = r.rnames[args[0]];
-          if (!toban) return mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
+          let topban = r.rnames[args[0]];
+          if (!topban) return mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
           mes(sudo, `Are you completely sure you want to ban ${args[0]}`);
-          from.ban = toban;
+          from.ban = topban;
           return true;
         case "ban":
           if (args.length < 3) {
