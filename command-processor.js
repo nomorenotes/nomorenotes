@@ -180,7 +180,8 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             from.ban = undefined;
             return true;
           }
-          const target = args.unshift(), timestr = args.unshift();
+          const target = args.shift();
+          const timestr = args.shift();
           let toban = r.rnames[target];
           let time = parseFloat(timestr); // minutes - 1h = 60, 24h = 1440, 7d = 10080
           let m = args.join(" ")
