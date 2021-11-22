@@ -11,10 +11,11 @@
     </p>
   </center>
   <script>
+    if (+localStorage.banExpiry < Date.now()) location.pathname = "/chat";
     $("#banner").text(localStorage.banner);
     $("#unbant").text(new Date(+localStorage.banExpiry));
     $("#reason").text(localStorage.banReason);
-
+    setTimeout(history.go.bind(null, 0), 1000);
   </script>
   <style>
     body {
