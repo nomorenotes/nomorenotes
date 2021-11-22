@@ -193,7 +193,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             var tobm = r.t.ban(tokick[r.s].name, time, m);
             mes(toban.broadcast, "alert", tobm);
           } else {
-            mes(sudo, "cmdresp", `Error 404: ${target} not found!`, r.SYS_ID);
+            mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
           }
           from.ban = undefined;
           return true;
