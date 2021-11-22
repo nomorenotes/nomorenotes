@@ -1,4 +1,5 @@
 if (location.protocol === "http:") location.protocol = "https:";
+else if (localStorage.banExpiry && +localStorage.banExpiry > Date.now()) location.pathname = "/banned";
 else $(function () {
 
   const saveable = ["name"];
@@ -35,6 +36,12 @@ else $(function () {
   socket.on("edit", (id, msg) => {
     $(`#${id}`).text(msg);
   });
+  socket.on("ban", (banner, time, reason) => {
+    localStorage.banner = banner;
+    localStorage.banExpiry = Date.now() + time * 60000;
+    localStorage.banReason = reason;
+    location.pathname = "/banned"
+  })
   socket.on("delete", (id) => {
     document.getElementById(id).removeElement();
   });

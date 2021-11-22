@@ -7,6 +7,6 @@
 <b>/deop <i>[name]</i></b> - revoke operator status from another operator
 <b>/reload <i>[name?]</i></b> - reset a user
 <b>/kick <i>[name]</i></b> - forcefully remove a user
-<b>/preban</b> - prepare to ban
-<b>/ban <i>[name]</i></b> - ban a user after running <b>/preban</b>
+<b>/preban <i>[name]</i></b> - prepare to ban user, must be done before even an attempt to ban
+<b>/ban <i>[name]</i> <i>[time]</i> <i>"message"</i></b> - ban a user for [time] <abbr title="1h = 60, 24h = 1440, 7d = 10080">minutes</abbr>, after running <b>/preban</b>
 <b>/code</b> - start working on nomorenotes
