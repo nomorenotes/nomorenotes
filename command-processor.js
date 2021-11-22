@@ -92,6 +92,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           if (tol) {
             tol.emit("linkout", link);
             mes(sudo, "cmdresp", `Ok, ${tolink} is on ${link} now.`, r.SYS_ID);
+            mes(tolink, "alert", `You were <a href="${link}" target=_blank>linked</a> by ${tolink[r.s].name}`)
           } else {
             mes(sudo, "cmdresp", `Error 404: ${tolink} not found!`, r.SYS_ID);
           } return true;
@@ -183,7 +184,6 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           } else {
             mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
           } from.ban = false; return true;
-
         default:
 
       }
