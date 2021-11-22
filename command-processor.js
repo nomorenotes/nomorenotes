@@ -180,8 +180,9 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             from.ban = undefined;
             return true;
           }
-          let toban = r.rnames[args.unshift()];
-          let time = parseFloat(args.unshift()); // minutes - 1h = 60, 24h = 1440, 7d = 10080
+          const target = args.unshift(), timestr = args.unshift();
+          let toban = r.rnames[target];
+          let time = parseFloat(timestr); // minutes - 1h = 60, 24h = 1440, 7d = 10080
           let m = args.join(" ")
           if (toban) {
             if (toban !== from.ban) mes(sudo, "Use /preban first.");
@@ -191,7 +192,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             var tobm = r.t.ban(tokick[r.s].name, time, m);
             mes(toban.broadcast, "alert", tobm);
           } else {
-            mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
+            mes(sudo, "cmdresp", `Error 404: ${target} not found!`, r.SYS_ID);
           }
           from.ban = undefined;
           return true;
