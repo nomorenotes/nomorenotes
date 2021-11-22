@@ -169,21 +169,32 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
           } return true;
         case "preban":
-          mes(sudo, "Banning is irreversible. Are you sure?");
-          from.ban = true;
-          break;
-        case "ban":
-          if (!from.ban) return;
           let toban = r.rnames[args[0]];
+          if (!toban) return mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
+          mes(sudo, `Are you completely sure you want to ban ${args[0]}`);
+          from.ban = toban;
+          return true;
+        case "ban":
+          if (args.length < 3) {
+            mes(sudo, "cmdresp", "Name, time, and message are required.");
+            from.ban = undefined;
+            return true;
+          }
+          let toban = r.rnames[args.unshift()];
+          let time = parseFloat(args.unshift()); // minutes - 1h = 60, 24h = 1440, 7d = 10080
+          let m = args.join(" ")
           if (toban) {
-            mes(toban, "alert", `You were banned from NoMoreNotes by ${from[r.s].name}.`, r.SYS_ID);
-            var tobm = r.t.ban(tokick[r.s].name);
+            if (toban !== from.ban) mes(sudo, "Use /preban first.");
             toban.silentLeave = true;
+            toban.emit("ban", from[r.s].name, time, m);
             toban.disconnect(true);
-            mes(tokick.broadcast, "alert", tobm);
+            var tobm = r.t.ban(tokick[r.s].name, time, m);
+            mes(toban.broadcast, "alert", tobm);
           } else {
             mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
-          } from.ban = false; return true;
+          }
+          from.ban = undefined;
+          return true;
         default:
 
       }
