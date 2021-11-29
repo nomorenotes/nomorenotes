@@ -29,8 +29,8 @@ r.sendmsg = from => msg => {
 });};
 r.parse_emoji = (e => msg => {
   for (let i in Object.keys(e)) { // This is how 4-loops work, right?
-    if(true) { // silence warning
-       msg = msg.replace(new RegExp(`:${i}:`), e[i]);
+    if(e.hasOwnProperty(i)) {
+      msg = msg.replace(new RegExp(`:${i}:`, "g"), e[i]);
     }
   }
   return msg;
