@@ -12,5 +12,6 @@
   },
   "engines": {
     "node": "15.x"
-  }
+  },
+  "type": "module"
 }

@@ -1,4 +1,4 @@
-[
+export default [
     {
         "id": "main",
         "name": "NoMoreNotes",

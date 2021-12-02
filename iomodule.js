@@ -1,3 +1,4 @@
+import makeCmd from "command-processor"
 const r = {};
 r.al = process.env.al || "gU ";
 r.s = Symbol("nomorenotes");
@@ -7,7 +8,8 @@ const senderid = {[SYS_ID.id]: 0};
 const USERDICT = process.env.USER || {};
 r.USERDICT = USERDICT;
 r.SYS_ID = SYS_ID;
-r.nexusData = require("./servers.json");
+import nexusData from "./servers";
+r.nexusData = nexusData;
 r.nexusSyms = {
   "other": "&nbsp;",
   "here": ">",
@@ -15,9 +17,12 @@ r.nexusSyms = {
 }
 module.exports = {};
 r.io = null;
-r.surr = require("./surr.js")
-r.pf = require("./prefixes.js");
-r.t = require("./texts.js")(r)[LANG];
+import surr from "./surr"
+r.surr = surr;
+import prefixes from "./prefixes";
+r.pf = prefixes;
+import trans from "./texts"
+r.t = trans(r)[LANG];
 r.list = [];
 r.sendmsg = from => msg => {
   msg = format_msg(r.parse_emoji(msg));
@@ -91,9 +96,9 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
   .replace(/>/g, "&gt;")
   .replace(/%$/g, "<")
   .replace(/$%/g, ">")*/
-module.exports.main = (io) => {
+const main = (io) => {
   r.io = io;
-  r.cmdmod = require("./command-processor.js")(mes);
+  r.cmdmod = makeCmd(mes);
   /*io.use((client, next) => {
     console.log(io.request.connection.remoteAddress);
     client.ipAddress = io.request.connection.remoteAddress;

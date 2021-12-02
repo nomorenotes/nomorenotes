@@ -1,4 +1,4 @@
-module.exports = (r) => ({
+export default (r) => ({
   "en_us": {
     "join": a=>`&lt;${a}> has joined.`,
     "leave": a=>`&lt;${a}> has left. T`,

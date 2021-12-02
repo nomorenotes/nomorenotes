@@ -1,6 +1,7 @@
 'esversion: 6';
+import fs from "fs";
+import { r } from "./iomodule";
 const cdict = {};
-const fs = require("fs");
 let mes = null;
 let _userOps = null;
 try {
@@ -10,9 +11,8 @@ try {
   _userOps = ["Administrator"];
 }
 const catchBadCommand = false;
-const { r } = require("./iomodule.js"); r.away = {};
 r.away = {};
-const apply_name = module.exports.apply_name = (who, name, talk = true) => {
+export const apply_name = (who, name, talk = true) => {
   if (r.rnames[name]) {
     if (talk) mes(who, "cmdresp", `Name ${name} already authenticated.`, r.SYS_ID);
   } else {
@@ -27,7 +27,7 @@ const apply_name = module.exports.apply_name = (who, name, talk = true) => {
     who.emit("saveable", "name", name);
   }
 };
-const main = module.exports = (_mes) => (msg, from, sudo = from) => {
+const main = (_mes) => (msg, from, sudo = from) => {
   var edid, d; // because warnings
   mes = _mes;
   if (msg.startsWith("/")) {
@@ -333,3 +333,4 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
   }
   return false;
 };
+export default main;

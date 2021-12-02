@@ -1,9 +1,11 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+import express from 'express'
+import { Server } from "http";
+import sio from 'socket.io';
+import iom from "./iomodule";
+const app = express();
+const http = Server(app);
+const io = sio(http);
 var port = process.env.PORT || 3000;
-var iom = require("./iomodule.js");
 iom.main(io);
 
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
