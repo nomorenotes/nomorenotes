@@ -1,10 +1,12 @@
-npm WARN nomorenotes@0.0.1 No repository field.
-npm WARN nomorenotes@0.0.1 No license field.
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'nomorenotes@0.0.1',
+npm WARN EBADENGINE   required: { node: '15.x' },
+npm WARN EBADENGINE   current: { node: 'v16.13.0', npm: '8.1.0' }
+npm WARN EBADENGINE }
 
-added 74 packages from 97 contributors and audited 74 packages in 1.69s
+added 74 packages, and audited 75 packages in 2s
 
 2 packages are looking for funding
   run `npm fund` for details
 
 found 0 vulnerabilities
-

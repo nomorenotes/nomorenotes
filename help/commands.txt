@@ -1,8 +1,7 @@
 <b><i>[name]</i></b> is a value without spaces
 <b><i><q>message</q></i></b> is a value that can have spaces
 <b><i>string</i></b> is an optional string
-a <b>?</b> at the end means the value is optional
-<hr/>
+a <b>?</b> at the end means the value is optional<hr/>
 <b>/away <i><q>message</q></i></b>: mark yourself as away
 <b>/away</b>: unmark yourself as away
 <b>/iam <i>[name]</i></b>: change your name

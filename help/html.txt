@@ -1,15 +1,12 @@
-<b>Quick HTML Reference</b>
-<hr/>
+<b>Quick HTML Reference</b><hr/>
 <b>Bold:</b> &lt;b>your text&lt;/b>
 <i>Italic:</i> &lt;i>your text&lt;/i>
 <u>Underline:</u> &lt;u>your text&lt;/u>
 <strike>Strikethrough:</strike> &lt;strike>your text&lt/strike>
 <spoiler>Spoiler</spoiler>: &lt;spoiler>your movie-ruining spoiler here&lt;spoiler>
-<a href="https://google.com" target=_blank>Link:</a> &lt;a href="your url" target=_blank>your text&lt;a>
-<hr/>
+<a href="https://google.com" target=_blank>Link:</a> &lt;a href="your url" target=_blank>your text&lt;a><hr/>
 <span style="color: red;">Red text</span>: &lt;span style="color: red;">your text&lt;/span>
 <span style="color: red;">Fancy text</span>: &lt;span style="font-family: sans-serif">your text&lt;/span>
-<span style="color: red;">Fancy text</span>: &lt;span style="font-family: sans-serif">your text&lt;/span>
-<hr/>
+<span style="color: red;">Fancy text</span>: &lt;span style="font-family: sans-serif">your text&lt;/span><hr/>
 To send a &lt; without any bullship: &amp;lt;
 To send a &amp; without any bullship: &amp;amp;
