@@ -2,7 +2,7 @@
 <hr>
 Can't figure out how to chat? Just click near the bottom of the screen, to the left of the send button.
 <hr>
-Want to stop being a guest: Do /iam yourname. Sadly, you cannot have spaces.
+Want to stop being a guest? Do /iam yourname. Sadly, you cannot have spaces.
 We have four servers! Pick which one you want to use by typing /nexus.
 Other things you can do are listed in help! Type /help commands for the entire list.
 <hr>
