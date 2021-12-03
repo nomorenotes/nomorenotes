@@ -188,10 +188,10 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           if (toban) {
             if (toban !== from.ban) mes(sudo, "Use /preban first.");
             toban.silentLeave = true;
+            var tobm = r.t.ban(tokick[r.s].name, from[r.s].name, time, m);
             toban.emit("ban", from[r.s].name, time, m);
             toban.disconnect(true);
-            var tobm = r.t.ban(tokick[r.s].name, from[r.s].name, time, m);
-            mes(toban.broadcast, "alert", tobm);
+            mes(io, "alert", tobm);
           } else {
             mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID);
           }
