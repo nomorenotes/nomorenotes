@@ -98,7 +98,6 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
   .replace(/d\W*[1li]\W*k\W*e/ig, "chuiwawa")
   .replace(/f\W*a\W*g\W*g\W*o\W*t/ig, "french fry")
   .replace(/n\W*[1li]\W*g\W*g\W*(e|a)\W*r?/ig, "nacho")
-  .replace(/j\W*o\W*s\W*e/ig, "jesus")
   .replace(/t\W*r\W*u\W*m\W*p/ig, "trombone") // joke
   .replace(/J\W*o\W*e\W*B\W*[1li]\W*d\W*e\W*n/ig, "Jeffery Bezos") // joke
   .replace(/h\W*e\W*f\W*f\W*e\W*r/ig, "helper")
