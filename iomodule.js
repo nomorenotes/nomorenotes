@@ -104,7 +104,6 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
   .replace(/s\W*l\W*u\W*t/ig, "serial killer")
   .replace(/d\W*[1li]\W*c\W*k/ig, "dinosaur")
   .replace(/c\W*o\W*c\W*k/ig, "cabbage")
-  .replace(/c\W*a\W*b\W*l\W*e/ig, "cock") // joke
   .replace(/c\W*u\W*n\W*t/ig, "putter")
   .replace(/p\W*u\W*s\W*s\W*y/ig, "kitty")
   .replace(/p\W*e\W*n\W*i\W*s/ig, "pencil")
