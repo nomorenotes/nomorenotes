@@ -383,7 +383,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         mes(r.io, "msg", `${vomment}<details open><summary>Video</summary><video ${controls}${autoplay}alt="${vomment}" src="${videoid}"></img></details>`); return true;
       case "list":
         r.list.forEach(player => {
-          mes(sudo, "cmdresp", `${player[r.s].name}: ${r.away[player.id] || "here"}`);
+          mes(sudo, "cmdresp", `${player[r.s].name} (${player[r.s].realName}): ${r.away[player.id] || "here"}`);
         });
         mes(sudo, "cmdresp", `${r.list.length} here`); return true;
       case "me":

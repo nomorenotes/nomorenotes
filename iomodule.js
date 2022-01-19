@@ -150,20 +150,19 @@ module.exports.main = (_io) => {
               socket.disconnect(true);
               break;
             case 1:
-              socket[r.t].op = true;
+              socket[r.s].op = true;
               break;
             default:
-              socket[r.t].op = false;
+              socket[r.s].op = false;
           }
           break;
         default:
           socket.emit("chat message", `US${name}`, `recieved unknown saveable "${name}"="${value}"`);
       }
     });
-    socket.on('hello', (session, uname, passw) => {
+    socket.on('hello', (session, realName) => {
       console.log("Hello")
       socket.removeAllListeners();
-      if (!USERDICT[uname]) { socket.emit("loginbad", `Unknown user ${uname}`); }
       if (!session) socket.emit("authenticate", session = socket.id);
       if (io.guestlock && socket[r.s].name === "Guest-" + socket.id.slice(0, 3)) {
         socket.emit("chat message", "guestlock", "Guests are currently locked out of this server.")
@@ -171,6 +170,7 @@ module.exports.main = (_io) => {
         return;
       }
       console.log("Survived removal")
+      socket[r.s].realName = realName;
       rnames[socket[r.s].name] = socket;
       //socket.id = session ? session : socket.id;
       socket.join("main");

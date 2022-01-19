@@ -13,7 +13,7 @@
       <a href="//dashboard.heroku.com/apps/nomorenotes/deploy/github" target="cont">Heroku</a>
     </div>
     -->
-    <div id="chat">
+    <div id="chat" hidden>
       <ul id="messages"></ul>
       <form action="" id="send" onsubmit="return(false);">
         <input id="m" autocomplete="off" /><button><code>Send</code></button>
@@ -21,11 +21,13 @@
       <p></p>
     </div>
     <div id="logond" hidden>
-      <form id="logonf" action="">
-        <input id="username" placeholder="Username" />
-        <input id="password" placeholder="Password" type="password" />
+      <form id="logonf" action="" id="login">
+        <input id="usernameIn" placeholder="Username" required/>
+        <input id="realnameIn" placeholder="Real Name" required/>
+        Real name is required because I got sent to the office because of it missing.
       </form>
     </div>
+    <noscript>hey, go turn on javascript like a responsible person</noscript>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="/chat.js"></script>
