@@ -12,7 +12,8 @@ function trueInit() {
   }
 }
 
-$(logond).show();
+trueInit();
+
 $(logonf).submit(e => {
   e.preventDefault();
   $(logond).hide();
