@@ -228,7 +228,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             var tobm = r.t.ban(toban[r.s].name, from[r.s].name, time, m);
             toban.emit("ban", from[r.s].name, time, m);
             toban.disconnect(true);
-            mes(io, "alert", tobm);
+            mes(r.io, "alert", tobm);
           } else {
             mes(sudo, "cmdresp", `Error 404: ${target} not found!`, r.SYS_ID);
           }
