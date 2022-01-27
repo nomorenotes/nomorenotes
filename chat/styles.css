@@ -68,9 +68,7 @@ spoiler:hover, sp:hover {
 	width: 100%;
 	grid-template-columns: 1fr 180px;
 	grid-template-rows: 1fr 36px 24px;
-	grid-auto-rows: 1fr 36px 24px;
 	gap: 0px 0px;
-	grid-auto-flow: row;
 	grid-template-areas:
 	  "Message-List User-List"
 	  "Message-Box Send-Button"
