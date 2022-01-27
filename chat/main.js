@@ -14,11 +14,6 @@ else $(function () {
     });
     socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id));
   });
-  $('#send').submit(function () {
-    socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
-  });
   socket.on('chat message', function (id, msg) {
     $('#messages').append($('<li>', { id }).html(msg));
     if (notify) {
@@ -45,6 +40,18 @@ else $(function () {
   socket.on("delete", (id) => {
     document.getElementById(id).removeElement();
   });
+  window.sendCommand = (cmd) => {
+    socket.emit("chat message", cmd);
+    $("#m").val("");
+  }
+  window.showCommand = (cmd) => {
+    $("#m").val(cmd);
+  }
+  window.prepCommand = () => {
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  };
   socket.on("reload", () => { history.go(0); });
   socket.on("linkout", (url) => { open(url); });
   $.on("blur", () => { alert("blur"); });
@@ -67,13 +74,6 @@ else $(function () {
         document.getElementById("pastedImage").src = event.target.result;
       };
       reader.readAsDataURL(blob);
-    }
-    window.sendCommand = (cmd) => {
-      socket.emit("chat message", cmd);
-      $("#m").val("");
-    }
-    window.showCommand = (cmd) => {
-      $("#m").val(cmd);
     }
   };
 })
