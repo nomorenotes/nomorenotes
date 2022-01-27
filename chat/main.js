@@ -47,7 +47,7 @@ else $(function () {
   window.showCommand = (cmd) => {
     $("#m").val(cmd);
   }
-  window.prepCommand = () => {
+  window.prepMessage = () => {
     socket.emit('chat message', $('#m').val());
     $('#m').val('');
     return false;
