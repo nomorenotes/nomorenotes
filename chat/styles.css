@@ -64,6 +64,8 @@ spoiler:hover, sp:hover {
 
 
 .container {  display: grid;
+	height: 100%;
+	width: 100%;
 	grid-template-columns: 1fr 180px;
 	grid-template-rows: 1fr 36px 24px;
 	grid-auto-rows: 1fr 36px 24px;
