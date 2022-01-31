@@ -114,7 +114,7 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
   .replace(/c\W*u\W*m/ig, "ice cream")
   .replace(/p\W*[ro0]?\W*[r0o]\W*n/ig, "corn")
   .replace(/h\W*w?\W*[3e]\W*n\W*t\W*a?\W*[1li]/ig, "hitmen")
-  .replace(/r\/([a-zA-Z0-9]{3-21})/, '<a href="//r.nf/r/$2" target=_blank>r/$2</a>') // autolink subs
+  .replace(/r\/([a-zA-Z0-9]{3,21})/, '<a href="//r.nf/r/$2" target=_blank>r/$2</a>') // autolink subs
   
 /*.replace(/</g, "&lt;")
 .replace(/>/g, "&gt;")
