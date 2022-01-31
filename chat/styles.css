@@ -10,14 +10,14 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
-.Message-Box {
+.MessageBox {
 	border: 0;
 	padding: 10px;
 	margin: 0px;
 	color: inherit;
 	background: inherit;
 }
-.Send-Button {
+.SendButton {
 	/*/ background: rgb(130, 224, 255); /**/
 	border: none;
 	padding: 0px;
