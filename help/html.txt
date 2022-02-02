@@ -3,11 +3,11 @@
 <i>Italic:</i> &lt;i>your text&lt;/i>
 <u>Underline:</u> &lt;u>your text&lt;/u>
 <strike>Strikethrough:</strike> &lt;strike>your text&lt/strike>
-<spoiler>Spoiler</spoiler>: &lt;spoiler>your movie-ruining spoiler here&lt;/spoiler> OR &lt;sp>this also works</sp>
+<spoiler>Spoiler</spoiler>: &lt;spoiler>your movie-ruining spoiler here&lt;/spoiler> OR &lt;sp>this also works&lt;/sp>
 <a href="https://google.com" target=_blank>Link:</a> &lt;a href="your url" target=_blank>your text&lt;a><hr/>
 <span style="color: red;">Red text</span>: &lt;span style="color: red;">your text&lt;/span>
 <span style="font-family: serif">Fancy text</span>: &lt;span style="font-family: serif">your text&lt;/span>
-<span style="font-size: 2em;">Big text</span>: &lt;span style="font-size: 2em;">your text&lt;/span><hr/>
+<span style="font-size: 2em;">Big text</span>: &lt;span style="font-size: 2em;">your text&lt;/span>
 <span style="font-size: 0.5em;">Small text</span>: &lt;span style="font-size: 0.5em;">your text&lt;/span><hr/>
 To send a &lt; without any bullship: &amp;lt;
 To send a &amp; without any bullship: &amp;amp;
