@@ -1,7 +1,7 @@
 var express = require('express');
 const bodyParser = require("body-parser");
 var app = express();
-app.use(bodyParser.text())
+app.use(bodyParser.json())
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
@@ -63,6 +63,10 @@ app.get("/nopine", (req, res) => {
 });
 
 app.post("/hook/:name", (req, res) => {
+  if (!req.body || !req.body.message) {
+    res.status(400)
+    res.send(`{"error": "message must be set"}`)
+  }
   console.log(`[HOOK ${req.params.name}] ${req.body}`)
   iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body))
   res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body)}`);
