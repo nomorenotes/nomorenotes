@@ -1,5 +1,7 @@
 var express = require('express');
+const bodyParser = require("body-parser");
 var app = express();
+app.use(bodyParser.json())
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
@@ -8,6 +10,7 @@ iom.main(io);
 
 io.toString = () => "[IO]"
 
+app.use(bodyParser.raw())
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
 
 process.on("uncaughtException", e=>(console.error(e),e));
@@ -58,6 +61,17 @@ app.get("/timer", (req, res) => {
 app.get("/nopine", (req, res) => {
   res.sendFile(__dirname + "/nopine.html");
 });
+
+app.post("/hook/:name", (req, res) => {
+  if (!req.body || !req.body.message) {
+    res.status(400)
+    res.send(`{"error": "Body must extend {\"message\": string}"}`)
+  }
+  console.log(`[HOOK ${req.params.name}] ${req.body.message}`)
+  iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body.message))
+  res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body.message)}`);
+  res.end()
+})
 
 http.listen(port, function(){
   console.log('listening on *:' + port);

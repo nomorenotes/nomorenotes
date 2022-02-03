@@ -39,7 +39,7 @@ r.parse_emoji = (e => msg => {
 })(require("./emoji.js"));
 //const names = {};
 const rnames = {};
-const mes = (who, prefix, msg, sender = SYS_ID) => {
+const mes = r.mes = (who, prefix, msg, sender = SYS_ID) => {
   if (who === io && prefix === "mes" && sender !== SYS_ID) {
     io.to("preview").emit(msg)
   }
@@ -117,6 +117,7 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
 .replace(/%$/g, "<")
 .replace(/$%/g, ">")*/
 module.exports.main = (_io) => {
+
   io = r.io = _io;
   r.cmdmod = require("./command-processor.js")(mes);
   /* io.use((client, next) => {

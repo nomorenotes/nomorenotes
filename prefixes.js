@@ -4,5 +4,6 @@ module.exports = {
 	"msg": "% ",
 	"debug": "# ",
 	"spy": "* ",
-	"none": "&nbsp; "
+	"none": "&nbsp; ",
+	"hook": "J "
 }
