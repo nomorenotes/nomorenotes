@@ -1,5 +1,7 @@
 var express = require('express');
+const bodyParser = require("body-parser");
 var app = express();
+app.use(bodyParser.text())
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
@@ -8,6 +10,7 @@ iom.main(io);
 
 io.toString = () => "[IO]"
 
+app.use(bodyParser.raw())
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adminpassword", "user": "userpassword"};
 
 process.on("uncaughtException", e=>(console.error(e),e));
@@ -58,6 +61,10 @@ app.get("/timer", (req, res) => {
 app.get("/nopine", (req, res) => {
   res.sendFile(__dirname + "/nopine.html");
 });
+
+app.post("/hook/:name", (req, res) => {
+  
+})
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
