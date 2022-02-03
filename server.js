@@ -63,7 +63,7 @@ app.get("/nopine", (req, res) => {
 });
 
 app.post("/hook/:name", (req, res) => {
-  
+  iom.r.mes(iom.r.io, "hook", iom.r.t.chat(req.params.name, req.body))
 })
 
 http.listen(port, function(){
