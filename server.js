@@ -63,6 +63,7 @@ app.get("/nopine", (req, res) => {
 });
 
 app.post("/hook/:name", (req, res) => {
+  console.log(`[HOOK ${req.params.name}] ${req.body}`)
   iom.r.mes(iom.r.io, "hook", iom.r.t.chat(req.params.name, req.body))
 })
 
