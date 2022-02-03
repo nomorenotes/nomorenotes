@@ -65,11 +65,11 @@ app.get("/nopine", (req, res) => {
 app.post("/hook/:name", (req, res) => {
   if (!req.body || !req.body.message) {
     res.status(400)
-    res.send(`{"error": "message must be set"}`)
+    res.send(`{"error": "Body must extend {\"message\": string}"}`)
   }
   console.log(`[HOOK ${req.params.name}] ${req.body}`)
-  iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body))
-  res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body)}`);
+  iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body.message))
+  res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body.message)}`);
   res.end()
 })
 
