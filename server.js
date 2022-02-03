@@ -64,7 +64,7 @@ app.get("/nopine", (req, res) => {
 
 app.post("/hook/:name", (req, res) => {
   console.log(`[HOOK ${req.params.name}] ${req.body}`)
-  iom.r.cmdmod.mes(io, "hook", iom.r.t.chat(req.params.name, req.body))
+  iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body))
 })
 
 http.listen(port, function(){
