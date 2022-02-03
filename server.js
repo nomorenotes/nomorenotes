@@ -15,6 +15,8 @@ const users = process.env.USERS ? JSON.parse(process.env.USERS) : {"admin": "adm
 
 process.on("uncaughtException", e=>(console.error(e),e));
 
+r.listeningBots = {};
+
 /*
 const whoDisBot = {
   botName: "WhoDisBot",
@@ -68,7 +70,11 @@ app.post("/hook/:name", (req, res) => {
     res.send(`{"error": "Body must extend {\"message\": string}"}`)
   }
   console.log(`[HOOK ${req.params.name}] ${req.body.message}`)
-  iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body.message))
+  if (req.body.reciever) {
+    iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body.message))
+  } else {
+    iom.r.mes(io.to(req.body.reciever), "hook", iom.r.t.chat(req.params.name, req.body.message))
+  }
   res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body.message)}`);
   res.end()
 })
