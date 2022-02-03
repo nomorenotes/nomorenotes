@@ -5,5 +5,5 @@ module.exports = {
 	"debug": "# ",
 	"spy": "* ",
 	"none": "&nbsp; ",
-	"hook": "J"
+	"hook": "J "
 }
