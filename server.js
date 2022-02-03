@@ -65,6 +65,8 @@ app.get("/nopine", (req, res) => {
 app.post("/hook/:name", (req, res) => {
   console.log(`[HOOK ${req.params.name}] ${req.body}`)
   iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body))
+  res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body)}`);
+  res.end()
 })
 
 http.listen(port, function(){
