@@ -67,7 +67,7 @@ app.post("/hook/:name", (req, res) => {
     res.status(400)
     res.send(`{"error": "Body must extend {\"message\": string}"}`)
   }
-  console.log(`[HOOK ${req.params.name}] ${req.body}`)
+  console.log(`[HOOK ${req.params.name}] ${req.body.message}`)
   iom.r.mes(io, "hook", iom.r.t.chat(req.params.name, req.body.message))
   res.send(`{"sender": ${JSON.stringify(req.params.name)}, "data": ${JSON.stringify(req.body.message)}`);
   res.end()
