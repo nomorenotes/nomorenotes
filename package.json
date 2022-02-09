@@ -5,7 +5,7 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "express": "^4.15.2",
-    "socket.io": "^4.2.0",
+    "socket.io": "^4.4.1",
     "supports-color": "9.2.1"
   },
   "scripts": {
