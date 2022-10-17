@@ -1,3 +1,15 @@
+// alert(-5)
+let hasNewMessage = false
+
+window.onerror = (_msg, _url, _line, _col, e) => {
+  if (confirm(`=== UNHANDLED EXCEPTION ===
+
+${e.stack}
+
+Would you like to reload?`)) history.go(0)
+}
+
+// alert(670n)
 const opts = location.hash ? location.hash.slice(1).split("&") : []
 if (location.protocol === "http:" && !opts.includes("noHttps")) location.protocol = "https:";
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now()) location.pathname = "/banned";
@@ -22,10 +34,8 @@ else $(function () {
   });
   socket.on('chat message', function (id, msg) {
     $('#messages').append($('<li>', { id }).html(msg));
-    if (notify) {
-      notify = manotify;
-      console.log(msg);
-    }
+    // alert(-32)
+    if (document.hidden) hasNewMessage = true
     window.scrollTo(0, document.body.scrollHeight);
   });
   socket.on("gotping", (wasTargeted, source) => {
@@ -48,7 +58,7 @@ else $(function () {
   });
   socket.on("reload", () => { history.go(0); });
   socket.on("linkout", (url) => { open(url); });
-  $.on("blur", () => { alert("blur"); });
+  // window.on("blur", () => { alert("blur"); });
   // document.getElementById('m').onpaste = function (event) {
   //   // use event.originalEvent.clipboard for newer chrome versions
   //   var items = (event.clipboardData || event.originalEvent.clipboardData).items;
@@ -87,3 +97,25 @@ document.addEventListener("keydown", e => {
 		open(`view-source:${location}`)
 	}
 });
+
+document.onvisibilitychange = e => {
+  if (!document.hidden) {
+    hasNewMessage = false
+  }
+}
+
+let link = document.querySelector("link[rel~='icon']");
+if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+    
+setInterval(() => {
+  if (hasNewMessage) {
+    link.href = "/noticeme.ico"
+	}
+}, 500)
+setTimeout(() => setInterval(() => {
+  link.href = "/favicon.ico"
+}, 500), 250)
