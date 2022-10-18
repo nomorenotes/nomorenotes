@@ -355,12 +355,22 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           mes(sudo, "cmdresp", `Error 404: ${toid} not found!`, r.SYS_ID);
         }
         return true;
+      case "info":
+        const toinfo = args[0]
+        const toinfosock = r.rnames[toinfo]
+        if (!toinfosock) {
+          mes(sudo, "cmdresp", `Error 404: ${toinfo} not found!`, r.SYS_ID)
+          return true
+        }
+        mes(sudo, "cmdresp", `<b>=== ${toinfo} ===</b>`)
+        mes(sudo, "cmdresp", `User Agent: ${toinfosock.request.headers['user-agent']}`)
+        return true
       // ========= TO CODE READERS =======//
       // /_nowop is now only used for any //
       // server that does not have an op  //
       // command. It will not work on the //
       // main server, for example. Show   //
-      // your mod skills as a trial mod   //
+      // your mod skills as a trial mod   //  
       // and you might get the real one.  //
 			// I just aligned those three lines //
 			// by accident, but these two       //
