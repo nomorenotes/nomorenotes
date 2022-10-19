@@ -100,6 +100,10 @@ app.get("/themes.json", (req, res) => {
 	res.sendFile(__dirname + "/themes.json");
 });
 
+app.get("/unban", (req, res) => {
+  res.render("unban.pug")
+})
+
 require("./site/module.js")(app); // site urls
 require("./chat/module.js")(app); // chat urls
 require("./login/module.js")(app); // login urls
