@@ -1,0 +1,3 @@
+[submodule "public/trimps"]
+	path = public/trimps
+	url = https://github.com/PoolloverNathan/trimps
