@@ -63,7 +63,8 @@ ul {
 	background: rgba(238, 238, 238, 10);
 }*/
 #messages {
-	margin-bottom: 40px 
+	margin-bottom: 40px; 
+  margin-right: 1in;
 }
 
 dialog {
