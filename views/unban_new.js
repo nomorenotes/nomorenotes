@@ -27,7 +27,7 @@ if (text.length < 8) {
       const time = Math.floor(decrease / 1000)
       const mins = Math.floor(time / 60)
       const secs = time % 60
-      write(`Your ban time has been decreased by ${mins}:${secs.toString.padStart(2, 0)}. You will now be unbanned ${Date(localStorage.banExpiry2)}. Returning to banned screen in 5 seconds.`)
+      write(`Your ban time has been decreased by ${mins}:${secs.toString().padStart(2, 0)}. You will now be unbanned ${Date(localStorage.banExpiry2)}. Returning to banned screen in 5 seconds.`)
       redir('/banned')
     } else {
       delete localStorage.banExpiry2
