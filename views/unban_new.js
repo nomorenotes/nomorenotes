@@ -1,6 +1,7 @@
 const write = text => outdiv.textContent = text
 const redir = (loc = location.href, cb = () => {}) => cb(setTimeout(() => location = loc, 5000))
 write("Processing")
+window.onerror = (_msg, _url, _line, _col, { stack }) => alert(stack)
 const text = location.hash.slice(1)
 write(text)
 if (text.length < 8) {
