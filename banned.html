@@ -13,10 +13,14 @@
     <p>
       (Reason: <span id=reason></span>)
     </p>
+    <!--
     <h3>
     If you talk to an admin, please send them this code:
     </h3>
     <textarea readonly id="banid"></textarea>
+    -->
+    <a id=appeallink>Request appeal</a>
+    
   </center>
   <script>
     if (localStorage.banExpiry2 === undefined) location.pathname = "/chat";
@@ -34,7 +38,8 @@
     let expInt = setInterval(checkBanExpiry, 5000);
     checkBanExpiry();
     
-    banid.value = btoa(LZString.compressToBase64(btoa(JSON.stringify({victim: {session: localStorage.session, name: localStorage.NMNname}, ban: {sender: localStorage.banner, expiry: localStorage.banExpiry2, reason: +localStorage.banReason}, site: location.origin}))))
+    const banId = btoa(LZString.compressToBase64(btoa(JSON.stringify({victim: {session: localStorage.session, name: localStorage.NMNname}, ban: {sender: localStorage.banner, expiry: localStorage.banExpiry2, reason: +localStorage.banReason}, site: location.origin}))))
+    appeallink.href = `https://docs.google.com/forms/d/e/1FAIpQLSeNt3T1FlA67hbfkclv_-e_Qjwh760IwwQWQZsu0vLK747iQw/viewform?usp=pp_url&entry.207118108=${banId}`
     
     if (location.fragment) {
     	let f = location.fragment.slice(1);

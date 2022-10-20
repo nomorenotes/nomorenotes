@@ -1,4 +1,3 @@
-alert(512)
 const write = text => outdiv.textContent = text
 const redir = (loc = location.href, cb = () => {}) => cb(setTimeout(() => location = loc, 5000))
 write("Processing")
