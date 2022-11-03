@@ -1,6 +1,7 @@
 
 { pkgs }: {
     deps = [
+        pkgs.busybox
         pkgs.gnupg
         pkgs.heroku
         pkgs.less
