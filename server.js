@@ -3,6 +3,7 @@ const { execSync } = require("child_process")
 const { hash: NOCRYPT_hash } = require("xxhash")
 const { auth, requiresAuth, attemptSilentLogin } = require('express-openid-connect');
 const bodyParser = require("body-parser");
+const { request } = require("https")
 const { inspect } = require("util")
 const INSPECTARGS = {
 	showHidden: true,
@@ -66,6 +67,17 @@ app.use(bodyParser.raw())
 
 app.get("/setup", requiresAuth(), (req, res) => {
   res.render()
+})
+const eaglerUrl = "https://raw.githubusercontent.com/lax1dude/eaglercraft/main/stable-download/Offline_Download_Version.html"
+app.get(["/eagler", "/eagler/dl"], (req, res) => {
+  const r = request(eaglerUrl)
+  console.log("downloading eagler")
+  if (req.query.dl) r.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+  r.on("response", message => {
+    console.log("piping eagler")
+    message.pipe(res)
+  })
+  r.end()
 })
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : { "admin": "adminpassword", "user": "userpassword" };
 
