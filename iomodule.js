@@ -43,15 +43,17 @@ r.mail = (content, username = "Server") => {
       body: JSON.stringify({ username, content })
     }))
   }
-  for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
-    sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
-    console.log(`NMN mail: ${nmnurl}`)
-    proms.push(fetch(nmnurl, {
-      ...MAIL_OPTS,
-      body: JSON.stringify({ message: content, sender })
-    }))
+  if (!content.startsWith("Server restarted @ ")) {
+    for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
+      sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
+      console.log(`NMN mail: ${nmnurl}`)
+      proms.push(fetch(nmnurl, {
+        ...MAIL_OPTS,
+        body: JSON.stringify({ message: content, sender })
+      }))
+    }
   }
-  
+  return Promise.all(proms)
 }
 const fetch = require("node-fetch")
 r.sendmsg = from => msg => {
