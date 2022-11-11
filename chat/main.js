@@ -1,5 +1,6 @@
 const opts = location.hash ? location.hash.slice(1).split("&") : []
 localStorage.life = localStorage.life || 0
+let mesg = 0;
 if (location.protocol === "http:" && !opts.includes("noHttps")) location.protocol = "https:";
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now()) location.pathname = "/banned";
 else $(function () {
@@ -25,7 +26,10 @@ else $(function () {
   });
   $('#send').submit(function () {
     socket.emit('chat message', $('#m').val());
-    if (!$('#m').val().startsWith('/')) localStorage.life++
+    if (!$('#m').val().startsWith('/')) {
+      localStorage.life++
+      mesg++
+    }
     $('#m').val('');
     return false;
   });
@@ -110,11 +114,16 @@ function detectConnection() {
   }
   if (downlink < 1) {
     downlink *= 1000
-    downlink += "Kbps"
+    downlink = `<span style="color: red;">${downlink}bps</span>`
+  }
+  if (downlink < 1) {
+    downlink *= 1000
+    downlink = `<span style="color: orange;">${downlink}Kbps</span>`
   } else {
     downlink += "Mbps"
   }
   const connection = `${effectiveType} ${type} (${downlink})`
   const lifetime = `lifetime messages: ${localStorage.life}`
-  stats.innerText = `${connection}\n${lifetime}`
+  stats.innerHTML = `${connection}<br>${lifetime}`
 }
+
