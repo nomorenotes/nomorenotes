@@ -1,4 +1,5 @@
 const opts = location.hash ? location.hash.slice(1).split("&") : []
+localStorage.life = localStorage.life || 0
 if (location.protocol === "http:" && !opts.includes("noHttps")) location.protocol = "https:";
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now()) location.pathname = "/banned";
 else $(function () {
@@ -24,6 +25,7 @@ else $(function () {
   });
   $('#send').submit(function () {
     socket.emit('chat message', $('#m').val());
+    if (!$('#m').val().startsWith('/')) localStorage.life++
     $('#m').val('');
     return false;
   });
@@ -101,5 +103,5 @@ function detectConnection() {
     downlink = "≥10"
   }
   downlink += "Mbps"
-  stats.innerText = `${effectiveType} ${type} (${downlink})`
+  stats.innerText = `${effectiveType} ${type} (${downlink})\nlifetime messages: ${localStorage.life}`
 }
