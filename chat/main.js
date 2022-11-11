@@ -78,11 +78,12 @@ else $(function () {
   //   }
   // };
 })
+const hyperactiveRabbits = () => { $(document.body).toggleClass("dark") }
 document.addEventListener("keydown", e => {
   if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "d") {
     e.preventDefault();
     console.log("hyperactive rabbits")
-    $(document.body).toggleClass("dark")
+    hyperactiveRabbits()
   } else if (e.which === 78 && e.altKey) {
 		open(`view-source:${location}`)
 	}
