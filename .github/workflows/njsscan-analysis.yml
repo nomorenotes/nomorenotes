@@ -6,7 +6,7 @@ name: njsscan sarif
 on:
   push:
   pull_request:
-    # The branches below must be a subset of the branches above
+  workflow_dispatch:
   schedule:
     - cron: '21 2 * * 5'
 

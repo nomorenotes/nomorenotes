@@ -5,10 +5,8 @@ name: SL Scan
 
 on:
   push:
-    branches: [ worksihope, heroku/* ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ worksihope ]
+  workflow_dispatch:
   schedule:
     - cron: '32 17 * * 1'
 

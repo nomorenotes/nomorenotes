@@ -7,9 +7,8 @@ name: DevSkim
 
 on:
   push:
-    branches: [ worksihope, heroku/* ]
   pull_request:
-    branches: [ worksihope ]
+  workflow_dispatch:
   schedule:
     - cron: '36 17 * * 0'
 
