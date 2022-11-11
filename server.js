@@ -42,10 +42,11 @@ if (!String.prototype.format) {
 
 const { default: jwt_decode } = require("jwt-decode")
 const { data, save, touch } = require("./db.js")
+const exc = (e) => { throw e }
 app.use(auth({
   authRequired: false,
   auth0Logout: true,
-  baseURL: 'https://nmn.bad.mn',
+  baseURL: process.env.URL || exc(new Error("Please set process.env.URL")),
   clientID: 'AowNHc7SuoxW3jVCjUb0qHIb8BKwXTQT',
   issuerBaseURL: 'https://nomorenotes.us.auth0.com',
   secret: process.env.AUTH0_SECRET, // fs.readFileSync(__filename, "utf-8")
