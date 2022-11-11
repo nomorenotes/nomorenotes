@@ -96,12 +96,25 @@ window.onerror = (_msg, _url, _line, _col, err) => {
 }
     
 detectConnection()
+const lowercaseAlphabet = new Set("abcdefghijklmnopqrstuvwxyz")
+const uppercaseAlphabet = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+const lowercaseAlphabet2 = new Set("abcdefghijklmnopqrstuvwxyz0123456789")
+const uppercaseAlphabet2 = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+const lowercaseAlphabet3 = new Set("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]\\|;:'\",<.>/?")
+const uppercaseAlphabet3 = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]\\|;:'\",<.>/?")
 setInterval(detectConnection, 100)
 function detectConnection() {
   let { downlink = "?", type = "connection", effectiveType = "unknown" } = navigator.connection
   if (downlink === 10) {
     downlink = "≥10"
   }
-  downlink += "Mbps"
-  stats.innerText = `${effectiveType} ${type} (${downlink})\nlifetime messages: ${localStorage.life}`
+  if (downlink < 1) {
+    downlink *= 1000
+    downlink += "Kbps"
+  } else {
+    downlink += "Mbps"
+  }
+  const connection = `${effectiveType} ${type} (${downlink})`
+  const lifetime = `lifetime messages: ${localStorage.life}`
+  stats.innerText = `${connection}\n${lifetime}`
 }
