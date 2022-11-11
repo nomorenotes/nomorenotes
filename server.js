@@ -69,7 +69,7 @@ app.use(bodyParser.raw())
 app.get("/setup", requiresAuth(), (req, res) => {
   res.render()
 })
-const eaglerUrl = "https://raw.githubusercontent.com/lax1dude/eaglercraft/main/stable-download/Offline_Download_Version.html"
+const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   const r = request(eaglerUrl)
   console.log("downloading eagler")
