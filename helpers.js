@@ -1,13 +1,11 @@
 Object.assign(exports, {
-  lazy(fn) {
-    let called = false;
-    let value;
-    return function() {
-      if (!called) {
-        called = true;
-        value = fn.apply(this, arguments);
+  lazy(get) {
+    return function fn() {
+      if (!fn._called) {
+        fn._called = true;
+        fn._value = get.apply(null, arguments);
       }
-      return value;
+      return fn._value;
     }
   }
 })
@@ -19,5 +17,6 @@ Object.assign(exports.lazy, {
         return fn();
       }
     })
+    return fn
   }
 })
