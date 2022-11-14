@@ -71,6 +71,7 @@ app.get("/setup", requiresAuth(), (req, res) => {
 })
 const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
+  res.write("<title>Recent - Google Drive</title>")
   const r = request(eaglerUrl)
   console.log("downloading eagler")
   if (req.query.dl) r.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')

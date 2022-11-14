@@ -424,12 +424,22 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             console.log(typeof data);
             const dataAry = []
             data.split("\n").map(d => d.replace("\r\n", "\n").replace("\r", "\n")).forEach(line => {
-              if (line.startsWith("@< ")) {
-                const retval = eval(line.slice(3))
+              let xa
+              console.log("'1'")
+              if (xa = /^@(\d*)</.exec(line)) {
+                console.log(xa[1])
+                let retval = eval(line.slice(3))
                 if (typeof retval === "function") {
-                  dataAry.push(retval(...dataAry))
-                } else {
-                  dataAry.push(retval)
+                  retval = retval(...dataAry)
+                }
+                if (xa[1]) {
+                  dataAry[xa[1]] = retval
+                  dataAry.length = Math.max(xa[1], dataAry.length)
+                }
+              } else if (line.startsWith("@: ")) {
+                let retval = eval(line.slice(3))
+                if (typeof retval === "function") {
+                  retval(...dataAry)
                 }
               } else if (line === "@//") {
                 console.log(from[r.s].name, helpdocid, dataAry)
