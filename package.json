@@ -10,7 +10,7 @@
     "express-openid-connect": "^2.10.0",
     "fetch": "^1.1.0",
     "jwt-decode": "^3.1.2",
-    "node-fetch": "^3.3.0",
+    "node-fetch": "^2.6.7",
     "pug": "^3.0.2",
     "socket.io": "^4.5.3",
     "supports-color": "9.2.3",
