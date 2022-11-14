@@ -1,6 +1,7 @@
 
 { pkgs }: {
     deps = [
+        pkgs.vim
         pkgs.busybox
         pkgs.gnupg
         pkgs.heroku
