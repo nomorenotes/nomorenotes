@@ -2,3 +2,5 @@ node_modules
 clone_gpg.sh
 repo_setup.sh
 npm.ls
+coverage
+debug.log

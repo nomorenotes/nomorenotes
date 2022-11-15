@@ -1,0 +1,66 @@
+cdialog (ComeOn Dialog!) version 1.3-20210621
+Copyright 2000-2020,2021 Thomas E. Dickey
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+* Display dialog boxes from shell scripts *
+
+Usage: dialog <options> { --and-widget <options> }
+where options are "common" options, followed by "box" options
+
+Special options:
+  [--create-rc "file"]
+Common options:
+  [--ascii-lines] [--aspect <ratio>] [--backtitle <backtitle>] [--beep]
+  [--beep-after] [--begin <y> <x>] [--cancel-label <str>] [--clear]
+  [--colors] [--column-separator <str>] [--cr-wrap] [--cursor-off-label]
+  [--date-format <str>] [--default-button <str>] [--default-item <str>]
+  [--defaultno] [--erase-on-exit] [--exit-label <str>] [--extra-button]
+  [--extra-label <str>] [--help-button] [--help-label <str>]
+  [--help-status] [--help-tags] [--hfile <str>] [--hline <str>]
+  [--ignore] [--input-fd <fd>] [--insecure] [--item-help] [--keep-tite]
+  [--keep-window] [--last-key] [--max-input <n>] [--no-cancel]
+  [--no-collapse] [--no-hot-list] [--no-items] [--no-kill]
+  [--no-label <str>] [--no-lines] [--no-mouse] [--no-nl-expand]
+  [--no-ok] [--no-shadow] [--no-tags] [--ok-label <str>]
+  [--output-fd <fd>] [--output-separator <str>] [--print-maxsize]
+  [--print-size] [--print-text-only <text> <height> <width>]
+  [--print-text-size <text> <height> <width>] [--print-version] [--quoted]
+  [--reorder] [--scrollbar] [--separate-output] [--separate-widget <str>]
+  [--single-quoted] [--size-err] [--sleep <secs>] [--stderr] [--stdout]
+  [--tab-correct] [--tab-len <n>] [--time-format <str>] [--timeout <secs>]
+  [--title <title>] [--trace <file>] [--trim] [--version] [--visit-items]
+  [--week-start <str>] [--yes-label <str>]
+Box options:
+  --buildlist    <text> <height> <width> <list-height> <tag1> <item1> <status1>...
+  --calendar     <text> <height> <width> <day> <month> <year>
+  --checklist    <text> <height> <width> <list height> <tag1> <item1> <status1>...
+  --dselect      <directory> <height> <width>
+  --editbox      <file> <height> <width>
+  --form         <text> <height> <width> <form height> <label1> <l_y1> <l_x1> <item1> <i_y1> <i_x1> <flen1> <ilen1>...
+  --fselect      <filepath> <height> <width>
+  --gauge        <text> <height> <width> [<percent>]
+  --infobox      <text> <height> <width>
+  --inputbox     <text> <height> <width> [<init>]
+  --inputmenu    <text> <height> <width> <menu height> <tag1> <item1>...
+  --menu         <text> <height> <width> <menu height> <tag1> <item1>...
+  --mixedform    <text> <height> <width> <form height> <label1> <l_y1> <l_x1> <item1> <i_y1> <i_x1> <flen1> <ilen1> <itype>...
+  --mixedgauge   <text> <height> <width> <percent> <tag1> <item1>...
+  --msgbox       <text> <height> <width>
+  --passwordbox  <text> <height> <width> [<init>]
+  --passwordform <text> <height> <width> <form height> <label1> <l_y1> <l_x1> <item1> <i_y1> <i_x1> <flen1> <ilen1>...
+  --pause        <text> <height> <width> <seconds>
+  --prgbox       <text> <command> <height> <width>
+  --programbox   <text> <height> <width>
+  --progressbox  <text> <height> <width>
+  --radiolist    <text> <height> <width> <list height> <tag1> <item1> <status1>...
+  --rangebox     <text> <height> <width> <min-value> <max-value> <default-value>
+  --tailbox      <file> <height> <width>
+  --tailboxbg    <file> <height> <width>
+  --textbox      <file> <height> <width>
+  --timebox      <text> <height> <width> <hour> <minute> <second>
+  --treeview     <text> <height> <width> <list-height> <tag1> <item1> <status1> <depth1>...
+  --yesno        <text> <height> <width>
+
+Auto-size with height and width = 0. Maximize with height and width = -1.
+Global-auto-size if also menu_height/list_height = 0.
