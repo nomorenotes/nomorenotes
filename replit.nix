@@ -1,6 +1,8 @@
 
 { pkgs }: {
   deps = [
+    pkgs.lolcat
+    pkgs.sl
     pkgs.dialog
     pkgs.jq.bin
     pkgs.less
