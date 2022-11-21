@@ -1,3 +1,6 @@
 [submodule "public/trimps"]
 	path = public/trimps
 	url = https://github.com/PoolloverNathan/trimps
+[submodule ".git/hooks"]
+	path = .git/hooks
+	url = https://github.com/nomorenotes/hooks

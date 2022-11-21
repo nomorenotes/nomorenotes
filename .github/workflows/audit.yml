@@ -1,4 +1,4 @@
-name: Install
+name: Audit
 on:
   push:
   workflow_dispatch:
