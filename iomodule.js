@@ -97,11 +97,10 @@ const magic = module.exports.magic = (sender, msg) => {
     return true;
   }
 };
-const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
-  .replace(/\\r\\n/g, "\n")
-  .replace(/\\r/g, "\\n")
-  .replace(/\\n/g, "<br/>")
-  .replace(/\\t/g, "\t")
+const format_msg = module.exports.format_msg = msg => msg
+  .replace(/\\\\/g, "\f") // temp rm \\
+  .replace(/\\r\\n/ig, "\n")
+  .replace(/\\n/ig, "<br/>")
   .replace(/\f/g, "\\\\")
   .replace(/(?<=^|\W)ass+/igm, "but")
   .replace(/f\W*u\W*c\W*k/ig, "truck")
