@@ -24,7 +24,7 @@ jobs:
           files: "jest.config.js"
       - name: Set output
         run: |
-          echo good=${{ steps.hello.outcome }} >> $GITHUB_OUTPUT        
+          echo good=${{ steps.check_files.outcome }} >> $GITHUB_OUTPUT        
   build:
     if: needs.checkfiles.outputs.good == 'success'
     needs: checkfiles
