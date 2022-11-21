@@ -13,16 +13,20 @@ jobs:
   checkfiles:
     runs-on: ubuntu-latest
     outputs:
-      good: ${{ steps.check_files.outputs }}
+      good: ${{ steps.get_output.outputs.good }}
     steps:
       - uses: actions/checkout@v3
       - name: Check file existence
+        continue-on-error: true
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
           files: "jest.config.js"
+      - name: Set output
+        run: |
+          echo good=${{ steps.hello.outcome }} >> $GITHUB_OUTPUT        
   build:
-    if: needs.checkfiles.outputs.good == 'true'
+    if: needs.checkfiles.outputs.good == 'success'
     needs: checkfiles
     runs-on: ubuntu-latest
     strategy:
