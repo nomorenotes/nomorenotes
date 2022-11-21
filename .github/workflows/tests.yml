@@ -5,9 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "worksihope" ]
   pull_request:
-    branches: [ "worksihope" ]
 
 jobs:
   checkfiles:
