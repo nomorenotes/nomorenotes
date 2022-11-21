@@ -22,7 +22,7 @@ jobs:
         with:
           files: "jest.config.js"
   build:
-    if: needs.checkfiles.outputs.good === 'true'
+    if: needs.checkfiles.outputs.good == 'true'
     needs: checkfiles
     runs-on: ubuntu-latest
     strategy:
