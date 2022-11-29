@@ -1,12 +1,12 @@
 {
-  "_default_" :"lemon",
-  "cyanide"   :"#006192",
-  "blueberry" :"#0022b7",
-  "grape"     :"#3e0087",
-  "raspberry" :"#800037",
-  "cherry"    :"#ac0000",
-  "orange"    :"#c42500",
-  "gold"      :"#9f6700",
-  "lemon"     :"#ab9200",
-  "pear"      :"#4c7602"
+  "_"         : "lemon",
+  "cyanide"   : "#006192",
+  "blueberry" : "#0022b7",
+  "grape"     : "#3e0087",
+  "raspberry" : "#800037",
+  "cherry"    : "#ac0000",
+  "orange"    : "#c42500",
+  "gold"      : "#9f6700",
+  "lemon"     : "#ab9200",
+  "pear"      : "#4c7602"
 }
