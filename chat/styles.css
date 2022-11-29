@@ -23,11 +23,11 @@ body {
   background: yellow;
   border-top-style: none;
   color: black;
+  transition: right 0.5s;
   right: 0; /* for transition */
 }
 .psa.closed {
   right: calc(100% - 16q) !important;
-  transition: right 0.5s;
 }
 .psa span {
   position: absolute;
