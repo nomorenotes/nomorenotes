@@ -10,7 +10,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
-#send {
+#send, .psa {
 	padding: 3px;
 	position: fixed;
 	bottom: 0;
@@ -19,7 +19,23 @@ body {
   --shade: 230;
   background: rgb(var(--shade), var(--shade), var(--shade));
 }
-.dark #send {
+.psa {
+  background: yellow;
+  border-top-style: none;
+  color: black;
+  right: 0; /* for transition */
+}
+.psa.closed {
+  right: calc(100% - 16q) !important;
+  transition: right 0.5s;
+}
+.psa span {
+  position: absolute;
+  right: 4q;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.dark #send, .dark .psa {
   --shade: 60;
   border-top-color: white;
 }
