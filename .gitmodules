@@ -4,3 +4,6 @@
 [submodule ".git/hooks"]
 	path = .git/hooks
 	url = https://github.com/nomorenotes/hooks
+[submodule ".projects/jest-magic-mock"]
+	path = .projects/jest-magic-mock
+	url = https://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@github.com/PoolloverNathan/jest-magic-mock
