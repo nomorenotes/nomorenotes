@@ -9,6 +9,7 @@
     "express": "^4.17.2",
     "express-openid-connect": "^2.10.0",
     "fetch": "^1.1.0",
+    "jest-magic-mock": "^1.0.0",
     "jwt-decode": "^3.1.2",
     "node-fetch": "^2.6.7",
     "pug": "^3.0.2",
