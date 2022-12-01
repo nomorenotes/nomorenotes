@@ -1,16 +1,28 @@
-/* @type {object} */ const data = require("./db.json")
+/* @type {object} */ let data = require("./db.json")
 const { promises: fsp } = require("fs")
 
+let file = './db.json'
 exports.data = data
+Object.defineProperty(exports, 'filename', {
+  configurable: true,
+  enumerable: true,
+  get() {
+    return file
+  },
+  set($event) {
+    file = $event
+    data = require('./' + file)
+  }
+})
 
 exports.save = () => {
-  fsp.writeFile("db.json", JSON.stringify(data, null, 2))
+  fsp.writeFile(file, JSON.stringify(data, null, 2))
 }
 
 exports.touch = (key) => {
   if (key in data) {
     return data[key]
   } else {
-    data[key] = {}
+    return data[key] = {}
   }
 }
