@@ -7,6 +7,3 @@
 [submodule ".projects/jest-magic-mock"]
 	path = .projects/jest-magic-mock
 	url = https://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@github.com/PoolloverNathan/jest-magic-mock
-[submodule "bandruf"]
-	path = bandruf
-	url = https://github.com/PoolloverNathan/Bandruf-Games
