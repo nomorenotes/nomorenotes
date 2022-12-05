@@ -14,6 +14,7 @@ jobs:
   Scan-Build:
     # Scan runs on ubuntu, mac and windows
     runs-on: ubuntu-latest
+    if: github.actor != "dependabot"
     steps:
     - uses: actions/checkout@v2
     # Instructions
