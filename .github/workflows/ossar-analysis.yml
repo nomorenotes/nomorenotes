@@ -5,10 +5,8 @@ name: OSSAR
 
 on:
   push:
-    branches: [ worksihope, heroku/* ]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ worksihope ]
+  workflow_dispatch:
   schedule:
     - cron: '32 2 * * 1'
 
@@ -17,6 +15,7 @@ jobs:
     # OSSAR runs on windows-latest.
     # ubuntu-latest and macos-latest support coming soon
     runs-on: windows-latest
+    if: github.actor != 'dependabot'
 
     steps:
     - name: Checkout repository

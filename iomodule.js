@@ -43,15 +43,17 @@ r.mail = (content, username = "Server") => {
       body: JSON.stringify({ username, content })
     }))
   }
-  for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
-    sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
-    console.log(`NMN mail: ${nmnurl}`)
-    proms.push(fetch(nmnurl, {
-      ...MAIL_OPTS,
-      body: JSON.stringify({ message: content, sender })
-    }))
+  if (!content.startsWith("Server restarted @ ")) {
+    for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
+      sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
+      console.log(`NMN mail: ${nmnurl}`)
+      proms.push(fetch(nmnurl, {
+        ...MAIL_OPTS,
+        body: JSON.stringify({ message: content, sender })
+      }))
+    }
   }
-  
+  return Promise.all(proms)
 }
 const fetch = require("node-fetch")
 r.sendmsg = from => msg => {
@@ -95,38 +97,37 @@ const magic = module.exports.magic = (sender, msg) => {
     return true;
   }
 };
-const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
-  .replace(/\\r\\n/g, "\n")
-  .replace(/\\r/g, "\\n")
-  .replace(/\\n/g, "<br/>")
-  .replace(/\\t/g, "\t")
+const format_msg = module.exports.format_msg = msg => msg
+  .replace(/\\\\/g, "\f") // temp rm \\
+  .replace(/\\r\\n/ig, "\n")
+  .replace(/\\n/ig, "<br/>")
   .replace(/\f/g, "\\\\")
-  // .replace(/(?<=^|\W)ass+/igm, "but")
-  // .replace(/f\W*u\W*c\W*k/ig, "truck")
-  // .replace(/s\W*h\W*[1li]\W*t/ig, "ship")
-  // .replace(/b\W*[1li]\W*t\W*c\W*h/ig, "female dog")
-  // .replace(/s\W*h\W*u\W*t\W*u\W*p/ig, "shut down")
-  // .replace(/t\W*r\W*a\W*n\W*n\W*y/ig, "tyrannosaurus rex")
-  // .replace(/d\W*[1liy]\W*k\W*e/ig, "chuiwawa")
-  // .replace(/f\W*a\W*g\W*g\W*o\W*t/ig, "french fry")
-  // .replace(/n\W*[1li]\W*g\W*g\W*(e|a)\W*r?/ig, "nacho")
-  // .replace(/j\W*o\W*s\W*e/ig, "jesus")
-  // .replace(/t\W*r\W*u\W*m\W*p/ig, "trombone") // joke
-  // .replace(/J\W*o\W*e\W*B\W*[1li]\W*d\W*e\W*n/ig, "Jeffery Bezos") // joke
-  // .replace(/h\W*e\W*f\W*f\W*e\W*r/ig, "helper")
-  // .replace(/s\W*l\W*u\W*t/ig, "serial killer")
-  // .replace(/d\W*[1li]\W*c\W*k/ig, "dinosaur")
-  // .replace(/c\W*o\W*c\W*k/ig, "cabbage")
-  // .replace(/c\W*a\W*b\W*l\W*e/ig, "cock") // joke
-  // .replace(/c\W*u\W*n\W*t/ig, "putter")
-  // .replace(/p\W*u\W*s\W*s\W*y/ig, "kitty")
-  // .replace(/p\W*e\W*n\W*i\W*s/ig, "pencil")
-  // .replace(/v\W*a\W*g\W*[1li]\W*n\W*a/ig, "vinegar")
-  // .replace(/s\W*e\W*x/ig, "saltwater")
-  // .replace(/(?!document)c\W*u\W*m/ig, "ice cream")
-  // .replace(/p\W*[ro0]?\W*[r0o]\W*n/ig, "corn")
-  // .replace(/h\W*w?\W*[3e]\W*n\W*t\W*a?\W*[1li]/ig, "hitmen")
-  // .replace(/r\/([a-zA-Z0-9]{3,21})/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
+  .replace(/(?<=^|\W)ass+/igm, "but")
+  .replace(/f\W*u\W*c\W*k/ig, "truck")
+  .replace(/s\W*h\W*[1li]\W*t/ig, "ship")
+  .replace(/b\W*[1li]\W*t\W*c\W*h/ig, "female dog")
+  .replace(/s\W*h\W*u\W*t\W*u\W*p/ig, "shut down")
+  .replace(/t\W*r\W*a\W*n\W*n\W*y/ig, "tyrannosaurus rex")
+  .replace(/d\W*[1liy]\W*k\W*e/ig, "chuiwawa")
+  .replace(/f\W*a\W*g\W*g\W*o\W*t/ig, "french fry")
+  .replace(/n\W*[1li]\W*g\W*g\W*(e|a)\W*r?/ig, "nacho")
+  .replace(/j\W*o\W*s\W*e/ig, "jesus")
+  .replace(/t\W*r\W*u\W*m\W*p/ig, "trombone") // joke
+  .replace(/J\W*o\W*e\W*B\W*[1li]\W*d\W*e\W*n/ig, "Jeffery Bezos") // joke
+  .replace(/h\W*e\W*f\W*f\W*e\W*r/ig, "helper")
+  .replace(/s\W*l\W*u\W*t/ig, "serial killer")
+  .replace(/d\W*[1li]\W*c\W*k/ig, "dinosaur")
+  .replace(/c\W*o\W*c\W*k/ig, "cabbage")
+  .replace(/c\W*a\W*b\W*l\W*e/ig, "cock") // joke
+  .replace(/c\W*u\W*n\W*t/ig, "putter")
+  .replace(/p\W*u\W*s\W*s\W*y/ig, "kitty")
+  .replace(/p\W*e\W*n\W*i\W*s/ig, "pencil")
+  .replace(/v\W*a\W*g\W*[1li]\W*n\W*a/ig, "vinegar")
+  .replace(/s\W*e\W*x/ig, "saltwater")
+  .replace(/(?!document)c\W*u\W*m/ig, "ice cream")
+  .replace(/p\W*[ro0]?\W*[r0o]\W*n/ig, "corn")
+  .replace(/h\W*w?\W*[3e]\W*n\W*t\W*a?\W*[1li]/ig, "hitmen")
+  .replace(/r\/([a-zA-Z0-9]{3,21})/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
   
 /*.replace(/</g, "&lt;")
 .replace(/>/g, "&gt;")
@@ -215,7 +216,7 @@ ${inspected}`)
       rnames[socket[r.s].name] = socket;
       //socket.id = session ? session : socket.id;
       socket.join("main");
-      mes(socket, "alert", r.t.join_self(socket[r.s].name, session), SYS_ID);
+      mes(socket, "alert", r.t.join_self(socket[r.s].name, session, r.t.join_extra()), SYS_ID);
       mes(socket, "alert", r.t.help(), SYS_ID);
       mes(socket.broadcast, "alert", r.t.join(socket[r.s].name, require("./motd.js")), SYS_ID);
       socket.on("chat message", msg => console.log(`[CHAT ${socket[r.s].name}] ${msg}`)); // who doesn't love log spam

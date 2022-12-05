@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+{
+  "clearMocks": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "*.js",
+  ],
+  "coverageDirectory": "coverage",
+  "coverageProvider": "v8",
+  "coverageReporters": [
+    "json",
+    "text",
+  ],
+  "errorOnDeprecated": true,
+  "moduleFileExtensions": [
+    "js",
+    "mjs",
+    "cjs",
+    "jsx",
+    "ts",
+    "tsx",
+    "json",
+    "node",
+  ],
+  "testPathIgnorePatterns": [
+    "node_modules/",
+    ".projects",
+  ],
+  "watchPathIgnorePatterns": [
+    "node_modules/",
+  ],
+}
+`;

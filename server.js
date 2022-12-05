@@ -3,6 +3,7 @@ const { execSync } = require("child_process")
 const { hash: NOCRYPT_hash } = require("xxhash")
 const { auth, requiresAuth, attemptSilentLogin } = require('express-openid-connect');
 const bodyParser = require("body-parser");
+const { request } = require("https")
 const { inspect } = require("util")
 const INSPECTARGS = {
 	showHidden: true,
@@ -37,14 +38,15 @@ if (!String.prototype.format) {
       ;
     });
   };
-}
+}    
 
 const { default: jwt_decode } = require("jwt-decode")
 const { data, save, touch } = require("./db.js")
+const exc = (e) => { throw e }
 app.use(auth({
   authRequired: false,
   auth0Logout: true,
-  baseURL: 'https://nmn.bad.mn',
+  baseURL: process.env.URL || exc(new Error("Please set process.env.URL")),
   clientID: 'AowNHc7SuoxW3jVCjUb0qHIb8BKwXTQT',
   issuerBaseURL: 'https://nomorenotes.us.auth0.com',
   secret: process.env.AUTH0_SECRET, // fs.readFileSync(__filename, "utf-8")
@@ -66,6 +68,17 @@ app.use(bodyParser.raw())
 
 app.get("/setup", requiresAuth(), (req, res) => {
   res.render()
+})
+const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
+app.get(["/eagler", "/eagler/dl"], (req, res) => {
+  const r = request(eaglerUrl)
+  console.log("downloading eagler")
+  if (req.query.dl) r.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+  r.on("response", message => {
+    console.log("piping eagler")
+    message.pipe(res)
+  })
+  r.end()
 })
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : { "admin": "adminpassword", "user": "userpassword" };
 
@@ -99,6 +112,10 @@ app.get("/story.txt", (req, res) => {
 app.get("/themes.json", (req, res) => {
 	res.sendFile(__dirname + "/themes.json");
 });
+
+app.get("/unban", (req, res) => {
+  res.render("unban.pug")
+})
 
 require("./site/module.js")(app); // site urls
 require("./chat/module.js")(app); // chat urls

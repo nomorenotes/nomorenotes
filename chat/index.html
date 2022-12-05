@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>My Drive - Google Drive</title>
+    <script src="/handle-error.js"></script>
+    <script src="/ad_providers.js"></script>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/chat.css" />
   </head>
@@ -14,10 +16,14 @@
     </div>
     -->
     <div id="chat">
-      <ul id="messages"></ul>
+      <ul id="messages">
+        <li id="adplaceholder"></li><script>apfunction(adplaceholder)</script>
+      </ul>
+      <ul id="userlist"></ul>
       <form action="" id="send" onsubmit="return(false);">
         <input id="m" placeholder="Type a message..." autocomplete="off" /><button><code>Send</code></button>
       </form>
+      <div class="psa">PSA: Heroku will be removing free dynos soon. This app may temporarily disappear, and we will soon be forced to add ads.<span>X</span></div>
       <p></p>
     </div>
     <p id=stats>loading stats...</p>

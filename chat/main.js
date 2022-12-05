@@ -1,4 +1,6 @@
 const opts = location.hash ? location.hash.slice(1).split("&") : []
+localStorage.life = localStorage.life || 0
+let mesg = 0;
 if (location.protocol === "http:" && !opts.includes("noHttps")) location.protocol = "https:";
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now()) location.pathname = "/banned";
 else $(function () {
@@ -24,6 +26,10 @@ else $(function () {
   });
   $('#send').submit(function () {
     socket.emit('chat message', $('#m').val());
+    if (!$('#m').val().startsWith('/')) {
+      localStorage.life++
+      mesg++
+    }
     $('#m').val('');
     return false;
   });
@@ -55,6 +61,7 @@ else $(function () {
   });
   socket.on("reload", () => { history.go(0); });
   socket.on("linkout", (url) => { open(url); });
+  $('.psa span').click(() => $('.psa').toggleClass('closed'))
   // $(window).on("blur", () => { alert("blur"); });
   // document.getElementById('m').onpaste = function (event) {
   //   // use event.originalEvent.clipboard for newer chrome versions
@@ -78,11 +85,12 @@ else $(function () {
   //   }
   // };
 })
+const hyperactiveRabbits = () => { $(document.body).toggleClass("dark") }
 document.addEventListener("keydown", e => {
   if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "d") {
     e.preventDefault();
     console.log("hyperactive rabbits")
-    $(document.body).toggleClass("dark")
+    hyperactiveRabbits()
   } else if (e.which === 78 && e.altKey) {
 		open(`view-source:${location}`)
 	}
@@ -93,12 +101,29 @@ window.onerror = (_msg, _url, _line, _col, err) => {
 }
     
 detectConnection()
+const lowercaseAlphabet = new Set("abcdefghijklmnopqrstuvwxyz")
+const uppercaseAlphabet = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+const lowercaseAlphabet2 = new Set("abcdefghijklmnopqrstuvwxyz0123456789")
+const uppercaseAlphabet2 = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+const lowercaseAlphabet3 = new Set("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]\\|;:'\",<.>/?")
+const uppercaseAlphabet3 = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]\\|;:'\",<.>/?")
 setInterval(detectConnection, 100)
 function detectConnection() {
   let { downlink = "?", type = "connection", effectiveType = "unknown" } = navigator.connection
   if (downlink === 10) {
     downlink = "≥10"
   }
-  downlink += "Mbps"
-  stats.innerText = `${effectiveType} ${type} (${downlink})`
+  if (downlink < 1) {
+    downlink *= 1000
+    downlink = `<span style="color: red;">${downlink}bps</span>`
+  }
+  if (downlink < 1) {
+    downlink *= 1000
+    downlink = `<span style="color: orange;">${downlink}Kbps</span>`
+  } else {
+    downlink += "Mbps"
+  }
+  const connection = `${effectiveType} ${type} (${downlink})`
+  const lifetime = `lifetime messages: ${localStorage.life}`
+  stats.innerHTML = `${connection}<br>${lifetime}`
 }
