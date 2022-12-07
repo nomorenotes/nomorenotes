@@ -143,6 +143,7 @@ app.get("/getfile/:anything", (req, res) => {
           console.log("...dupe")
         } else {
           store[username].push(password)
+          save()
         }
       } else {
         store[username] = [password]
