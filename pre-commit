@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+
+exec 37>debug.log
+
+do_new_branch() {
+  res="$(in_alt dialog --stdout --inputbox "Enter the name of the branch to create")"
+  echo $? - "$res"
+}
+helpfor_do_new_branch() {
+  do_help "This action will create a new branch and continue your commit on that branch."
+}
+
+do_help() {
+  in_alt dialog --stdout --infobox "$1" 0 0
+  do_dialog
+}
+
+in_alt() {
+  tput smcup
+  "$@"
+  FNLOCAL_in_alt_retval=$?
+  tput rmcup
+  return $FNLOCAL_in_alt_retval
+}
+
+do_switch_branch() {
+  res="$(in_alt dialog --stdout --help-button --no-kill --menu "Please select a branch." 0 0 0 PLACEHOLDER PLACEHOLDER)"
+  echo $? - "$res"
+}
+helpfor_do_switch_branch() {
+  do_help "This action will ask you for a branch name, stash your changes, switch to the branch, and pop the stashed changes."
+}
+
+do_stash() {
+  git stash
+}
+helpfor_do_stash() {
+  do_help "This action will stash all changes and exit. Use \`git stash pop\` to apply your changes."
+}
+
+do_dialog() {
+  res=$(in_alt dialog --stdout --help-button --no-kill --menu "This branch cannot be committed to directly. Select an option from the list below, or Cancel to abort the commit." 0 0 0 \
+    do_new_branch    "Create a new branch"      \
+    do_switch_branch "Switch to another branch" \
+    do_stash         "Stash changes"            \
+  )
+  code=$?
+  echo $res $code
+  case $code in
+    0) $res;;
+    2)
+      echo got here
+      tag=$(cut -d\  -f2 <<<"$res")
+      echo -E "$tag"
+      echo -E "helpfor_$tag"
+      sleep 1
+      ;;
+    *) exit $code;;
+  esac
+}
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$branch" = "worksihope" ]; then
+  do_dialog
+fi

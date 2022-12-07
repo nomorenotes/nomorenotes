@@ -14,22 +14,29 @@ module.exports = (app) => {
 	app.use("/upload/", cors(), static(__dirname + "/../.uploaded"))
 
 
-	app.get("/upload/admin", (req, res) => {
+  const { promisify } = require("util")
+	app.get("/upload/admin", async (req, res) => {
 		const { promises: { readdir } } = require("fs")
+    const { execSync } = require("child_process")
 		const basepath = __dirname + "/../.uploaded/"
-		return readdir(basepath)
-			.then(names => names.map(async name => [name, await readdir(basepath + name)]))
-			.then(proms => Promise.all(proms))
-			.then(data => {
-				res.write("<h1>Files</h1><table>")
-				res.write("<tr><th>File</th><th>Hash</th><th>Delete</th></tr>")
-				for (let [name, files] of data) {
-					// This will break pretty badly if there are ever multiple files
-					res.write(`<tr><td><a href="/${name}/${files}">${files}</a></td><td>${name}</td>`)
-					res.write(`<td><a href="/upload/delete/${name}">Delete</a></td></tr>`)
-				}
-				res.end()
-			})
+		const names = await readdir(basepath)
+    const rd = await Promise.all(names.map(async name => [name, await readdir(basepath + name)]))
+    
+    res.write("<h1>Files</h1><table>")
+    res.write("<tr><th>File</th><th>Hash</th><th>Delete</th></tr>")
+    const utProms = []
+    for (let [name, files] of rd) {
+      utProms.push(async () => {
+        // This will break pretty badly if there are ever multiple files
+        const execR = execSync('git status "' + files + '"')
+        const tag = execR.stdout ? '<tr style="background:pink">' : "<tr>"
+        
+        res.write(`${tag}<td><a href="/${name}/${files}">${files}</a></td><td>${name}</td>`)
+        res.write(`<td><a href="/upload/delete/${name}">Delete</a></td></tr>`)
+      })
+    }
+    await Promise.all(utProms)
+    res.end()
 	})
 	app.get("/upload/delete/:hash", ({ params: { hash } }, res) => {
 		const { promises: { rmdir } } = require("fs")
