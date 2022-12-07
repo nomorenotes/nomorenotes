@@ -73,7 +73,10 @@ const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   const r = request(eaglerUrl)
   console.log("downloading eagler")
-  if (req.query.dl) r.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+  if (req.originalUrl.includes("dl")) {
+    console.log("actually downloading eagler");
+    res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+  }
   r.on("response", message => {
     console.log("piping eagler")
     message.pipe(res)
