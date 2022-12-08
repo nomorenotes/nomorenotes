@@ -3,4 +3,5 @@ clone_gpg.sh
 repo_setup.sh
 npm.ls
 coverage
-debug.log
+debug.logdb.test.*.json
+db.test.json
