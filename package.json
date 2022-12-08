@@ -13,6 +13,7 @@
     "jwt-decode": "^3.1.2",
     "node-fetch": "^2.6.7",
     "pug": "^3.0.2",
+    "puppeteer": "^19.4.0",
     "socket.io": "^4.5.4",
     "supports-color": "9.2.3",
     "tokgen": "^1.0.0",

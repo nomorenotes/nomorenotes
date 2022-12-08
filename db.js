@@ -19,10 +19,14 @@ exports.save = () => {
   fsp.writeFile(file, JSON.stringify(data, null, 2))
 }
 
-exports.touch = (key) => {
+exports.touch = (...keys) => {
+  const key = keys.pop()
+  const base = keys.length ? exports.touch(...keys) : data
   if (key in data) {
     return data[key]
   } else {
-    return data[key] = {}
+    const val = data[key] = {}
+    exports.save()
+    return val
   }
 }
