@@ -1,0 +1,1 @@
+ssh -tp 5212 nathan@nathan.uh.pool.bad.mn screen -r
