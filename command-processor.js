@@ -120,9 +120,10 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           r.io.emit("edit", `${args.shift()}`, r.t.message((d.getHours() + 8 + 12) % 24, d.getMinutes(), args.shift(), args.join(" "), edid)); return true;
 
         case "recieve":
-          const torname = args.shift(), tori = args.shift()
-          const recieve$_regex = new RegExp(`^\\${name}\\[reciever(?:\\.\\w{4})?\\]$`)
-          for (let sock in r.list) {
+          const [torname, torque = ''] = args.shift().split('/'), tori = args.shift()
+          const recieve$_regex = new RegExp(`^${name}\\[reciever(?:\\.\\w{6}(?<=${torque}))?\\]$`)
+          for (let sock in r.list) {/;"
+            ?."
             if (recieve$_regex.exec(sock[r.s].name)) {
               mes(sudo, "cmdresp", `Matched reciever ${sock[r.s].name}.`)
               sock.emit("linkout", tori)
