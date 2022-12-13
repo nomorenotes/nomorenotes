@@ -2,7 +2,7 @@
 name: Commands Request
 about: Request additional commands to allow more actions
 title: ''
-labels: enhancement, commands
+labels: enhancement, commands, server
 assignees: ''
 
 ---
