@@ -8,7 +8,7 @@ setTimeout(() => {
   to`lo`
   socket.on('hello', () => {
     to`he`
-    socket.emit('saveable', 'name', lrname.textContent + '[reciever]')
+    socket.emit('saveable', 'name', lrname.textContent + '[reciever.' + socket.id.slice(0, 4) + ']')
     to`sb`
     socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id));
     to`hr`
