@@ -8,7 +8,7 @@ try {
   _userOps = ["Administrator"];
 }
 const catchBadCommand = false;
-const { r } = require("./iomodule.js"); r.away = {};
+const { r } = require("./iomodule.js");
 r.away = {};
 const apply_name = module.exports.apply_name = (who, name, talk = true) => {
   if (r.rnames[name]) {
