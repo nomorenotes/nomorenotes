@@ -5,10 +5,12 @@ setTimeout(() => {
   const socket = io()
   to`so`
   socket.on('linkout', url => open(url))
-  to`lo`
+  to`le`
   socket.on('hello', () => {
     to`he`
-    socket.emit('saveable', 'name', lrname.textContent + '[reciever.' + socket.id.slice(0, 4) + ']')
+    localStorage.session ??= socket.id
+    to`so`
+    socket.emit('saveable', 'name', lrname.textContent + '[reciever.' + socket.id.slice(0, 3) + localStorage.session.slice(4, 6) + ']')
     to`sb`
     socket.emit("hello", localStorage.session ? localStorage.session : (localStorage.session = socket.id));
     to`hr`
