@@ -1,6 +1,6 @@
 on:
   issues:
-    types: [ created ]
+    types: [ created, assigned ]
 
 jobs:
   create_issue_branch_job:
