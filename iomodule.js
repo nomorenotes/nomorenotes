@@ -37,6 +37,7 @@ r.mail = (content, username = "Server") => {
   console.log(`mailing ${username}: ${content}`)
   proms = []
   for (let url of (process.env.MAIL_URL || "").split(";")) {
+    if (!url) continue
     console.log(`Discord mail: ${url}`)
     proms.push(fetch(url, {
       ...MAIL_OPTS,
@@ -45,6 +46,7 @@ r.mail = (content, username = "Server") => {
   }
   if (!content.startsWith("Server restarted @ ")) {
     for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
+      if (!nmnurl) continue
       sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
       console.log(`NMN mail: ${nmnurl}`)
       proms.push(fetch(nmnurl, {
