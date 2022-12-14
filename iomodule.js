@@ -129,7 +129,7 @@ const format_msg = module.exports.format_msg = msg => msg
   .replace(/(?!document)c\W*u\W*m/ig, "ice cream")
   .replace(/p\W*[ro0]?\W*[r0o]\W*n/ig, "corn")
   .replace(/h\W*w?\W*[3e]\W*n\W*t\W*a?\W*[1li]/ig, "hitmen")
-  .replace(/r\/([a-zA-Z0-9]{3,21})/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
+  .replace(/\{r\/([a-zA-Z0-9]{3,21})\}/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
   
 /*.replace(/</g, "&lt;")
 .replace(/>/g, "&gt;")
