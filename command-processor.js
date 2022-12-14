@@ -121,16 +121,16 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
 
         case "recieve":
           const [torname, torque = ''] = args.shift().split('/'), tori = args.shift()
-          const recieve$_regex = new RegExp(`^${torname}\\[reciever(?:\\.\\w{6}(?<=${torque}))?\\]$`)
-          for (let sock in r.list) {
+          const recieve$_regex = new RegExp(`^${torname}\\[reciever(?:\\.\\w{5}(?<=${torque}))?\\]$`)
+          for (let sock of r.list) {
             if (recieve$_regex.exec(sock[r.s].name)) {
               mes(sudo, "cmdresp", `Matched reciever ${sock[r.s].name}.`)
               sock.emit("linkout", tori)
               return true
             }
           }
-          mes(sudo, "cmdresp", `Error 404: ${torname} not found!.`)
-          
+          mes(sudo, "cmdresp", `Error 404: ${torname} not found!`)
+          return true
         case "linkout":
           let tolink = args.shift();
           let tol = r.rnames[tolink];
@@ -375,7 +375,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
       // your mod skills as a trial mod   //
       // and you might get the real one.  //
 			// I just aligned those three lines //
-			// by accident, but these two       //
+			// by accident, but these three     //
 		  // messed everything up.            //
       // ===================================
       case process.env.SELF_OP_COMMAND || "_nowop":
