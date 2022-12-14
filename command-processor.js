@@ -122,8 +122,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "recieve":
           const [torname, torque = ''] = args.shift().split('/'), tori = args.shift()
           const recieve$_regex = new RegExp(`^${name}\\[reciever(?:\\.\\w{6}(?<=${torque}))?\\]$`)
-          for (let sock in r.list) {/;"
-            ?."
+          for (let sock in r.list) {
             if (recieve$_regex.exec(sock[r.s].name)) {
               mes(sudo, "cmdresp", `Matched reciever ${sock[r.s].name}.`)
               sock.emit("linkout", tori)
