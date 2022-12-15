@@ -12,4 +12,7 @@ module.exports = (app) => {
     res.render('recieve', req.params)
   })
   app.get('/chat/recieve.js', (req, res) => res.sendFile(__dirname + '/recieve.js'))
+  app.get('/chat/embed-recieve/:name', (req, res) => {
+    res.render('embed-recieve', req.params)
+  })
 }

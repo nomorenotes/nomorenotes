@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { execSync } = require("child_process")
 const { hash: NOCRYPT_hash } = require("xxhash")
 const { auth, requiresAuth, attemptSilentLogin } = require('express-openid-connect');
@@ -203,6 +204,7 @@ http.listen(port, function() {
 	console.log('listening on *:' + port);
 });
 
+app.use("/cors", cors(), express.static("public/cors"))
 app.use(express.static("public"))
 app.use("/bandruf", requiresAuth(), express.static("bandruf"))
 
