@@ -124,7 +124,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           const recieve$_regex = new RegExp(`^${torname}\\[reciever(?:\\.\\w{5}(?<=${torque}))?\\]$`)
           for (let sock of r.list) {
             if (recieve$_regex.exec(sock[r.s].name)) {
-              mes(sudo, "cmdresp", `Matched reciever ${sock[r.s].name}.`)
+              mes(sudo, "cmdresp", `Ok, ${torname}'s reciever ${sock[r.s].name.replace(torname, "").replace('reciever.', "")} is on ${tori} now.`)
               sock.emit("linkout", tori)
               return true
             }
