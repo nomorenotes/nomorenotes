@@ -72,15 +72,23 @@ app.get("/setup", requiresAuth(), (req, res) => {
 })
 const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
+  
+})
+app.get(["/eagler/:name", "/eagler/:name/dl"], (req, res) => {
   const r = request(eaglerUrl)
-  console.log("downloading eagler")
+  let id = String(Math.random()).slice(1, string.length)
+  const { name: oname } = req.params
+  const name = oname + id
+  console.log("downloading eagler for", name)
   if (req.originalUrl.includes("dl")) {
-    console.log("actually downloading eagler");
-    res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+    console.log("actually downloading eagler for", name);
+    res.setHeader("Content-Disposition", `attachment; filename="eagler-${name}.html"`)
   }
   r.on("response", message => {
-    console.log("piping eagler")
+    console.log("piping eagler for", name)
     message.pipe(res)
+    res.once("close", () => console.log((r.end(), "finished piping eagler for"), name))
+    r.once("close", () => console.log("eagler pipe ended for", name))
   })
   r.end()
 })
