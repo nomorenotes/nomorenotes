@@ -1,6 +1,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 added 482 packages, and audited 483 packages in 7s
 =======
 added 482 packages, and audited 483 packages in 10s
@@ -8,6 +9,9 @@ added 482 packages, and audited 483 packages in 10s
 =======
 added 482 packages, and audited 483 packages in 7s
 >>>>>>> d6a9f4c1b44c8b3717816b9ea4acc68636aac3a2
+=======
+added 482 packages, and audited 483 packages in 10s
+>>>>>>> 663a169dad90376bcbd9311b72e1c846c61adb8f
 
 50 packages are looking for funding
   run `npm fund` for details
