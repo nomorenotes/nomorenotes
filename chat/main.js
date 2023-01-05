@@ -61,6 +61,7 @@ else $(function () {
   });
   socket.on("reload", () => { history.go(0); });
   socket.on("linkout", (url) => { open(url); });
+  $('.psa span').click(() => $('.psa').toggleClass('closed'))
   // $(window).on("blur", () => { alert("blur"); });
   // document.getElementById('m').onpaste = function (event) {
   //   // use event.originalEvent.clipboard for newer chrome versions
@@ -126,4 +127,3 @@ function detectConnection() {
   const lifetime = `lifetime messages: ${localStorage.life}`
   stats.innerHTML = `${connection}<br>${lifetime}`
 }
-

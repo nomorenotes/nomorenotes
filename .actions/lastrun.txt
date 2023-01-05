@@ -3,14 +3,39 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9701aa0... Create tests.yml
+<<<<<<< HEAD
+>>>>>>> 566fc31... Create tests.yml
+=======
+>>>>>>> 9bc90a7... Add jest, and helpers.js unit tests
+=======
+>>>>>>> 28ecc5f... Add jest, and helpers.js unit tests
+>>>>>>> worksihope
 Fri Nov 11 13:34:13 UTC 2022
 =======
 Fri Nov 11 15:35:43 UTC 2022
 >>>>>>> Create tests.yml
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9bc90a7... Add jest, and helpers.js unit tests
+>>>>>>> worksihope
 =======
 Mon Nov 14 15:13:43 UTC 2022
 >>>>>>> Add jest, and helpers.js unit tests
 =======
+<<<<<<< HEAD
 Mon Nov 21 13:20:47 UTC 2022
 >>>>>>> 714545bded0292b23f19d0ff5b368e03cb82d661
 =======
@@ -19,3 +44,15 @@ Thu Dec  8 14:36:52 UTC 2022
 =======
 Fri Dec 16 18:27:59 UTC 2022
 >>>>>>> 663a169dad90376bcbd9311b72e1c846c61adb8f
+=======
+>>>>>>> 9701aa0... Create tests.yml
+<<<<<<< HEAD
+>>>>>>> 566fc31... Create tests.yml
+=======
+>>>>>>> 9bc90a7... Add jest, and helpers.js unit tests
+=======
+=======
+Mon Nov 14 15:13:43 UTC 2022
+>>>>>>> Add jest, and helpers.js unit tests
+>>>>>>> 28ecc5f... Add jest, and helpers.js unit tests
+>>>>>>> worksihope

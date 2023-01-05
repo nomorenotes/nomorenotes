@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { execSync } = require("child_process")
 const { hash: NOCRYPT_hash } = require("xxhash")
 const { auth, requiresAuth, attemptSilentLogin } = require('express-openid-connect');
@@ -38,7 +39,7 @@ if (!String.prototype.format) {
       ;
     });
   };
-}
+}    
 
 const { default: jwt_decode } = require("jwt-decode")
 const { data, save, touch } = require("./db.js")
@@ -73,7 +74,10 @@ const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   const r = request(eaglerUrl)
   console.log("downloading eagler")
-  if (req.query.dl) r.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+  if (req.originalUrl.includes("dl")) {
+    console.log("actually downloading eagler");
+    res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
+  }
   r.on("response", message => {
     console.log("piping eagler")
     message.pipe(res)
@@ -140,6 +144,7 @@ app.get("/getfile/:anything", (req, res) => {
           console.log("...dupe")
         } else {
           store[username].push(password)
+          save()
         }
       } else {
         store[username] = [password]
@@ -199,6 +204,7 @@ http.listen(port, function() {
 	console.log('listening on *:' + port);
 });
 
+app.use("/cors", cors(), express.static("public/cors"))
 app.use(express.static("public"))
 app.use("/bandruf", requiresAuth(), express.static("bandruf"))
 
