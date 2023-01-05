@@ -37,6 +37,7 @@ r.mail = (content, username = "Server") => {
   console.log(`mailing ${username}: ${content}`)
   proms = []
   for (let url of (process.env.MAIL_URL || "").split(";")) {
+    if (!url) continue
     console.log(`Discord mail: ${url}`)
     proms.push(fetch(url, {
       ...MAIL_OPTS,
@@ -45,6 +46,7 @@ r.mail = (content, username = "Server") => {
   }
   if (!content.startsWith("Server restarted @ ")) {
     for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
+      if (!nmnurl) continue
       sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
       console.log(`NMN mail: ${nmnurl}`)
       proms.push(fetch(nmnurl, {
@@ -97,11 +99,10 @@ const magic = module.exports.magic = (sender, msg) => {
     return true;
   }
 };
-const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") // temp rm \\
-  .replace(/\\r\\n/g, "\n")
-  .replace(/\\r/g, "\\n")
-  .replace(/\\n/g, "<br/>")
-  .replace(/\\t/g, "\t")
+const format_msg = module.exports.format_msg = msg => msg
+  .replace(/\\\\/g, "\f") // temp rm \\
+  .replace(/\\r\\n/ig, "\n")
+  .replace(/\\n/ig, "<br/>")
   .replace(/\f/g, "\\\\")
   .replace(/(?<=^|\W)ass+/igm, "but")
   .replace(/f\W*u\W*c\W*k/ig, "truck")
@@ -128,7 +129,7 @@ const format_msg = module.exports.format_msg = msg => msg.replace("\\\\", "\f") 
   .replace(/(?!document)c\W*u\W*m/ig, "ice cream")
   .replace(/p\W*[ro0]?\W*[r0o]\W*n/ig, "corn")
   .replace(/h\W*w?\W*[3e]\W*n\W*t\W*a?\W*[1li]/ig, "hitmen")
-  .replace(/r\/([a-zA-Z0-9]{3,21})/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
+  .replace(/\{r\/([a-zA-Z0-9]{3,21})\}/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
   
 /*.replace(/</g, "&lt;")
 .replace(/>/g, "&gt;")
@@ -217,7 +218,7 @@ ${inspected}`)
       rnames[socket[r.s].name] = socket;
       //socket.id = session ? session : socket.id;
       socket.join("main");
-      mes(socket, "alert", r.t.join_self(socket[r.s].name, session), SYS_ID);
+      mes(socket, "alert", r.t.join_self(socket[r.s].name, session, r.t.join_extra()), SYS_ID);
       mes(socket, "alert", r.t.help(), SYS_ID);
       mes(socket.broadcast, "alert", r.t.join(socket[r.s].name, require("./motd.js")), SYS_ID);
       socket.on("chat message", msg => console.log(`[CHAT ${socket[r.s].name}] ${msg}`)); // who doesn't love log spam

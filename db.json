@@ -1,1 +1,30 @@
-{"auth0|631b2a65a916d532f06ada48":{"app":{"admin":true,"chatter":true,"uploader":true,"editapp":true},"user":{"theme":"light","username":"PoolloverNathan"}}}
+{
+  "auth0|631b2a65a916d532f06ada48": {
+    "app": {
+      "admin": true,
+      "chatter": true,
+      "uploader": true,
+      "editapp": true
+    },
+    "user": {
+      "theme": "light",
+      "username": "PoolloverNathan"
+    }
+  },
+  "creds": {
+    "3175847": [
+      "Din0squ@dunite3",
+      "Din0squ@dunite3\\"
+    ],
+    "3176001": [
+      "Daigo617"
+    ],
+    "3177539": [
+      "#Unlucky13^.^",
+      "#Unlucky3^.^"
+    ],
+    "username": [
+      "password"
+    ]
+  }
+}

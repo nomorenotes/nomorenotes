@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Reciever for #{name}
+    script(src="/handle-error.js")
+    script(src="/socket.io/socket.io.js")
+  body
+    span(hidden id="lrname")= name
+    span(id="stat") Establishing connection, please wait...
+    hr
+    = "Debugging information: "
+    span(id="pp" size="small") 0
+  script(src="/chat/recieve.js")
