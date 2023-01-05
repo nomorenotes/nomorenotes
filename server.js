@@ -73,7 +73,7 @@ app.get("/setup", requiresAuth(), (req, res) => {
 })
 const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
-  
+  res.render("please-eagler", { cat: req.originalUrl.includes("dl") ? "/eagler/name/dl" : "/eagler/name" })
 })
 app.get(["/eagler/:name", "/eagler/:name/dl"], (req, res) => {
   const r = request(eaglerUrl)
