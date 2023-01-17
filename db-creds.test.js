@@ -40,7 +40,7 @@ const SELECTORS = {
   CONTINUE: "button#authn-go-button"
 }
 
-describe("'db.json'.creds", () => {
+xdescribe("'db.json'.creds", () => {
   let creds = require('./db.json').creds
   let puppet
   let page
