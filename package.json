@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "No more notes! Instant messaging for classrooms.",
   "dependencies": {
-    "@hapi/hoek": "^10.0.1",
+    "@hapi/hoek": "^11.0.2",
     "@socket.io/admin-ui": "^0.5.1",
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
