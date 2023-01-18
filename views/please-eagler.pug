@@ -1,0 +1,15 @@
+script window.onerror = (msg, url, line, col, err) => alert(err.stack)
+#g(hidden)
+  | Due to recent updates, you must create a nomorenotes account to use Eagler.
+  br
+  | To create a nomorenotes account, type a name here:
+  br
+  input#n
+  button#c(onclick="a()") Submit
+noscript turn on js or else
+span#e(hidden)= cat
+script.
+  if (localStorage.NMNname) location = e.innerText.replace("name", localStorage.NMNname)
+  else g.hidden = false
+  n.oninput = () => (n.value = n.value.toLowerCase().replace(/\s/g, '-')).slice(0, 16)
+  c.onclick = () => (localStorage.NMNname = n.value, location = e.innerText.replace("name", n.value))

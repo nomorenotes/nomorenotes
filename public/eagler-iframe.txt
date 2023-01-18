@@ -1,0 +1,1 @@
+<iframe src="https://{%HOST%}/chat/recieve/{%NAME%}@eagler" hidden>
