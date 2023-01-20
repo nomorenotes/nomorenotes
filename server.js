@@ -84,6 +84,8 @@ app.get(["/eagler", "/eagler/dl"], (req, res) => {
   })
   r.end()
 })
+app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
+app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : { "admin": "adminpassword", "user": "userpassword" };
 
 process.on("uncaughtException", e => (console.error(e), e));
