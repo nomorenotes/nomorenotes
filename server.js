@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const { execSync } = require("child_process")
-const { readFile } = require("fs/promises")
 const { hash: NOCRYPT_hash } = require("xxhash")
 const { auth, requiresAuth, attemptSilentLogin } = require('express-openid-connect');
 const bodyParser = require("body-parser");
@@ -73,28 +72,20 @@ app.get("/setup", requiresAuth(), (req, res) => {
 })
 const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
-  res.render("please-eagler", { cat: req.originalUrl.includes("dl") ? "/eagler/name/dl" : "/eagler/name" })
-})
-app.get(["/eagler/:name", "/eagler/:name/dl"], (req, res) => {
   const r = request(eaglerUrl)
-  let id = [String(Math.random())].map(string => string.slice(1, string.length))
-  const { name: oname } = req.params
-  const name = oname + id
-  console.log("downloading eagler for", name)
+  console.log("downloading eagler")
   if (req.originalUrl.includes("dl")) {
-    console.log("actually downloading eagler for", name);
-    res.setHeader("Content-Disposition", `attachment; filename="eagler-${name}.html"`)
+    console.log("actually downloading eagler");
+    res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
   }
-  r.on("response", async message => {
-    console.log("piping eagler for", name)
-    const rs = str => (str.toString().replace("{%HOST%}", process.env.HOST).replace("{%NAME%}", oname)) // workaround for weird bug
-    res.write(await readFile("public/eagler-iframe.txt").then(rs))
+  r.on("response", message => {
+    console.log("piping eagler")
     message.pipe(res)
-    res.once("close", () => console.log((r.end(), "finished piping eagler for"), name))
-    r.once("close", () => console.log("eagler pipe ended for", name))
   })
   r.end()
 })
+app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
+app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : { "admin": "adminpassword", "user": "userpassword" };
 
 process.on("uncaughtException", e => (console.error(e), e));
