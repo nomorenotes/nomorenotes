@@ -1,6 +1,6 @@
 /* eslint no-undef: ["off"] quotes: ["error", "double"] */
 window.onerror = (msg, url, line, col, err) => {
-  if (!err.ignored) alert()
+  if (!err.ignore) alert("Uncaught " + err.stack)
 }
 
 statu.innerText = "loading"
