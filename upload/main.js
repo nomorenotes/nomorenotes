@@ -37,6 +37,35 @@ lbut.onclick = () => {
 	const { value } = urli;
 	sc.emit("upload:url", urli, getName())
 }
+window.onerror = (msg, url, line, col, err) => {
+  if (!err.ignored) alert()
+}
+function raw_upload(use_b64) {
+  if (teenageninja.value === "") {
+    fail("A filename must be specified when using raw uploading.")
+  }
+  const data = rtx_on.value
+  if (use_b64) {
+    try {
+      data = atob(data)
+    } catch (e) {
+      fail("Failed to decode base64. Is it valid?")
+    }
+  }
+  // start upload
+	filel.innerText = teenageninja.value + ' [raw]';
+	filez.innerText = String(data.length) + "b";
+	statu.innerText = "transmitting"
+	sc.emit("upload:file", data, teenageninja.value)
+}
+function fail(msg) {
+  alert("Error: " + msg + "\nThe most likely cause of the problem is located between the keyboard and chair.")
+  const err = Error(msg)
+  err.ignore = true
+  return err
+}
+tbut.onclick = raw_upload.bind(null, false)
+bbut.onclick = raw_upload.bind(null, true)
 uue.onclick = () => {
 	teenageninja.placeholder = filei.target.files[0].name
 }
