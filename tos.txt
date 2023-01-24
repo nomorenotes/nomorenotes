@@ -1,0 +1,4 @@
+Here are the terms of service (not yet translated to lawyerese):
+ - We (currently just Nathan) reserve the right to choose the interpretation of this document and its parts, including what 'parts' means.
+ - Delay or refusal to uphold the terms in this document does not mean that we waive the right to uphold them.
+ - If one of our sites has a red corner on its pages, then you agree to not disclose the existence, location, or contents without permission from us. This is in the TOS since I don't yet know how to write an NDA.
