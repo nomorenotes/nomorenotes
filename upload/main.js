@@ -1,4 +1,7 @@
-// $(() => {
+/* eslint no-undef: ["off"] quotes: ["error", "double"] */
+window.onerror = (msg, url, line, col, err) => {
+  if (!err.ignored) alert()
+}
 
 statu.innerText = "loading"
 const sc = io()
@@ -6,7 +9,7 @@ sc.on("connect", () => statu.innerText = "alpha")
 sc.on("upload:status", stat => statu.innerText = stat)
 sc.on("upload:done", url => {
 	url = `${location.origin}/${url}`
-	statu.innerText = `done`
+	statu.innerText = "done"
 	lastu.href = url;
 	lastu.innerText = url;
 	if (openu.checked) open(url)
@@ -35,34 +38,34 @@ ubut.onclick = () => {
 }
 lbut.onclick = () => {
 	const { value } = urli;
-	sc.emit("upload:url", urli, getName())
-}
-window.onerror = (msg, url, line, col, err) => {
-  if (!err.ignored) alert()
+	sc.emit("upload:url", value, getName())
 }
 function raw_upload(use_b64) {
   if (teenageninja.value === "") {
     fail("A filename must be specified when using raw uploading.")
   }
-  const data = rtx_on.value
+  let data = rtx_on.value
   if (use_b64) {
     try {
       data = atob(data)
     } catch (e) {
-      fail("Failed to decode base64. Is it valid?")
+      fail("Failed to decode base64. Is it valid?\nOriginal " + e.stack)
     }
   }
   // start upload
-	filel.innerText = teenageninja.value + ' [raw]';
+	filel.innerText = teenageninja.value + " [raw]";
 	filez.innerText = String(data.length) + "b";
 	statu.innerText = "transmitting"
 	sc.emit("upload:file", data, teenageninja.value)
 }
 function fail(msg) {
-  alert("Error: " + msg + "\nThe most likely cause of the problem is located between the keyboard and chair.")
+  if (Math.random() < 0.01) {
+    msg += "\nThe most likely cause of the problem is located between the keyboard and chair."
+  }
+  alert("Error: " + msg)
   const err = Error(msg)
   err.ignore = true
-  return err
+  throw err
 }
 tbut.onclick = raw_upload.bind(null, false)
 bbut.onclick = raw_upload.bind(null, true)
@@ -78,4 +81,3 @@ lle.onclick = () => {
 		alert(e.stack)
 	}
 }
-// })
