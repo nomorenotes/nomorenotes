@@ -1,0 +1,11 @@
+db-creds.test.js:31:  console.log(links.join('\n'));
+command-processor.js:7:  console.log(e);
+server.js:57:    console.log(req.url)
+server.js:86:    console.log("piping eagler")
+server.js:151:          console.log("...dupe")
+server.js:254:  // console.log(`parsed url: ${url}`)
+upload.js:8:	console.log("loaded upload.js")
+upload.js:14:			console.log("Got a file!")
+upload.js:25:				console.log(r)
+command-processor.js:497:    console.warn(`WARNING: Detected command ${cmd} with args ${args} not returning`);
+server.js:95:process.on("uncaughtException", e => (console.error(e), e));
