@@ -82,7 +82,7 @@ app.get(["/eagler", "/eagler/dl"], (req, res) => {
     res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
   }
   r.on("response", message => {
-    rqToken("Piping")
+    log("Piping")
     message.pipe(res)
   })
   r.end()
