@@ -25,7 +25,6 @@ var port = process.env.PORT || 3000;
 var iom = require("./iomodule.js");
 iom.r.commit = process.env.HEROKU_SLUG_COMMIT ?? execSync("git rev-parse HEAD")
 iom.main(io);
-const logger = iom.r.dbg.extend("server")
 
 io.toString = () => "[IO]"
 
@@ -54,6 +53,7 @@ app.use(auth({
   secret: process.env.AUTH0_SECRET, // fs.readFileSync(__filename, "utf-8")
   afterCallback(req, res, session) {
     const { sub } = jwt_decode(session.id_token)
+    console.log(req.url)
     if (sub in data) {
       return session;
     } else {
@@ -71,18 +71,15 @@ app.get("/setup", requiresAuth(), (req, res) => {
   res.render()
 })
 const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
-const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   const r = request(eaglerUrl)
-  const rqToken = (Math.random().toString().split(".")[1] || "").slice(0, 4).padStart(4, 0)
-  const log = eaglerLog.extend(rqToken)
-  log("Downloading")
+  console.log("downloading eagler")
   if (req.originalUrl.includes("dl")) {
-    log("Setting Content-Disposition");
+    console.log("actually downloading eagler");
     res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
   }
   r.on("response", message => {
-    rqToken("Piping")
+    console.log("piping eagler")
     message.pipe(res)
   })
   r.end()
@@ -91,9 +88,7 @@ app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
 app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : { "admin": "adminpassword", "user": "userpassword" };
 
-process.on("uncaughtException", e => {
-  logger("Uncaught exception!\n", e.stack, logger.ERROR)  
-});
+process.on("uncaughtException", e => (console.error(e), e));
 
 /*
 const whoDisBot = {
@@ -139,17 +134,16 @@ app.get("/banned", (req, res) => {
 	res.sendFile(__dirname + "/banned.html");
 });
 
-const getFileLog = logger.extend("getfile")
 app.get("/getfile/:anything", (req, res) => {
   if (req.headers.authorization) {
     const [ username, password ] = atob(req.headers.authorization.slice(6)).split(":")
-    getFileLog("%j -> %j", username, password)
+    console.log("%j -> %j", username, password)
     if (!username.includes("asdf")) {
       const store = touch("creds")
       if (username in store) {
         const pwords = store[username]
         if (pwords.includes(password)) {
-          getFileLog("...dupe")
+          console.log("...dupe")
         } else {
           store[username].push(password)
           save()
@@ -190,7 +184,6 @@ app.get("/logintest", attemptSilentLogin(), ({ oidc }, res) => {
 	
 })
 
-const hookLog = logger.extend("hook")
 app.post(["/hook", "/hook/:name"], (req, res) => {
 	if (!req.body || !req.body.message) {
 		res.status(400)
@@ -201,7 +194,7 @@ app.post(["/hook", "/hook/:name"], (req, res) => {
     res.status(400)
     res.json({ error: "There must either be a name given after /hook or a sender parameter in the body" })
   }
-	hookLog(`[HOOK ${name}] ${req.body.message}`)
+	console.log(`[HOOK ${name}] ${req.body.message}`)
 	iom.r.mes(io, "hook", iom.r.t.chat(name, req.body.message))
   res.json({ sender: name, data: req.body.message })
 	res.end()
@@ -209,9 +202,8 @@ app.post(["/hook", "/hook/:name"], (req, res) => {
 
 app.get("/$:id([0-9a-f]{8})", () => {})
 
-const httpLog = logger.extend("http")
 http.listen(port, function() {
-	httpLog('listening on *:' + port);
+	console.log('listening on *:' + port);
 });
 
 app.use("/cors", cors(), express.static("public/cors"))
@@ -222,6 +214,12 @@ app.set('view engine', 'pug')
 
 app.get("/claims.json", requiresAuth(), ({ oidc: { idTokenClaims } }, res) => {
 	res.send(inspect(idTokenClaims, INSPECTARGS))	
+})
+Object.defineProperty(Promise.prototype, "tap", {
+	get() {
+		this.then(v => console.log(v))
+		return this
+	}
 })
 app.get("/oidc.json", requiresAuth(), ({ oidc }, res) => {
 	Promise.resolve(Object.getPrototypeOf(oidc))
@@ -237,9 +235,9 @@ app.get("/oidc.json", requiresAuth(), ({ oidc }, res) => {
 	.then(text => res.send(text))
 })
 
-const evadeLog = logger.extend("evade")
 app.get("/evade", requiresAuth(), (req, res) => {
   let url;
+  // console.log("evading...")
   if ("url" in req.query) {
     url = req.query.url
   } else {
@@ -250,25 +248,26 @@ app.get("/evade", requiresAuth(), (req, res) => {
     return
   }
   
-  evadeLog(`evade url: ${url}`)
+  console.log(`evade url: ${url}`)
   url = new URL(url)
+  // console.log(`parsed url: ${url}`)
   switch (url.host) {
     case "reddit.com":
     case "old.reddit.com":
     case "www.reddit.com":
-      evadeLog("reddit -> user's mirror")
+      console.log("reddit -> user's mirror")
       url.host = getRedditMirror(req.oidc)
       break;
     case "xkcd.com":
     case "xk3d.xkcd.com":
     case "www.xkcd.com":
-      evadeLog("xkcd -> explainxkcd")
+      console.log("xkcd -> explainxkcd")
       url.host = "explainxkcd.com"
       break;
     case "imgur.com":
     case "www.imgur.com":
     case "i.imgur.com":
-      evadeLog("imgur -> filmot")
+      console.log("imgur -> filmot")
       url.host = "i.filmot.com"
       break;
     case "nomorenotes.herokuapp.com":
@@ -277,11 +276,11 @@ app.get("/evade", requiresAuth(), (req, res) => {
     case "nmn4frens.herokuapp.com":
     case "nmn4ogs.herokuapp.com":
     case "nmn.bad.mn":
-      evadeLog("nmn -> nmn")
+      console.log("nmn -> nmn")
       url.host = "lloyd-lynn.herokuapp.com"
       break
     default:
-      evadeLog("jk lol")
+      console.log("jk lol")
       res.status(204).end()
       return;
   }
@@ -310,12 +309,13 @@ function getUserColor(oidc) {
   return [0xCAFE0000, 0xCAFE1111, 0xCAFE2222].map(n => getUserRandom(oidc, n))
 }
 
-const meLog = logger.extend("me")
 app.get("/me", requiresAuth(), ({ oidc }, res) => {
   const colorsplit = getUserColor(oidc)
   // const bounds = oidc.user.user_metadata.theme === "dark" ? [0, 127] : [128, 255]
-  me(colorsplit)
+  console.log(colorsplit)
   const fact = 5/8
+  
+	// console.log(colordata)
 	res.render("me", {
 		oidc,
     color1: colorsplit,
@@ -326,15 +326,12 @@ app.get("/me", requiresAuth(), ({ oidc }, res) => {
 
 // require("./auth0.js")(app, io)
 // app.use("/auth0", require("./auth0.js")(io))
-logger("DEBUG", "...", logger.DEBUG)
-logger("LOG", "...", logger.LOG)
-logger("WARN", "...", logger.WARN)
-logger("ERR", "...", logger.ERR)
+
 loadadmin: if (true) {
 	try {
 		require.resolve("@socket.io/admin-ui")
 	} catch (e) {
-		logger("@socket.io/admin-ui is not installed.", "Admin UI will be unavailable.", logger.WARN)
+		console.warn("WARNING: @socket.io/admin-ui is not installed. Admin UI will be unavailable.")
 		break loadadmin
 	}
 	const { instrument } = require("@socket.io/admin-ui")
