@@ -334,7 +334,7 @@ loadadmin: if (true) {
 	try {
 		require.resolve("@socket.io/admin-ui")
 	} catch (e) {
-		logger("@socket.io/admin-ui is not installed. Admin UI will be unavailable.", logger.WARN)
+		logger("@socket.io/admin-ui is not installed.", "Admin UI will be unavailable.", logger.WARN)
 		break loadadmin
 	}
 	const { instrument } = require("@socket.io/admin-ui")
