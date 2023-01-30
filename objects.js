@@ -1,7 +1,9 @@
 //usr/bin/env false; echo "Warning: Attempted to run a node script in bash."; node "$0" "$@"; exit
+console.clear()
 const { promisify } = require("util")
 const c = require("chalk")
 const exec = promisify(require("child_process").execFile)
+const fs = require("fs").promises
 // exec("git", ["for-each-ref", "--python", "--format", "({ref:%(refname),type:%(objecttype),id:%(objectname)})"], {
 //   maxBuffer: Infinity
 // }).then(({ stdout, stderr }) => {
@@ -28,9 +30,17 @@ async function main() {
   updateProgress.m = commits.length
   updateProgress.l = String(commits.length).length
   // updateProgress(0)
-  console.log(commits, refs, "\n")
-  const processor = hash => (alterline(c.gray`processing ${hash}`), exec("git", ["cat-file", "commit", hash], { stdout: process.stdout }).then(data => [hash, data]).then(pair => loadCommitPair(pair)))
-  console.log(await commits.reduce((promise, nextHash) => promise.then(() => processor(nextHash)), Promise.resolve()))
+  //console.log(commits, refs, "\n")
+  let i = 0
+  const j = commits.length
+  const processor = hash => (alterline(c.gray`processing ${hash} [${(i++).toString()}/${j}]`), exec("git", ["cat-file", "commit", hash]).then(data => [hash, data]).then(pair => loadCommitPair(pair, refs)))
+  await commits.reduce((promise, nextHash) => promise.then(() => processor(nextHash)), Promise.resolve())
+  alterline("Generating file..." + c.gray`[${elements.length} elements]`)
+  const json = JSON.stringify(elements)
+  const totalBytes = json.length
+  alterline(`Writing... ` + c.gray`[${totalBytes}b]`)
+  await fs.writeFile("public/objects.json", json)
+  alterline(`Writing... done.`)
 }
 function alterline(...text) {
   process.stdout.cork()
@@ -40,8 +50,66 @@ function alterline(...text) {
   console.log(...text)
   process.stdout.uncork()
 }
-async function loadCommitPair() {
-  
+const elements = []
+async function loadCommitPair([hash, { stdout: data }], refs) {
+  const headers = {}
+  let currentHeader = []
+  //console.log(data)
+  const iter = data.split("\n")[Symbol.iterator]()
+  for (let header of iter) {
+    //console.log(currentHeader, headers, header)
+    if (header === "") break
+    if (header.startsWith(" ")) {
+      currentHeader[1] += "\n" + header.slice(1)
+    } else {
+      if (currentHeader.length) {
+        const [name, data2] = currentHeader
+        if (headers[name]) {
+          headers[name].push(data2)
+        } else {
+          headers[name] = [data2]
+        }
+      }
+      const parts = header.split(" ")
+      currentHeader = [parts.shift(), parts.join(" ")]
+    }
+  }
+  const remaining = Array.from(iter).join("\n")
+  const paragraphs = remaining.split("\n\n")
+  //console.log(headers)
+  const parents = headers.parent || []
+  const ref = refs.get(hash)
+  elements.push({
+    group: "nodes",
+    data: {
+      id: hash,
+      message: paragraphs,
+      headers,
+      refs: Array.from(ref || [])
+    },
+    classes: [
+      parents.length === 0 ? "orphan" :
+      parents.length === 1 ? "commit" :
+      "merge",
+      ref
+        && first(ref, el => el.startsWith("refs/remotes/"))
+        && "remote",
+      ref
+        && first(ref, el => el.startsWith("refs/heads/"))
+        && "branch",
+      ref && "ref",
+    ].filter(a => a)
+  })
+  for (let parent of parents) {
+    elements.push({
+      group: "edges",
+      data: {
+        source: hash,
+        target: parent
+      },
+      pannable: true
+    })
+  }
 }
 const incProgress = change => updateProgress(updateProgress.c + change)
 function updateProgress(newProgress) {
@@ -54,4 +122,11 @@ updateProgress.c = -1
 
 if (require.main === module) {
   main()
+}
+
+function first(iter, pred) {
+  for (let item of iter) {
+    return true
+  }
+  return false
 }

@@ -7,3 +7,4 @@ debug.log
 db.test.*.json
 db.test.json
 
+public/objects.json
