@@ -5,7 +5,7 @@ const _setStatus = io => status => io.emit("upload:status", status)
 const _done = io => url => io.emit("upload:done", url)
 
 const { r } = require("./iomodule.js")
-const logger = r.extend("upload")
+const logger = r.dbg.extend("upload")
 
 module.exports = io => {
 	logger("ready")
