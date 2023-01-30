@@ -74,7 +74,7 @@ const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft
 const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   const r = request(eaglerUrl)
-  const rqToken = (Math.random().toString().split(".")[1] || "").splice(0, 4).padStart(4, 0)
+  const rqToken = (Math.random().toString().split(".")[1] || "").slice(0, 4).padStart(4, 0)
   const log = eaglerLog.extend(rqToken)
   log("Downloading")
   if (req.originalUrl.includes("dl")) {
