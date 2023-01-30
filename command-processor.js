@@ -1,25 +1,21 @@
 'esversion: 6';
 const fs = require("fs");
 let mes = null;
-try {
-  _userOps = JSON.parse(process.env.USEROPS || '["Administrator"]');
-} catch (e) {
-  console.log(e);
-  _userOps = ["Administrator"];
-}
 const catchBadCommand = false;
 const { r } = require("./iomodule.js");
+const baseLogger = r.dbg.extend("cmd")
 r.away = {};
 const apply_name = module.exports.apply_name = (who, name, talk = true) => {
+  const log = baseLogger.extend("name")
   if (r.rnames[name]) {
     if (talk) mes(who, "cmdresp", `Name ${name} already authenticated.`, r.SYS_ID);
   } else {
     if (talk) mes(who.broadcast, "alert", `${who[r.s].name} has applied name ${name}.`, r.SYS_ID);
-    console.log(`setting rnames[${who[r.s].name}] = undefined`, r.SYS_ID);
+    log(`setting rnames[${who[r.s].name}] = undefined`, r.SYS_ID);
     r.rnames[who[r.s].name] = undefined;
-    console.log(`setting r.rnames[${name}] = ${who}`);
+    log(`setting r.rnames[${name}] = ${who}`);
     r.rnames[name] = who;
-    console.log(`setting ${who.id}[r.s].name = ${name}`);
+    log(`setting ${who.id}[r.s].name = ${name}`);
     who[r.s].name = name;
     if (talk) mes(who, "cmdresp", `Name ${name} applied successfully.`, r.SYS_ID);
     who.emit("saveable", "name", name);
@@ -31,6 +27,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
   if (msg.startsWith("/")) {
     const args = msg.slice(1).split(" ").map(a => a.replace(/&sp;/g, " "));
     const cmd = args.shift();
+    const log = baseLogger.extend(cmd)
     if (from._debug_command_detection) { from.emit("chat message", `Command detected! ${cmd}:${args}`); }
     if (from.op) {
       switch (cmd.toLowerCase()) { // OP COMMANDS
@@ -404,14 +401,14 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         var vomment = args.join(" ");
         var changed = false;
         while (args[0].startsWith("+")) {
-          console.log("parsing flag");
-          if (args[0] == "+nocontrols") { controls = ""; args.shift(); console.log("found +nocontrols"); }
-          else if (args[0] == "+autoplay") { autoplay = "autoplay "; args.shift(); console.log("found +autoplay"); }
+          log("parsing flag");
+          if (args[0] == "+nocontrols") { controls = ""; args.shift(); log("found +nocontrols"); }
+          else if (args[0] == "+autoplay") { autoplay = "autoplay "; args.shift(); log("found +autoplay"); }
           else { mes(sudo, "cmdresp", `Unknown flag ${args[0]}`); return true; }
         }
-        console.log(`about to render video ${videoid}\n`);
-        console.log(vomment ? `comment: ${vomment}` : vomment);
-        console.log(`controls: ${controls} | autoplay: ${autoplay}`);
+        log(`about to render video ${videoid}\n`);
+        log(vomment ? `comment: ${vomment}` : vomment);
+        log(`controls: ${controls} | autoplay: ${autoplay}`);
         mes(r.io, "msg", `${vomment}<details open><summary>Video</summary><video ${controls}${autoplay}alt="${vomment}" src="${videoid}"></img></details>`); return true;
       case "list":
         r.list.forEach(player => {
@@ -433,7 +430,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
               }
               return true;
             }
-            console.log(typeof data);
+            log(typeof data);
             const dataAry = []
             data.split("\n").map(d => d.replace("\r\n", "\n").replace("\r", "\n")).forEach(line => {
               if (line.startsWith("@< ")) {
@@ -444,7 +441,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
                   dataAry.push(retval)
                 }
               } else if (line === "@//") {
-                console.log(from[r.s].name, helpdocid, dataAry)
+                log(from[r.s].name, helpdocid, dataAry)
               } else {
                 mes(from, "cmdresp", `[Help ${helpdocid}]: ${line.format(...dataAry)}`);
               }
@@ -491,7 +488,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         mes(sudo, "cmdresp", `Unrecognized command ${cmd}. The command does not exist, or you aren't allowed to run it. Run /help for help.`, r.SYS_ID); return catchBadCommand;
     }
     //@ts-ignore
-    console.warn(`WARNING: Detected command ${cmd} with args ${args} not returning`);
+    log(`Did not return, args:`, args, log.WARN);
     return true;
   }
   return false;
