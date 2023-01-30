@@ -1,0 +1,1498 @@
+*   [33m35a91df[m[33m ([m[1;32mworksihope[m[33m)[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[31m|[m[32m\[m  
+* [32m|[m [33mdd464ba[m changes mk2
+[32m|[m [32m|[m * [33mef76ad2[m[33m ([m[1;36mHEAD -> [m[1;32m172-tcp-forwarding-channel[m[33m, [m[1;31morigin/172-tcp-forwarding-channel[m[33m)[m changes mk2
+[32m|[m [32m|[m *   [33m889b405[m update
+[32m|[m [32m|[m [34m|[m[32m\[m  
+[32m|[m [32m|[m[32m_[m[34m|[m[32m/[m  
+[32m|[m[32m/[m[32m|[m [34m|[m   
+[32m|[m [32m|[m [34m|[m * [33m2729977[m[33m ([m[1;31morigin/revert-173-167-exploit-eagler-users[m[33m)[m Revert "Exploit eagler users"
+[32m|[m [32m|[m [34m|[m[32m/[m  
+[32m|[m [32m|[m[32m/[m[34m|[m   
+[32m|[m * [34m|[m [33m43103bc[m[33m ([m[1;31morigin/worksihope[m[33m)[m Force merge pull request #175 from nomorenotes/dependabot/npm_and_yarn/types/jest-29.2.6
+[32m|[m[32m/[m[1;32m|[m [34m|[m 
+[32m|[m * [34m|[m [33m5fcfb71[m Bump @types/jest from 29.2.5 to 29.2.6
+[32m|[m[32m/[m [34m/[m  
+* [34m|[m   [33me210f7e[m Merge pull request #161 from nomorenotes/dependabot/npm_and_yarn/hapi/hoek-11.0.2
+[1;33m|[m[1;34m\[m [34m\[m  
+[1;33m|[m * [34m|[m [33m390dbd7[m Bump @hapi/hoek from 10.0.1 to 11.0.2
+[1;33m|[m[1;33m/[m [34m/[m  
+[1;33m|[m [34m|[m       
+[1;33m|[m  [34m\[m      
+[1;33m|[m   [34m\[m     
+[1;33m|[m    [34m\[m    
+*[31m-[m[31m-[m[32m-[m[32m.[m [34m\[m   [33m34361e5[m Merge dependabot updates
+[1;35m|[m[1;36m\[m [31m\[m [32m\[m [34m\[m  
+[1;35m|[m [1;36m|[m [31m|[m * [34m|[m [33ma573d62[m[33m ([m[1;31morigin/dependabot/npm_and_yarn/puppeteer-19.5.2[m[33m)[m Bump puppeteer from 19.4.0 to 19.5.2
+[1;35m|[m [1;36m|[m * [32m|[m [34m|[m [33mb7d2679[m[33m ([m[1;31morigin/dependabot/npm_and_yarn/supports-color-9.3.1[m[33m)[m Bump supports-color from 9.2.3 to 9.3.1
+[1;35m|[m [1;36m|[m [32m|[m[32m/[m [34m/[m  
+[1;35m|[m * [32m/[m [34m/[m [33me77394d[m[33m ([m[1;31morigin/dependabot/npm_and_yarn/json5-2.2.3[m[33m)[m Bump json5 from 2.2.1 to 2.2.3
+[1;35m|[m [32m|[m[32m/[m [34m/[m  
+* [32m/[m [34m/[m [33m589c3b9[m[33m ([m[1;31morigin/dependabot/npm_and_yarn/types/jest-29.2.5[m[33m)[m Bump @types/jest from 29.2.3 to 29.2.5
+[32m|[m[32m/[m [34m/[m  
+[32m|[m [34m|[m * [33m0dbb212[m[33m ([m[1;35mrefs/stash[m[33m)[m WIP on 172-tcp-forwarding-channel: 65f135b someone uploaded something
+[32m|[m [34m|[m[34m/[m[34m|[m 
+[32m|[m [34m|[m * [33m28cb6b2[m index on 172-tcp-forwarding-channel: 65f135b someone uploaded something
+[32m|[m [34m|[m[34m/[m  
+[32m|[m * [33m65f135b[m someone uploaded something
+[32m|[m * [33m9a2a5b1[m /chat/embed-recieve implies /chat/recieve
+[32m|[m [34m|[m * [33m8daed2c[m[33m ([m[1;31morigin/dependabot/npm_and_yarn/hapi/hoek-11.0.2[m[33m)[m Bump @hapi/hoek from 10.0.1 to 11.0.2
+[32m|[m [34m|[m[32m/[m  
+[32m|[m[32m/[m[34m|[m   
+* [34m|[m   [33m721668c[m epic
+[36m|[m[1;31m\[m [34m\[m  
+[36m|[m * [34m\[m   [33mbbcef2e[m Merge pull request #152 from nomorenotes/dependabot/npm_and_yarn/express-openid-connect-2.11.0
+[36m|[m [1;32m|[m[1;33m\[m [34m\[m  
+[36m|[m [1;32m|[m * [34m\[m   [33mef9c465[m Merge branch 'worksihope' into dependabot/npm_and_yarn/express-openid-connect-2.11.0
+[36m|[m [1;32m|[m [1;34m|[m[1;32m\[m [34m\[m  
+[36m|[m [1;32m|[m [1;34m|[m[1;32m/[m [34m/[m  
+[36m|[m [1;32m|[m[1;32m/[m[1;34m|[m [34m|[m   
+[36m|[m * [1;34m|[m [34m|[m [33m97d5934[m Do not attempt to test credentials since puppeteer doesn't work
+[36m|[m [1;35m|[m * [34m|[m   [33m39f238c[m Merge branch 'worksihope' into dependabot/npm_and_yarn/express-openid-connect-2.11.0
+[36m|[m [1;35m|[m [1;36m|[m[1;35m\[m [34m\[m  
+[36m|[m [1;35m|[m [1;36m|[m[1;35m/[m [34m/[m  
+[36m|[m [1;35m|[m[1;35m/[m[1;36m|[m [34m|[m   
+[36m|[m [1;35m|[m * [34m|[m [33m04154a0[m Bump express-openid-connect from 2.10.0 to 2.11.0
+* [1;35m|[m [31m|[m [34m|[m [33mc24c4cd[m Please forgive me
+[1;35m|[m[1;35m/[m [31m/[m [34m/[m  
+* [31m|[m [34m|[m [33me23c5d6[m true lol
+* [31m|[m [34m|[m [33m36653b2[m Mark .uploaded as (user-)generated
+* [31m|[m [34m|[m   [33m53696a5[m Merge pull request #173 from nomorenotes/167-exploit-eagler-users
+[34m|[m[33m\[m [31m\[m [34m\[m  
+[34m|[m [33m|[m[34m_[m[31m|[m[34m/[m  
+[34m|[m[34m/[m[33m|[m [31m|[m   
+[34m|[m * [31m|[m   [33mab64a2c[m Merge branch 'worksihope' into 167-exploit-eagler-users
+[34m|[m [34m|[m[34m\[m [31m\[m  
+[34m|[m [34m|[m[34m/[m [31m/[m  
+[34m|[m[34m/[m[34m|[m [31m|[m   
+* [34m|[m [31m|[m [33m3f45adf[m more files
+* [34m|[m [31m|[m [33m3d6936e[m Host firefox
+* [34m|[m [31m|[m [33m4e21ee0[m _
+* [34m|[m [31m|[m [33mca3056d[m stuff
+[35m|[m * [31m|[m [33m534b817[m[33m ([m[1;32m167-exploit-eagler-users[m[33m)[m Wubbalubbadubdub!
+[35m|[m * [31m|[m [33mb667225[m Become a programmer, they said. It'll be fun, they said.
+[35m|[m * [31m|[m [33m0e45aa1[m Herping the derp
+[35m|[m * [31m|[m [33m8992e2a[m I was framed
+[35m|[m * [31m|[m [33ma175fd7[m I am even stupider than I thought
+[35m|[m [31m|[m[31m/[m  
+[35m|[m [31m|[m *   [33m39173be[m[33m ([m[1;31morigin/upload-additions[m[33m, [m[1;32mupload-additions[m[33m)[m Added another dependency
+[35m|[m [31m|[m [36m|[m[1;31m\[m  
+[35m|[m [31m|[m [36m|[m *   [33mcb673da[m Commit committed....
+[35m|[m [31m|[m [36m|[m [1;32m|[m[1;33m\[m  
+[35m|[m [31m|[m * [1;32m|[m [1;33m\[m   [33mb0468a9[m $(init 0)
+[35m|[m [31m|[m [1;34m|[m[35m\[m [1;32m\[m [1;33m\[m  
+[35m|[m [31m|[m[35m_[m[1;34m|[m[35m/[m [1;32m/[m [1;33m/[m  
+[35m|[m[35m/[m[31m|[m [1;34m|[m [1;32m|[m [1;33m|[m   
+[35m|[m [31m|[m * [1;32m|[m [1;33m|[m   [33m4516a74[m Commit committed....
+[35m|[m [31m|[m [1;32m|[m[1;33m\[m [1;32m\[m [1;33m\[m  
+[35m|[m [31m|[m [1;32m|[m [1;33m|[m[1;32m/[m [1;33m/[m  
+[35m|[m [31m|[m [1;32m|[m[1;32m/[m[1;33m|[m [1;33m/[m   
+[35m|[m [31m|[m [1;32m|[m [1;33m|[m[1;33m/[m    
+[35m|[m [31m|[m [1;32m|[m *   [33m663a169[m someday I gonna kill someone for this shit...
+[35m|[m [31m|[m [1;32m|[m [32m|[m[33m\[m  
+[35m|[m [31m|[m * [32m|[m [33m\[m   [33mefd80e1[m someday I gonna kill someone for this shit...
+[35m|[m [31m|[m [32m|[m[33m\[m [32m\[m [33m\[m  
+[35m|[m [31m|[m [32m|[m [33m|[m[32m/[m [33m/[m  
+[35m|[m [31m|[m [32m|[m[32m/[m[33m|[m [33m/[m   
+[35m|[m [31m|[m [32m|[m [33m|[m[33m/[m    
+[35m|[m [31m|[m [32m|[m *   [33md6a9f4c[m Merge branch 'upload-additions' of https://github.com/nomorenotes/nomorenotes into upload-additions
+[35m|[m [31m|[m [32m|[m [36m|[m[1;31m\[m  
+[35m|[m [31m|[m * [36m|[m [1;31m\[m   [33m3ea8d00[m Merge branch 'upload-additions' of https://github.com/nomorenotes/nomorenotes into upload-additions
+[35m|[m [31m|[m [36m|[m[1;31m\[m [36m\[m [1;31m\[m  
+[35m|[m [31m|[m [36m|[m [1;31m|[m[36m/[m [1;31m/[m  
+[35m|[m [31m|[m [36m|[m[36m/[m[1;31m|[m [1;31m/[m   
+[35m|[m [31m|[m [36m|[m [1;31m|[m[1;31m/[m    
+[35m|[m [31m|[m [36m|[m * [33m714545b[m Add jest, and helpers.js unit tests
+[35m|[m [31m|[m * [1;33m|[m [33m28ecc5f[m Add jest, and helpers.js unit tests
+[35m|[m [31m|[m [1;33m|[m[1;33m/[m  
+[35m|[m [31m|[m * [33m5aa0fe6[m Add jest, and helpers.js unit tests
+[35m|[m [31m|[m * [33m9701aa0[m Create tests.yml
+[35m|[m [31m|[m [1;33m|[m *   [33me951f2d[m[33m ([m[1;31morigin/extended-help[m[33m, [m[1;32mextended-help[m[33m)[m Here be Dragons
+[35m|[m [31m|[m [1;33m|[m [1;34m|[m[1;35m\[m  
+[35m|[m [31m|[m [1;33m|[m [1;34m|[m *   [33m10d4f25[m more debug... who overwrote!
+[35m|[m [31m|[m [1;33m|[m [1;34m|[m [1;36m|[m[31m\[m  
+[35m|[m [31m|[m [1;33m|[m * [1;36m|[m [31m\[m   [33m7cd6811[m Merge pull my finger request
+[35m|[m [31m|[m [1;33m|[m [32m|[m[35m\[m [1;36m\[m [31m\[m  
+[35m|[m [31m|[m[35m_[m[1;33m|[m[35m_[m[32m|[m[35m/[m [1;36m/[m [31m/[m  
+[35m|[m[35m/[m[31m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   
+* [31m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33mb11f553[m[33m ([m[1;32mlila-ann[m[33m)[m changes
+[31m|[m[31m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+* [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33m2d77a37[m[33m ([m[1;31morigin/166-store-the-user-id-of-the-uploader-when-uploading-a-file[m[33m)[m Duh
+* [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33mf2fb8f8[m Merge pull request #163 from nomorenotes/154-embeddable-reciever-page
+[34m|[m[35m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[34m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33m6e84a4f[m[33m ([m[1;31morigin/154-embeddable-reciever-page[m[33m, [m[1;32m154-embeddable-reciever-page[m[33m)[m I'm guessing this may start causing us problems either soon or never.
+[34m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33m471f92c[m eppic fail wickedOne
+[34m|[m [36m|[m[1;31m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[34m|[m * [1;31m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33mbe1ee6b[m first blush
+* [1;31m|[m [1;31m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33maa88274[m[33m ([m[1;31morigin/158-add-a-blue-screen[m[33m, [m[1;32m158-add-a-blue-screen[m[33m)[m Revert "git please work"
+[1;31m|[m [1;31m|[m[1;31m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+[1;31m|[m[1;31m/[m[1;31m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   
+* [1;31m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33mbeaa974[m herpderp (redux)
+[1;32m|[m[1;33m\[m [1;31m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[1;32m|[m * [1;31m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m   [33m8ea984f[m Merge pull request #159 from nomorenotes/155-/recieve
+[1;32m|[m [1;31m|[m[1;35m\[m [1;31m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[1;32m|[m [1;31m|[m [1;35m|[m[1;31m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+[1;32m|[m [1;31m|[m[1;31m/[m[1;35m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   
+[1;32m|[m [1;31m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33m170af49[m Merge branch 'worksihope' into 155-/recieve
+[1;32m|[m [1;31m|[m [1;36m|[m[1;31m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[1;32m|[m [1;31m|[m [1;36m|[m[1;31m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+[1;32m|[m [1;31m|[m[1;31m/[m[1;36m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   
+[1;32m|[m [1;31m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33m1a041fa[m require subreddit links to be encased in curlies
+[1;32m|[m [1;31m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33m8289109[m mist canges
+[1;32m|[m [1;31m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33md015336[m Add tor
+[1;32m|[m [1;31m|[m * [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33m96784c7[m Merge branch 'worksihope' into 155-/recieve
+[1;32m|[m [1;31m|[m [32m|[m[33m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[1;32m|[m [1;31m|[m * [33m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33me0119af[m I fell asleep at the keyboard
+[1;32m|[m [1;31m|[m * [33m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33m52d37e7[m Merge branch 'worksihope' into 155-/recieve
+[1;32m|[m [1;31m|[m [34m|[m[35m\[m [33m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[1;32m|[m [1;31m|[m * [35m|[m [33m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33m35a1da7[m changes [draft]
+[1;32m|[m [1;31m|[m * [35m|[m [33m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33mdb3b0c1[m add /recieve
+* [1;31m|[m [35m|[m [35m|[m [33m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33md671b1d[m The universe is possible
+[1;31m|[m[1;31m/[m [35m/[m [35m/[m [33m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+* [35m|[m [35m|[m [33m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m [33m9b96b4a[m require subreddit links to be encased in curlies
+[33m|[m [35m|[m[33m_[m[35m|[m[33m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+[33m|[m[33m/[m[35m|[m [35m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   
+* [35m|[m [35m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33mdcc1eef[m nice line break, lol
+* [35m|[m [35m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   [33mda1a132[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[35m|[m[1;31m\[m [35m\[m [35m\[m [1;33m\[m [32m\[m [1;36m\[m [31m\[m  
+[35m|[m [1;31m|[m[35m_[m[35m|[m[35m/[m [1;33m/[m [32m/[m [1;36m/[m [31m/[m  
+[35m|[m[35m/[m[1;31m|[m [35m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m   
+* [1;31m|[m [35m|[m [1;33m|[m [32m|[m [1;36m|[m [31m|[m [33mdb2007d[m Department of Redundancy Department
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [1;36m|[m [31m|[m   [33m61de102[m more debug... who overwrote!
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;36m|[m[31m\[m [1;36m\[m [31m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;36m|[m [31m|[m[1;36m/[m [31m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;36m|[m[1;36m/[m[31m|[m [31m/[m   
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;36m|[m [31m|[m[31m/[m    
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;36m|[m *   [33m16c72fd[m Testing the test
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;36m|[m [1;34m|[m[1;35m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [1;34m|[m [1;35m\[m   [33m70386e0[m Testing the test
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m[1;35m\[m [1;34m\[m [1;35m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m [1;35m|[m[1;34m/[m [1;35m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m[1;34m/[m[1;35m|[m [1;35m/[m   
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m [1;35m|[m[1;35m/[m    
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m *   [33m87784a4[m Undoing last comming
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m [32m|[m[33m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [32m|[m [33m\[m   [33m13a77ee[m Undoing last comming
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m[33m\[m [32m\[m [33m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m [33m|[m[32m/[m [33m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m[32m/[m[33m|[m [33m/[m   
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m [33m|[m[33m/[m    
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m *   [33mc1bd542[m Merge branch 'extended-help' of https://github.com/nomorenotes/nomorenotes into extended-help
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m [36m|[m[1;31m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [36m|[m [1;31m\[m   [33me27e88b[m Merge branch 'extended-help' of https://github.com/nomorenotes/nomorenotes into extended-help
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [36m|[m[1;31m\[m [36m\[m [1;31m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [36m|[m [1;31m|[m[36m/[m [1;31m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [36m|[m[36m/[m[1;31m|[m [1;31m/[m   
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [36m|[m [1;31m|[m[1;31m/[m    
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [36m|[m *   [33m154ff1e[m Merge branch 'extended-help' of https://github.com/nomorenotes/nomorenotes into extended-help
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [36m|[m [1;34m|[m[1;35m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [1;34m|[m [1;35m\[m   [33m91fb8ca[m Merge branch 'extended-help' of https://github.com/nomorenotes/nomorenotes into extended-help
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m[1;35m\[m [1;34m\[m [1;35m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m [1;35m|[m[1;34m/[m [1;35m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m[1;34m/[m[1;35m|[m [1;35m/[m   
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m [1;35m|[m[1;35m/[m    
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [1;34m|[m * [33mefd0256[m Old precommit hook that barely works, moved out of git hook dir
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [31m|[m [33m51327cf[m Old precommit hook that barely works, moved out of git hook dir
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [31m|[m[31m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m *   [33mf07e0c1[m Merge branch 'extended-help' of https://github.com/nomorenotes/nomorenotes into extended-help
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m[33m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [32m|[m * [33m5852c2c[m in progress
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m * [33m|[m [33m0ad73ca[m in progress
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [33m|[m[33m/[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m *   [33m4d1c9bb[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [34m|[m[35m\[m  
+[1;31m|[m [1;31m|[m [35m|[m [1;33m|[m [34m|[m [35m|[m * [33md3c0ec4[m[33m ([m[1;31morigin/dependabot/npm_and_yarn/hapi/hoek-11.0.1[m[33m, [m[1;32mdependabot/npm_and_yarn/hapi/hoek-11.0.1[m[33m)[m Bump @hapi/hoek from 10.0.1 to 11.0.1
+[1;31m|[m [1;31m|[m [35m|[m[1;31m_[m[1;33m|[m[1;31m_[m[34m|[m[1;31m_[m[35m|[m[1;31m/[m  
+[1;31m|[m [1;31m|[m[1;31m/[m[35m|[m [1;33m|[m [34m|[m [35m|[m   
+[1;31m|[m * [35m|[m [1;33m|[m [34m|[m [35m|[m   [33m0505f99[m Merge pull request #156 from nomorenotes/153-slightly-randomize-the-reciever-name
+[1;31m|[m [35m|[m[1;32m\[m [35m\[m [1;33m\[m [34m\[m [35m\[m  
+[1;31m|[m [35m|[m [1;32m|[m[35m/[m [1;33m/[m [34m/[m [35m/[m  
+[1;31m|[m [35m|[m[35m/[m[1;32m|[m [1;33m|[m [34m|[m [35m|[m   
+[1;31m|[m [35m|[m * [1;33m|[m [34m|[m [35m|[m [33mc1ba925[m include part of session
+[1;31m|[m [35m|[m * [1;33m|[m [34m|[m [35m|[m [33mc7c1ec4[m[33m ([m[1;31morigin/153-slightly-randomize-the-reciever-name[m[33m, [m[1;32m153-slightly-randomize-the-reciever-name[m[33m)[m randomize
+[1;31m|[m [35m|[m[35m/[m [1;33m/[m [34m/[m [35m/[m  
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33me1aa3d0[m Update issue-branch.yml
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33medeadc9[m Create issue-branch.yml
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33m8f6a0db[m Create issue-branch.yml
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33m4d48cf2[m Command requests necessarily imply server
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33m86c9d90[m maximize commit message specificity
+[1;31m|[m[1;31m/[m [1;33m/[m [34m/[m [35m/[m  
+* [1;33m|[m [34m|[m [35m|[m [33mc5a6249[m[33m ([m[1;31morigin/actions/auto-develop-branch[m[33m, [m[1;32mactions/auto-develop-branch[m[33m)[m [exp] db testing
+* [1;33m|[m [34m|[m [35m|[m [33ma12816a[m add ssh stuff [partial pick c2c0bd79]
+* [1;33m|[m [34m|[m [35m|[m [33ma6801bc[m password got changed
+* [1;33m|[m [34m|[m [35m|[m [33mcfa9ac0[m 4019617
+* [1;33m|[m [34m|[m [35m|[m [33m886a3f2[m fix capturing
+* [1;33m|[m [34m|[m [35m|[m [33m35dc24f[m got my table :)
+* [1;33m|[m [34m|[m [35m|[m [33m0ecc131[m make eaglercraft downloading work
+[1;32m|[m [1;33m|[m [34m|[m [35m|[m * [33m4d1bb41[m[33m ([m[1;31morigin/72-add-info[m[33m, [m[1;32m72-add-info[m[33m)[m lock keeps updating
+[1;32m|[m [1;33m|[m [34m|[m [35m|[m *   [33mdef9447[m Merge branch 'worksihope' into 72-add-info # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit.
+[1;32m|[m [1;33m|[m [34m|[m [35m|[m [1;34m|[m[1;32m\[m  
+[1;32m|[m [1;33m|[m[1;32m_[m[34m|[m[1;32m_[m[35m|[m[1;32m_[m[1;34m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;33m|[m [34m|[m [35m|[m [1;34m|[m   
+* [1;33m|[m [34m|[m [35m|[m [1;34m|[m   [33m27889c6[m[33m ([m[1;33mtag: v0.0.1[m[33m)[m Merge pull request #149 from nomorenotes/128-linkout-reciever-page
+[1;36m|[m[31m\[m [1;33m\[m [34m\[m [35m\[m [1;34m\[m  
+[1;36m|[m * [1;33m|[m [34m|[m [35m|[m [1;34m|[m [33mba26e1c[m[33m ([m[1;31morigin/128-linkout-reciever-page[m[33m, [m[1;32m128-linkout-reciever-page[m[33m)[m add
+[1;36m|[m[1;36m/[m [1;33m/[m [34m/[m [35m/[m [1;34m/[m  
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m *   [33m70a75fb[m Merge branch 'worksihope' into 72-add-info
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m [32m|[m[33m\[m  
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m * [33m|[m [33m9165598[m Add /info
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m|[m * [33mc2c0bd7[m[33m ([m[1;31morigin/148-highlight-untracked-files-in-admin-view[m[33m, [m[1;32m148-highlight-untracked-files-in-admin-view[m[33m)[m more files somehow
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m|[m * [33mbba5f44[m fix capturing
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m|[m * [33m5659385[m got my table :)
+[1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m|[m * [33m75a0396[m make eaglercraft downloading work
+[1;36m|[m [1;33m|[m[1;36m_[m[34m|[m[1;36m_[m[35m|[m[1;36m_[m[33m|[m[1;36m_[m[33m|[m[1;36m/[m  
+[1;36m|[m[1;36m/[m[1;33m|[m [34m|[m [35m|[m [33m|[m [33m|[m   
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [33m|[m   [33m8896ffc[m Merge pull request #123 from nomorenotes/dependabot/npm_and_yarn/socket.io-client-4.5.4
+[33m|[m[36m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m [33m\[m  
+[33m|[m [36m|[m[33m_[m[1;33m|[m[33m_[m[34m|[m[33m_[m[35m|[m[33m_[m[33m|[m[33m/[m  
+[33m|[m[33m/[m[36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+[33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33m935810e[m Bump socket.io-client from 4.5.3 to 4.5.4
+[33m|[m[33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [33mc2c1255[m why no double quotes?
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [33m75ba009[m prevent analysis against dependabot
+* [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m20c961a[m Merge pull request #146 from nomorenotes/snyk-fix-2a8d1b4492500eb8bb612fb21c4c6b0b
+[1;31m|[m[1;32m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33mf02415f[m fix: package.json & package-lock.json to reduce vulnerabilities
+[1;31m|[m[1;31m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m6b0f87a[m[33m ([m[1;31morigin/131-chatshotting[m[33m, [m[1;32m131-chatshotting[m[33m)[m Merge pull request #124 from nomorenotes/dependabot/npm_and_yarn/socket.io-4.5.4
+[1;33m|[m[1;34m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33mabdb0a4[m Bump socket.io from 4.5.3 to 4.5.4
+[1;33m|[m[1;33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;33m|[m [34m|[m [35m|[m [33m|[m   [33me3a9f87[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;35m|[m[1;36m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;35m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33m345be9e[m Downdate package-lock.yml
+* [1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m9a0d0b6[m remove more bandruf
+* [1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33mcca0030[m uploaded files
+* [1;36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m42282c0[m convert bandruf to submodule
+[1;36m|[m[1;36m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m3f96f2b[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[31m|[m[32m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m * [1;33m\[m [34m\[m [35m\[m [33m\[m   [33maddf6f3[m Merge pull request #133 from nomorenotes/127-ads
+[31m|[m [33m|[m[34m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33m11b7603[m[33m ([m[1;31morigin/127-ads[m[33m, [m[1;32m127-ads[m[33m)[m Default to not turning on ads
+[31m|[m [33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33me1d1e89[m ad placeholder
+[31m|[m [33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33m4783685[m anonymous file donation
+[31m|[m [33m|[m[33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m [33m67897e2[m Remove charles
+[33m|[m[33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m *   [33md764fb7[m[33m ([m[1;31morigin/more-tests[m[33m)[m Merge branch 'worksihope' into more-tests
+[33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [35m|[m[33m\[m  
+[33m|[m [1;33m|[m[33m_[m[34m|[m[33m_[m[35m|[m[33m_[m[33m|[m[33m_[m[35m|[m[33m/[m  
+[33m|[m[33m/[m[1;33m|[m [34m|[m [35m|[m [33m|[m [35m|[m   
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [35m|[m [33m6ecf06a[m i'm done with commit messages for today
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [35m|[m [33mef58209[m Free file hosting
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [35m|[m [33m13699eb[m Project updates
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [35m|[m [33me179789[m Projects :tada:
+[36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m *   [33m8ceecc0[m Merge branch 'worksihope' into more-tests
+[36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [1;31m|[m[36m\[m  
+[36m|[m [1;33m|[m[36m_[m[34m|[m[36m_[m[35m|[m[36m_[m[33m|[m[36m_[m[1;31m|[m[36m/[m  
+[36m|[m[36m/[m[1;33m|[m [34m|[m [35m|[m [33m|[m [1;31m|[m   
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [1;31m|[m [33m9fc6fff[m make psa transition both ways
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [1;31m|[m [33m4460043[m PSA
+* [1;33m|[m [34m|[m [35m|[m [33m|[m [1;31m|[m [33m5f02330[m tweaks
+[1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m * [33mdf3dcd9[m redecoration of surr.js
+[1;32m|[m [1;33m|[m[1;32m_[m[34m|[m[1;32m_[m[35m|[m[1;32m_[m[33m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;33m|[m [34m|[m [35m|[m [33m|[m   
+* [1;33m|[m [34m|[m [35m|[m [33m|[m   [33mca40dbf[m[33m ([m[1;31morigin/129-convert-filesystem-to-a-reasonable-shape[m[33m, [m[1;31morigin/126-actual-client-sided-translation[m[33m, [m[1;31morigin/121-dynamically-loaded-commands[m[33m, [m[1;32m121-dynamically-loaded-commands[m[33m)[m Merge pull request #122 from nomorenotes/114-randomly-selected-messages-on-joining
+[1;33m|[m[1;34m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;33m|[m * [1;33m\[m [34m\[m [35m\[m [33m\[m   [33mfdc5b1c[m Merge branch 'worksihope' into 114-randomly-selected-messages-on-joining
+[1;33m|[m [1;35m|[m[1;33m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;33m|[m [1;35m|[m[1;33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;33m|[m[1;33m/[m[1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+* [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33me9a946c[m Always automerge
+* [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m999d513[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[31m|[m[32m\[m [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m * [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m   [33me706834[m Merge pull request #125 from nomorenotes/dependent-issues
+[31m|[m [33m|[m[34m\[m [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [33m|[m * [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m   [33mf23c069[m Merge branch 'worksihope' into dependent-issues
+[31m|[m [33m|[m [35m|[m[33m\[m [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [33m|[m [35m|[m[33m/[m [1;35m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[31m|[m [33m|[m[33m/[m[35m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+[31m|[m [33m|[m * [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m1ea1617[m Merge branch 'worksihope' into dependent-issues
+[31m|[m [33m|[m [1;31m|[m[1;32m\[m [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [33m|[m * [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33mfb6aaa4[m Create dependent-issues.yml
+* [33m|[m [1;32m|[m [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m8640952[m Automerge
+[33m|[m[33m/[m [1;32m/[m [1;32m/[m [1;35m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;32m|[m [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33mea1710e[m looks good to **me**
+* [1;32m|[m [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m2777e13[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;33m|[m[1;32m\[m [1;32m\[m [1;32m\[m [1;35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;33m|[m [1;32m|[m [1;32m|[m[1;32m/[m [1;35m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;33m|[m [1;32m|[m[1;32m/[m[1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+* [1;32m|[m [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m73b6265[m Looks good to me
+[1;34m|[m [1;32m|[m [1;32m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m   [33ma8a0668[m Merge branch 'worksihope' into 114-randomly-selected-messages-on-joining
+[1;34m|[m [1;32m|[m [1;32m|[m [1;35m|[m[1;32m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;34m|[m [1;32m|[m [1;32m|[m[1;32m_[m[1;35m|[m[1;32m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;34m|[m [1;32m|[m[1;32m/[m[1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+[1;34m|[m * [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33mea47dcb[m Invalid validation
+[1;34m|[m * [1;32m|[m [1;35m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m7fd330f[m Attribution is required
+[1;34m|[m [1;36m|[m [1;32m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33ma0483e8[m Fix
+[1;34m|[m [1;36m|[m [1;32m|[m[1;36m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;34m|[m [1;36m|[m[1;36m/[m[1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+[1;34m|[m * [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33mb923086[m Merge pull request #117 from nomorenotes/dependabot/npm_and_yarn/types/jest-29.2.3
+[1;34m|[m [31m|[m[32m\[m [1;32m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;34m|[m [31m|[m * [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m041a1c8[m Bump @types/jest from 29.2.2 to 29.2.3
+[1;34m|[m [31m|[m[31m/[m [1;32m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;34m|[m * [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m0401265[m Merge pull request #118 from nomorenotes/dependabot/npm_and_yarn/engine.io-6.2.1
+[1;34m|[m[1;34m/[m[34m|[m [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m 
+[1;34m|[m * [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m46b821e[m Bump engine.io from 6.2.0 to 6.2.1
+[1;34m|[m[1;34m/[m [1;32m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m4b4c15a[m[33m ([m[1;31morigin/issue-templates[m[33m, [m[1;32missue-templates[m[33m)[m replace bug_report template with a form
+* [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m08adc61[m Create commands_request.md
+* [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m13fc5f0[m Update issue templates
+* [1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33mc4e32de[m[33m ([m[1;31morigin/112-use-extended-command-parsing[m[33m)[m Merge pull request #116 from nomorenotes/74-fix-code-scanning-alert-incomplete-string-escaping-or-encoding
+[1;32m|[m[36m\[m [1;32m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;32m|[m [36m|[m[1;32m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;32m|[m[1;32m/[m[36m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+[1;32m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33mcee2741[m[33m ([m[1;31morigin/74-fix-code-scanning-alert-incomplete-string-escaping-or-encoding[m[33m, [m[1;32m74-fix-code-scanning-alert-incomplete-string-escaping-or-encoding[m[33m)[m It's already fixed, but change relacement anyway
+[1;32m|[m[1;32m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+* [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m7a204b2[m Merge pull request #113 from nomorenotes/unittests
+[1;31m|[m[1;32m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33me380c80[m lastrun.txt is 99% conflict markers
+[1;31m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m7617924[m Merge branch 'worksihope' into unittests
+[1;31m|[m [1;33m|[m[1;31m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;31m|[m [1;33m|[m[1;31m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33ma082ade[m workflow_dispatch
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m51f760e[m Doesn't work, so let's push to main
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m6d2549c[m please do not revoke my programming license
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m4dc8dd9[m check_files
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33mb03b966[m actions are hard
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33ma02a3ab[m I've used too much javascript
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33me27a090[m i needs to fix that
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33maf721d2[m Hopefully clone hooks by default, and make tests only run if tests are set up to run
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m02035ae[m replace install.yml with a dedicated job to just do audits
+* [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33me83a098[m functional package-lock
+[1;35m|[m[1;36m\[m [1;33m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[1;35m|[m * [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m742091a[m Delete package-lock.json
+* [1;36m|[m [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33ma8aadbb[m Project files for meteorologist project
+* [1;36m|[m [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m52237d6[m Updates
+* [1;36m|[m [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m654b00f[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[31m|[m[1;36m\[m[1;36m|[m [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m 
+[31m|[m * [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33mcdb7e94[m Merge pull request #111 from nomorenotes/revert-109-dependabot/npm_and_yarn/node-fetch-3.3.0
+[31m|[m [33m|[m[34m\[m [1;33m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [33m|[m * [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33m3cdf376[m Revert "Bump node-fetch from 2.6.7 to 3.3.0"
+[31m|[m [33m|[m[33m/[m [1;33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[31m|[m * [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33madc312f[m Merge pull request #109 from nomorenotes/dependabot/npm_and_yarn/node-fetch-3.3.0
+[31m|[m [35m|[m[36m\[m [1;33m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [35m|[m * [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m [33mc430c70[m Bump node-fetch from 2.6.7 to 3.3.0
+[31m|[m [35m|[m[35m/[m [1;33m/[m [1;33m/[m [34m/[m [35m/[m [33m/[m  
+[31m|[m * [1;33m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m8c606b6[m Merge pull request #110 from nomorenotes/dependabot/npm_and_yarn/express-openid-connect-2.10.0
+[31m|[m [1;33m|[m[1;32m\[m [1;33m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [1;33m|[m [1;32m|[m[1;33m_[m[1;33m|[m[1;33m/[m [34m/[m [35m/[m [33m/[m  
+[31m|[m [1;33m|[m[1;33m/[m[1;32m|[m [1;33m|[m [34m|[m [35m|[m [33m|[m   
+[31m|[m [1;33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m [33m5230502[m Bump express-openid-connect from 2.9.0 to 2.10.0
+[31m|[m [1;33m|[m * [1;33m|[m [34m|[m [35m|[m [33m|[m   [33m359c8af[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[31m|[m [1;33m|[m [34m|[m[35m\[m [1;33m\[m [34m\[m [35m\[m [33m\[m  
+[31m|[m [1;33m|[m [34m|[m [35m|[m[34m_[m[1;33m|[m[34m/[m [35m/[m [33m/[m  
+[31m|[m [1;33m|[m [34m|[m[34m/[m[35m|[m [1;33m|[m [35m/[m [33m/[m   
+[31m|[m [1;33m|[m [34m|[m [35m|[m [1;33m|[m[35m/[m [33m/[m    
+[31m|[m [1;33m|[m [34m|[m [35m|[m[35m/[m[1;33m|[m [33m|[m     
+[31m|[m [1;33m|[m [34m|[m * [1;33m|[m [33m|[m [33m0048411[m Create tests.yml
+[31m|[m [1;33m|[m [34m|[m * [1;33m|[m [33m|[m   [33m7f5faa5[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[31m|[m [1;33m|[m [34m|[m [1;35m|[m[1;36m\[m [1;33m\[m [33m\[m  
+* [1;33m|[m [34m|[m [1;35m|[m [1;36m|[m [1;33m|[m [33m|[m [33m6611e41[m lunchables
+[1;33m|[m[1;33m/[m [34m/[m [1;35m/[m [1;36m/[m [1;33m/[m [33m/[m  
+[1;33m|[m [34m|[m [1;35m|[m [1;36m|[m * [33m|[m [33m63b4d22[m workflow_dispatch
+[1;33m|[m [34m|[m [1;35m|[m [1;36m|[m * [33m|[m [33m4041fc5[m replace install.yml with a dedicated job to just do audits
+[1;33m|[m [34m|[m [1;35m|[m [1;36m|[m * [33m|[m [33m1b98db8[m powerline changes
+[1;33m|[m [34m|[m [1;35m|[m [1;36m|[m * [33m|[m [33me1e1c75[m powerline
+[1;33m|[m [34m|[m [1;35m|[m [1;36m|[m * [33m|[m [33m5614466[m Add jest, and helpers.js unit tests ×3
+[1;33m|[m [34m|[m [1;35m|[m [1;36m|[m * [33m|[m [33m2b04308[m Create tests.yml ×2
+[1;33m|[m [34m|[m[1;33m_[m[1;35m|[m[1;33m_[m[1;36m|[m[1;33m/[m [33m/[m  
+[1;33m|[m[1;33m/[m[34m|[m [1;35m|[m [1;36m|[m [33m|[m   
+* [34m|[m [1;35m|[m [1;36m|[m [33m|[m [33mbce8201[m replit dot nix
+* [34m|[m [1;35m|[m [1;36m|[m [33m|[m [33m95f3633[m add vim, again
+[34m|[m[34m/[m [1;35m/[m [1;36m/[m [33m/[m  
+* [1;35m|[m [1;36m|[m [33m|[m [33m383a254[m Fix eagler
+* [1;35m|[m [1;36m|[m [33m|[m [33maf8101e[m <put a generic commit message here>
+* [1;35m|[m [1;36m|[m [33m|[m [33meb0b63b[m literally throwing code at you by this point
+* [1;35m|[m [1;36m|[m [33m|[m   [33m641c5f7[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;35m|[m[1;36m\[m [1;35m\[m [1;36m\[m [33m\[m  
+[1;35m|[m [1;36m|[m[1;35m/[m [1;36m/[m [33m/[m  
+[1;35m|[m[1;35m/[m[1;36m|[m [1;36m/[m [33m/[m   
+[1;35m|[m [1;36m|[m[1;36m/[m [33m/[m    
+[1;35m|[m * [33m|[m [33me17c762[m unclean reinstall
+* [32m|[m [33m|[m [33mee0c1d2[m help me
+* [32m|[m [33m|[m [33m8fbe728[m track lifetime messages
+* [32m|[m [33m|[m [33mcd79cc0[m move hyperactive rabbits out of the code
+* [32m|[m [33m|[m [33mddbc127[m unclean reinstall
+[32m|[m[32m/[m [33m/[m  
+* [33m|[m   [33mf3a1dc2[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[33m|[m[34m\[m [33m\[m  
+[33m|[m * [33m\[m   [33m76a8b17[m Bump node-fetch from 3.3.0 to 2.6.7
+[33m|[m [35m|[m[36m\[m [33m\[m  
+[33m|[m [35m|[m * [33m|[m [33md313887[m Revert "Bump node-fetch from 2.6.7 to 3.3.0"
+[33m|[m [35m|[m[35m/[m [33m/[m  
+[33m|[m * [33m|[m   [33m7b437da[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[33m|[m [1;31m|[m[1;32m\[m [33m\[m  
+* [1;31m|[m [1;32m\[m [33m\[m   [33me3dfa96[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;31m|[m[1;32m\[m [1;31m\[m [1;32m\[m [33m\[m  
+[1;31m|[m [1;32m|[m[1;31m/[m [1;32m/[m [33m/[m  
+[1;31m|[m[1;31m/[m[1;32m|[m [1;32m/[m [33m/[m   
+[1;31m|[m [1;32m|[m[1;32m/[m [33m/[m    
+[1;31m|[m * [33m|[m   [33m337d04a[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;31m|[m [1;35m|[m[1;36m\[m [33m\[m  
+* [1;35m|[m [1;36m|[m [33m|[m [33m991ed17[m ask for url
+* [1;35m|[m [1;36m|[m [33m|[m   [33m3750602[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;35m|[m[1;36m\[m [1;35m\[m [1;36m\[m [33m\[m  
+[1;35m|[m [1;36m|[m[1;35m/[m [1;36m/[m [33m/[m  
+[1;35m|[m[1;35m/[m[1;36m|[m [1;36m/[m [33m/[m   
+[1;35m|[m [1;36m|[m[1;36m/[m [33m/[m    
+[1;35m|[m * [33m|[m   [33m6275dc4[m Merge pull request #105 from nomorenotes/dependabot/npm_and_yarn/unique-username-generator-1.1.3
+[1;35m|[m [33m|[m[34m\[m [33m\[m  
+[1;35m|[m [33m|[m * [33m|[m [33m750c270[m Bump unique-username-generator from 1.1.1 to 1.1.3
+[1;35m|[m * [34m|[m [33m|[m   [33mf0f60c3[m Merge pull request #97 from nomorenotes/dependabot/npm_and_yarn/socket.io-4.5.3
+[1;35m|[m [35m|[m[36m\[m [34m\[m [33m\[m  
+[1;35m|[m [35m|[m * [34m|[m [33m|[m [33mf455e7a[m Bump socket.io from 4.4.1 to 4.5.3
+[1;35m|[m [35m|[m[35m/[m [34m/[m [33m/[m  
+[1;35m|[m * [34m|[m [33m|[m   [33m64e42ba[m Merge pull request #98 from nomorenotes/dependabot/npm_and_yarn/socket.io-client-4.5.3
+[1;35m|[m [1;31m|[m[1;32m\[m [34m\[m [33m\[m  
+[1;35m|[m [1;31m|[m * [34m|[m [33m|[m [33mfa0ea22[m Bump socket.io-client from 4.5.2 to 4.5.3
+[1;35m|[m * [1;32m|[m [34m|[m [33m|[m   [33madb52f0[m Merge pull request #100 from nomorenotes/dependabot/npm_and_yarn/express-openid-connect-2.9.0
+[1;35m|[m [1;33m|[m[1;34m\[m [1;32m\[m [34m\[m [33m\[m  
+[1;35m|[m [1;33m|[m * [1;32m|[m [34m|[m [33m|[m [33me774786[m Bump express-openid-connect from 2.8.0 to 2.9.0
+[1;35m|[m * [1;34m|[m [1;32m|[m [34m|[m [33m|[m   [33m0106038[m Merge pull request #106 from nomorenotes/dependabot/npm_and_yarn/socket.io-parser-4.0.5
+[1;35m|[m [1;35m|[m[1;36m\[m [1;34m\[m [1;32m\[m [34m\[m [33m\[m  
+[1;35m|[m [1;35m|[m * [1;34m|[m [1;32m|[m [34m|[m [33m|[m [33m7256ff8[m Bump socket.io-parser from 4.0.4 to 4.0.5
+[1;35m|[m [1;35m|[m [34m|[m [1;34m|[m[34m_[m[1;32m|[m[34m/[m [33m/[m  
+[1;35m|[m [1;35m|[m [34m|[m[34m/[m[1;34m|[m [1;32m|[m [33m|[m   
+[1;35m|[m * [34m|[m [1;34m|[m [1;32m|[m [33m|[m   [33mc84fc99[m Merge pull request #107 from nomorenotes/dependabot/npm_and_yarn/node-fetch-3.3.0
+[1;35m|[m [34m|[m[32m\[m [34m\[m [1;34m\[m [1;32m\[m [33m\[m  
+[1;35m|[m [34m|[m [32m|[m[34m/[m [1;34m/[m [1;32m/[m [33m/[m  
+[1;35m|[m [34m|[m[34m/[m[32m|[m [1;34m|[m [1;32m|[m [33m|[m   
+[1;35m|[m [34m|[m * [1;34m|[m [1;32m|[m [33m|[m [33m9c10a68[m Bump node-fetch from 2.6.7 to 3.3.0
+[1;35m|[m [34m|[m[34m/[m [1;34m/[m [1;32m/[m [33m/[m  
+* [34m/[m [1;34m/[m [1;32m/[m [33m/[m [33mc7ac7d8[m allow dispatching code analysis
+[34m|[m[34m/[m [1;34m/[m [1;32m/[m [33m/[m  
+* [1;34m|[m [1;32m|[m [33m|[m [33mce43814[m Install Busybox
+* [1;34m|[m [1;32m|[m [33m|[m [33m08515fe[m Serve Eagler, for some reason
+* [1;34m|[m [1;32m|[m [33m|[m [33ma7e6cc7[m Exclusive access videos of my sister and I disagreeing
+* [1;34m|[m [1;32m|[m [33m|[m [33mb069c7a[m Disable server started messages
+* [1;34m|[m [1;32m|[m [33m|[m [33m9f0efd4[m Artifically inflate commits
+* [1;34m|[m [1;32m|[m [33m|[m [33mc50a221[m I like microcommits
+* [1;34m|[m [1;32m|[m [33m|[m [33m5ed14c9[m Parents
+* [1;34m|[m [1;32m|[m [33m|[m [33mf974ec8[m Code changes
+* [1;34m|[m [1;32m|[m [33m|[m [33m5b6a9d2[m Replace ban code textbox with a link to the ban appeal form
+* [1;34m|[m [1;32m|[m [33m|[m [33m51cf1d8[m Functional* unbanning
+* [1;34m|[m [1;32m|[m [33m|[m [33m5c1fd8d[m innerText -> textContent
+* [1;34m|[m [1;32m|[m [33m|[m [33mce08b8b[m Misc changes
+* [1;34m|[m [1;32m|[m [33m|[m [33m2817081[m Who uploaded this?
+* [1;34m|[m [1;32m|[m [33m|[m [33m6824ab9[m Update trimps
+* [1;34m|[m [1;32m|[m [33m|[m [33mb460809[m Update trimps
+* [1;34m|[m [1;32m|[m [33m|[m [33ma7b4507[m Split unban page
+* [1;34m|[m [1;32m|[m [33m|[m [33mea77c95[m Experimental unbanning
+* [1;34m|[m [1;32m|[m [33m|[m [33m6ead6f5[m List style
+* [1;34m|[m [1;32m|[m [33m|[m [33mc132cfe[m FIX a bug
+* [1;34m|[m [1;32m|[m [33m|[m [33me67989f[m Add trimps
+[1;34m|[m[1;34m/[m [1;32m/[m [33m/[m  
+[1;34m|[m [1;32m|[m [33m|[m * [33mabc81d9[m[33m ([m[1;31morigin/103-fix-code-scanning-alert-inclusion-of-functionality-from-an-untrusted-source-×4[m[33m, [m[1;32m103-fix-code-scanning-alert-inclusion-of-functionality-from-an-untrusted-source-×4[m[33m)[m more fixes
+[1;34m|[m [1;32m|[m [33m|[m * [33m4b759f0[m Use local jquery for chat
+[1;34m|[m [1;32m|[m [33m|[m * [33mb80c634[m Locally install jquery
+[1;34m|[m [1;32m|[m[1;34m_[m[33m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;32m|[m [33m|[m   
+[1;34m|[m [1;32m|[m [33m|[m * [33m445a85d[m[33m ([m[1;31morigin/codespace-poollovernathan-nomorenotes-nomorenotes-4qg9rvrqqqrcj7q5[m[33m)[m Pending changes exported from your codespace
+[1;34m|[m [1;32m|[m[1;34m_[m[33m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;32m|[m [33m|[m   
+* [1;32m|[m [33m|[m [33mbf729a5[m CRITICAL: Fix GHSA-rq8g-5pc5-wrhr
+* [1;32m|[m [33m|[m [33me7ae09a[m Revert "F the censor"
+[33m|[m [1;32m|[m[33m/[m  
+[33m|[m[33m/[m[1;32m|[m   
+* [1;32m|[m [33m77bf1b7[m Finish up connection stats
+* [1;32m|[m [33m75298c3[m Ignore private config files
+* [1;32m|[m [33mff21b25[m I don't even remember what I added
+* [1;32m|[m [33m0c75ddb[m F the censor
+[34m|[m [1;32m|[m * [33ma1c4149[m[33m ([m[1;31morigin/connection-stats[m[33m, [m[1;32mconnection-stats[m[33m)[m F the censor
+[34m|[m [1;32m|[m[34m/[m  
+[34m|[m[34m/[m[1;32m|[m   
+* [1;32m|[m [33ma6a0c69[m Get good
+* [1;32m|[m [33m7368ad8[m Check commit on startup
+* [1;32m|[m [33m4ba79da[m replit stuff
+* [1;32m|[m [33mfb67f4b[m Add placeholders for /help
+* [1;32m|[m [33m347cc58[m hotfix: add curly brace to server.js
+* [1;32m|[m [33m4990939[m Be more helpful
+* [1;32m|[m [33m67f224f[m HELPful tweaks
+* [1;32m|[m [33m5910f8a[m Add secondary content to chat message
+[35m|[m [1;32m|[m * [33m0ac32dd[m[33m ([m[1;31morigin/notification[m[33m, [m[1;32mnotification[m[33m)[m Here, take this icon
+[35m|[m [1;32m|[m * [33mcbbf5a9[m Modify files
+[35m|[m [1;32m|[m[1;32m/[m  
+[35m|[m [1;32m|[m * [33m3f0da8c[m index on worksihope: 4627955 Move window.s___Command earler, and change source to alt-n
+[35m|[m [1;32m|[m[35m/[m  
+[35m|[m[35m/[m[1;32m|[m   
+* [1;32m|[m [33m4627955[m[33m ([m[1;31morigin/99-fix-code-scanning-alert-insecure-url[m[33m, [m[1;32m99-fix-code-scanning-alert-insecure-url[m[33m)[m Move window.____Command earler, and change source to alt-n
+[1;32m|[m[1;32m/[m  
+* [33m78fb798[m[33m ([m[1;31morigin/migratecommands[m[33m, [m[1;31morigin/commandloading[m[33m, [m[1;32mmigratecommands[m[33m, [m[1;32mcommandloading[m[33m)[m Hotfix: reenable banning
+* [33m534dfb9[m Remove the entire switch block
+* [33m54e3d02[m Slashes
+* [33m445fa8c[m Add /dumpnames
+* [33ma90159a[m Migrate /moo
+* [33mc21d960[m Remove comments
+* [33m228daa6[m[33m ([m[1;31morigin/user-rooms[m[33m, [m[1;32muser-rooms[m[33m)[m I like untested code
+* [33m866aea4[m Change mail separator
+* [33mabd28f3[m Send actual json
+* [33mfc3b447[m Return valid JSON for a hook, experimental NMN mailing, and allow mailing to multiple recievers
+*   [33m2b1eb60[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;32m|[m[1;33m\[m  
+[1;32m|[m *   [33m4019457[m Merge pull request #91 from nomorenotes/dependabot/npm_and_yarn/supports-color-9.2.3
+[1;32m|[m [1;34m|[m[1;35m\[m  
+[1;32m|[m [1;34m|[m * [33m9c182dc[m Bump supports-color from 9.2.1 to 9.2.3
+[1;32m|[m * [1;35m|[m   [33mb9408ae[m Merge pull request #94 from nomorenotes/dependabot/npm_and_yarn/socket.io/admin-ui-0.5.1
+[1;32m|[m [1;36m|[m[31m\[m [1;35m\[m  
+[1;32m|[m [1;36m|[m * [1;35m|[m [33m66b188a[m Bump @socket.io/admin-ui from 0.4.0 to 0.5.1
+[1;32m|[m * [31m|[m [1;35m|[m   [33m8fa33f6[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;32m|[m [32m|[m[33m\[m [31m\[m [1;35m\[m  
+* [32m|[m [33m|[m [31m|[m [1;35m|[m [33m6a1ed9d[m Unban everyone
+* [32m|[m [33m|[m [31m|[m [1;35m|[m [33maeda62d[m Fix evade
+* [32m|[m [33m|[m [31m|[m [1;35m|[m   [33m0a070da[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m[33m\[m [32m\[m [33m\[m [31m\[m [1;35m\[m  
+[32m|[m [33m|[m[32m/[m [33m/[m [31m/[m [1;35m/[m  
+[32m|[m[32m/[m[33m|[m [33m/[m [31m/[m [1;35m/[m   
+[32m|[m [33m|[m[33m/[m [31m/[m [1;35m/[m    
+[32m|[m * [31m|[m [1;35m|[m   [33m79bbc2c[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m [36m|[m[1;31m\[m [31m\[m [1;35m\[m  
+* [36m|[m [1;31m\[m [31m\[m [1;35m\[m   [33maae5cc9[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m[1;31m\[m [36m\[m [1;31m\[m [31m\[m [1;35m\[m  
+[36m|[m [1;31m|[m[36m/[m [1;31m/[m [31m/[m [1;35m/[m  
+[36m|[m[36m/[m[1;31m|[m [1;31m/[m [31m/[m [1;35m/[m   
+[36m|[m [1;31m|[m[1;31m/[m [31m/[m [1;35m/[m    
+[36m|[m * [31m|[m [1;35m|[m   [33m404df95[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m [1;34m|[m[1;35m\[m [31m\[m [1;35m\[m  
+* [1;34m|[m [1;35m|[m [31m|[m [1;35m|[m [33ma807432[m ...and add the code to save the passwords.
+* [1;34m|[m [1;35m|[m [31m|[m [1;35m|[m [33mcf2fca8[m Add a fallback MAIL_URL to avoid crashes
+* [1;34m|[m [1;35m|[m [31m|[m [1;35m|[m [33mf727679[m Make the database pretty
+* [1;34m|[m [1;35m|[m [31m|[m [1;35m|[m   [33mfccad48[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;34m|[m[1;35m\[m [1;34m\[m [1;35m\[m [31m\[m [1;35m\[m  
+[1;34m|[m [1;35m|[m[1;34m/[m [1;35m/[m [31m/[m [1;35m/[m  
+[1;34m|[m[1;34m/[m[1;35m|[m [1;35m/[m [31m/[m [1;35m/[m   
+[1;34m|[m [1;35m|[m[1;35m/[m [31m/[m [1;35m/[m    
+[1;34m|[m * [31m|[m [1;35m|[m   [33m4d163cd[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;34m|[m [32m|[m[33m\[m [31m\[m [1;35m\[m  
+* [32m|[m [33m|[m [31m|[m [1;35m|[m [33mef3d9c8[m fixup: change send bar border color in dark mode
+* [32m|[m [33m|[m [31m|[m [1;35m|[m   [33m116686f[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m[33m\[m [32m\[m [33m\[m [31m\[m [1;35m\[m  
+[32m|[m [33m|[m[32m/[m [33m/[m [31m/[m [1;35m/[m  
+[32m|[m[32m/[m[33m|[m [33m/[m [31m/[m [1;35m/[m   
+[32m|[m [33m|[m[33m/[m [31m/[m [1;35m/[m    
+[32m|[m * [31m|[m [1;35m|[m   [33mb595ce6[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m [36m|[m[1;31m\[m [31m\[m [1;35m\[m  
+* [36m|[m [1;31m|[m [31m|[m [1;35m|[m [33m413f50a[m remove ghost angle bracket
+* [36m|[m [1;31m|[m [31m|[m [1;35m|[m [33md9d77cf[m make message box more visible
+* [36m|[m [1;31m|[m [31m|[m [1;35m|[m   [33mda61e6e[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m[1;31m\[m [36m\[m [1;31m\[m [31m\[m [1;35m\[m  
+[36m|[m [1;31m|[m[36m/[m [1;31m/[m [31m/[m [1;35m/[m  
+[36m|[m[36m/[m[1;31m|[m [1;31m/[m [31m/[m [1;35m/[m   
+[36m|[m [1;31m|[m[1;31m/[m [31m/[m [1;35m/[m    
+[36m|[m * [31m|[m [1;35m|[m [33mdc7bdd2[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m [1;34m|[m[31m\[m[31m|[m [1;35m|[m 
+* [1;34m|[m [31m|[m [1;35m|[m [33m7a42871[m replit.nix
+* [1;34m|[m [31m|[m [1;35m|[m   [33mc7c1bdd[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;34m|[m[31m\[m [1;34m\[m [31m\[m [1;35m\[m  
+[1;34m|[m [31m|[m[1;34m/[m [31m/[m [1;35m/[m  
+[1;34m|[m[1;34m/[m[31m|[m [31m/[m [1;35m/[m   
+[1;34m|[m [31m|[m[31m/[m [1;35m/[m    
+[1;34m|[m * [1;35m|[m   [33m6c00057[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;34m|[m [32m|[m[33m\[m [1;35m\[m  
+* [32m|[m [33m\[m [1;35m\[m   [33m6b15c0d[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m[33m\[m [32m\[m [33m\[m [1;35m\[m  
+[32m|[m [33m|[m[32m/[m [33m/[m [1;35m/[m  
+[32m|[m[32m/[m[33m|[m [33m/[m [1;35m/[m   
+[32m|[m [33m|[m[33m/[m [1;35m/[m    
+[32m|[m * [1;35m/[m [33m2e1d1be[m Update dependabot.yml
+[32m|[m [1;35m|[m[1;35m/[m  
+[32m|[m *   [33mdc1b9d7[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m [36m|[m[1;31m\[m  
+* [36m|[m [1;31m|[m [33m1612a0e[m emergency update
+* [36m|[m [1;31m|[m   [33m17aaa8f[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m[1;31m\[m [36m\[m [1;31m\[m  
+[36m|[m [1;31m|[m[36m/[m [1;31m/[m  
+[36m|[m[36m/[m[1;31m|[m [1;31m/[m   
+[36m|[m [1;31m|[m[1;31m/[m    
+[36m|[m *   [33m8250c6d[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m [1;34m|[m[1;35m\[m  
+* [1;34m|[m [1;35m|[m [33m15067f1[m upgrade node version
+* [1;34m|[m [1;35m|[m [33m752d4a9[m what was in this commit again?
+* [1;34m|[m [1;35m|[m   [33m4371b34[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;34m|[m[1;35m\[m [1;34m\[m [1;35m\[m  
+[1;34m|[m [1;35m|[m[1;34m/[m [1;35m/[m  
+[1;34m|[m[1;34m/[m[1;35m|[m [1;35m/[m   
+[1;34m|[m [1;35m|[m[1;35m/[m    
+[1;34m|[m *   [33m043703c[m Merge the new stuff
+[1;34m|[m [32m|[m[33m\[m  
+* [32m|[m [33m|[m [33m1b452f3[m Sorry if I'm being ignorant
+* [32m|[m [33m|[m [33m0bda70e[m take these too
+* [32m|[m [33m|[m [33m3d5de48[m what do you know? more files!
+* [32m|[m [33m|[m [33m49086b1[m created main loop & timing control
+* [32m|[m [33m|[m   [33m60023ea[m Merge the new stuff
+[32m|[m[33m\[m [32m\[m [33m\[m  
+[32m|[m [33m|[m[32m/[m [33m/[m  
+[32m|[m[32m/[m[33m|[m [33m/[m   
+[32m|[m [33m|[m[33m/[m    
+[32m|[m *   [33m7309cb0[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[32m|[m [36m|[m[1;31m\[m  
+* [36m|[m [1;31m|[m [33m74e2f08[m It's been a while since last commit
+* [36m|[m [1;31m|[m   [33m81ef5dd[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m[1;31m\[m [36m\[m [1;31m\[m  
+[36m|[m [1;31m|[m[36m/[m [1;31m/[m  
+[36m|[m[36m/[m[1;31m|[m [1;31m/[m   
+[36m|[m [1;31m|[m[1;31m/[m    
+[36m|[m * [33m16152c5[m Bump express from 4.17.1 to 4.17.2 (#78)
+[36m|[m * [33m6e59a9f[m Bump socket.io from 4.2.0 to 4.4.1 (#79)
+[36m|[m * [33m45f1200[m Bump supports-color from 9.0.2 to 9.2.1 (#71)
+[36m|[m * [33m1ae74ef[m Bump engine.io from 5.2.0 to 5.2.1 (#81)
+[36m|[m *   [33m6845575[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[36m|[m [1;34m|[m[1;35m\[m  
+* [1;34m|[m [1;35m\[m   [33mb9e10f1[m Merge branch 'worksihope' of https://github.com/nomorenotes/nomorenotes into worksihope
+[1;34m|[m[1;35m\[m [1;34m\[m [1;35m\[m  
+[1;34m|[m [1;35m|[m[1;34m/[m [1;35m/[m  
+[1;34m|[m[1;34m/[m[1;35m|[m [1;35m/[m   
+[1;34m|[m [1;35m|[m[1;35m/[m    
+[1;34m|[m *   [33m4f6bd73[m zufällig
+[1;34m|[m [32m|[m[33m\[m  
+* [32m|[m [33m\[m   [33m90a786b[m zufällig
+[32m|[m[33m\[m [32m\[m [33m\[m  
+[32m|[m [33m|[m[32m/[m [33m/[m  
+[32m|[m[32m/[m[33m|[m [33m/[m   
+[32m|[m [33m|[m[33m/[m    
+[32m|[m *   [33mab23099[m wollen
+[32m|[m [36m|[m[1;31m\[m  
+* [36m|[m [1;31m|[m [33m0f07af5[m Fix GHSA-273r-mgr4-v34f and corrupted package lock
+* [36m|[m [1;31m|[m   [33m5921f70[m wollen
+[36m|[m[1;31m\[m [36m\[m [1;31m\[m  
+[36m|[m [1;31m|[m[36m/[m [1;31m/[m  
+[36m|[m[36m/[m[1;31m|[m [1;31m/[m   
+[36m|[m [1;31m|[m[1;31m/[m    
+[36m|[m *   [33m89fce1c[m können
+[36m|[m [1;34m|[m[1;35m\[m  
+* [1;34m|[m [1;35m\[m   [33m0a9db16[m können
+[1;34m|[m[1;35m\[m [1;34m\[m [1;35m\[m  
+[1;34m|[m [1;35m|[m[1;34m/[m [1;35m/[m  
+[1;34m|[m[1;34m/[m[1;35m|[m [1;35m/[m   
+[1;34m|[m [1;35m|[m[1;35m/[m    
+[1;34m|[m * [33mf6522ff[m schicken
+* [31m|[m [33m6914be6[m schicken
+[31m|[m[31m/[m  
+* [33m7191ffe[m Allow disabling HTTPS
+* [33m8822e47[m Add replit server
+* [33m8b96d51[m Webhooks (#80)
+[31m|[m * [33m1fb5cd8[m[33m ([m[1;31morigin/bot-listening[m[33m)[m Private hooks and listening bots array
+[31m|[m * [33mc62177c[m Webhooks (#80)
+[31m|[m[31m/[m  
+* [33mb7e3f04[m Small modifications to HTML help file
+* [33mdb21de7[m  Add a default unpermdeop command and fix an issue with human
+* [33m449249e[m ??
+* [33m8a9f087[m Add /imnot
+* [33m7cf7fdc[m Sub autolinking function
+* [33mfb39cd5[m Autolink subreddits
+* [33m67a0507[m Add small text to the HTML help file
+* [33mab40fe6[m Edit dike censor
+[32m|[m * [33m616aa7a[m[33m ([m[1;31morigin/new-ui[m[33m)[m why does it use commas?
+[32m|[m * [33meab3307[m Subreddit autolinking
+[32m|[m * [33mbfabb67[m nice ui lol
+[32m|[m * [33mef5b095[m Make send not be code
+[32m|[m * [33m1dfa0a8[m Remove dashes from class names
+[32m|[m * [33m9b6709b[m MESSAGE
+[32m|[m * [33m61c4e48[m Set prepMessage()
+[32m|[m * [33m88d6adf[m Deduplicate grid stuff
+[32m|[m * [33m75cac4d[m Make it big Still doesn't compare to your mom
+[32m|[m * [33mae5802c[m Start UI redesign
+[32m|[m * [33mc2878d2[m Edit dike censor
+[32m|[m[32m/[m  
+* [33m66c9aa7[m Make a certain filter case-insensitive
+* [33m926742b[m Ban changes
+* [33mda43df9[m Fix porn censor
+[33m|[m * [33me7ce717[m[33m ([m[1;31morigin/ui-redo[m[33m)[m Fix porn censor
+[33m|[m[33m/[m  
+* [33m9b83a29[m Make /_nowop be default op command
+* [33m70ba77f[m Re-enable space names
+* [33md216a41[m Censor hentai
+* [33ma0f4528[m Urgently switch verification
+* [33m1853256[m Google site verification
+* [33m46863d4[m Make righting less likely
+* [33m645e88e[m Debracket messages
+* [33m15d865d[m Add a random chance to right and fix ban message
+[34m|[m * [33mbc4ac5d[m[33m ([m[1;31morigin/forced-names[m[33m)[m True init.
+[34m|[m * [33m2018382[m First attempt at forced names
+[34m|[m * [33m90fdbcf[m ~
+[34m|[m * [33m3f6e976[m Revert a joke that got me called to the office
+[34m|[m * [33mefc301e[m Add a random chance to right and fix ban message
+[34m|[m[34m/[m  
+* [33m2a38a2b[m Use non-word characters instead of just spaces
+* [33m9678320[m ro ro
+* [33m2a86c13[m Swearfilter things
+* [33medfd730[m Go to space
+* [33m26726fa[m Files
+* [33m6d365b6[m more strings
+* [33mf94ab11[m Stringification
+* [33m4ddfd89[m Fix hotbox and hopefully emojis
+* [33m50b96e3[m Add hotbox and other tweaks
+* [33m2844fcb[m ser
+* [33mf78eeae[m more censor
+* [33m50af05c[m Vinegar
+* [33mfc3ce9a[m Global io to affirm my expectations
+* [33mf8e3148[m Log more things
+* [33mf170bd7[m Add logs
+* [33m93ef852[m It was a different method
+* [33me4ed1fd[m Swap quotes
+* [33maeadfa0[m Off!
+* [33ma8d90ba[m Fix some text formatting lines
+* [33mfe62998[m Alias sp to spoiler
+* [33m1132786[m Small spoiler tweaks
+* [33mf35f5ad[m 1
+* [33mfd7fdb9[m 16
+* [33m46ff695[m 16
+* [33macbee24[m No pinecones!
+* [33m2f1096e[m Go into a comma
+* [33m5c743bc[m Add more replacements
+* [33m5a6c049[m Unanchor end of ass
+* [33m22fc05f[m toLowerCase
+* [33m050507f[m Add guestlock
+* [33m93ff91a[m Add /human
+* [33mebf5026[m Fix a major insect
+* [33m0e9ee5d[m Target instead of Walmart
+* [33mf613fd6[m ACTUALLY fix spaces
+* [33m46e9aac[m Actually give spaces the middle finger
+* [33m71df8af[m Make permdeop actually work
+* [33m958061f[m Completely disable spaces in names
+* [33m88ead04[m Add /permdeop
+* [33m71cf6ba[m Add id to unexist
+* [33mc63c185[m Add /unexist and new subs
+* [33m86a2fbd[m Add a new prefix
+* [33me342bd5[m Escape <
+* [33m6a9fa0f[m Remove /preban
+* [33m74ffe04[m truck
+* [33m35eb313[m Add /wspy and some small /w tweaks
+* [33mb1b6574[m Une
+* [33mfd1f52d[m add more censors
+* [33m840bd5a[m Fix spaces in arguments
+* [33m0279bde[m Allow spaces in command args
+* [33m469e011[m Remove /preban and fix ban message
+* [33m1fa6bf1[m Do we really need cookies?
+* [33m8d03482[m Reorder some statements
+[35m|[m * [33mf1024c0[m[33m ([m[1;31morigin/security-issues[m[33m)[m Reorder some statements
+[35m|[m[35m/[m  
+* [33ma2f5078[m Support HTML banners and ban messages
+[36m|[m * [33m0bab66d[m[33m ([m[1;31morigin/magical-slash[m[33m)[m Support HTML banners and ban messages
+[36m|[m[36m/[m  
+* [33mcd0b3ee[m Collapse <hr>s
+[1;31m|[m * [33md68b75b[m[33m ([m[1;31morigin/cora-commands[m[33m)[m Collapse <hr>s
+[1;31m|[m[1;31m/[m  
+* [33m3116ba8[m Punctuation
+[1;32m|[m * [33m23a1be9[m[33m ([m[1;31morigin/ts-port[m[33m)[m Mostly convert to ESM
+[1;32m|[m * [33mebffb8a[m Punctuation
+[1;32m|[m[1;32m/[m  
+* [33m6ff9075[m Add a welcome text file
+* [33m393347c[m Delete /video
+* [33ma6a63ea[m Fix &nbsp; spam
+* [33m1f34538[m /kick and /ban attribution
+* [33md529cad[m How do you yes?
+[1;33m|[m * [33m574bf41[m[33m ([m[1;31morigin/user-info[m[33m)[m How do you yes?
+[1;33m|[m[1;33m/[m  
+* [33m63ca8ab[m Update server.js
+* [33md2479bf[m New favicon!
+* [33m7d0f662[m Add /nexus
+* [33mffee59d[m Add a few things to /help html
+* [33mb4383e0[m Fix clbuttic mistake
+* [33m1d32666[m completely regular code
+* [33m4ed8c3e[m fix
+* [33mc93ba4f[m Pad with spaces, not zeros
+* [33mff995e8[m Fix a small bug because of html
+[1;34m|[m *   [33md692066[m[33m ([m[1;31morigin/misccommands[m[33m)[m Merge branch 'worksihope' into misccommands
+[1;34m|[m [1;35m|[m[1;34m\[m  
+[1;34m|[m [1;35m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;35m|[m   
+[1;34m|[m * [33m5b1b000[m Add banning (#66)
+[1;34m|[m [1;36m|[m *   [33m187ac51[m[33m ([m[1;31morigin/helpbuttons[m[33m)[m Merge branch 'worksihope' into helpbuttons
+[1;34m|[m [1;36m|[m [31m|[m[1;34m\[m  
+[1;34m|[m [1;36m|[m[1;34m_[m[31m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;36m|[m [31m|[m   
+* [1;36m|[m [31m|[m [33m9ff4702[m Add banning (#66)
+[1;36m|[m[1;36m/[m [31m/[m  
+* [31m|[m [33mee9ad38[m Misc patch
+[32m|[m * [33mb1b295e[m Window.
+[32m|[m * [33m2195fa2[m formatting
+[32m|[m * [33mf45ce4d[m truck parents
+[32m|[m * [33ma872309[m Comma-separate files
+[32m|[m * [33me71d57b[m buttons
+[32m|[m * [33m24ce334[m Fix wrong handler
+[32m|[m * [33m81bad07[m Use a box instead of a button
+[32m|[m * [33me9c92a9[m Misc patch
+[32m|[m[32m/[m  
+* [33md9e48f6[m Fix /w
+* [33m23f64c0[m it was a single arrow bracket
+* [33m74816de[m Return
+* [33m1a02ead[m Take a break
+* [33m5166acc[m Add /code
+[32m|[m * [33m2040126[m[33m ([m[1;31morigin/commandfiles[m[33m)[m Add /code
+[32m|[m[32m/[m  
+* [33m702e8f1[m Fix a few hardcoded colors
+* [33me215078[m Add dark mode toggle
+* [33mfb765cb[m Add a dark style
+* [33mf8fae71[m Add a timer
+* [33md38e9b6[m Show how to use /help
+* [33md4d4c0d[m Create timer.html
+* [33md2fd1e1[m Close my script
+* [33m74fe8c5[m Fix every crash..?
+* [33m52ee2a2[m Serve the ban screen directly baby
+* [33m8939a9b[m Add a banned screen (not openable yet)
+* [33m02040a7[m Use iom.mes to send messages instead of io.emit
+* [33m9de00f9[m Don't be a fresh idiot
+* [33m6fec3e8[m Don't process.exit
+* [33mb900b95[m Undisable /deop
+* [33m5f3a34f[m Update server.js
+* [33mc75302a[m Send chat messages instead of normal messages
+* [33m2995701[m Disable /deop
+* [33m9935106[m Hopefully fix /deop
+* [33mabf07a3[m Don't dep on heroku-cli
+* [33m995d29b[m Don't have a dep on heroku
+* [33m6b532b7[m Don't slice the messages in iomodule
+* [33mfa62edd[m Create shiftleft-analysis.yml
+* [33m9711034[m Create ossar-analysis.yml
+* [33m15b3c00[m Create devskim-analysis.yml
+[33m|[m * [33m753acc3[m[33m ([m[1;31morigin/revert-59-dependabot/npm_and_yarn/heroku-7.59.0[m[33m)[m Revert "Bump heroku from 7.52.0 to 7.59.0 (#59)"
+[33m|[m[33m/[m  
+* [33mbe33c6f[m Bump heroku from 7.52.0 to 7.59.0 (#59)
+* [33m6a11421[m Bump url-parse from 1.5.1 to 1.5.3 (#58)
+* [33m922dcdd[m Bump supports-color from 8.1.1 to 9.0.2 (#56)
+* [33mc584c78[m Bump socket.io from 4.0.1 to 4.2.0 (#60)
+* [33mc2c08d0[m Bump ws from 6.2.1 to 6.2.2 (#50)
+* [33me6460be[m Die on unhandled error
+* [33ma02ee66[m Add error catching
+* [33m95dd44b[m Remove message cap
+* [33m89c7ff5[m +
+* [33m5358ebd[m Beautify and wait until document loads to hook
+* [33m1a9fa32[m Forgot to query the J
+* [33m753ad3d[m That wasn't css...
+* [33m5d5446d[m Try meta-ing the file
+* [33m2a105de[m set mode saveable
+* [33m252411d[m Use the mode saveable
+* [33mad8d07e[m Forcepush because of amendment
+* [33mf72567e[m Amend changes
+* [33m4dfe2c8[m update package-lock
+* [33m584c929[m Don't annihilate chat :facepalm:
+* [33mea1ce88[m update package-lock
+* [33m39aa2ff[m Serve the silver platter
+* [33m7717765[m update package-lock
+* [33m747dba2[m Serve the saveable editor on a silver platter
+* [33m5c6f6fe[m Use the source, Luke!
+* [33m34ea765[m update package-lock
+* [33m090726b[m Make saveable editing look good
+* [33mb2eaf0c[m update package-lock
+* [33mda5bad7[m Make saveable editor work
+* [33m15e583f[m update package-lock
+* [33m4d95d69[m Import HTML for saveable editor
+* [33m15980f0[m update package-lock
+* [33mdfaeef7[m Force HTTPS
+* [33mbdca0ed[m update package-lock
+* [33m7bd25b4[m noia
+* [33m655b7d8[m update package-lock
+* [33m96d7828[m Add savedata support! (#48)
+* [33m242b550[m update package-lock
+* [33m77e6a9f[m Do a LOT of thinks
+* [33m748dafd[m update package-lock
+* [33md4ef418[m Filter /_nowop
+* [33m897e681[m update package-lock
+*   [33m5ada322[m Merge pull request #39 from nomorenotes/dependabot/npm_and_yarn/heroku-7.52.0
+[35m|[m[36m\[m  
+[35m|[m * [33m70d610f[m Bump heroku from 7.51.0 to 7.52.0
+[35m|[m[35m/[m  
+* [33me8a6135[m update package-lock
+*   [33mb480e07[m Merge pull request #38 from nomorenotes/dependabot/npm_and_yarn/socket.io-4.0.1
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m3bb340d[m Bump socket.io from 2.4.0 to 4.0.1
+* [1;32m|[m [33m04373c1[m update package-lock
+* [1;32m|[m [33mcb8b5cd[m change the project name
+* [1;32m|[m [33m8155901[m update package-lock
+* [1;32m|[m [33m6cee8ce[m that's not backspace, nathan
+* [1;32m|[m [33me8c4901[m update package-lock
+* [1;32m|[m [33m966246c[m i usually get MISSING semicolon errors
+* [1;32m|[m [33meae2dcc[m update package-lock
+* [1;32m|[m [33m0293778[m For non-ops of course
+* [1;32m|[m [33m682bbc2[m update package-lock
+* [1;32m|[m [33m33d5a4b[m I should really set a message length limit
+* [1;32m|[m [33md560b2f[m update package-lock
+* [1;32m|[m [33md473fcb[m Fix command arguments not being censored
+* [1;32m|[m [33m6a47e51[m update package-lock
+* [1;32m|[m [33mea8ce25[m and more
+* [1;32m|[m [33m9d0c877[m add my jshint ramblings
+* [1;32m|[m [33m79f15ef[m update package-lock
+* [1;32m|[m [33m26b3520[m I thought I wrote that already
+* [1;32m|[m [33m63528a8[m update package-lock
+* [1;32m|[m [33md370f8f[m back goes the async
+* [1;32m|[m [33ma03a7f8[m update package-lock
+* [1;32m|[m [33m7026b96[m ohhhh, i need to do the thing
+* [1;32m|[m [33m9733857[m update package-lock
+* [1;32m|[m [33m9da9bde[m MORE LOGS
+* [1;32m|[m [33mae4bacc[m update package-lock
+* [1;32m|[m [33mc21f36a[m I think I need to get a body
+* [1;32m|[m [33m3944588[m update package-lock
+* [1;32m|[m [33mf1dda8f[m might help if i parse
+* [1;32m|[m [33m53db1fa[m update package-lock
+* [1;32m|[m [33me72f429[m 2>&1
+* [1;32m|[m [33m156fee9[m update package-lock
+* [1;32m|[m [33mf1ef609[m continue-on-error: true
+* [1;32m|[m [33m0a40443[m Forgot to make a directroy
+* [1;32m|[m [33m7c8e027[m Do more things
+* [1;32m|[m [33mdbfe3d0[m Fine, I do this, is this fine?
+* [1;32m|[m [33m51cf1e5[m promise you won't crash this time
+* [1;32m|[m [33mbc100af[m null commit, for some reason
+* [1;32m|[m [33m629e321[m add some alerts
+[1;32m|[m[1;32m/[m  
+* [33m91304bf[m Actually use the cookie lib
+* [33mb45b6b8[m ehh who cares about path
+* [33mc42cc59[m Add BASIC theme support
+* [33m08cceec[m Use the right imports and serve static file themes.json
+* [33m9e67e44[m Add a cookie library
+* [33m4aa55c0[m Serve libraries
+* [33m31418fe[m Create themes.json
+* [33mfd5d5e3[m *sigh* return true
+* [33m318caf8[m Add showCommand(string) and sendCommand(string)
+* [33m1b8fe2c[m Where did this file go?
+* [33m4d5b08f[m Fix spacing problems driving me insane
+* [33mfba6293[m Add semis and fix the thing I think
+* [33m4c93d57[m smol word
+* [33mcb6c535[m Assert string and use .length not .length()
+* [33m5f53e09[m Document debug commands
+* [33mf6cde7d[m Document admin commands
+* [33m3d9e1a6[m use more correct variables
+* [33me649fd4[m use more correct variables
+* [33ma245a6f[m USE THE CORRECT VARIABLE, finally
+* [33m514e8d2[m Remove /attendance
+* [33m86a32c1[m add /help to the help file
+* [33m28ed971[m Add command list, finally
+* [33m26b2e77[m g
+* [33m40ce1b2[m log
+* [33m4dbd201[m Set the encoding
+* [33m4a39856[m Set the encoding
+* [33m4df947f[m might help if i don't try to replace an array (i think that's what it is)
+* [33md5d4bc5[m might help if i don't try to replace an array (i think that's what it is)
+* [33m7f18f80[m what do YOU think the first thing that throws is?
+* [33mb9fcb3c[m Add /help, require fs, set esversion, add semicolons, take a break, and throw impossible errors
+* [33m44a7021[m Surrly I could just REMEMBER TO REQUIRE IT
+* [33mbcf49b9[m Update main.js
+* [33md432706[m Create dependabot.yml
+* [33m8055723[m update package-lock
+* [33m1d5565e[m buump
+* [33mabace8f[m bump
+* [33m55f4238[m rollback to the last time it worked
+* [33m15be66b[m Require heroku-client
+* [33m4830ade[m w-- how did i even do that??
+* [33mf2cb8c4[m Rollback javascript to staging
+* [33m6a380f5[m LOGS
+* [33medd638f[m Remember the curly, and don't splice
+* [33m608bf65[m Update package-lock.json
+* [33me18e4a8[m Update install.yml
+* [33mb8e6ae5[m Add engine
+* [33m6078ca0[m Add support for flags on /video
+*   [33m07d861c[m Merge pull request #36 from nomorenotes/feature/descriptions
+[1;33m|[m[1;34m\[m  
+[1;33m|[m *   [33m7d92c76[m Merge branch 'worksihope' into feature/descriptions
+[1;33m|[m [1;35m|[m[1;33m\[m  
+[1;33m|[m [1;35m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[1;35m|[m   
+* [1;35m|[m [33m49cbf58[m Create njsscan-analysis.yml
+* [1;35m|[m [33mbddd60e[m Delete flap.md
+* [1;35m|[m [33mf68be4e[m Create flap.md
+* [1;35m|[m [33m11e4bc5[m Install 'supports-color'
+* [1;35m|[m [33m4946fde[m Create codeql-analysis.yml
+* [1;35m|[m [33mc607726[m fix location of string
+* [1;35m|[m [33mfa9de23[m Update install.yml
+* [1;35m|[m   [33m5112bfd[m Merge pull request #33 from nomorenotes/dependabot/npm_and_yarn/socket.io-2.4.0
+[31m|[m[32m\[m [1;35m\[m  
+[31m|[m * [1;35m\[m   [33me0a72eb[m Merge branch 'worksihope' into dependabot/npm_and_yarn/socket.io-2.4.0
+[31m|[m [33m|[m[31m\[m [1;35m\[m  
+[31m|[m [33m|[m[31m/[m [1;35m/[m  
+[31m|[m[31m/[m[33m|[m [1;35m|[m   
+* [33m|[m [1;35m|[m [33m8528463[m filter branches
+[34m|[m * [1;35m|[m [33mabbc0d1[m Bump socket.io from 1.7.4 to 2.4.0
+[34m|[m[34m/[m [1;35m/[m  
+* [1;35m|[m [33ma8e5d71[m update package-lock
+* [1;35m|[m [33m29740bd[m persist credentials
+* [1;35m|[m [33mcd32090[m just do default push
+* [1;35m|[m [33ma5faa65[m remove the input_
+* [1;35m|[m [33m9e9c17e[m use just the token for the thing
+* [1;35m|[m [33m7a39229[m Update install.yml
+* [1;35m|[m [33m0bc56ce[m Delete flap.md
+* [1;35m|[m [33m1f4d038[m Create flap.md
+* [1;35m|[m [33m060f72e[m Add semicolons, close parents, and fix an unmatched curly-parent that existed for too long
+* [1;35m|[m [33m3f51ef4[m Add the classes
+* [1;35m|[m [33mb66744e[m Add some things
+* [1;35m|[m [33m279cfce[m help
+[34m|[m * [33m2b0fd94[m Update README.md
+[34m|[m * [33m0d1f1e0[m Update package.json
+[34m|[m [34m|[m * [33md08d7dc[m[33m ([m[1;31morigin/heroku/main[m[33m)[m Update main.js
+[34m|[m [34m|[m [35m|[m * [33m1d3f28b[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m {chore: autopublish 2021-03-24T11:47:20Z}
+[34m|[m [34m|[m [35m|[m *   [33m163ae4b[m Merge branch 'master' of https://github.com/nomorenotes/nomorenotes
+[34m|[m [34m|[m [35m|[m [1;31m|[m[1;32m\[m  
+[34m|[m [34m|[m [35m|[m [1;31m|[m * [33m7e94d62[m {chore: autopublish 2021-03-15T13:48:52Z}
+[34m|[m [34m|[m [35m|[m [1;31m|[m [1;32m|[m * [33m8372632[m[33m ([m[1;31morigin/${GITHUB_REF#refs/heads/}[m[33m)[m help
+[34m|[m [34m|[m [35m|[m [1;31m|[m [1;32m|[m * [33m41d6360[m {chore: autopublish 2021-03-15T15:30:41Z}
+[34m|[m [34m|[m[34m_[m[35m|[m[34m_[m[1;31m|[m[34m_[m[1;32m|[m[34m/[m  
+[34m|[m[34m/[m[34m|[m [35m|[m [1;31m|[m [1;32m|[m   
+* [34m|[m [35m|[m [1;31m|[m [1;32m|[m [33mf38feed[m Confusion maximized successfully
+* [34m|[m [35m|[m [1;31m|[m [1;32m|[m [33me2b376e[m W-- Huh?
+* [34m|[m [35m|[m [1;31m|[m [1;32m|[m [33m07bd6af[m Tell checkout what to checkout
+[1;32m|[m [34m|[m[1;32m_[m[35m|[m[1;32m_[m[1;31m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[34m|[m [35m|[m [1;31m|[m   
+* [34m|[m [35m|[m [1;31m|[m [33m00a29e0[m Create install.yml
+* [34m|[m [35m|[m [1;31m|[m [33mc3c557c[m Actually don't, it's very important
+* [34m|[m [35m|[m [1;31m|[m [33m1acfac3[m Fix a strange bug that makes /list show your name in place of other people (/away statuses are not affected)
+* [34m|[m [35m|[m [1;31m|[m [33m15d6f2b[m Add name to the message
+* [34m|[m [35m|[m [1;31m|[m [33m4e87af8[m r.T.
+* [34m|[m [35m|[m [1;31m|[m [33mf00f230[m Update texts.js
+* [34m|[m [35m|[m [1;31m|[m [33ma9bdc73[m that's-- just--
+* [34m|[m [35m|[m [1;31m|[m [33ma53cc94[m forgot a paren
+* [34m|[m [35m|[m [1;31m|[m [33mf8e38cc[m Add /iamtruly
+* [34m|[m [35m|[m [1;31m|[m [33mbac01da[m Turn this off because yes
+* [34m|[m [35m|[m [1;31m|[m [33mf8c9f0c[m I THINK I can uncomment this
+* [34m|[m [35m|[m [1;31m|[m [33me35967b[m Actually set the name
+* [34m|[m [35m|[m [1;31m|[m [33me7c8b96[m Completely remove names, so it errors instead of doing very bad things
+* [34m|[m [35m|[m [1;31m|[m [33m67233b6[m 2021-03-08T15:10:55.878096+00:00 app[web.1]: TypeError: Symbol is not a constructor
+* [34m|[m [35m|[m [1;31m|[m [33m3a19f0c[m 2021-03-08T15:08:42.777642+00:00 app[web.1]: SyntaxError: missing ) after argument list
+* [34m|[m [35m|[m [1;31m|[m [33maf20b75[m MASSIVE REFACTOR: store socket names in the socket
+* [34m|[m [35m|[m [1;31m|[m [33ma88bcda[m MASSIVE REFACTOR: store socket names in the socket
+* [34m|[m [35m|[m [1;31m|[m [33me340d13[m r.al and userdict go brrrr
+* [34m|[m [35m|[m [1;31m|[m [33mb1b888e[m Fix simple spoilers
+* [34m|[m [35m|[m [1;31m|[m [33m33d22e4[m Add simple spoilers
+* [34m|[m [35m|[m [1;31m|[m [33m913a982[m Rename pinged event, because yes
+* [34m|[m [35m|[m [1;31m|[m [33m0f1251a[m oh f*** m is not defined
+* [34m|[m [35m|[m [1;31m|[m [33ma2708ae[m Add (/)me!
+* [34m|[m [35m|[m [1;31m|[m [33m7d52602[m Add (/)me!
+* [34m|[m [35m|[m [1;31m|[m [33mded0ca0[m Add action translation and rearrange stuff
+* [34m|[m [35m|[m [1;31m|[m [33m1f109f6[m Use the server's socket.io.js
+[1;33m|[m [34m|[m [35m|[m [1;31m|[m * [33m11fa006[m[33m ([m[1;31morigin/image-video-format-msg[m[33m)[m Format the message, fixing lack of censor
+[1;33m|[m [34m|[m[1;33m_[m[35m|[m[1;33m_[m[1;31m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[34m|[m [35m|[m [1;31m|[m   
+* [34m|[m [35m|[m [1;31m|[m [33m04f41e4[m Create story.txt
+* [34m|[m [35m|[m [1;31m|[m [33m8ef9491[m Type in the right file this time, and disable always-crash routes
+* [34m|[m [35m|[m [1;31m|[m [33m5b8a444[m *ctrlz* oops wrong file
+* [34m|[m [35m|[m [1;31m|[m [33mf9edb37[m Send raw file story.txt
+* [34m|[m [35m|[m [1;31m|[m [33m573aad2[m Use loader "test" (will always give a fake error)
+* [34m|[m [35m|[m [1;31m|[m [33ma1d03b6[m Create loader "test"
+* [34m|[m [35m|[m [1;31m|[m [33m4475f09[m Create page "test"
+* [34m|[m [35m|[m [1;31m|[m [33m09d0f63[m Update iomodule.js
+* [34m|[m [35m|[m [1;31m|[m [33m852369b[m Delete emoji.json
+* [34m|[m [35m|[m [1;31m|[m [33m79d7371[m Update emoji.js
+* [34m|[m [35m|[m [1;31m|[m [33m805f5fb[m Apply a quick JSHint
+* [34m|[m [35m|[m [1;31m|[m [33mc2ee20a[m Add emoji support
+* [34m|[m [35m|[m [1;31m|[m [33m99fdc23[m Create emoji.json 😃
+* [34m|[m [35m|[m [1;31m|[m [33m62da927[m Fix variables
+* [34m|[m [35m|[m [1;31m|[m [33m870a757[m Add /video
+* [34m|[m [35m|[m [1;31m|[m [33m6d3f1dc[m Disable /spam
+* [34m|[m [35m|[m [1;31m|[m [33m0f9e194[m Give me some space
+* [34m|[m [35m|[m [1;31m|[m [33m7dca5ad[m It's. The. Same. Error.
+* [34m|[m [35m|[m [1;31m|[m [33m958307d[m Add /image
+* [34m|[m [35m|[m [1;31m|[m [33m9eeb656[m Create help/html.txt
+* [34m|[m [35m|[m [1;31m|[m [33m2de1670[m Add a lot more freedom for /_rawedit
+* [34m|[m [35m|[m [1;31m|[m [33md1920e6[m Add the F variable
+* [34m|[m [35m|[m [1;31m|[m [33m0ec5f7b[m Slice ID to 6 characters to prevent layout breaking, also using 6 characters for padding
+[1;34m|[m [34m|[m [35m|[m [1;31m|[m * [33m318bb00[m[33m ([m[1;31morigin/heroku/develop[m[33m)[m re-remove the package lock
+[1;34m|[m [34m|[m [35m|[m [1;31m|[m * [33m911c7a6[m Merge pull request #29 from nomorenotes/heroku/main
+[1;34m|[m [34m|[m [35m|[m[34m_[m[1;31m|[m[34m/[m[35m|[m 
+[1;34m|[m [34m|[m[34m/[m[35m|[m [1;31m|[m[35m/[m  
+[1;34m|[m [34m|[m [35m|[m[35m/[m[1;31m|[m   
+[1;34m|[m [34m|[m * [1;31m|[m [33m0066061[m Add much more debugs than neccesarry
+[1;34m|[m [34m|[m * [1;31m|[m [33m85e493e[m Realize I forgot to close hello()
+[1;34m|[m [34m|[m * [1;31m|[m [33m07439fb[m Update main.js
+[1;34m|[m [34m|[m * [1;31m|[m [33ma213aff[m Fix debug()
+[1;34m|[m [34m|[m * [1;31m|[m [33m555b705[m Do some prettifying, move hello() out to a function, add debug() function
+[1;34m|[m [34m|[m * [1;31m|[m [33ma55501d[m Add .debug class for li
+[1;34m|[m [34m|[m * [1;31m|[m [33mb49bc43[m Add dummy strings
+[1;34m|[m [34m|[m * [1;31m|[m [33m62aed9c[m More debugs!
+[1;34m|[m [34m|[m * [1;31m|[m [33m185b141[m Log [dis]connections
+[1;34m|[m [34m|[m * [1;31m|[m [33m19e2d9a[m Rename package-lock.json to package-lock.json~
+[1;34m|[m [34m|[m[34m/[m [1;31m/[m  
+[1;34m|[m * [1;31m|[m   [33m783965e[m[33m ([m[1;31morigin/heroku/staging[m[33m)[m Merge pull request #26 from nomorenotes/dawn-of-the-commands
+[1;34m|[m [32m|[m[33m\[m [1;31m\[m  
+[1;34m|[m [32m|[m * [1;31m\[m   [33m4374f8d[m[33m ([m[1;31morigin/dawn-of-the-commands[m[33m)[m Merge branch 'master' into dawn-of-the-commands
+[1;34m|[m [32m|[m [34m|[m[32m\[m [1;31m\[m  
+[1;34m|[m [32m|[m [34m|[m[32m/[m [1;31m/[m  
+[1;34m|[m [32m|[m[32m/[m[34m|[m [1;31m|[m   
+[1;34m|[m * [34m|[m [1;31m|[m [33m2bfd345[m Make master work again! (#23)
+[1;34m|[m [1;31m|[m [34m|[m[1;31m/[m  
+[1;34m|[m [1;31m|[m[1;31m/[m[34m|[m   
+[1;34m|[m * [34m|[m [33m22cdfbf[m Update README.md
+[1;34m|[m * [34m|[m [33mc45113b[m Update README.md
+[1;34m|[m * [34m|[m [33m0c656a0[m Finally add package lock
+[1;34m|[m * [34m|[m [33mb3a69ff[m devDepend on heroku
+[1;34m|[m * [34m|[m [33ma3fd0bd[m Update socket.io
+[1;34m|[m [35m|[m * [33m54d3060[m re-add package-lock.json because thats kinda what my action needs to run
+[1;34m|[m [35m|[m * [33me7e9bcb[m Add package-lock.json action
+[1;34m|[m [35m|[m * [33m1fe25ec[m it messes up the everything
+[1;34m|[m [35m|[m * [33m456db2c[m it messes up the everything
+[1;34m|[m [35m|[m * [33m2c7be3a[m it messes up the everything
+[1;34m|[m [35m|[m * [33me7596e4[m it messes up the everything
+[1;34m|[m [35m|[m * [33m836852b[m it messes up the everything
+[1;34m|[m [35m|[m * [33m9f99ca5[m This STILL isn't python, Nathan
+[1;34m|[m [35m|[m * [33mc665057[m Finally add name verification (deopped only)
+[1;34m|[m [35m|[m * [33m8ae0952[m Surr...
+[1;34m|[m [35m|[m * [33m96be694[m Add misssisippyi
+[1;34m|[m [35m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[35m|[m   
+* [35m|[m [33m01f8356[m Use correct video for /deop
+* [35m|[m [33mc8d278f[m Copy no-longer-experimental /op broadcasting to /deop
+* [35m|[m [33m761ccb6[m Add experimental /op broadcasting
+* [35m|[m [33ma4ded69[m This still isn't python, Nathan
+* [35m|[m [33mcfc1de2[m This isn't python, Nathan
+* [35m|[m [33m69f824e[m Add /list
+* [35m|[m [33md13941a[m Add userlist
+* [35m|[m [33m060c9ea[m do that again, but with actual spaces this time
+* [35m|[m [33m4954405[m Do some reflowing of code to reach you were never away, remove extra } in string
+* [35m|[m [33m450645b[m *sigh* use r.io, not io
+* [35m|[m [33ma0b501a[m Add /away
+* [35m|[m [33m019a29f[m Remove /_opme
+* [35m|[m [33m67ab543[m Add banning support :_(
+* [35m|[m [33m10b3752[m Add /ban :(
+* [35m|[m [33me9adab8[m Add ban message
+* [35m|[m [33m71b1da6[m Roll back stylesheet to NoMoreStaging.
+* [35m|[m [33ma1c8ef1[m Fix the messages div
+* [35m|[m [33m5933b9a[m Glue send bar to bottom of screen, as last resort
+* [35m|[m [33m1e76b11[m Paddingless is important!
+* [35m|[m [33mcb0a6aa[m USE THE RIGHT HEIGHT
+* [35m|[m [33m10e07ec[m wrong unit GRRRRRR
+* [35m|[m [33m6206fd5[m Use forced heights, disable padding, and fix the send bar overlapping the messages. There are a lot of changes.
+* [35m|[m [33me083391[m Add said paragraph element to the CSS, and explicitly define the height for input box
+* [35m|[m [33meefa975[m Add paragraph element below the form
+* [35m|[m [33m22433e0[m ok thats too high
+* [35m|[m [33me673119[m Shift message bar up a bit
+* [35m|[m [33m02f9c75[m Fix undefined name in announcement as a result of the socket being hard kicked
+* [35m|[m [33m6181d4a[m Use SYS_ID by default for messages without a sender
+* [35m|[m [33mbc466d5[m Use SYS_ID by default for messages without a sender
+* [35m|[m [33m1f076cd[m Add announcement to /kick, and make use of the "silentLeave" flag
+* [35m|[m [33m467c921[m Add translation message for /kick's announcement
+* [35m|[m [33m1b92660[m Add use for "silentLeave" flag
+* [35m|[m [33m0eac0a9[m Update main.js
+* [35m|[m [33m0b7c2f4[m Completely remove "Latest Messages"
+* [35m|[m [33m9a878b6[m Fix preview chat showing IDs instead of messages
+* [35m|[m [33m71aabb0[m Add server name to join_self
+* [35m|[m [33mc7e941c[m Comment out the html autocensor
+* [35m|[m [33m89d1364[m Fix quote
+* [35m|[m [33m53e898f[m Make all replace's global
+* [35m|[m [33mc98b89d[m Auto-escape < and >, instead usng %$ and $% which is much less likely to be used
+* [35m|[m [33m66bd3f3[m Use correct flag
+* [35m|[m [33m52d882c[m Stringifry prefix
+* [35m|[m [33m363da49[m Underp the escapes
+* [35m|[m [33m2afb383[m Leftpad the message ID
+* [35m|[m [33mef7f596[m Escape the lgt signs
+* [35m|[m [33m1c0a4d2[m Allow HTML formatting in messages
+* [35m|[m [33m722cf11[m Fix time being speed, add user login stuff
+* [35m|[m [33m2dd5c10[m Use correct condition
+* [35m|[m [33m73c9867[m Fix lack of sysid
+* [35m|[m [33me145860[m r.rage()
+* [35m|[m [33m61fe9f3[m Notify clients when opped, and send 404-style errors to clients when the name lookup 404s
+* [35m|[m [33m3d0e9de[m Alert
+* [35m|[m [33m59477ea[m Fix syntactical errors
+* [35m|[m [33m2ff2e9e[m Replace it with the JSFiddle code
+* [35m|[m [33m6736cb9[m UnJquery it
+* [35m|[m [33mae9ec47[m Alert when pasted
+* [35m|[m [33m6703e2f[m Jquery the #m element for pasting
+* [35m|[m [33mf6f712b[m Add handler for pasting images
+* [35m|[m [33m47e70d1[m Experimental image pasting
+* [35m|[m [33m13ad7b1[m Allow non-ops /edit and /delete
+* [35m|[m [33mc722a24[m Put the curly in the right place
+* [35m|[m [33mb6545f4[m Add bracket, and respond to JSHint
+* [35m|[m [33me66e00f[m Add /_opme
+* [35m|[m [33m3de330d[m Add actual admin requirements to run commands
+* [35m|[m [33mdbb70d5[m Add /_rawdelete
+* [35m|[m [33me6f7375[m Use correct array index
+* [35m|[m [33m78642d2[m Remove /delete:msg, alert the id when deleting message
+* [35m|[m [33m5125915[m Un-jquery the /delete handler
+* [35m|[m [33m2ad92ea[m Un-jquery the /delete handler
+* [35m|[m [33m4abcef2[m Add SYS_ID to r
+* [35m|[m [33m03518a1[m Lag the type
+* [35m|[m [33m7a71eb3[m Lag the right variable
+* [35m|[m [33ma49b738[m Do some lagging
+* [35m|[m [33m4c23bb7[m Fix some warnings
+* [35m|[m [33m055ed91[m Fix all system commands causing a crash, along with a few warnings
+* [35m|[m [33m6db9153[m Fix all system commands causing a crash, along with a few warnings
+* [35m|[m [33m1b26873[m Fix /tellraw not displaying to all users (thanks Azandfer)
+* [35m|[m [33m55f0f77[m Compute the property notation
+* [35m|[m [33m3c015cb[m Add /_rawedit
+* [35m|[m [33mead0764[m Add /getid
+* [35m|[m [33mb0d0041[m Add sender name and edited mark
+* [35m|[m [33m997e7c7[m Don't waste IDs when editing
+* [35m|[m [33m7cdc7bc[m Fix the ID of badness
+* [35m|[m [33m1189091[m I done trucked up
+* [35m|[m [33m6f78744[m Add /edit, and fix /delete
+* [35m|[m [33m69c295f[m Yes
+* [35m|[m [33m9158ee5[m Add paremetar to show ID
+* [35m|[m [33mc172ed6[m Support editing and deleting
+* [35m|[m [33m6ad318d[m Add senders
+* [35m|[m [33m2f17dc5[m Max spam at 200 messages
+* [35m|[m [33m158b29d[m I just need some space, ok?
+* [35m|[m [33mbc9f7c6[m Use the io provided by r, because normal io is out of scope here
+* [35m|[m [33mea1186f[m Let texts.js use the parameters provided from that commit
+* [35m|[m [33m37f93c0[m Give translation tables access to r, send raw prefix id to message translation
+* [35m|[m [33m95b7057[m Fix incorrect variable names
+* [35m|[m [33m8d028f8[m Allow specifying a prefix for /tellraw
+* [35m|[m [33m12622cb[m Return in the right place
+* [35m|[m [33m92efec7[m Add /spam
+* [35m|[m [33m2ff9882[m That's who you are!
+* [35m|[m [33mce6fde3[m Move message code into r.sendmsg
+* [35m|[m [33m389f586[m Add /op
+* [35m|[m [33mddcdbe9[m Make that professional idiot for hire
+* [35m|[m [33me6f4ad8[m Idiot for hire
+* [35m|[m [33m34e8544[m Truck javascript
+* [35m|[m [33mcefc97b[m Add some commands
+* [35m|[m [33m8b089ec[m Add nothing...
+* [35m|[m [33m7a16026[m Jshint
+* [35m|[m [33mb05b59e[m Im the biggest idot ever
+* [35m|[m [33md3b3b60[m Embarrassment go brrr
+* [35m|[m [33md245d83[m Fix having wrong file
+* [35m|[m [33mdb0e5e9[m Ah yes, forget to save
+* [35m|[m [33ma4e4bf0[m Format, send hello message to client and await response
+* [35m|[m [33m6ca6a2f[m Format, use new connection system
+* [35m|[m [33mabf077a[m Return true
+* [35m|[m [33m03dbc22[m 
+* [35m|[m [33me586865[m Add /ping - client side
+* [35m|[m [33m6892026[m Add /ping - server side
+* [35m|[m [33mb655290[m JSHint
+* [35m|[m [33mf8979de[m PARENTSSSSSSSS
+* [35m|[m [33m002efcc[m PARENTS
+* [35m|[m [33m2397008[m E
+* [35m|[m [33m6071962[m Add lots of thnigs
+* [35m|[m [33m0db9cde[m Unparenthesize the translators
+* [35m|[m [33mfd0d869[m i are have stupid
+* [35m|[m [33m89efb3d[m Wrap translations in karens
+* [35m|[m [33me132a11[m Translate the leave text
+* [35m|[m [33mdb51529[m Add some texts
+* [35m|[m [33ma9e3f4e[m Add a translation table boilerplate
+* [35m|[m [33maff3b01[m Someone done trucked up
+* [35m|[m [33m897a372[m Add /w
+* [35m|[m [33m410d1de[m Print correct name for error
+* [35m|[m [33m60b1d57[m Not comment!
+* [35m|[m [33m48f92b3[m DON'T auth on reconnect
+* [35m|[m [33m62750a3[m Uhhhhhh
+* [35m|[m [33med3054f[m Switch event
+* [35m|[m [33m61e658e[m Authenticate on reconnect
+* [35m|[m [33mbd7316a[m Use attendance variable
+* [35m|[m [33m6f8405c[m Add attendance variable
+* [35m|[m [33mece9e24[m Update command-processor.js
+* [35m|[m [33m11f7324[m Don't look up name
+* [35m|[m [33me18b642[m Use the damn r
+* [35m|[m [33mfd9f77b[m Use the io variable from r
+* [35m|[m [33m9f6c6a2[m Use correct variable in both places
+* [35m|[m [33mfda30b5[m Use correct variable
+* [35m|[m [33mead7ceb[m Add /attendance
+* [35m|[m [33m866880a[m Add session, in case it is undefined
+* [35m|[m [33mb19f52d[m that is bad idea
+* [35m|[m [33mab1836d[m :
+* [35m|[m [33mde3a706[m Try to fix WSOD
+* [35m|[m [33m7b9aee8[m Support sudo
+* [35m|[m [33m751c18c[m Support sudo
+* [35m|[m [33m4f09e89[m Output the session
+* [35m|[m [33me119340[m Output the session
+* [35m|[m [33m29f936b[m L is for localstorage
+* [35m|[m [33m9898447[m Send the authenticate event
+* [35m|[m [33mfee5f10[m Press shift
+* [35m|[m [33mdd08df8[m Add /youare
+* [35m|[m [33m18aee14[m Thats a cute little typo!
+* [35m|[m [33m9e814e8[m Wrap logic in 'authenticate' event
+* [35m|[m [33mae0718e[m Add and remove rname entries on connect and disconnect
+* [35m|[m [33md5e5750[m Go before and test something else
+* [35m|[m [33m2ac363d[m Test
+* [35m|[m [33m1605569[m Add and remove rname entries on connect and disconnect
+* [35m|[m [33mf48fdfc[m Insert auto unload code
+* [35m|[m [33m9753e01[m Never mind, this goes in index.html
+* [35m|[m [33m72c5d28[m Add experimental disconnect-on-close
+* [35m|[m [33m13ed609[m Broadcast join alerts
+* [35m|[m [33m3d0636e[m Use correct variable to reference the sender
+* [35m|[m [33m6e35ee3[m Make /iam code use global r variable
+* [35m|[m [33ma3fe593[m Add /iam code
+* [35m|[m [33m10ac5df[m Remove /iam code
+* [35m|[m [33m50422cb[m Fix /kick printing "Kicked undefined)" when sucessfull
+* [35m|[m [33m82bfb53[m Add /kick
+* [35m|[m [33m7b909e8[m ah yes, missing curly brace
+* [35m|[m [33m94da8ca[m Add names to the log spam
+* [35m|[m [33m427d4ab[m Return true
+* [35m|[m [33macbf526[m Who doesn't love log spam?
+* [35m|[m [33m12b9779[m I found the S
+* [35m|[m [33m431d0d4[m JSHint
+* [35m|[m [33m4213e1c[m Yeah, that trucker
+* [35m|[m [33mde53254[m Export r
+* [35m|[m [33m9437faa[m Export more stuff to r
+* [35m|[m [33m7dd3d07[m Add /release
+* [35m|[m [33m45c308f[m Fix debugging command crashing server
+* [35m|[m [33m5343bcf[m Debug dump the right table
+* [35m|[m [33m4018563[m m
+* [35m|[m [33m49bcab0[m Me dmub
+* [35m|[m [33m4a88435[m Export the io from function
+* [35m|[m [33m4f92006[m Add some debug output
+* [35m|[m [33mc891e5c[m Add /_debug_dump_naming
+* [35m|[m [33m0128591[m hgb i zdfkjrchensuhdf jsibkjfudgrbtvytbvdbrkuvrbu
+* [35m|[m [33m1659957[m ??
+* [35m|[m [33m53080a4[m ?
+* [35m|[m [33m9f4a05a[m Lock names and add reverse name table
+* [35m|[m [33mff6d141[m catchBadCommand
+* [35m|[m [33mbfba256[m ah yes, _debug_commamd_detection
+* [35m|[m [33m2ed5728[m Disable command debugger unless enabled
+* [35m|[m [33md860c39[m im idot
+* [35m|[m [33m9bedafe[m Update iomodule.js
+* [35m|[m [33m5412293[m Update command-processor.js
+* [35m|[m [33mda9aa32[m Ensure brain exists
+* [35m|[m [33m1399185[m Don't add space after prefix, I just did that
+* [35m|[m [33md12c94d[m Add space after prefix, add empty prefix
+* [35m|[m [33ma96db5e[m Attempt to add /tellraw
+* [35m|[m [33m3eae4a7[m Update command-processor.js
+* [35m|[m [33m71ecec4[m Fix wrong M
+* [35m|[m [33m11c80f9[m Fix an issue with the app crashing whenever a socket disconnects
+* [35m|[m [33mb62c7a9[m Finish typing return true
+* [35m|[m [33m564ffb1[m Fix my stupidity
+* [35m|[m [33m3945446[m meow
+* [35m|[m [33mdbe3cb1[m Read in an argument and store it
+* [35m|[m [33md244105[m Do the program line shuffle
+* [35m|[m [33ma57f61b[m Hmmmmm
+* [35m|[m [33ma1af7d0[m Yeah, that
+* [35m|[m [33m95f1104[m Add a test command, I'm scared
+* [35m|[m [33m4debf7e[m Add files via upload
+* [35m|[m [33mc8a7119[m Add "debug" prefix
+* [35m|[m [33m9117c09[m Expose mes
+* [35m|[m [33mc305bf0[m r/facepalm
+* [35m|[m [33m5457707[m This is a little embarrasing
+* [35m|[m [33m7576415[m One more thing and I will migrate the commands
+* [35m|[m [33mead8f38[m Truck you javascript
+* [35m|[m [33m157ab86[m wdym
+* [35m|[m [33m74a0941[m mrrow
+* [35m|[m [33m25cf200[m joint
+* [35m|[m [33m663c846[m Update command-processor.js
+* [35m|[m [33m8d50f52[m Update command-processor.js
+* [35m|[m [33m2bbe390[m uh
+* [35m|[m [33m191e6c9[m hlep
+* [35m|[m [33m5aa9cba[m wowwwwwww
+* [35m|[m [33me13671e[m Timestop
+* [35m|[m [33m30fa697[m F IN THE CHAT FOR MY SANITY
+* [35m|[m [33ma4d0c49[m Make messages use new system
+* [35m|[m [33mbabb25b[m F in the chat for my sanity
+* [35m|[m [33m9536909[m Why me
+* [35m|[m [33mcc51300[m Well
+* [35m|[m [33me30cebf[m This is what I do
+* [35m|[m [33mfcfc682[m I feel dead inside
+* [35m|[m [33m2f8be06[m integrate test
+* [35m|[m [33me735e17[m test
+* [35m|[m [33m23413c5[m Blur test
+* [35m|[m [33mee1248d[m Store socket for IP address
+* [35m|[m [33mfb9a470[m Add code that will probably be bad
+* [35m|[m [33mff10575[m Use totally my own code to get the IP address of the connecting user
+* [35m|[m [33m16002ba[m Don't show /iam typos and rechange my password
+* [35m|[m [33m7d793fd[m Change my passowrd
+* [35m|[m [33mc283e53[m Slice the user ID when resetting the name
+* [35m|[m [33m605eabe[m i dumb
+* [35m|[m [33me1e685b[m Fix /imnot command so the server doesn't die
+* [35m|[m [33mcc645b7[m Add /imnot command
+* [35m|[m [33m4ce8919[m Relax
+* [35m|[m [33m610df79[m Update and remove names
+* [35m|[m [33m5e0e7a2[m Update iomodule.js
+* [35m|[m [33mbaa0d6e[m Add message validation code (#24)
+* [35m|[m [33m7ce6eb4[m Fix path errors as side effect of extracting modules
+* [35m|[m [33m96d2b14[m Extract prefixes
+* [35m|[m [33m2647e09[m Proc a file
+* [35m|[m [33m945b6d1[m Fix forgotten '{'
+* [35m|[m   [33mdc2477d[m Merge pull request #20 from nomorenotes/modular
+[36m|[m[1;31m\[m [35m\[m  
+[36m|[m * [35m|[m [33mfd05c31[m Stub login/dologin.js
+[36m|[m * [35m|[m [33me3c0eb9[m Move out login
+[36m|[m * [35m|[m [33m82d852f[m Move out chat
+[36m|[m * [35m|[m [33m2c76f24[m Require the IO module
+[36m|[m * [35m|[m [33m249eda7[m Remove IO-related stuff
+[36m|[m * [35m|[m [33mdce800f[m Create iomodule.js
+[36m|[m * [35m|[m [33m05be819[m Stub my IO module
+[36m|[m * [35m|[m [33m3d09075[m Refactor paths
+[36m|[m * [35m|[m [33m9e46bc7[m Require site
+[36m|[m * [35m|[m [33me2073f3[m Insert site routes
+[36m|[m * [35m|[m [33m1887abf[m Remove site routes
+[36m|[m * [35m|[m [33m186fb25[m Stub my site module
+[36m|[m[36m/[m [35m/[m  
+* [35m|[m [33m44b6e66[m Create stub login page
+* [35m|[m [33mf2a44d9[m Stop trying to call a static method from an instance
+* [35m|[m [33madc14e7[m Ignore the package lock
+* [35m|[m [33m84153cd[m forgot the parentanse...
+* [35m|[m [33m2eb032c[m Take notice of /ids being ran
+* [35m|[m   [33m6aee3c6[m Merge pull request #19 from nomorenotes/fold
+[1;32m|[m[1;33m\[m [35m\[m  
+[1;32m|[m * [35m|[m [33m0b0de0c[m Use more descriptive names for the site
+[1;32m|[m * [35m|[m [33mb32c60b[m Move the site files into the folder
+[1;32m|[m * [35m|[m [33m7cdc649[m Serve the moved out files
+[1;32m|[m * [35m|[m [33mbb0c008[m Use said stub stylesheet
+[1;32m|[m * [35m|[m [33m937c72a[m Add stub stylesheet
+[1;32m|[m * [35m|[m [33m4d7652c[m Add the SRC attribute I forgot, and squeeze lines
+[1;32m|[m * [35m|[m [33mb6ea1bd[m Move out the JS
+[1;32m|[m * [35m|[m [33m8ba02c9[m Use more descriptive filenames
+[1;32m|[m * [35m|[m [33m20e9474[m Create a chat folder and move the things
+[1;32m|[m[1;32m/[m [35m/[m  
+* [35m|[m [33m34ba4c7[m Bye bye
+* [35m|[m [33mb955ea7[m Update server.js
+* [35m|[m [33m6ce66f5[m Unnecessary condition
+* [35m|[m [33ma4941fa[m Is this an ID?
+* [35m|[m [33m32242e1[m Let it be!
+* [35m|[m [33m626bb82[m Add something
+* [35m|[m [33m196954b[m The previous commit had the wrong message
+* [35m|[m [33m6d5349b[m Do nothing on the names
+* [35m|[m [33md9441be[m Do nothing on the names
+* [35m|[m [33ma78d0e0[m Alias '/ids' -> '/who'
+* [35m|[m [33mfe8b49f[m Forget to return
+* [35m|[m [33m18ab756[m Make /len exit early
+* [35m|[m [33m511b9e0[m Add /len alias
+* [35m|[m [33mc50e01f[m Length of people online
+* [35m|[m [33m885c8f6[m Delete logout
+[35m|[m[35m/[m  
+[35m|[m * [33m4a1faa3[m[33m ([m[1;31morigin/CodingPerson123-patch-2[m[33m)[m Update server.js
+[35m|[m[35m/[m  
+* [33m3eed894[m Update app.json
+* [33mb6058bd[m Rename file, to make purpose clearer
+* [33m8055f4e[m Remove blank lines
+* [33m3938744[m Skeleton for notifications
+* [33me1c1cbc[m Colon alert!
+* [33m37eb790[m Update index.js
+* [33m00678d3[m Try to kill the submitter
+* [33mbbe40cf[m Save nothing
+* [33mfcc12bd[m Identify the send bar
+* [33m985119a[m Redesign UI (#14)
+* [33m4a0725a[m Rename chat files (#13)
+* [33mce6aa57[m Revert commit on wrong branch
+* [33m8a84e38[m Move client.js to chat and rename it to index.js
+* [33m1a3a340[m Fix dual instance (#12)
+* [33m044acb1[m Close the identity (#11)
+* [33m2122c7e[m Maintain GUI (#10)
+* [33meca8b77[m Get rid of a leftover merge resolution seperator
+* [33m39c5b18[m Inline files have been moved out!
+* [33me104bd4[m Merge the usernames (#8)
+* [33m661a5c0[m Identity based on socket.id works (#7)
+* [33m84dc374[m Emit to all instead of sender
+*   [33m4b0a6e8[m Merge pull request #5 from nomorenotes/escape
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33m4a6cfaa[m Send newlines as seperate msg's
+[1;35m|[m * [33m23ff7de[m Normalize nl's, add br
+[1;35m|[m * [33m98267d7[m Fix singles being temp escaped instead of doubles
+[1;35m|[m * [33m33bb3a9[m Add a crude escape mechanisim
+[1;35m|[m[1;35m/[m  
+*   [33m4cfe243[m Merge pull request #4 from nomorenotes/udontseeme
+[31m|[m[32m\[m  
+[31m|[m * [33m5398891[m Realize I'm an idiot
+* [32m|[m [33m3685078[m type="image/x-icon" it up
+* [32m|[m [33m164d177[m Explicitly specify favicon
+* [32m|[m [33mf86e5ef[m Merge pull request #2 from nomorenotes/udontseeme
+[33m|[m[32m\[m[32m|[m 
+[33m|[m * [33m0d0d25f[m Delete the dummy file
+[33m|[m * [33mef2e352[m Reupload the favicon
+[33m|[m * [33mc80a4b6[m Create a dummy file
+[33m|[m * [33mae5fd2c[m Delete the favicon
+[33m|[m * [33m07d2b1b[m Upload a favicon
+[33m|[m * [33m3c84d36[m Change the favicon path
+[33m|[m * [33me70a104[m Add favicon support
+[33m|[m * [33mc83c390[m Use GDrive
+[33m|[m[33m/[m  
+*   [33m524f9d8[m Merge pull request #1 from CodingPerson123/patch-1
+[35m|[m[36m\[m  
+[35m|[m * [33m17092c7[m Update index.html
+[35m|[m[35m/[m  
+* [33mfe5aeb9[m Do the title thingy
+* [33me2530b2[m docs(*): add link to https://socketio-chat-example.now.sh/
+* [33m0400505[m feat(*): make the example compatible with Heroku
+* [33mdeb6682[m feat(*): auto scroll to the bottom of the page
+* [33m79afe73[m fix(*): run the js once the dom is loaded
+* [33m339d2b1[m fix(*): load jQuery over https
+* [33mb808404[m chore(*): use latest versions of Socket.io and Express.js packages
+* [33ma6221a8[m use `sendFile`
+* [33m1285dba[m update to latest
+* [33m37f8a1e[m make runnable from anywhere
+* [33m78c6ffc[m Create README.md
+* [33m63a53de[m Update package.json
+* [33m2b80240[m initial commit
