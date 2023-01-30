@@ -1,4 +1,5 @@
-rm 189.plan
+d="$(mktemp)"
+exec 17>"$d"
 files=( *.js )
 for _ in "${files[@]}"; do
   echo -n "."
@@ -6,11 +7,12 @@ done
 echo
 for file in "${files[@]}"; do
   (
-    grep -HEne 'console\.log' "$file" >> 189.plan
-    grep -HEne 'console\.error' "$file" >> 189.plan
-    grep -HEne 'console\.warn' "$file" >> 189.plan
+    grep -HEne 'console\.log' "$file" >&17
+    grep -HEne 'console\.error' "$file" >&17
+    grep -HEne 'console\.warn' "$file" >&17
     echo -ne "^"
   ) &
 done
+exec 17>&-
 wait
-echo
+sort <$d >189.plan
