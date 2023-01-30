@@ -1,0 +1,13 @@
+doctype html
+html
+  script.
+    window.onerror = (msg, url, line, col, err) => alert(err.stack)
+  script(src="https://unpkg.com/cytoscape@3.23.0/dist/cytoscape.min.js")
+  script(src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js")
+  head
+    title Object Browser
+    link(rel="stylesheet" href="/cyobjects.css")
+  body
+    #cy
+    #info
+  script(src="/cyobjects.js")

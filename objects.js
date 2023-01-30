@@ -35,9 +35,34 @@ async function main() {
   const j = commits.length
   const processor = hash => (alterline(c.gray`processing ${hash} [${(i++).toString()}/${j}]`), exec("git", ["cat-file", "commit", hash]).then(data => [hash, data]).then(pair => loadCommitPair(pair, refs)))
   await commits.reduce((promise, nextHash) => promise.then(() => processor(nextHash)), Promise.resolve())
+  alterline(`Done processing ${j} commits.`)
+  console.log(c.gray`waiting for refs...`)
+  await Array.from(refs).forEach(([commit, refs]) => {
+    for (let ref of refs) {
+      elements.push({
+        group: 'nodes',
+        data: {
+          id: "ref_" + ref,
+          ref_target: commit
+        },
+        classes: ["refptr"]
+      })
+      elements.push({
+        group: 'edges',
+        data: {
+          source: "ref_" + ref,
+          target: commit
+        },
+        classes: ["refptr"]
+      })
+      alterline(`ref: ${commit} <- ${ref}`)
+    }
+    alterline(`refs done: ${commit}`)
+  })
   alterline("Generating file..." + c.gray`[${elements.length} elements]`)
   const json = JSON.stringify(elements)
   const totalBytes = json.length
+  await fs.writeFile("public/objects.json.")
   alterline(`Writing... ` + c.gray`[${totalBytes}b]`)
   await fs.writeFile("public/objects.json", json)
   alterline(`Writing... done.`)

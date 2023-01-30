@@ -315,13 +315,16 @@ app.get("/me", requiresAuth(), ({ oidc }, res) => {
   console.log(colorsplit)
   const fact = 5/8
   
-	// console.log(colordata)
 	res.render("me", {
 		oidc,
     color1: colorsplit,
     color2: colorsplit.map(n => Math.max(n * fact, 0)).map(n => Math.floor(n)),
     color3: colorsplit.map(n => n < 130 ? 255 : 0),
 	})
+})
+
+app.get("/cy/objects", (req, res) => {
+  res.render("cyobjects")
 })
 
 // require("./auth0.js")(app, io)
