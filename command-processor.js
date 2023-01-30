@@ -8,8 +8,8 @@ try {
   _userOps = ["Administrator"];
 }
 const catchBadCommand = false;
-const baseLogger = require("debug")("cmd")
 const { r } = require("./iomodule.js");
+const baseLogger = r.dbg.extend("cmd")
 r.away = {};
 const apply_name = module.exports.apply_name = (who, name, talk = true) => {
   const log = baseLogger.extend("name")
