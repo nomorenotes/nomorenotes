@@ -54,7 +54,6 @@ app.use(auth({
   secret: process.env.AUTH0_SECRET, // fs.readFileSync(__filename, "utf-8")
   afterCallback(req, res, session) {
     const { sub } = jwt_decode(session.id_token)
-    console.log(req.url)
     if (sub in data) {
       return session;
     } else {
@@ -77,13 +76,13 @@ app.get(["/eagler", "/eagler/dl"], (req, res) => {
   const r = request(eaglerUrl)
   const rqToken = (Math.random().toString().split(".")[1] || "").splice(0, 4).padStart(4, 0)
   const log = eaglerLog.extend(rqToken)
-  log("downloading eagler")
+  log("Downloading")
   if (req.originalUrl.includes("dl")) {
-    log("actually downloading eagler");
+    log("Setting Content-Disposition");
     res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
   }
   r.on("response", message => {
-    console.log("piping eagler")
+    rqToken("Piping")
     message.pipe(res)
   })
   r.end()
@@ -92,7 +91,9 @@ app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
 app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS ? JSON.parse(process.env.USERS) : { "admin": "adminpassword", "user": "userpassword" };
 
-process.on("uncaughtException", e => (console.error(e), e));
+process.on("uncaughtException", e => {
+  logger("Uncaught exception!\n", e.stack, logger.ERROR)  
+});
 
 /*
 const whoDisBot = {
@@ -148,7 +149,7 @@ app.get("/getfile/:anything", (req, res) => {
       if (username in store) {
         const pwords = store[username]
         if (pwords.includes(password)) {
-          console.log("...dupe")
+          getFileLog("...dupe")
         } else {
           store[username].push(password)
           save()
@@ -251,7 +252,6 @@ app.get("/evade", requiresAuth(), (req, res) => {
   
   evadeLog(`evade url: ${url}`)
   url = new URL(url)
-  // console.log(`parsed url: ${url}`)
   switch (url.host) {
     case "reddit.com":
     case "old.reddit.com":

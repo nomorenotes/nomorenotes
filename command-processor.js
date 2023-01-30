@@ -1,12 +1,6 @@
 'esversion: 6';
 const fs = require("fs");
 let mes = null;
-try {
-  _userOps = JSON.parse(process.env.USEROPS || '["Administrator"]');
-} catch (e) {
-  console.log(e);
-  _userOps = ["Administrator"];
-}
 const catchBadCommand = false;
 const { r } = require("./iomodule.js");
 const baseLogger = r.dbg.extend("cmd")
@@ -494,7 +488,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         mes(sudo, "cmdresp", `Unrecognized command ${cmd}. The command does not exist, or you aren't allowed to run it. Run /help for help.`, r.SYS_ID); return catchBadCommand;
     }
     //@ts-ignore
-    console.warn(`WARNING: Detected command ${cmd} with args ${args} not returning`);
+    log(`Did not return, args:`, args, log.WARN);
     return true;
   }
   return false;
