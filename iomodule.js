@@ -32,13 +32,14 @@ const MAIL_OPTS = {
     'Content-Type': 'application/json'
   }
 }
-console.log(process.env.MAIL_URL)
+const mailLog = baseLog.extend("mail")
+mailLog("mail url:", process.env.MAIL_URL)
 r.mail = (content, username = "Server") => {
-  console.log(`mailing ${username}: ${content}`)
+  mailLog(`mailing ${username}: ${content}`)
   proms = []
   for (let url of (process.env.MAIL_URL || "").split(";")) {
     if (!url) continue
-    console.log(`Discord mail: ${url}`)
+    mailLog(`Discord mail: ${url}`)
     proms.push(fetch(url, {
       ...MAIL_OPTS,
       body: JSON.stringify({ username, content })
@@ -48,7 +49,7 @@ r.mail = (content, username = "Server") => {
     for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
       if (!nmnurl) continue
       sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
-      console.log(`NMN mail: ${nmnurl}`)
+      mailLog(`NMN mail: ${nmnurl}`)
       proms.push(fetch(nmnurl, {
         ...MAIL_OPTS,
         body: JSON.stringify({ message: content, sender })
@@ -79,12 +80,13 @@ r.parse_emoji = (e => msg => {
 })(require("./emoji.js"));
 //const names = {};
 const rnames = {};
+const mesLog = baseLog.extend("mes")
 const mes = r.mes = (who, prefix, msg, sender = SYS_ID) => {
   if (who === io && prefix === "mes" && sender !== SYS_ID) {
     io.to("preview").emit(msg)
   }
   if (who === io) who = io.to("main");
-  console.log(`mes: ${typeof sender} ${sender} send ${prefix} to ${typeof who} ${who}: ${msg}`);
+  mesLog(`mes: ${typeof sender} ${sender} send ${prefix} to ${typeof who} ${who}: ${msg}`);
   var d = new Date();
   who.emit("chat message", `${sender.id}${senderid[sender.id]}`, r.t.message((d.getHours() + 7 + 12) % 24, d.getMinutes(), prefix, msg, senderid[sender.id]++));
 
@@ -138,25 +140,24 @@ const format_msg = module.exports.format_msg = msg => msg
 const rids = {}
 const { inspect } = require("util")
 const { performance: { now } } = require("perf_hooks")
-console.log("performing", typeof now)
+baseLog("performing", typeof now)
+const joinLog = baseLog.extend("join")
+const evalLog = baseLog.extend("eval")
+const chatLog = baseLog.extend("chat")
+const imageLog = chatLog.extend("image")
 module.exports.main = (_io) => {
   io = r.io = _io;
   r.cmdmod = require("./command-processor.js")(mes);
   require("./upload.js")(io)
-  /* io.use((client, next) => {
-    console.log(io.request.connection.remoteAddress);
-    client.ipAddress = io.request.connection.remoteAddress;
-    next();
-  }); */
   r.mail(`Server restarted @ ${r.commit}`)
   io.on("connection", (socket) => {
-    console.log("Existence")
+    joinLog("Existence", socket.id)
     socket[r.s] = {};
     socket._id = socket.id;
     socket[r.s].name = "Guest-" + socket.id.slice(0, 3);
     socket.on("eval", async (expr, callback) => {
       const startTime = now()
-      console.log(`Evaluating ${expr}`)
+      evalLog(`Evaluating ${expr}`)
       let retval = eval(expr)
       let wasPromise = false
       if (retval instanceof Promise) {
@@ -201,9 +202,8 @@ ${inspected}`)
           socket.emit("chat message", `US${name}`, `recieved unknown saveable "${name}"="${value}"`);
       }
     });
-    socket.on('hello', (session, uname, passw) => {
-      console.log("Hello")
-      socket.removeAllListeners();
+    socket.once('hello', (session, uname, passw) => {
+      joinLog("Hello")
       if (uname === "nmn-link") {
         return nmnlink(session);
       }
@@ -214,16 +214,16 @@ ${inspected}`)
         socket.disconnect(true);
         return;
       }
-      console.log("Survived removal")
+      joinLog("Survived removal")
       rnames[socket[r.s].name] = socket;
       //socket.id = session ? session : socket.id;
       socket.join("main");
       mes(socket, "alert", r.t.join_self(socket[r.s].name, session, r.t.join_extra()), SYS_ID);
       mes(socket, "alert", r.t.help(), SYS_ID);
       mes(socket.broadcast, "alert", r.t.join(socket[r.s].name, require("./motd.js")), SYS_ID);
-      socket.on("chat message", msg => console.log(`[CHAT ${socket[r.s].name}] ${msg}`)); // who doesn't love log spam
+      socket.on("chat message", msg => chatLog(socket[r.s].name, msg)); // who doesn't love log spam
       socket.on('chat message', r.sendmsg(socket));
-      socket.on("image", (im) => { console.log(im); });
+      socket.on("image", (im) => { imageLog(socket[r.s].name, im); });
       r.list.push(socket);
       rids[socket.id] = socket
       senderid[socket.id] = 0;
@@ -241,11 +241,6 @@ ${inspected}`)
         r.list.splice(r.list.indexOf(socket), 1);
       });
     });
-    // socket.on("preview", () => {
-    //   console.log("Preview")
-    //   socket.removeAllListeners()
-    //   socket.join("preview")
-    // })
     setTimeout(() => socket.emit("hello"), 250);
   });
 };
