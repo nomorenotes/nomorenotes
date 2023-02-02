@@ -36,14 +36,21 @@ async function main() {
   const processor = hash => (alterline(c.gray`processing ${hash} [${(i++).toString()}/${j}]`), exec("git", ["cat-file", "commit", hash]).then(data => [hash, data]).then(pair => loadCommitPair(pair, refs)))
   await commits.reduce((promise, nextHash) => promise.then(() => processor(nextHash)), Promise.resolve())
   alterline(`Done processing ${j} commits.`)
-  console.log(c.gray`waiting for refs...`)
-  await Array.from(refs).forEach(([commit, refs]) => {
+  console.log("\n")
+  const k = refs.size
+  const K = String(k).length
+  await Array.from(refs).forEach(([commit, refs], c_i) => {
+    alterline(c.gray`commit [${String(c_i).padStart(K)}/${k}] ${commit}`, alterline.n(2))
+    let y = 0
+    const t = refs.size
+    const T = String(t).length
     for (let ref of refs) {
       elements.push({
         group: 'nodes',
         data: {
           id: "ref_" + ref,
-          ref_target: commit
+          ref_target: commit,
+          ref
         },
         classes: ["refptr"]
       })
@@ -51,30 +58,42 @@ async function main() {
         group: 'edges',
         data: {
           source: "ref_" + ref,
-          target: commit
+          target: commit,
+          ref
         },
         classes: ["refptr"]
       })
-      alterline(`ref: ${commit} <- ${ref}`)
+      alterline(c.gray`ref [${String(y++).padStart(T)}/${T}] ${ref}`, alterline.n(2))
     }
-    alterline(`refs done: ${commit}`)
   })
   alterline("Generating file..." + c.gray`[${elements.length} elements]`)
   const json = JSON.stringify(elements)
   const totalBytes = json.length
-  await fs.writeFile("public/objects.json.")
+  await fs.writeFile("public/objects.json.len", String(totalBytes))
   alterline(`Writing... ` + c.gray`[${totalBytes}b]`)
   await fs.writeFile("public/objects.json", json)
   alterline(`Writing... done.`)
 }
 function alterline(...text) {
+  n = 1
+  if (text.length) {
+    let last = text.pop()
+    if (typeof last === "object" && alterline.n_sym in last) {
+      n = last[alterline.n]
+    } else {
+      text.push(last)
+    }
+  }
   process.stdout.cork()
-  process.stdout.moveCursor(0, -1)
+  process.stdout.moveCursor(0, -n)
   process.stdout.cursorTo(0)
   process.stdout.clearLine()
   console.log(...text)
+  if (n-1) process.stdout.write("\n".repeat(n-1))
   process.stdout.uncork()
 }
+alterline.n_sym = Symbol("alterline.n_sym")
+alterline.n = n => ({ [alterline.n_sym]: n })
 const elements = []
 async function loadCommitPair([hash, { stdout: data }], refs) {
   const headers = {}
@@ -113,8 +132,9 @@ async function loadCommitPair([hash, { stdout: data }], refs) {
       refs: Array.from(ref || [])
     },
     classes: [
+      "commit",
       parents.length === 0 ? "orphan" :
-      parents.length === 1 ? "commit" :
+      parents.length === 1 ? "" :
       "merge",
       ref
         && first(ref, el => el.startsWith("refs/remotes/"))
@@ -125,13 +145,17 @@ async function loadCommitPair([hash, { stdout: data }], refs) {
       ref && "ref",
     ].filter(a => a)
   })
+  let i = 0;
   for (let parent of parents) {
     elements.push({
       group: "edges",
       data: {
         source: hash,
-        target: parent
+        target: parent,
+        n: i++,
+        o: i
       },
+      classes: ["parent"],
       pannable: true
     })
   }

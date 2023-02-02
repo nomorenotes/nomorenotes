@@ -19,6 +19,9 @@ html, body, #cy {
   margin-top: 0;
   font-weight: bold;
 }
+node.commit {
+  background-color: blue;
+}
 node.merge {
   shape: triangle;
   background-color: green;
@@ -26,12 +29,14 @@ node.merge {
 node.orphan {
   background-color: darkred;
 }
-node.commit {
-  background-color: blue;
-}
 node.refptr {
   background-color: orange;
+  shape: tag;
+  label: data(ref);
 }
 edge.refptr {
   background-color: orange;
+}
+edge.parent {
+  label: data(n);
 }
