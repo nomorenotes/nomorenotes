@@ -91,14 +91,17 @@ const eaglerUrl =
   "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
-  const r = request(eaglerUrl)
+  fget(req, res, eaglerUrl, req.originalUrl.includes("dl"))
+})
+function fget(req, res, url, download=false) {
+  const r = request(url)
   const rqToken = (Math.random().toString().split(".")[1] || "")
     .slice(0, 4)
     .padStart(4, 0)
   const log = eaglerLog.extend(rqToken)
-  log("Downloading")
-  if (req.originalUrl.includes("dl")) {
-    log("Setting Content-Disposition")
+  console.log(`Downloading [${url}, download=${download}]`)
+  if (download) {
+    log("Setting Content-Disposition");
     res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
   }
   r.on("response", (message) => {
@@ -106,7 +109,7 @@ app.get(["/eagler", "/eagler/dl"], (req, res) => {
     message.pipe(res)
   })
   r.end()
-})
+}
 app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
 app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS
@@ -395,6 +398,12 @@ app.get("/me", requiresAuth(), ({ oidc }, res) => {
       .map((n) => Math.floor(n)),
     color3: colorsplit.map((n) => (n < 130 ? 255 : 0)),
   })
+})
+
+app.get(['/cp/:protocol/:domain/*', '/cp/:protocol/:domain'], cors(), (req, res) => {
+  const { protocol, domain, 0: path = '' } = req.params
+  console.log("CORS proxy v1")
+  fget(req, res, `${protocol}://${domain}/${path}`)
 })
 
 // require("./auth0.js")(app, io)
