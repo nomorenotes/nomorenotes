@@ -75,11 +75,24 @@ const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   fget(req, res, eaglerUrl, req.originalUrl.includes("dl"))
 })
+function omit(base, ...keys) {
+  const copy = {...base}
+  keys.flat().forEach(key => delete copy[key])
+  return copy
+}
+function white(base, ...keys) {
+  const copy = {}
+  keys.flat().forEach(key => copy[key] = base[key])
+  return copy
+}
+const fgetwhite = 'headers:method  '.split`:`
 function fget(req, res, url, download=false) {
-  const r = request(url)
+  url = new URL(url)
+  const r = request(url/*, white(req, fgetwhite)*/)
+  //req.pipe(r)
   const rqToken = (Math.random().toString().split(".")[1] || "").slice(0, 4).padStart(4, 0)
   const log = eaglerLog.extend(rqToken)
-  console.log(`Downloading [${url}, download=${download}]`)
+  log(`Downloading [${url}, download=${download}]`)
   if (download) {
     log("Setting Content-Disposition");
     res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
@@ -328,6 +341,21 @@ app.get("/me", requiresAuth(), ({ oidc }, res) => {
 	})
 })
 
+app.get('/cp64/:data', cors(), (req, res) => {
+  const url = atob(req.params.data.replace('-', '/'))
+  console.log("CORS proxy v2")
+  fget(req, res, url)
+})
+app.get('/cpx/:byte/:data', cors(), (req, res, next) => {
+  const byte = parseInt(req.params.byte, 16)
+  console.log("CORS proxy v3")
+  if (byte < 0 || byte > 255) next()
+  const buf = Buffer.from(req.params.data.replace('-', '/'), 'base64')
+  for (let i = 0; i < buf.length; i++) {
+    buf[i] ^= byte
+  }
+  fget(req, res, buf.toString())
+})
 app.get(['/cp/:protocol/:domain/*', '/cp/:protocol/:domain'], cors(), (req, res) => {
   const { protocol, domain, 0: path = '' } = req.params
   console.log("CORS proxy v1")
@@ -357,3 +385,7 @@ loadadmin: if (true) {
 		auth: false,
 	})
 }
+
+app.all("/cgi-bin/hailogin", (req, res) => {
+  res.redirect(307, "https://postman-echo.com/post")
+})
