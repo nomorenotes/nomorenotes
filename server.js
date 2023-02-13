@@ -12,6 +12,7 @@ const INSPECTARGS = {
 	getters: true
 }
 var app = express();
+app.use("node_modules", express.static(__dirname + "/node_modules"))
 app.use(bodyParser.json())
 var http = new (require('http').Server)(app);
 var io = new (require('socket.io').Server)(http, {
