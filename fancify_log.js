@@ -30,7 +30,16 @@ exports = module.exports = function(base) {
       const ret = base(fmt.value ? fmt.value : fmt, ...parts)
       fmt.after && fmt.after()
     }, extend(...names) {
-      return exports(base.extend(...names))
+      try {
+        return exports(base.extend(...names))
+      } catch (e) {
+        try {
+          f("Error extending base: %o\n%s", base, e.stack, f.ERR)
+        } catch (e2) {
+          console.error("Error extending base: %o\n%s", base, e.stack)
+          console.error("Additionally, error logging:\n%s", e2.stack)
+        }
+      }
     }
   }, Function.prototype)
   const f = function(...messages) {d.log(...messages)}
