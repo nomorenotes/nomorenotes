@@ -141,15 +141,26 @@ const { performance: { now } } = require("perf_hooks")
 console.log("performing", typeof now)
 module.exports.main = (_io) => {
   io = r.io = _io;
+  io.of("/log").on("connection", socket => {
+    forwardConsole(socket)
+  })
   r.cmdmod = require("./command-processor.js")(mes);
   require("./upload.js")(io)
-  /* io.use((client, next) => {
-    console.log(io.request.connection.remoteAddress);
-    client.ipAddress = io.request.connection.remoteAddress;
-    next();
-  }); */
+  // Uncomment when merging into issue/189
+  //const con = r.debug.extend("con")
+  function forwardConsole(socket) {
+    //const d = socket[r.s].debug = con.extend(socket.id.slice(0, 4));
+    //const debugmap = new Map()
+    socket.on("debug", (name, ...args) => {
+      //if (!debugmap.has(name))
+        //debugmap.set(name, d.extend(name))
+      //debugmap.get(name)(...args)
+      console.log(chalk.magenta(socket.id.slice(0, 4)), ...args)
+    })
+  }
   r.mail(`Server restarted @ ${r.commit}`)
   io.on("connection", (socket) => {
+    forwardConsole(socket)
     console.log("Existence")
     socket[r.s] = {};
     socket._id = socket.id;
