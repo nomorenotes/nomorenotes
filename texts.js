@@ -14,6 +14,31 @@ module.exports = (r) => ({
       "kicky": (a)=>`You were told the truth by ${a}`,
       "kick": (a,b)=>`${a} was told the truth about ${b}.`,
     },
+    "nochange": a=>`${a} seems about the same.`,
+    "op": {
+      "me": a=>`${a} thinks that you seem more powerful.`,
+      "other": (a,b)=>`${a} thinks that ${b} seems more powerful.`,
+      "mep": a=>`${a} remembers thinking that you seem more powerful.`,
+      "otherp": (a,b)=>`${a} remembers thinking that ${b} seems more powerful.`,
+      "no": a=>`${a} is permanently deopped and cannot be opped.`,
+      "select": ()=>`You must choose somebody to op.`
+    },
+    "deop": {
+      "me": a=>`${a} thinks that you seem less powerful.`,
+      "other": (a,b)=>`${a} thinks that ${b} seems less powerful.`,
+      "mep": a=>`${a} remembers thinking that you seem less powerful.`,
+      "otherp": (a,b)=>`${a} remembers thinking that ${b} seems less powerful.`,
+      "select": ()=>`You must choose somebody to deop.`
+    },
+    "own": {
+      "me": a=>`${a} thinks that you seem much more powerful than usual!`,
+      "other": (a,b)=>`${a} thinks that ${b} seems much more powerful than usual!`,
+      "select": ()=>`You must choose somebody to own. You're not cool enough to own everyone.`
+    },
+    "thick_force": {
+      "you": (a,b)=>`A thick force prevents you from ${a.includes("%") ? a.replace("%", b) : a + " " + b}!`,
+      "me": (a,b)=>`A thick force prevents ${b} from ${a.includes("%") ? a.replace("%", 'you') : a + " " + 'you'}!`
+    },
     "nick_self": a=>`Name ${a} applied successfully.`,
     "join_extra": ()=>(a=>a[Math.floor(Math.random()*a.length)])([
       "In the government",

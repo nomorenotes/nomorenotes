@@ -1,6 +1,13 @@
 'esversion: 6';
 const fs = require("fs");
 let mes = null;
+function checkThickForce(from, to, verb = "verbing") {
+  if (to.op > from.op) {
+    mes(from, "cmdresp", r.t.thick_force.you(verb, to[r.s].name))
+    mes(to, "cmdresp", r.t.thick_force.me(verb, from[r.s].name))
+    return true;
+  }
+}
 const catchBadCommand = false;
 const { r } = require("./iomodule.js");
 const baseLogger = r.dbg.extend("cmd")
@@ -36,6 +43,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "hotbox":
           let tohotboxn = args.shift();
           let tohotbox = r.rnames[tohotboxn];
+          if (checkThickForce(from, tohotbox, "hotboxing")) return true;
           if (tohotbox) {
             if (tohotbox[r.s].hotboxed) {
               mes(sudo, "cmdresp", `${tohotboxn} is already hotboxed.`)
@@ -72,6 +80,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "/lockdown":
           let tolockn = args.shift();
           let tolock = r.rnames[tolockn];
+          if (checkThickForce(from, teop, "locking down")) return true;
           if (tolock) {
             tolock[r.s].lock = !tolock[r.s].lock;
             mes(sudo, "cmdresp", `${tolock[r.s].lock ? "L" : "Unl"}ocked ${tolockn} successfully.`);
@@ -85,6 +94,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           from._debug_command_detection = true; return true;
         case "youare":
           let torename = r.rnames[args[1]];
+          if (checkThickForce(from, torename, `renaming % to ${args[0]}`)) return true;
           if (torename) {
             apply_name(torename, args[0], true, sudo);
           } else {
@@ -101,6 +111,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             mes(sudo, "cmdresp", r.t.truly.you());
           } else {
             var totruth = r.rnames[args[0]];
+            if (checkThickForce(from, totruth, "truly being")) return true;
             if (totruth) {
               mes(totruth, "alert", r.t.truly.kicky(from[r.s].name));
               mes(totruth.broadcast, "alert", r.t.truly.kick(totruth[r.s].name, from[r.s].name));
@@ -132,6 +143,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           let tolink = args.shift();
           let tol = r.rnames[tolink];
           let link = args.join(" ");
+          if (checkThickForce(from, tol, `linking % out to ${link.replaceAll('<', '%lt;')}`)) return true;
           if (tol) {
             tol.emit("linkout", link);
             mes(sudo, "cmdresp", `Ok, ${tolink} is on ${link} now.`, r.SYS_ID);
@@ -146,40 +158,41 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           return true;
         case "op":
           let top = r.rnames[args[0]];
-          if (top == undefined && args[0]) { mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID); return true; }
+          if (top === undefined && args[0]) { mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID); return true; }
           if (args[0]) {
             if (top.op)
-              mes(sudo, "cmdresp", `${args[0]} seems about the same.`);
+              mes(sudo, "cmdresp", r.t.nochange(args[0]));
             else {
               if (top.permDeop) {
-                mes(from, "cmdresp", `${args[0]} is permanently deopped and cannot be opped.`)
+                mes(from, "cmdresp", r.t.op.no(args[0]))
               } else {
-                mes(top.broadcast, "alert", `${from[r.s].name} thinks ${args[0]} seems more powerful.`);
-                mes(top, "alert", `${from[r.s].name} thinks you seem more powerful.`, r.SYS_ID);
-                top.op = true;
+                mes(top.broadcast, "alert", r.t.op.other(from[r.s].name, args[0]));
+                mes(top, "alert", r.t.op.me(from[r.s].name), r.SYS_ID);
+                top.op = 1;
                 top.emit("saveable", 1);
               }
             }
             return true;
           } else {
-            mes(sudo, "cmdresp", `Dude, wtf?? You can't op EVERYONE.`, r.SYS_ID);
+            mes(sudo, "cmdresp", r.t.op.select(), r.SYS_ID);
             return true;
           }
           throw new Error("impossible");
         case "deop":
           let teop = r.rnames[args[0]];
+          if (checkThickForce(from, teop, "deopping")) return true;
           if (teop == undefined && args[0]) { mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID); return true; }
           if (args[0]) {
             if (!teop.op)
-              mes(sudo, "cmdresp", `${args[0]} seems about the same.`);
+              mes(sudo, "cmdresp", r.t.nochange(args[0]));
             else {
-              mes(teop.broadcast, "alert", `${from[r.s].name} thinks ${args[0]} seems less powerful.`);
-              mes(teop, "alert", `${from[r.s].name} thinks you seem less powerful.`, r.SYS_ID);
-              teop.op = false;
+              mes(teop.broadcast, "alert", r.t.deop.other(from[r.s].name, args[0]));
+              mes(teop, "alert", r.t.deop.me(args[0]), r.SYS_ID);
+              teop.op = 0;
               socket.emit("saveable", 0);
             }
           } else {
-            mes(sudo, "cmdresp", `So THIS is why all our staff disappeared.`, r.SYS_ID);
+            mes(sudo, "cmdresp", r.t.deop.select(), r.SYS_ID);
             return true;
           }
           throw new Error("impossible");
@@ -193,6 +206,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           return true;/**/
         case "reload":
           let toload = r.rnames[args[0]];
+          if (checkThickForce(from, toload, `reloading`)) return true;
           if (toload == undefined && args[0]) { mes(sudo, "cmdresp", `Error 404: ${args[0]} not found!`, r.SYS_ID); return true; }
           if (args[0]) {
             mes(sudo, "cmdresp", `${args[0]} has loaded again!`, r.SYS_ID);
@@ -206,6 +220,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           throw new Error("impossible");
         case "kick":
           let tokick = r.rnames[args[0]];
+          if (checkThickForce(from, tokick, "kicking")) return true;
           if (tokick) {
             mes(tokick, "alert", `You were kicked from NoMoreNotes by ${from[r.s].name}.`, r.SYS_ID);
             var tokm = r.t.kick(tokick[r.s].name, from[r.s].name);
@@ -227,6 +242,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           const target = args.shift();
           const timestr = args.shift();
           let toban = r.rnames[target];
+          if (checkThickForce(from, toban, "banning")) return true;
           let time = parseFloat(timestr); // minutes - 1h = 60, 24h = 1440, 7d = 10080
           let m = args.join(" ")
           if (toban) {
@@ -250,6 +266,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "unexist":
           let unepe = args.shift();
           let unep = r.rnames[unepe];
+          if (checkThickForce(from, unep, `removing % from existence`)) return true;
           if (unep) {
             unep.silentLeave = true;
             unep.emit("chat message", "unexist", `<span style="color: red">Connection lost</span>`);
@@ -262,12 +279,13 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "permdeop":
           let topdn = args.shift();
           let topd = r.rnames[topdn];
+          if (checkThickForce(from, topd, `permanently deopping`)) return true;
           if (topd) {
             if (topd.permDeop) {
               mes(sudo, "cmdresp", `${topdn} is already permanently deopped.`);
             } else {
               topd.permDeop = true;
-              topd.op = false;
+              topd.op = 0;
               mes(sudo, "cmdresp", `Permanently deopped ${topdn}.`)
             }
           } else {
@@ -320,7 +338,8 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         return true;
       case "iam":
         if (args[0] === "*") {
-          mes(sudo, "cmdresp")
+          mes(sudo, "cmdresp", "Well hello, Mr. Everyone.")
+          return true
         }
         if (!from.op) {
           if (r.surr.issurrogate(args[0])) {
@@ -379,7 +398,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         if (from.permDeop) {
           mes(from, "cmdresp", "You have been permanently deopped.");
         } else {
-          from.op = true;//from[r.s].name in _userOps; //jshint ignore:line
+          from.op = 1;//from[r.s].name in _userOps; //jshint ignore:line
         }
         return true;
       case "human":
