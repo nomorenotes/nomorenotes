@@ -10,6 +10,10 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
+.ls-conceal {
+  opacity: 0.2511;
+  filter: blur(1px);
+}
 #send, .psa {
 	padding: 3px;
 	position: fixed;

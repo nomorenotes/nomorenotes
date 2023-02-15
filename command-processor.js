@@ -8,6 +8,7 @@ function checkThickForce(from, to, verb = "verbing") {
     return true;
   }
 }
+const OP_NAMES = ["user", "op", "owner"]
 const catchBadCommand = false;
 const { r } = require("./iomodule.js");
 const baseLogger = r.dbg.extend("cmd")
@@ -430,10 +431,25 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         log(`controls: ${controls} | autoplay: ${autoplay}`);
         mes(r.io, "msg", `${vomment}<details open><summary>Video</summary><video ${controls}${autoplay}alt="${vomment}" src="${videoid}"></img></details>`); return true;
       case "list":
-        r.list.forEach(player => {
-          mes(sudo, "cmdresp", `${player[r.s].name}: ${r.away[player.id] || "here"}`);
+        let $list$l = r.list
+        if (!(from.op >= 2)) $list$l = $list$l.filter(u => !u[r.s].conceal)
+        const $list$s = (s, t) => s[r.s].conceal ? `<span class="ls-conceal">${t}</span>` : t
+        $list$l.forEach(s => {
+          mes(sudo, "cmdresp", $list$s(s, `${s[r.s].name}: ${r.away[s.id] || "here"}`));
         });
-        mes(sudo, "cmdresp", `${r.list.length} here`); return true;
+        mes(sudo, "cmdresp", `${$list$l.length} here`);
+        return true;
+      case "ls":
+        let $ls$l = r.list
+        if (!(from.op >= 2)) $ls$l = $ls$l.filter(u => u === from || !u[r.s].conceal)
+        let $ls$t = 0, $ls$c = 0, $ls$v = 0
+        const $ls$s = (s, t) => s[r.s].conceal ? (void $ls$c++) || `<span class="ls-conceal">${t}</span>` : (void $ls$v++) || t
+        $ls$l.forEach(s => {1
+          void $ls$t++
+          mes(sudo, "cmdresp", $ls$s(s, s[r.s].name + ": " + [s.op && (OP_NAMES[s.op] || 'level ' + s.op), (r.senderid[s.id] || 0) + " messages", "id: " + s.id].filter(Boolean).join(", ") + (r.away[s.id] ? ' (' + r.away[s.id] + ')' : '')))
+        })
+        mes(sudo, "cmdresp", from.op >= 2 ? `total ${$ls$t} (concealed ${$ls$c}, visible ${$ls$v})` : `total ` + $ls$t)
+        return true
       case "me":
         mes(r.io, "msg", r.t.action(from[r.s].name, args.join(" ")), from); return true;
       case "help":
