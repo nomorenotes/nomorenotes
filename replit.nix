@@ -1,6 +1,7 @@
 
 { pkgs }: {
   deps = [
+    pkgs.pv
     pkgs.openssh_with_kerberos
     pkgs.lolcat
     pkgs.sl
