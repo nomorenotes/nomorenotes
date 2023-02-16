@@ -163,6 +163,7 @@ app.get("/getfile/:anything", (req, res) => {
   switch (req.params.anything) {
     case "greetings": res.redirect("https://docs.google.com/presentation/d/1fr2I4QLh6i9WxafZuw6vOyh84BAW1tAgqCgLDYpE35w/edit#slide=id.ge50e878efe_0_40"); break
     case "logicdnd": res.redirect("https://docs.google.com/drawings/d/1NsU67czLjI1VBW3D020UtimUjPahgtRLGjDv8TFQxGE/edit"); break
+    case "chloetest": res.redirect("https://www.123test.com/iq-test/id=XHKTV7OU4OEJ&version="); break
     default:
       res.status(401)
       res.header('WWW-Authenticate', 'Basic realm="User Visible Realm", charset="UTF-8"')
