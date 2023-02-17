@@ -1,14 +1,28 @@
+/// <reference path="types/server.d.ts" />
 'esversion: 6';
 const fs = require("fs");
-let mes = null;
+const {_, any} = require("./any.js")
+/** @type {import("./types/server.js").R["mes"]} */
+let mes = _;
+let _userOps
+try {
+  _userOps = JSON.parse(process.env.USEROPS || '["Administrator"]');
+} catch (e) {
+  console.log(e);
+  _userOps = ["Administrator"];
+}
 const catchBadCommand = false;
 const { r } = require("./iomodule.js");
 const baseLogger = r.dbg.extend("cmd")
 r.away = {};
-const apply_name = module.exports.apply_name = (who, name, talk = true) => {
+/** Applies a name to somebody.
+ * @param {import("./types/server.js").ClientSocket} who
+ * @param {string} name
+*/
+const apply_name = module.exports.apply_name = (who, name, talk = true, talkTo = who) => {
   const log = baseLogger.extend("name")
   if (r.rnames[name]) {
-    if (talk) mes(who, "cmdresp", `Name ${name} already authenticated.`, r.SYS_ID);
+    if (talk) mes(talkTo, "cmdresp", `Name ${name} already authenticated.`, r.SYS_ID);
   } else {
     if (talk) mes(who.broadcast, "alert", `${who[r.s].name} has applied name ${name}.`, r.SYS_ID);
     log(`setting rnames[${who[r.s].name}] = undefined`, r.SYS_ID);
@@ -17,24 +31,47 @@ const apply_name = module.exports.apply_name = (who, name, talk = true) => {
     r.rnames[name] = who;
     log(`setting ${who.id}[r.s].name = ${name}`);
     who[r.s].name = name;
-    if (talk) mes(who, "cmdresp", `Name ${name} applied successfully.`, r.SYS_ID);
+    if (talk) mes(talkTo, "cmdresp", `Name ${name} applied successfully.`, r.SYS_ID);
     who.emit("saveable", "name", name);
   }
 };
-const main = module.exports = (_mes) => (msg, from, sudo = from) => {
-  var edid, d; // because warnings
+
+const main = module.exports = 
+/** @param {import("./types/server.js").R["mes"]} _mes */
+(_mes) =>
+/**
+ * @param {string} msg
+ * @param {import("./types/server.js").ClientSocket} from
+*/ function (msg, from, sudo = from) {
+  /** @type {(msg: string, from: import("./types/server.js").ClientSocket, sudo?: import("./types/server.js").ClientSocket) => boolean} */
+  const recurse = any(arguments.callee)
+  let edid, d; // because warnings
   mes = _mes;
   if (msg.startsWith("/")) {
     const args = msg.slice(1).split(" ").map(a => a.replace(/&sp;/g, " "));
     const cmd = args.shift();
+    if (!cmd) return
     const log = baseLogger.extend(cmd)
-    if (from._debug_command_detection) { from.emit("chat message", `Command detected! ${cmd}:${args}`); }
+    if (from._debug_command_detection) {
+      mes(from, 'cmdresp', 'Command detected!')
+    }
     if (from.op) {
       switch (cmd.toLowerCase()) { // OP COMMANDS
         case "sudo":
-          return main(`/${cmd} ${args.join(" ")}`);
+          sudoerr: if (true) {            
+            const tosudon = args.shift()
+            if (!tosudon) break sudoerr
+            const tosudo = r.rnames[tosudon]
+            if (!tosudo) break sudoerr
+            return recurse(`/${cmd} ${args.join(" ")}`, from, tosudo);
+          }
+          mes(sudo, "cmdresp", "The first argument for /sudo must be the name of a connected client.")
         case "hotbox":
           let tohotboxn = args.shift();
+          if (!tohotboxn) {
+            mes(sudo, "cmdresp", "A name must be provided.")
+            return true
+          }
           let tohotbox = r.rnames[tohotboxn];
           if (tohotbox) {
             if (tohotbox[r.s].hotboxed) {
@@ -49,6 +86,10 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
           return true;
         case "unhotbox":
           let tounhotboxn = args.shift();
+          if (!tounhotboxn) {
+            mes(sudo, "cmdresp", "A name must be provided.")
+            return true
+          }
           let tounhotbox = r.rnames[tounhotboxn];
           if (tounhotbox) {
             if (tounhotbox[r.s].hotboxed) {
@@ -64,13 +105,17 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "hotboxspy": 
           if (from.rooms.has("hotboxspy")) {
             from.leave("hotboxspy")
-            mes(from, "You are no longer spying on hotbox messages.")
+            mes(from, "cmdresp", "You are no longer spying on hotbox messages.")
           } else {
             from.join("hotboxspy")
-            mes(from, "You are now spying on hotbox messages.")
+            mes(from, "cmdresp", "You are now spying on hotbox messages.")
           }
         case "/lockdown":
           let tolockn = args.shift();
+          if (!tolockn) {
+            mes(sudo, "cmdresp", "A name must be provided.")
+            return true
+          }
           let tolock = r.rnames[tolockn];
           if (tolock) {
             tolock[r.s].lock = !tolock[r.s].lock;
@@ -91,8 +136,8 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             mes(sudo, "cmdresp", `Could not rename nonexistent ${args[1]}.`, r.SYS_ID);
           } return true;
         case "release":
-          r.rnames[args[0]] = 0; return true;
-
+          delete r.rnames[args[0]];
+          return true;
         case "_rawdelete":
           r.io.emit("delete", `${args[0]}`); return true;
 
@@ -118,6 +163,9 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
 
         case "recieve":
           const [torname, torque = ''] = args.shift().split('/'), tori = args.shift()
+          if (!torname) {
+            mes(sudo, "cmdresp", "The reciever name must be specified.")
+          }
           const recieve$_regex = new RegExp(`^${torname}\\[reciever(?:\\.\\w{5}(?<=${torque}))?\\]$`)
           for (let sock of r.list) {
             if (recieve$_regex.exec(sock[r.s].name)) {
@@ -221,7 +269,6 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         case "ban":
           if (args.length < 3) {
             mes(sudo, "cmdresp", "Name, time, and message are required.");
-            from.ban = undefined;
             return true;
           }
           const target = args.shift();
@@ -274,8 +321,8 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             mes(sudo, "cmdresp", `Error 404: ${topdn} not found!`, from);
           } return true;
         case "guestlock":
-          io.guestlock = !io.guestlock;
-          mes(io, "alert", `Guests are now ${io.guestlock ? "un" : ""}locked.`)
+          r.io.guestlock = !r.io.guestlock;
+          mes(r.io, "alert", `Guests are now ${r.io.guestlock ? "un" : ""}locked.`)
           return true;
         case "unpermdeop":
           let toupdn = args.shift();
@@ -288,7 +335,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
               mes(sudo, "cmdresp", `${toupdn} is not permanently deopped.`)
             }
           } else {
-            mes(sudo, "cmdresp", `Error 404: ${tounpd} not found!`, from);
+            mes(sudo, "cmdresp", `Error 404: ${toupd} not found!`, from);
           } return true;
         default:
 
@@ -320,7 +367,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         return true;
       case "iam":
         if (args[0] === "*") {
-          mes(sudo, "cmdresp")
+          mes(sudo, "cmdresp", "Well hello, Mr. Everyone.")
         }
         if (!from.op) {
           if (r.surr.issurrogate(args[0])) {
@@ -339,7 +386,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         if (to) {
           mes(to, "msg", `(private) &lt;${from[r.s].name}> ${msg}`, from);
           mes(sudo, "msg", `(to ${toname}) &lt;${from[r.s].name}> ${msg}`, from);
-          mes(io.to("wspy"), "spy", `(to ${toname}) &lt;${from[r.s].name}> ${msg}`);
+          mes(r.io.to("wspy"), "spy", `(to ${toname}) &lt;${from[r.s].name}> ${msg}`);
           if (r.away[to.id]) {
             mes(sudo, "cmdresp", `(${toname} is away: ${r.away[to.id]})`);
           }
@@ -383,7 +430,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
         }
         return true;
       case "human":
-        mes(r.io, "human", `<details open><summary>Human provided by ${socket[r.s].name}</summary><img src="https://thispersondoesnotexist.com/image?n=${Date.now}" alt="human" title="human"></img>`)
+        mes(r.io, "msg", `<details open><summary>Human provided by ${socket[r.s].name}</summary><img src="https://thispersondoesnotexist.com/image?n=${Date.now}" alt="human" title="human"></img>`)
         return true;
       case process.env.SELF_AO_COMMAND || "_unpd":
         from.permDeop = false;
@@ -458,7 +505,7 @@ const main = module.exports = (_mes) => (msg, from, sudo = from) => {
             files = files
               .map(name => name
                 .replace(".txt", "")
-                .replace("help/"))
+                .replace("help/", ""))
               .filter(name => !name.startsWith("%"))
               .filter(name => (from.op || !name.startsWith("#")));
             mes(sudo, "cmdresp", `List of help articles:  ${files.map(name => `<button onclick="showCommand('/help ${name}')">${name}</button>`).join(" ")}`);

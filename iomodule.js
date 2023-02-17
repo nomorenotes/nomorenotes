@@ -1,31 +1,41 @@
-/**
-Holds common data for common data storage.
-@type {R}
-*/
-const r = {};
-let io = null;
-// @ts-ignore
-r.al = process.env.al || "gU ";
-// @ts-ignore
-r.s = Symbol("nomorenotes");
 const LANG = "en_us";
 const SYS_ID = { id: "system" };
 const senderid = { [SYS_ID.id]: 0 };
 const USERDICT = process.env.USER || {};
-r.dbg = require("./fancify_log.js")(require("debug")("nmn"))
-const baseLog = r.dbg.extend("io")
-r.USERDICT = USERDICT;
-r.SYS_ID = SYS_ID;
-r.nexusData = require("./servers.json");
-r.nexusSyms = {
-  "other": "&nbsp;",
-  "here": ">",
-  "noid": "!"
+/** @type {any} */
+const _ = undefined
+/** @type {(value: any) => any} */
+const any = a => a
+/**
+Holds common data for common data storage.
+@type {import("./types/server").R}
+*/
+const r = {
+  al: process.env.al || "gU ",
+  SYS_ID,
+  USERDICT,
+  dbg: require("./fancify_log.js")(require("debug")("nmn")),
+  s: _,
+  nexusData: require("./servers_list.js"),
+  nexusSyms: {
+    "other": "&nbsp;",
+    "here": ">",
+    "noid": "!"
+  },
+  surr: require("./surr.js"),
+  pf: require("./prefixes.js"),
+  t: _,
+  list: []
 }
+// @ts-expect-error - Symbol() isn't unique enough
+// and when I tried to put this comment in the
+// assignment, it silenced the entire expression
+r.s = Symbol("nomorenotes")
+r.t = require("./texts.js")(r)[LANG]
+/** @type {ServerType} */
+// @ts-expect-error overwritten before it should be a problem
+let io = null
 module.exports = {};
-r.io = null;
-r.surr = require("./surr.js")
-r.pf = require("./prefixes.js");
 r.t = require("./texts.js")(r)[LANG];
 r.list = [];
 const MAIL_OPTS = {
@@ -38,7 +48,7 @@ const mailLog = baseLog.extend("mail")
 mailLog("mail url:", process.env.MAIL_URL)
 r.mail = (content, username = "Server") => {
   mailLog(`mailing ${username}: ${content}`)
-  proms = []
+  let proms = []
   for (let url of (process.env.MAIL_URL || "").split(";")) {
     if (!url) continue
     mailLog(`Discord mail: ${url}`)
@@ -50,7 +60,7 @@ r.mail = (content, username = "Server") => {
   if (!content.startsWith("Server restarted @ ")) {
     for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
       if (!nmnurl) continue
-      sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
+      let sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
       mailLog(`NMN mail: ${nmnurl}`)
       proms.push(fetch(nmnurl, {
         ...MAIL_OPTS,
@@ -68,7 +78,7 @@ r.sendmsg = from => msg => {
     r.mail(msg, from[r.s].name)
     return msg.split("<br/>")
       .map((m) => {
-        mes(from.hotboxed ? from : r.io, "msg", r.t.chat(from[r.s].name, m), from);
+        mes(from[r.s].hotboxed ? from : r.io, "msg", r.t.chat(from[r.s].name, m), from);
       });
   }
 };
@@ -84,7 +94,7 @@ r.parse_emoji = (e => msg => {
 const rnames = {};
 const mesLog = baseLog.extend("mes")
 const mes = r.mes = (who, prefix, msg, sender = SYS_ID) => {
-  if (who === io && prefix === "mes" && sender !== SYS_ID) {
+  if (who === io && prefix === "msg" && sender !== SYS_ID) {
     io.to("preview").emit(msg)
   }
   if (who === io) who = io.to("main");

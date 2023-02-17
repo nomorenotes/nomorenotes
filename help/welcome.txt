@@ -1,10 +1,10 @@
 <b>Welcome to NoMoreNotes!</b>
 Can't figure out how to chat? Just click near the bottom of the screen, to the left of the send button.
-@: const { uniqueUsernameGenerator: generate, adjectives, nouns } = require("unique-username-generator")
+@0< [require("unique-username-generator").adjectives, require("unique-username-generator").nouns, require("unique-username-generator").uniqueUsernameGenerator]
 @1< generate({ randomDigits: 4, dictionaries: [adjectives, nouns] })
 Want to stop being a guest? Type or click <a href="javascript:showCommand('/iam ' + prompt("What do you want your name to be?"))">Click here</a> to set a name. You can change the username to whatever you want, as long as it as no spaces.
-@2< require("./servers.json").filter(server => !server.gone).length
-We have {2} servers! Pick which one you want to use by typing <button onclick="sendCommand('/nexus')">/nexus</button>.
+@2< require("./server_list.js").filter(server => !server.gone).length
+We have {2} servers! You can switch between them with <button onclick="sendCommand('/nexus')">/nexus</button>.
 We have dark mode! To toggle dark mode, press Ctrl-Alt-D.
 
-There's a few other help pages, documenting basic HTML and guest commands. To see them type or click <button onclick="sendCommand('/help')">/help</button>.
+There's a few other help pages, documenting basic HTML and guest commands. To see the list, type or click <button onclick="sendCommand('/help')">/help</button>.

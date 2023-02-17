@@ -1,2 +1,0 @@
-<b>/_okopmenow</b> - makes the current user an operator
-<b>/_unpdme</b> - makes the current user an operator
