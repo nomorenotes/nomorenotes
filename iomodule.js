@@ -35,9 +35,7 @@ r.t = require("./texts.js")(r)[LANG]
 /** @type {ServerType} */
 // @ts-expect-error overwritten before it should be a problem
 let io = null
-module.exports = {};
-r.t = require("./texts.js")(r)[LANG];
-r.list = [];
+const baseLog = r.dbg.extend("io")
 const MAIL_OPTS = {
   method: 'POST',
   headers: {
