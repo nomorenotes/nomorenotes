@@ -42,9 +42,9 @@ const main = module.exports =
 /**
  * @param {string} msg
  * @param {import("./types/server.js").ClientSocket} from
-*/ function (msg, from, sudo = from) {
+*/ function pcmd(msg, from, sudo = from) {
   /** @type {(msg: string, from: import("./types/server.js").ClientSocket, sudo?: import("./types/server.js").ClientSocket) => boolean} */
-  const recurse = any(arguments.callee)
+  const recurse = any(pcmd)
   let edid, d; // because warnings
   mes = _mes;
   if (msg.startsWith("/")) {
