@@ -124,12 +124,13 @@ const format_msg = module.exports.format_msg = msg => msg
   .replace(/t\W*r\W*a\W*n\W*n\W*y/ig, "tyrannosaurus rex")
   .replace(/d\W*[1liy]\W*k\W*e/ig, "chuiwawa")
   .replace(/f\W*a\W*g\W*g\W*o\W*t/ig, "french fry")
-  .replace(/n\W*[1li]\W*g\W*g\W*(e|a)\W*r?/ig, "nacho")
+  .replace(/n\W*[1li]\W*g(\W*g)?\W*(e|a)\W*r?/ig, "nacho")
   .replace(/j\W*o\W*s\W*e/ig, "jesus")
   .replace(/t\W*r\W*u\W*m\W*p/ig, "trombone") // joke
   .replace(/J\W*o\W*e\W*B\W*[1li]\W*d\W*e\W*n/ig, "Jeffery Bezos") // joke
   .replace(/h\W*e\W*f\W*f\W*e\W*r/ig, "helper")
   .replace(/s\W*l\W*u\W*t/ig, "serial killer")
+  .replace(/w\W*h\W*o\W*r\W*e/ig, "horse")
   .replace(/d\W*[1li]\W*c\W*k/ig, "dinosaur")
   .replace(/c\W*o\W*c\W*k/ig, "cabbage")
   .replace(/c\W*a\W*b\W*l\W*e/ig, "cock") // joke
@@ -138,7 +139,7 @@ const format_msg = module.exports.format_msg = msg => msg
   .replace(/p\W*e\W*n\W*i\W*s/ig, "pencil")
   .replace(/v\W*a\W*g\W*[1li]\W*n\W*a/ig, "vinegar")
   .replace(/s\W*e\W*x/ig, "saltwater")
-  .replace(/(?!document)c\W*u\W*m/ig, "ice cream")
+  .replace(/(?!(?<=do)cument)c\W*u\W*m/ig, "ice cream")
   .replace(/p\W*[ro0]?\W*[r0o]\W*n/ig, "corn")
   .replace(/h\W*w?\W*[3e]\W*n\W*t\W*a?\W*[1li]/ig, "hitmen")
   .replace(/\{r\/([a-zA-Z0-9]{3,21})\}/, (_match, sub) => `<a href="//bob.fr.to/r/${sub}" target=_blank>r/${sub}</a>`) // autolink subs
