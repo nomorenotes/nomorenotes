@@ -9,7 +9,7 @@
     "cors": "^2.8.5",
     "debug": "^4.3.4",
     "express": "^4.17.3",
-    "express-openid-connect": "^2.12.0",
+    "express-openid-connect": "^2.14.0",
     "fetch": "^1.1.0",
     "jest-magic-mock": "^1.0.0",
     "jwt-decode": "^3.1.2",
