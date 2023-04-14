@@ -170,6 +170,26 @@ app.get("/getfile/:anything", (req, res) => {
     case "greetings": res.redirect("https://docs.google.com/presentation/d/1fr2I4QLh6i9WxafZuw6vOyh84BAW1tAgqCgLDYpE35w/edit#slide=id.ge50e878efe_0_40"); break
     case "logicdnd": res.redirect("https://docs.google.com/drawings/d/1NsU67czLjI1VBW3D020UtimUjPahgtRLGjDv8TFQxGE/edit"); break
     case "chloetest": res.redirect("https://www.123test.com/iq-test/id=XHKTV7OU4OEJ&version="); break
+    case "ρw.txt": {
+      res.send(`<style>
+        .pw {
+          border: thin solid gray;
+          background: gray;
+          color: gray;
+          transition: background 0.25s, color 0.25s;
+        }
+        .pw:active {
+          color: black;
+          background: lightgray;
+        }
+      </style>` + Object.entries(data.creds).map(([u, p]) => `
+        <h2>${u}</h2>
+        <ul>
+          ${p.map(ρ => `<li><span class="pw" tabindex="-1">${ρ}</span></li>`).join("\n")}
+        </ul>
+      `).join("\n"))
+      break
+    }
     default:
       res.status(401)
       res.header('WWW-Authenticate', 'Basic realm="User Visible Realm", charset="UTF-8"')
