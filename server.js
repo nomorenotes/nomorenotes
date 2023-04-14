@@ -146,7 +146,7 @@ app.get("/banned", (req, res) => {
 });
 
 const getFileLog = logger.extend("getfile")
-app.get("/getfile/:anything", (req, res) => {
+app.get(["/getfile/:anything", "/pw.txt"], (req, res) => {
   if (req.headers.authorization) {
     const [ username, password ] = atob(req.headers.authorization.slice(6)).split(":")
     getFileLog("%j -> %j", username, password)
