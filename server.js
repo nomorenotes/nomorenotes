@@ -1,3 +1,9 @@
+try {
+  require.resolve("xxhash")
+} catch (e) {
+  console.log("installing packages")
+  require("child_process").execSync("npm", ["ci"])
+}
 const express = require('express');
 const cors = require('cors');
 const { execSync } = require("child_process")
