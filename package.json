@@ -1,6 +1,7 @@
 {
   "name": "nomorenotes",
   "version": "0.0.1",
+  "main": "server.js",
   "description": "No more notes! Instant messaging for classrooms.",
   "dependencies": {
     "@hapi/hoek": "^11.0.2",
