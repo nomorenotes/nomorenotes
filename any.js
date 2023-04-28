@@ -1,6 +1,6 @@
 /** @type {any} */
-const _ = undefined
-exports._ = _
+const _ = undefined;
+exports._ = _;
 /** @type {(value: any) => value} */
-const any = value => value
-exports.any = any
+const any = (value) => value;
+exports.any = any;

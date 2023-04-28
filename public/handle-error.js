@@ -1,1 +1,1 @@
-window.onerror = (msg, url, line, col, err) => alert(err.stack)
+window.onerror = (msg, url, line, col, err) => alert(err.stack);

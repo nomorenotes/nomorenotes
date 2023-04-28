@@ -1,145 +1,157 @@
 <center><select id="countdowns"></select></center>
 <div id="countdown"></div>
-<input id="fore" type=color value="#ff0000"> 
-<input id="back" type=color value="#000000" oncontextmenu='tryEgg(event);'>
+<input id="fore" type="color" value="#ff0000" />
+<input id="back" type="color" value="#000000" oncontextmenu="tryEgg(event);" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-body {
-  font-family: "VT323", monospace;
-  background-color: black;
-  color: red;
-  overflow: hidden;
-}
-#countdown {
-  font-size: 50vh;
-  max-width: 100%;
-  text-align: center;
-  position: absolute;
-  display: block;
-  left: 50%;
-  top: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-select {
-  background: none;
-  font: inherit;
-  font-size: 10vh;
-  color: inherit;
-  border: none;
-}
-option {
-  background: none !important;
-}
-input {
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0px;
-}
+  @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+  body {
+    font-family: "VT323", monospace;
+    background-color: black;
+    color: red;
+    overflow: hidden;
+  }
+  #countdown {
+    font-size: 50vh;
+    max-width: 100%;
+    text-align: center;
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  select {
+    background: none;
+    font: inherit;
+    font-size: 10vh;
+    color: inherit;
+    border: none;
+  }
+  option {
+    background: none !important;
+  }
+  input {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0px;
+  }
 </style>
 <script>
-Object.defineProperties(window, {
-  Foreground: {
-    get() {
-      return document.getElementById("fore").value;
-    }
-  },
-  EggAvailable: {
-  	get() {
-    	return Foreground == "#000000" && Background == "#2a0045"  && selector.value == "DONUT";
-    }
-  },
-  Background: {
-    get() {
-      return document.getElementById("back").value;
-    }
-  },
-})
+  Object.defineProperties(window, {
+    Foreground: {
+      get() {
+        return document.getElementById("fore").value;
+      },
+    },
+    EggAvailable: {
+      get() {
+        return (
+          Foreground == "#000000" &&
+          Background == "#2a0045" &&
+          selector.value == "DONUT"
+        );
+      },
+    },
+    Background: {
+      get() {
+        return document.getElementById("back").value;
+      },
+    },
+  });
 
-{
-	let lastHour = new Date().getHours();
-  const f = () => {
-  	if (new Date().getHours() !== lastHour) {
-    	fixGoals();
-      lastHour = new Date().getHours();
-    }
-  };
-  setInterval(f, 60000);
-}
-
-function getTimeRemaining(endtime) {
-  const total = Date.parse(endtime) - Date.parse(new Date());
-  const ms = total;
-  const seconds = Math.floor((total / 1000) % 60);
-  const minutes = Math.floor((total / 1000 / 60) % 60);
-  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-  const days = Math.floor(total / (1000 * 60 * 60 * 24));
-
-  return {
-    total,
-    ms,
-    days,
-    hours,
-    minutes,
-    seconds
-  };
-}
-
-function initializeClock(id, goals) {
-  const clock = document.getElementById(id);
-  const r = () => {
-  const endtime = goals[selector.value];
-    const t = getTimeRemaining(endtime);
-    document.body.style.backgroundColor = Background;
-    document.body.style.color = Foreground;
-    clock.textContent = `[${t.hours}:${t.minutes.toString().padStart(2, 0)}:${t.seconds.toString().padStart(2, 0)}]`.replace("[0:", "[").replace("[0:", "[").replace("[0", "[");
-    if (t.total <= 0) {
-    	clock.textContent = clock.textContent.replace(":-", ":").replace(":-", ":");
-      if (Math.floor(Date.now()/500)%2) {
-        document.body.style.backgroundColor = Foreground;
-        document.body.style.color = Background;
+  {
+    let lastHour = new Date().getHours();
+    const f = () => {
+      if (new Date().getHours() !== lastHour) {
+        fixGoals();
+        lastHour = new Date().getHours();
       }
+    };
+    setInterval(f, 60000);
+  }
+
+  function getTimeRemaining(endtime) {
+    const total = Date.parse(endtime) - Date.parse(new Date());
+    const ms = total;
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+    return {
+      total,
+      ms,
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
+  }
+
+  function initializeClock(id, goals) {
+    const clock = document.getElementById(id);
+    const r = () => {
+      const endtime = goals[selector.value];
+      const t = getTimeRemaining(endtime);
+      document.body.style.backgroundColor = Background;
+      document.body.style.color = Foreground;
+      clock.textContent = `[${t.hours}:${t.minutes
+        .toString()
+        .padStart(2, 0)}:${t.seconds.toString().padStart(2, 0)}]`
+        .replace("[0:", "[")
+        .replace("[0:", "[")
+        .replace("[0", "[");
+      if (t.total <= 0) {
+        clock.textContent = clock.textContent
+          .replace(":-", ":")
+          .replace(":-", ":");
+        if (Math.floor(Date.now() / 500) % 2) {
+          document.body.style.backgroundColor = Foreground;
+          document.body.style.color = Background;
+        }
+      }
+      requestAnimationFrame(r);
+    };
+    r();
+  }
+
+  goals = {};
+  selector = document.getElementById("countdowns");
+
+  function setGoal(name, h = 12, m = 0, s = 0) {
+    let goal = new Date();
+    goal.setHours(h);
+    goal.setMinutes(m);
+    goal.setSeconds(s);
+    goal.name = name;
+    goals[name] = goal;
+    const opt = document.createElement("option");
+    opt.textContent = name;
+    selector.add(opt);
+  }
+  function fixGoals() {
+    let goal;
+    for (goal in Object.keys(goals)) {
+      let newGoal = new Date();
+      newGoal.setHours(goal.getHours());
+      newGoal.setMinutes(goal.getMinutes());
+      newGoal.setSeconds(goal.getSeconds());
+      newGoal.setMilliseconds(goal.getMilliseconds());
     }
-    requestAnimationFrame(r);
   }
-  r();
-}
-
-goals = {};
-selector = document.getElementById("countdowns");
-
-function setGoal(name, h = 12, m = 0, s = 0) {
-  let goal = new Date();
-  goal.setHours(h);
-  goal.setMinutes(m);
-  goal.setSeconds(s);
-  goal.name = name;
-  goals[name] = goal;
-  const opt = document.createElement("option");
-  opt.textContent = name;
-  selector.add(opt);
-}
-function fixGoals() {
-	let goal;
-  for (goal in Object.keys(goals)) {
-  	let newGoal = new Date();
-    newGoal.setHours(goal.getHours());
-    newGoal.setMinutes(goal.getMinutes());
-    newGoal.setSeconds(goal.getSeconds());
-    newGoal.setMilliseconds(goal.getMilliseconds());
+  function tryEgg(e) {
+    if (!EggAvailable) return;
+    e.preventDefault();
+    e.stopPropagation();
+    open("/chat");
+    return false;
   }
-}
-function tryEgg(e) {
-	if (!EggAvailable) return;
-  e.preventDefault(); e.stopPropagation();
-  open("/chat");
-  return false;
-}
 
-setGoal("LUNCH", 12, 10);
-setGoal("MIDAY");
-setGoal("DISMS", 13, 50);
-setGoal("DONUT", 0);
-initializeClock("countdown", goals);
+  setGoal("LUNCH", 12, 10);
+  setGoal("MIDAY");
+  setGoal("DISMS", 13, 50);
+  setGoal("DONUT", 0);
+  initializeClock("countdown", goals);
 </script>

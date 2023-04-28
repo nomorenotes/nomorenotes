@@ -1,4 +1,4 @@
-const {diff} = require('jest-diff');
+const { diff } = require("jest-diff");
 expect.extend({
   toBeMap(received, expected) {
     const options = {
@@ -11,8 +11,8 @@ expect.extend({
     const message = pass
       ? () =>
           // eslint-disable-next-line prefer-template
-          this.utils.matcherHint('toBeMap', undefined, undefined, options) +
-          '\n\n' +
+          this.utils.matcherHint("toBeMap", undefined, undefined, options) +
+          "\n\n" +
           `Expected: not ${this.utils.printExpected(expected)}\n` +
           `Received: ${this.utils.printReceived(received)}`
       : () => {
@@ -21,15 +21,15 @@ expect.extend({
           });
           return (
             // eslint-disable-next-line prefer-template
-            this.utils.matcherHint('toBeMap', undefined, undefined, options) +
-            '\n\n' +
-            (diffString && diffString.includes('- Expect')
+            this.utils.matcherHint("toBeMap", undefined, undefined, options) +
+            "\n\n" +
+            (diffString && diffString.includes("- Expect")
               ? `Difference:\n\n${diffString}`
               : `Expected: ${this.utils.printExpected(expected)}\n` +
                 `Received: ${this.utils.printReceived(received)}`)
           );
         };
 
-    return {actual: received, message, pass};
+    return { actual: received, message, pass };
   },
 });

@@ -6,17 +6,17 @@ Object.assign(exports, {
         fn._value = get.apply(null, arguments);
       }
       return fn._value;
-    }
-  }
-})
+    };
+  },
+});
 Object.assign(exports.lazy, {
   on(obj, name, fn) {
-    fn = this(fn)
+    fn = this(fn);
     Object.defineProperty(obj, name, {
-      get: function() {
+      get: function () {
         return fn();
-      }
-    })
-    return fn
-  }
-})
+      },
+    });
+    return fn;
+  },
+});

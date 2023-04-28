@@ -1,1 +1,1 @@
-global.inJest = true
+global.inJest = true;

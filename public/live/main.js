@@ -1,10 +1,10 @@
-alert(typeof btn)
-const socket = io()
+alert(typeof btn);
+const socket = io();
 btn.addEventListener("click", () => {
-  const { value } = commandline
+  const { value } = commandline;
   evalOutput.value = `>>> ${value}
-...`
-  socket.emit("eval", value, text => {
-    evalOutput.value = text
-  })
-})
+...`;
+  socket.emit("eval", value, (text) => {
+    evalOutput.value = text;
+  });
+});
