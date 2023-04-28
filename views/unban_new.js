@@ -1,5 +1,5 @@
 (()=>{
-const w  rite = text => outdiv.textContent = text
+const write = text => outdiv.textContent = text
   const redir = (loc = location.href, cb = () => {}) => cb(setTimeout(() => location = loc, 5000))
   write("Processing")
   window.onerror = (_msg, _url, _line, _col, { stack }) => alert(stack)
