@@ -1,37 +1,13 @@
-const LANG = "en_us";
-const SYS_ID = { id: "system" };
-const senderid = { [SYS_ID.id]: 0 };
-const USERDICT = process.env.USER || {};
-/** @type {any} */
-const _ = undefined
-/** @type {(value: any) => any} */
-const any = a => a
 /**
 Holds common data for common data storage.
 @type {import("./types/server").R}
 */
-const r = {
-  al: process.env.al || "gU ",
-  SYS_ID,
-  USERDICT,
-  dbg: require("./fancify_log.js")(require("debug")("nmn")),
-  s: _,
-  nexusData: require("./servers_list.js"),
-  nexusSyms: {
-    "other": "&nbsp;",
-    "here": ">",
-    "noid": "!"
-  },
-  surr: require("./surr.js"),
-  pf: require("./prefixes.js"),
-  t: _,
-  list: []
-}
+const r = require("./r.js")
+const { SYS_ID, USERDICT } = r
+const senderid = { [SYS_ID.id]: 0 };
 // @ts-expect-error - Symbol() isn't unique enough
 // and when I tried to put this comment in the
 // assignment, it silenced the entire expression
-r.s = Symbol("nomorenotes")
-r.t = require("./texts.js")(r)[LANG]
 /** @type {ServerType} */
 // @ts-expect-error overwritten before it should be a problem
 let io = null
