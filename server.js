@@ -7,6 +7,7 @@ try {
 const express = require('express');
 const cors = require('cors');
 const { execSync } = require("child_process")
+const { promises: fs } = require("fs")
 const { hash: NOCRYPT_hash } = require("xxhash")
 const { auth, requiresAuth, attemptSilentLogin } = require('express-openid-connect');
 const bodyParser = require("body-parser");
@@ -121,8 +122,11 @@ const whoDisBot = {
 */
 app.use('/lib', express.static(__dirname + '/lib'))
 app.get("/favicon.ico", (req, res) => {
-	res.sendFile(__dirname + "/favicon/drive_new.ico");
+	res.sendFile(__dirname + `/favicon/${data["favicon"] || "drive-new"}.ico`);
 });
+app.get("/.config/:name.ico", async (req, res, next) => {
+  throw new Error("unimplemented") // TODO
+})
 app.get("/story.txt", (req, res) => {
 	res.sendFile(__dirname + "/story.txt");
 });
@@ -134,12 +138,12 @@ app.get("/unban", (req, res) => {
   res.render("unban.pug")
 })
 
-require("./site/module.js")(app); // site urls
-require("./chat/module.js")(app); // chat urls
-require("./login/module.js")(app); // login urls
-require("./test/module.js")(app); // will always give a fake error
-require("./vis/module.js")(app); // edit ALL the saveables
-require("./upload/module.js")(app); // file uploader
+app.get('/chat/recieve/:name', (req, res) => {
+  res.render('recieve', req.params)
+})
+app.get('/chat/embed-recieve/:name', (req, res) => {
+  res.render('embed-recieve', req.params)
+})
 
 app.get("/banned", (req, res) => {
 	res.sendFile(__dirname + "/banned.html");
