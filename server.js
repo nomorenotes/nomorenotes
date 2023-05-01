@@ -217,11 +217,16 @@ app.get("/getfile/*", (req, res, next) => {
           color: black;
           background: lightgray;
         }
-      </style>` + Object.entries(data.creds).map(([u, p]) => `
-        <h2>${u}</h2>
-        <ul>
-          ${p.map(ρ => `<li><span class="pw" tabindex="-1">${ρ}</span></li>`).join("\n")}
-        </ul>
+      </style>` + Object.entries(data.creds2).map(([u, k]) => `
+        <details>
+          <summary>${u}
+          <ul>
+            ${k.map(κ => {
+              const [r, ρ] = κ.split(":").map(v => atob(v))
+              `<li><span class="pw" tabindex="-1">${ρ}</span> <i>${r}</i></li>`
+            }).join("\n")}
+          </ul>
+        <details>
       `).join("\n"))
       break
     }
@@ -234,6 +239,14 @@ app.get("/getfile/*", (req, res, next) => {
       res.end()
   }
 })
+
+function migrate(obj, func) {
+  let newObj = {}
+  for (let [k, v] of Object.entries(obj)) {
+    newObj[k] = func(v)
+  }
+  return newObj
+}
 
 app.get("/timer", (req, res) => {
 	res.sendFile(__dirname + "/timer.html");
