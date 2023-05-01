@@ -3,7 +3,6 @@
 const fs = require("fs");
 const {_, any} = require("./any.js")
 /** @type {import("./types/server.js").R["mes"]} */
-let mes = _;
 let _userOps
 try {
   _userOps = JSON.parse(process.env.USEROPS || '["Administrator"]');
@@ -13,6 +12,7 @@ try {
 }
 const catchBadCommand = false;
 const { r } = require("./iomodule.js");
+let mes = r.mes;
 const baseLogger = r.dbg.extend("cmd")
 r.away = {};
 /** Applies a name to somebody.
@@ -38,7 +38,7 @@ const apply_name = module.exports.apply_name = (who, name, talk = true, talkTo =
 
 const main = module.exports = 
 /** @param {import("./types/server.js").R["mes"]} _mes */
-(_mes) =>
+() =>
 /**
  * @param {string} msg
  * @param {import("./types/server.js").ClientSocket} from
@@ -46,7 +46,7 @@ const main = module.exports =
   /** @type {(msg: string, from: import("./types/server.js").ClientSocket, sudo?: import("./types/server.js").ClientSocket) => boolean} */
   const recurse = any(pcmd)
   let edid, d; // because warnings
-  mes = _mes;
+  // mes = _mes;
   if (msg.startsWith("/")) {
     const args = msg.slice(1).split(" ").map(a => a.replace(/&sp;/g, " "));
     const cmd = args.shift();
