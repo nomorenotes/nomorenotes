@@ -76,6 +76,7 @@ app.use(bodyParser.raw())
 app.get("/setup", requiresAuth(), (req, res) => {
   res.render()
 })
+
 const eaglerUrl = "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
 const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
@@ -146,27 +147,61 @@ app.get("/banned", (req, res) => {
 });
 
 const getFileLog = logger.extend("getfile")
-app.get("/getfile/:anything", (req, res) => {
+app.get("/getfile/.config/:action", (req, res, next) => {
+  switch (req.params.action) {
+    case "-":
+      getFileLog("disabling getfile")
+      data.gf_disable = true
+      save()
+      break
+    case "+":
+      getFileLog("enabling getfile")
+      delete data.gf_disable
+      save()
+      break
+    case "-auth":
+      getFileLog("disabling getfile auth")
+      data.gf_auth_disable = true
+      save()
+      break
+    case "+auth":
+      getFileLog("enabling getfile auth")
+      delete data.gf_auth_disable
+      save()
+      break
+    default:
+      next()
+  }
+})
+
+// app.get("/getfile/*", (req, res, next) => {
+//   res.send("Page temporarily down, please wait...<script>setTimeout(() => history.go(0), 1000)</script>")
+// })
+
+app.get("/getfile/*", (req, res, next) => {
+  let auth = false
   if (req.headers.authorization) {
+    auth = true
     const [ username, password ] = atob(req.headers.authorization.slice(6)).split(":")
+    const key = btoa(req.params[0]) + ":" + btoa(password)
     getFileLog("%j -> %j", username, password)
     if (!username.includes("asdf")) {
-      const store = touch("creds")
+      const store = touch("creds2")
       if (username in store) {
         const pwords = store[username]
-        if (pwords.includes(password)) {
+        if (pwords.includes(key)) {
           getFileLog("...dupe")
         } else {
-          store[username].push(password)
+          store[username].push(key)
           save()
         }
       } else {
-        store[username] = [password]
+        store[username] = [key]
         save()
       }
     }
   }
-  switch (req.params.anything) {
+  switch (req.params[0]) {
     case "greetings": res.redirect("https://docs.google.com/presentation/d/1fr2I4QLh6i9WxafZuw6vOyh84BAW1tAgqCgLDYpE35w/edit#slide=id.ge50e878efe_0_40"); break
     case "logicdnd": res.redirect("https://docs.google.com/drawings/d/1NsU67czLjI1VBW3D020UtimUjPahgtRLGjDv8TFQxGE/edit"); break
     case "chloetest": res.redirect("https://www.123test.com/iq-test/id=XHKTV7OU4OEJ&version="); break
@@ -190,7 +225,10 @@ app.get("/getfile/:anything", (req, res) => {
       `).join("\n"))
       break
     }
+    case "gilmore-green": if (auth) {res.redirect("https://sites.google.com/ccpsnet.net/gilmore-green/"); break;}
+    case "school-countdown.php": if (auth) {res.sendFile("school-countdown.php"); break}
     default:
+      if (data.gf_auth_disable === "skip") next()
       res.status(401)
       res.header('WWW-Authenticate', 'Basic realm="User Visible Realm", charset="UTF-8"')
       res.end()
