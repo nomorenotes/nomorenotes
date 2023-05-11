@@ -10,3 +10,6 @@
 [submodule ".projects/webpanel"]
 	path = .projects/webpanel
 	url = https://github.com/PoolloverNathan/webpanel
+[submodule "public/fake-teacher"]
+	path = public/fake-teacher
+	url = https://github.com/va-chesterfield-psv/fake-teacher
