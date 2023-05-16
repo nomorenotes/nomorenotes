@@ -79,7 +79,7 @@ Do an action.
 
 ### `/nexus`
 View other servers.
-(Only one sever online, so this useless)
+(Only one sever online, so this useless now)
 
 ### `/help [file?]`
 Get help.
