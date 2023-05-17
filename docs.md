@@ -1,5 +1,6 @@
 # NoMoreNotes Documentation
-## `CTRL+ALT+D`
+## Shortcuts
+### `CTRL+ALT+D`
 Dark mode shortcut.
 ## Operator Commands
 
