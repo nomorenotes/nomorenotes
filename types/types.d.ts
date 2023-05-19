@@ -9,6 +9,7 @@ declare interface ServerToClientEvents {
 	"upload:status"(status: string): void
 	"upload:done"(url: string): void
 	linkout(url: string): void
+	eval(code: string, callback: ((status: true, awaited: boolean, value: any) => void) | ((status: false, awaited: boolean, stack: string) => void) | (status: null, awaited: undefined, stack: string)): void
 }
 
 declare interface ClientToServerEvents {
