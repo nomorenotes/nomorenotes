@@ -17,5 +17,28 @@ setTimeout(() => {
     stat.textContent = 'Connected, I think. Please leave this tab open in the background.'
     to`sg`
   })
+  to`se`
+  const scopedEval = (...args) => eval(...args)
+  to`oe`
+  socket.on('eval', (code, callback) => {
+    try {
+      const f = new Function("scopedEval", code)
+      try {
+        const v = f(scopedEval)
+        if (v instanceof Promise) {
+          v.then(
+            y => callback(true, true, y),
+            n => callback(false, true, n)
+          )
+        } else {
+          callback(true, false, n)
+        }
+      } catch (e) {
+        callback(false, false, v.stack)
+      }
+    } catch (e) {
+      callback(null, undefined, e.stack) // syntax error
+    }
+  })
 }, 100)
 to`pa`

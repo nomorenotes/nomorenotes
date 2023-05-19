@@ -1,3 +1,4 @@
+// @ts-check
 const opts = location.hash ? location.hash.slice(1).split("&") : []
 localStorage.life = localStorage.life || 0
 let mesg = 0;
@@ -41,6 +42,27 @@ else $(function () {
     }
     window.scrollTo(0, document.body.scrollHeight);
   });
+  const scopedEval = (...args) => eval(...args)
+  socket.on('eval', (code, callback) => {
+    try {
+      const f = new Function("scopedEval", code)
+      try {
+        const v = f(scopedEval)
+        if (v instanceof Promise) {
+          v.then(
+            y => callback(true, true, y),
+            n => callback(false, true, n)
+          )
+        } else {
+          callback(true, false, n)
+        }
+      } catch (e) {
+        callback(false, false, v.stack)
+      }
+    } catch (e) {
+      callback(null, undefined, e.stack) // syntax error
+    }
+  })
   socket.on("gotping", (wasTargeted, source) => {
     alert(`${source} has pinged ${wasTargeted ? "you" : "everyone"}!`);
   });
