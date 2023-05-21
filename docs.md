@@ -34,11 +34,8 @@ Reset a user.
 ### `/kick [name]`
 Forcefully remove a user.
 
-### `/preban [name]`
-Prepare to ban a user, must be done before even an attempt to ban.
-
 ### `/ban [name] [time] "message"`
-Ban a user for [time] minutes, after running `/preban`.
+Ban a user for [time] minutes.
 
 ### `/code`
 Open VS Code.
