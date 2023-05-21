@@ -1,7 +1,10 @@
 # NoMoreNotes Documentation
+
 ## Shortcuts
+
 ### `CTRL+ALT+D`
 Dark mode shortcut.
+
 ## Operator Commands
 
 ### `/tellraw [type] "message"`
@@ -38,7 +41,7 @@ Prepare to ban a user, must be done before even an attempt to ban.
 Ban a user for [time] minutes, after running `/preban`.
 
 ### `/code`
-Start working on NoMoreNotes.
+Open VS Code.
 
 ### `/wspy`
 Spy on private messages.
@@ -73,14 +76,13 @@ Send an image.
 Send a video.
 
 ### `/list`
-Display a list of who is online.
+Displays a list of who is online.
 
 ### `/me "action"`
-Do an action.
+Does an action.
 
 ### `/nexus`
-View other servers.
-(Only one sever online, so this useless now)
+View other servers. (Only one server is online, so this is useless now.)
 
 ### `/help [file?]`
-Get help.
+Get help. (Most of the help is in here now.)
