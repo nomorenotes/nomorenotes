@@ -28,6 +28,35 @@ The most trustworthy page on this website.
 ### `CTRL+ALT+D`
 Dark mode shortcut.
 
+## User Commands
+
+### `/away "message"`
+Mark yourself as away.
+
+### `/away`
+Unmark yourself as away.
+
+### `/iam [name]`
+Change your name.
+
+### `/w [name] "message"`
+Send a private message to a user.
+
+### `/image [url] "caption?"`
+Send an image.
+
+### `/video [url] +autoplay +nocontrols "caption?"`
+Send a video.
+
+### `/list`
+Displays a list of who is online.
+
+### `/me "action"`
+Does an action.
+
+### `/help [file?]`
+Get help. (Most of the help is in here now.)
+
 ## Operator Commands
 
 ### `/tellraw [type] "message"`
@@ -74,32 +103,3 @@ Silently kick someone.
 
 ### `/thisisfake [name]`
 Silently kick someone.
-
-## User Commands
-
-### `/away "message"`
-Mark yourself as away.
-
-### `/away`
-Unmark yourself as away.
-
-### `/iam [name]`
-Change your name.
-
-### `/w [name] "message"`
-Send a private message to a user.
-
-### `/image [url] "caption?"`
-Send an image.
-
-### `/video [url] +autoplay +nocontrols "caption?"`
-Send a video.
-
-### `/list`
-Displays a list of who is online.
-
-### `/me "action"`
-Does an action.
-
-### `/help [file?]`
-Get help. (Most of the help is in here now.)
