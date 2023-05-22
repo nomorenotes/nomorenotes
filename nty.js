@@ -1,5 +1,6 @@
 /// <reference path="array-part.d.ts" />
 
+
 Array.prototype.part = 
 /** 
  * @template T
@@ -35,27 +36,61 @@ rl.prompt()
  */
 // @ts-expect-error - trust me bro
 const map = obj => new Map(Object.entries(obj))
+const BREAKOUT = Symbol("BREAKOUT")
+
+const checkBounds = function (args, min, max) {
+    min ??= 0
+    max ??= Infinity
+    const name = args.callee.name
+    if (args.length < min) {
+        console.log(chalk.redBright`${name}: not enough arguments (${args.length} < ${min})`)
+    } else if (args.length > max) {
+        console.log(chalk.redBright`${name}: too many arguments (${args.length} > ${max})`)
+    } else return
+    throw BREAKOUT
+}
 
 const commands = map({
-    echo(...args) {
-        console.log(args.join(" "))
+    echo() {
+        checkBounds(arguments)
+        console.log(Array.from(arguments).join(" "))
     },
-    exit(code = 0) {
+    exit(code) {
+        code ??= 0
+        checkBounds(arguments, 0, 1)
         code *= 1
         if (!isFinite(code)) code = 1
         process.exit(code)
+    },
+    eval(text) {
+        checkBounds(arguments, 1, 1)
+        console.log(eval(text))
+    },
+    bash() {
+        checkBounds(arguments, 0, 0)
+        try {
+            rl.pause()
+            require("child_process").spawnSync("stty sane; bash", { shell: true, stdio: [0, 1, 2] })
+        } finally {
+            rl.resume()
+        }
     }
 })
+
+for (let name of ["echo"]) {
+    commands.get(name).length = Infinity
+}
 
 rl.on("line", line => {
     try {
         const [args, special] = parse(line).part(el => typeof el === "string")
         if (!args.length) return
-        if (!digCommand(commands, ...args)) {
-            console.log(chalk.redBright`unknown command: ${cmd}`)
+        let r
+        if ((r = digCommand(commands, ...args)) !== true) {
+            console.log(chalk.redBright`${args[0]}: ${r || "no such command"}`)
         }
     } catch (e) {
-        console.log(chalk.redBright(e.stack))
+        if (e !== BREAKOUT) console.log(chalk.redBright(e instanceof Error ? e.stack : e))
     } finally {
         rl.prompt()
     }
@@ -69,7 +104,7 @@ rl.on("line", line => {
  * @param map {Diggable}
  * @param key {string}
  * @param keys {string[]}
- * @return {boolean} Whether or not it was found.
+ * @return {boolean | string} Whether or not it was found, or an error message.
  */
 function digCommand(map, key, ...keys) {
     // console.log(chalk.gray`dig: ${key}; ${keys.join(",")}`)
@@ -80,8 +115,7 @@ function digCommand(map, key, ...keys) {
         // Simple case
         const val = map.get(key)
         if (typeof val === "function") {
-            val(...keys)
-            return true
+            return val(...keys) ?? true
         } else {
             // @ts-expect-error - defeats the purpose of spreading
             return digCommand(map, ...keys)
