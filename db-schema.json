@@ -11,6 +11,9 @@
                 }
             }
         },
+        "apps": {
+            "$ref": "./schemas/app.json"
+        },
         "$schema": {
             "type": "string",
             "const": "./db-schema.json"

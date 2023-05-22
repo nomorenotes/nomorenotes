@@ -1,0 +1,82 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "id",
+            "name",
+            "description",
+            "icon",
+            "location"
+        ],
+        "properties": {
+            "id": {
+                "type": "string",
+                "pattern": "^[a-z-]+$",
+                "description": "An internal ID used for the app. This is never shown to real users, but is used to start the app from nty. Do not change this once an app is created.",
+                "default": "my-app"
+            },
+            "name": {
+                "type": "string",
+                "maxLength": 64,
+                "description": "A short description of the app.",
+                "default": "My App"
+            },
+            "description": {
+                "type": "string",
+                "description": "A longer description of the app.",
+                "default": "This is a description of my app."
+            },
+            "icon": {
+                "type": "string",
+                "pattern": "^appicons/[a-z-]+\\.(svg|png)$",
+                "description": "The app's icon. Must be the name of an icon in public/appicons.",
+                "default": "appicons/generic.svg"
+            },
+            "location": {
+                "type": "string",
+                "pattern": "/[a-z/]+",
+                "description": "The app's path relative to the origin.",
+                "default": "/"
+            },
+            "hidden": {
+                "type": "boolean",
+                "description": "Whether or not this app will be shown in the app list. Does not affect using nty to run the app."
+            },
+            "inputs": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "pattern": "^[a-z-]+$",
+                            "description": "The input's id. Can be used as a URL-encoded parameter via $%id, or directly via $id."
+                        },
+                        "reflect": {
+                            "description": "A value that the input field reflects. Changes to the input field modify the reflectee, and vice versa.",
+                            "oneOf": [
+                                {
+                                    "properties": {
+                                        "saveable": {
+                                            "type": "string",
+                                            "pattern": "^NMN.+$"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "label": {
+                            "type": "string",
+                            "description": "The user-facing label for the input."
+                        },
+                        "match": {
+                            "$ref": "http://json-schema.org/schema"
+                        }
+                    }
+                }
+            }
+        },
+        "additionalProperties": false
+    }
+}
