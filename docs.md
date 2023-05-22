@@ -101,8 +101,5 @@ Displays a list of who is online.
 ### `/me "action"`
 Does an action.
 
-### `/nexus`
-View other servers. (Only one server is online, so this is useless now.)
-
 ### `/help [file?]`
 Get help. (Most of the help is in here now.)
