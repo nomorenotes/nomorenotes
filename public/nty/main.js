@@ -10,6 +10,7 @@ sock.on("stdout", (/** @type {string} */ data) => {
 })
 sock.on("died", ({ exitCode, signal }) => {
     term.write(`\x1b[0m\x1b[?25l\n\x1b[91mexited with code ${exitCode}` + (signal ? `(signal ${signal})` : ""))
+    document.body.style.opacity = "0.5"
 })
 term.onData(sock.emit.bind(sock, "stdin"))
 term.onResize(sock.emit.bind(sock, "winch"))
