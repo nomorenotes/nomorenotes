@@ -1,5 +1,28 @@
 # NoMoreNotes Documentation
 
+## Pages
+
+### [`/chat`][chat]
+The primary chat website that this documentation is written for.
+
+### [`/vis`][vis]
+Debugging tool that allows editing saved data.
+
+### [`/upload`][upload]
+Allows uploading files.
+
+### [`/live`][live]
+object
+
+### [`/getfile/*`][getfile]
+The most trustworthy page on this website.
+
+[chat]: URL.env/chat
+[vis]: URL.env/vis
+[upload]: URL.env/upload
+[live]: URL.env/live
+[getfile]: URL.env/getfile/anything
+
 ## Shortcuts
 
 ### `CTRL+ALT+D`
