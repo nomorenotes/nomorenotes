@@ -1,4 +1,5 @@
 {
+  "$schema": "./db-schema.json",
   "auth0|631b2a65a916d532f06ada48": {
     "app": {
       "admin": true,
