@@ -4,6 +4,12 @@ try {
   console.log("installing packages")
   require("child_process").execSync("npm", ["ci"])
 }
+
+const { existsSync } = require("fs")
+if (existsSync("./env.json")) {
+  Object.assign(process.env, require("./env.json"))
+}
+
 const express = require('express');
 const cors = require('cors');
 const { execSync } = require("child_process")
