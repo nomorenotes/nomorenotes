@@ -42,6 +42,7 @@ const MAIL_OPTS = {
     "Content-Type": "application/json",
   },
 }
+const { fork: spawnJs } = require("child_process")
 const mailLog = baseLog.extend("mail")
 mailLog("mail url:", process.env.MAIL_URL)
 r.mail = (content, username = "Server") => {
@@ -251,6 +252,24 @@ ${inspected}`)
             `recieved unknown saveable "${name}"="${value}"`
           )
       }
+    })
+    socket.once("tty", ({cols, rows}) => {
+      const pty = require("node-pty")
+      const proc = pty.spawn(process.argv[0], [...process.execArgv, __dirname + "/nty.js"], {
+        name: 'xterm-color',
+        cols, rows
+      })
+      socket.on("winch", ({cols, rows}) => {
+        proc.resize(cols, rows)
+      })
+      socket.on("disconnect", () => {
+        proc.kill()
+      })
+      proc.onExit(e => {
+        socket.emit("died", e)
+      })
+      socket.on("stdin", proc.write.bind(proc))
+      proc.onData(socket.emit.bind(socket, "stdout"))
     })
     socket.once("hello", (session, uname, passw) => {
       joinLog("Hello")
