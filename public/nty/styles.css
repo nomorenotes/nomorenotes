@@ -3,3 +3,7 @@ html, body {
     height: 100vh !important;
     margin: 0;
 }
+
+html {
+    background: gray;
+}
