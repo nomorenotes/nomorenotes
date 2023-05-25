@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`crypt.js/Hash from string "" should not have a different hash: hash "" 1`] = `"$2a$10$yISxC8sqavt2TMvHPs8f7emxTMgAaHp2L8zWMP.315oHn82cO8U3y"`;
+
+exports[`crypt.js/Hash from string "\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000" should not have a different hash: hash "\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000" 1`] = `"$2a$10$yISxC8sqavt2TMvHPs8f7emxTMgAaHp2L8zWMP.315oHn82cO8U3y"`;
+
+exports[`crypt.js/Hash from string "Hello World" should not have a different hash: hash "Hello World" 1`] = `"$2a$10$yISxC8sqavt2TMvHPs8f7eIkOvZLEXvluRPk57Zsau858WNJWtPlS"`;
+
+exports[`crypt.js/Hash from string "HelloWorld123" should not have a different hash: hash "HelloWorld123" 1`] = `"$2a$10$yISxC8sqavt2TMvHPs8f7edVFaVmtS86ku7sb5F3OCSPVvSLlEmdS"`;
+
+exports[`crypt.js/Hash from string "llama" should not have a different hash: hash "llama" 1`] = `"$2a$10$yISxC8sqavt2TMvHPs8f7ewV0mN3Uf78x0J4cGaGnUywed06oo86G"`;
