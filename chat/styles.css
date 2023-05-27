@@ -20,6 +20,11 @@ body {
   background: rgb(var(--shade), var(--shade), var(--shade));
 }
 #chat {
+	display: grid;
+	grid-template:
+		"messages userlist"                1fr
+		"send     send"                    1cm
+	  / 1fr       minmax(1in, fit-content);
 	width: 100vw;
 	height: 100vh;
 }
@@ -29,6 +34,9 @@ body {
   color: black;
   transition: right 0.5s;
   right: 0; /* for transition */
+}
+#send {
+	grid-area: send;
 }
 .psa.closed {
   right: calc(100% - 16q) !important;
@@ -85,6 +93,7 @@ ul {
 #messages {
 	margin-bottom: 40px; 
   margin-right: 1in;
+  grid-area: messages;
 }
 
 dialog {
