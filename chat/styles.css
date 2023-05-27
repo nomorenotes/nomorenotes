@@ -19,6 +19,10 @@ body {
   --shade: 230;
   background: rgb(var(--shade), var(--shade), var(--shade));
 }
+#chat {
+	width: 100vw;
+	height: 100vh;
+}
 .psa {
   background: yellow;
   border-top-style: none;
