@@ -91,15 +91,15 @@ document.addEventListener("keydown", e => {
     e.preventDefault();
     console.log("hyperactive rabbits")
     hyperactiveRabbits()
-  } else if (e.which === 78 && e.altKey) {
+  } else if (e.key.toLowerCase() === "u" && e.altKey) {
 		open(`view-source:${location}`)
 	}
 });
 
-window.onerror = (_msg, _url, _line, _col, err) => {
-  alert(err.stack)
+window.onerror = (msg, _url, _line, _col, err) => {
+  alert(err ? (err?.stack?.includes(String(msg)) ? err.stack : `${err.name}: ${err.message}\n${err.stack}`) : msg)
 }
-    
+
 detectConnection()
 const lowercaseAlphabet = new Set("abcdefghijklmnopqrstuvwxyz")
 const uppercaseAlphabet = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -109,18 +109,19 @@ const lowercaseAlphabet3 = new Set("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*
 const uppercaseAlphabet3 = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]\\|;:'\",<.>/?")
 setInterval(detectConnection, 100)
 function detectConnection() {
-  let { downlink = "?", type = "connection", effectiveType = "unknown" } = navigator.connection
+  let { downlink = "?bps", type = "connection", effectiveType = "unknown" } = navigator.connection ?? { effectiveType: "nonexistent" }
+  let downlinkStr = String(downlink)
   if (downlink === 10) {
-    downlink = "≥10"
+    downlinkStr = "≥10"
   }
   if (downlink < 1) {
     downlink *= 1000
-    downlink = `<span style="color: red;">${downlink}bps</span>`
+    downlinkStr = `<span style="color: red;">${downlink}bps</span>`
   }
   if (downlink < 1) {
     downlink *= 1000
-    downlink = `<span style="color: orange;">${downlink}Kbps</span>`
-  } else {
+    downlinkStr = `<span style="color: orange;">${downlink}Kbps</span>`
+  } else if (isFinite(downlink)) {
     downlink += "Mbps"
   }
   const connection = `${effectiveType} ${type} (${downlink})`
