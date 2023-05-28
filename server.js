@@ -89,7 +89,6 @@ app.get("/setup", requiresAuth(), (req, res) => {
 })
 const eaglerUrl =
   "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
-const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
   fget(req, res, eaglerUrl, req.originalUrl.includes("dl"))
 })
@@ -103,6 +102,7 @@ function white(base, ...keys) {
   keys.flat().forEach(key => copy[key] = base[key])
   return copy
 }
+const fgetLog = logger.extend("fget")
 const fgetwhite = 'headers:method  '.split`:`
 function fget(req, res, url, download=false) {
   url = new URL(url)
@@ -111,7 +111,7 @@ function fget(req, res, url, download=false) {
   const rqToken = (Math.random().toString().split(".")[1] || "")
     .slice(0, 4)
     .padStart(4, 0)
-  const log = eaglerLog.extend(rqToken)
+  const log = fgetLog.extend(rqToken)
   log(`Downloading [${url}, download=${download}]`)
   if (download) {
     log("Setting Content-Disposition");
