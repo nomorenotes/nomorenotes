@@ -6,7 +6,9 @@
   window.onerror = (_msg, _url, _line, _col, { stack }) => alert(stack)
   const text = location.hash.slice(1)
   write(text)
-  if (text.length < 8) {
+  if (text === "") {
+    write("No.")
+  } else if (text.length < 8) {
     write("Invalid hash provided. Please ask an admin for another URL.")
   } else {
     const { session, decrease, changeName } = JSON.parse(atob(text))
