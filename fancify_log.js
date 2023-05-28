@@ -13,12 +13,12 @@ const ERR = Symbol("ERR")
 const STYLES = {
   [LOG]: chalk.reset,
   [DEBUG]: (msg) => ({
-    before: () => process.stderr.write('\x1b[2;3m'),
-    value: '\x1b[2;3m' + msg,
-    after: () => process.stderr.write('\x1b[m')
+    before: () => process.stderr.write("\x1b[2;3m"),
+    value: "\x1b[2;3m" + msg,
+    after: () => process.stderr.write("\x1b[m"),
   }),
   [WARN]: chalk.yellow.bold,
-  [ERR]: chalk.red.bgBlack.bold
+  [ERR]: chalk.red.bgBlack.bold,
 }
 
 /** @typedef {DEBUG | LOG | WARN | ERR} STYLE_KEY */
@@ -39,40 +39,49 @@ const STYLES = {
  * }} FancifyLog
  */
 
-exports = module.exports = /** @type {(base: Debugger) => FancifyLog} */ function(base) {
-  const d = Object.setPrototypeOf({
-    DEBUG, LOG, WARN, ERR,
-    /** @type {(message: string, ...parts: [parts: ...unknown[], STYLE_KEY?]) => void} */
-    log(message, ...parts) {
-      /** @type {STYLE_KEY} */
-      let s = LOG
-      if (parts.length) {
-        let ms = parts.pop()
-        if (isMember(ms, Object.keys(STYLES))) {
-          s = ms
-        }
-      }
-      const fmt = STYLES[s](message)
-      if (typeof fmt === "string") {
-        return base(fmt, ...parts)
-      } else {
-        fmt.before && fmt.before()
-        const ret = base(fmt.value, ...parts)
-        fmt.after && fmt.after()
-        return ret
-      }
-    },
-    /** @type {(...names: string[]) => FancifyLog} */
-    extend(...names) {
-      return exports(base.extend(...names))
+exports = module.exports =
+  /** @type {(base: Debugger) => FancifyLog} */ function (base) {
+    const d = Object.setPrototypeOf(
+      {
+        DEBUG,
+        LOG,
+        WARN,
+        ERR,
+        /** @type {(message: string, ...parts: [parts: ...unknown[], STYLE_KEY?]) => void} */
+        log(message, ...parts) {
+          /** @type {STYLE_KEY} */
+          let s = LOG
+          if (parts.length) {
+            let ms = parts.pop()
+            if (isMember(ms, Object.keys(STYLES))) {
+              s = ms
+            }
+          }
+          const fmt = STYLES[s](message)
+          if (typeof fmt === "string") {
+            return base(fmt, ...parts)
+          } else {
+            fmt.before && fmt.before()
+            const ret = base(fmt.value, ...parts)
+            fmt.after && fmt.after()
+            return ret
+          }
+        },
+        /** @type {(...names: string[]) => FancifyLog} */
+        extend(...names) {
+          return exports(base.extend(...names))
+        },
+      },
+      Function.prototype
+    )
+    /** @type {(...messages: Parameters<FancifyLog["log"]>) => ReturnType<FancifyLog["log"]>} */
+    // @ts-ignore false error since this function is defined to take the parameters of the wrapped function
+    const f = function (...messages) {
+      return d.log(...messages)
     }
-  }, Function.prototype)
-  /** @type {(...messages: Parameters<FancifyLog["log"]>) => ReturnType<FancifyLog["log"]>} */
-  // @ts-ignore false error since this function is defined to take the parameters of the wrapped function
-  const f = function(...messages) {return d.log(...messages)}
-  Object.setPrototypeOf(f, d)
-  return any(f)
-}
+    Object.setPrototypeOf(f, d)
+    return any(f)
+  }
 
 /**
  * @template T,O

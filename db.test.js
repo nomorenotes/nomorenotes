@@ -1,47 +1,46 @@
-const db = require('./db.js')
-const { readFile, writeFile } = require('fs/promises')
+const db = require("./db.js")
+const { readFile, writeFile } = require("fs/promises")
 
 xdescribe("db", () => {
   beforeEach(() => {
     jest.resetModules()
-    return (
-      Promise.all(
-        ['', '.1', '.2']
-        .map(suff => `db.test${suff}.json`)
-        .map(name => writeFile(name, '{}'))
-      )
-      .then(() => db.filename = 'db.test.json')
-    )
+    return Promise.all(
+      ["", ".1", ".2"]
+        .map((suff) => `db.test${suff}.json`)
+        .map((name) => writeFile(name, "{}"))
+    ).then(() => (db.filename = "db.test.json"))
   })
-  
-  describe('.filename', () => {
+
+  describe(".filename", () => {
     it("should discard changes when assigned to", () => {
       db.data.failed = true
       db.filename = db.filename
       expect(db.data.failed).toBeUndefined()
     })
     it("should switch the database", () => {
-      db.filename = 'db.test.1.json'
+      db.filename = "db.test.1.json"
       db.data.ident = 1
       db.save()
-      db.filename = 'db.test.2.json'
+      db.filename = "db.test.2.json"
       db.data.ident = 2
       db.save()
-      db.filename = 'db.test.1.json'
+      db.filename = "db.test.1.json"
       expect(db.data.ident).toBe(1)
-      db.filename = 'db.test.2.json'
+      db.filename = "db.test.2.json"
       expect(db.data.ident).toBe(2)
     })
   })
-  describe('.save()', () => {
+  describe(".save()", () => {
     it("saves changes", async () => {
       db.data.working = true
       db.save()
-      const data = readFile('db.test.json')
-      expect(data).toBe(`
+      const data = readFile("db.test.json")
+      expect(data).toBe(
+        `
 {
   "working": true
-}`.trim())
+}`.trim()
+      )
     })
   })
   describe(".touch()", () => {

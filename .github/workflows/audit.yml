@@ -9,37 +9,37 @@ jobs:
     env:
       minlevel: high
     steps:
-    - uses: actions/checkout@master
-      with:
-        persist-credentials: true
-        fetch-depth: 0
-    - name: Audit
-      id: audit
-      run: npm audit --audit-level $minlevel > audit.log 2>&1
-    - name: Show audit summary (failure)
-      if: failure() && steps.audit.outcome == 'failure'
-      run: |
-        exec 3>&1 >$GITHUB_STEP_SUMMARY
-        echo "# Auditing results: Failure"
-        echo "Level $minlevel or higher vulerabilities were detected."
-        echo
-        echo "<details open><summary>Full logs</summary>"
-        echo
-        echo "```"
-        cat audit.log
-        echo "```"
-        echo
-        echo "</details>"
-    - name: Show audit summary (success)
-      run: |
-        exec 3>&1 >$GITHUB_STEP_SUMMARY
-        echo "# Auditing results: Success"
-        echo "There were no vulnerabilities of type $minlevel or higher."
-        echo
-        echo "<details><summary>Full logs</summary>"
-        echo
-        echo "```"
-        cat audit.log
-        echo "```"
-        echo
-        echo "</details>"
+      - uses: actions/checkout@master
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Audit
+        id: audit
+        run: npm audit --audit-level $minlevel > audit.log 2>&1
+      - name: Show audit summary (failure)
+        if: failure() && steps.audit.outcome == 'failure'
+        run: |
+          exec 3>&1 >$GITHUB_STEP_SUMMARY
+          echo "# Auditing results: Failure"
+          echo "Level $minlevel or higher vulerabilities were detected."
+          echo
+          echo "<details open><summary>Full logs</summary>"
+          echo
+          echo "```"
+          cat audit.log
+          echo "```"
+          echo
+          echo "</details>"
+      - name: Show audit summary (success)
+        run: |
+          exec 3>&1 >$GITHUB_STEP_SUMMARY
+          echo "# Auditing results: Success"
+          echo "There were no vulnerabilities of type $minlevel or higher."
+          echo
+          echo "<details><summary>Full logs</summary>"
+          echo
+          echo "```"
+          cat audit.log
+          echo "```"
+          echo
+          echo "</details>"

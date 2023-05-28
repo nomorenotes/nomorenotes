@@ -8,6 +8,6 @@ jobs:
 
     # Specifically check that dependabot (or another trusted party) created this pull-request, and that it has been labelled correctly.
     steps:
-    - uses: alexwilson/enable-github-automerge-action@main
-      with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: alexwilson/enable-github-automerge-action@main
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"

@@ -1,11 +1,12 @@
-url => {
+;(url) => {
   const iframe = document.createElement("iframe")
   Object.assign(iframe.style, {
     // width: 0, height: 0,
     position: "absolute",
-    left: 0, top: 0,
+    left: 0,
+    top: 0,
     opacity: 0,
-    transform: "translate(-100%, -100%)"
+    transform: "translate(-100%, -100%)",
   })
 
   iframe.src = url

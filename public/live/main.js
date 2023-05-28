@@ -4,7 +4,7 @@ btn.addEventListener("click", () => {
   const { value } = commandline
   evalOutput.value = `>>> ${value}
 ...`
-  socket.emit("eval", value, text => {
+  socket.emit("eval", value, (text) => {
     evalOutput.value = text
   })
 })
