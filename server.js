@@ -413,12 +413,12 @@ app.get("/me", requiresAuth(), ({ oidc }, res) => {
   })
 })
 
-app.get('/cp64/:data', cors(), (req, res) => {
+app.get('/cp/64/:data', cors(), (req, res) => {
   const url = atob(req.params.data.replace('-', '/'))
   console.log("CORS proxy v2")
   fget(req, res, url)
 })
-app.get('/cpx/:byte/:data', cors(), (req, res, next) => {
+app.get('/cp/x:byte([\da-z]{2})/:data', cors(), (req, res, next) => {
   const byte = parseInt(req.params.byte, 16)
   console.log("CORS proxy v3")
   if (byte < 0 || byte > 255) next()
