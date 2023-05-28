@@ -1,4 +1,6 @@
-html, body {
+html,
+body,
+#nty_holder {
     width: 100vw !important;
     height: 100vh !important;
     margin: 0;
@@ -6,4 +8,51 @@ html, body {
 
 html {
     background: gray;
+    font-family: monospace;
+}
+
+.login {
+    border: thin solid white;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1cm;
+}
+
+.login input {
+    font-family: monospace;
+    border: none;
+    color: white;
+    appearance: none;
+    background: transparent;
+    border-bottom: thin solid lightgray;
+}
+
+.login input:focus {
+    border-bottom-color: white;
+    outline: none;
+}
+
+action {
+    text-decoration: underline;
+    cursor: pointer;
+    color: lightgray;
+}
+
+action:hover,
+action:focus {
+    color: white;
+}
+
+:has(.close) {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-0.5ch, 0px)
 }

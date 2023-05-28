@@ -11,6 +11,9 @@
                 }
             }
         },
+        "nty": {
+            "$ref": "schemas/nty.json"
+        },
         "$schema": {
             "type": "string",
             "const": "./db-schema.json"

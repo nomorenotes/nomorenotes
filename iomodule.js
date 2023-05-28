@@ -2,6 +2,7 @@ const LANG = "en_us"
 const SYS_ID = { id: "system" }
 const senderid = { [SYS_ID.id]: 0 }
 const USERDICT = process.env.USER || {}
+const Hash = require("./crypt.js")
 /** @type {any} */
 const _ = undefined
 /** @type {(value: any) => any} */
@@ -178,7 +179,16 @@ const rids = {}
 const { inspect } = require("util")
 const {
   performance: { now },
-} = require("perf_hooks")
+} = require("perf_hooks");
+const { Socket } = require("socket.io");
+const { data, save } = require("./db");
+const { unregisterCustomQueryHandler } = require("puppeteer")
+function isEmpty(obj) {
+  for (let key in obj) {
+    return false
+  }
+  return true
+}
 baseLog("performing", typeof now)
 const joinLog = baseLog.extend("join")
 const evalLog = baseLog.extend("eval")
@@ -189,11 +199,9 @@ module.exports.main = (_io) => {
   r.cmdmod = require("./command-processor.js")(mes)
   require("./upload.js")(io)
   r.mail(`Server restarted @ ${r.commit}`)
-  io.on("connection", (socket) => {
+  io.on("connection", /** @param {import("./types/server").ClientSocket} socket */(socket) => {
     joinLog("Existence", socket.id)
-    socket[r.s] = {}
-    socket._id = socket.id
-    socket[r.s].name = "Guest-" + socket.id.slice(0, 3)
+    socket[r.s] = { name: "Guest-" + socket.id.slice(0, 3) };
     socket.on("eval", async (expr, callback) => {
       const startTime = now()
       evalLog(`Evaluating ${expr}`)
@@ -253,24 +261,75 @@ ${inspected}`)
           )
       }
     })
-    socket.once("tty", ({cols, rows}) => {
-      const pty = require("node-pty")
-      const proc = pty.spawn(process.argv[0], [...process.execArgv, __dirname + "/nty.js"], {
-        name: 'xterm-color',
-        cols, rows
-      })
-      socket.on("winch", ({cols, rows}) => {
-        proc.resize(cols, rows)
-      })
-      socket.on("disconnect", () => {
-        proc.kill()
-      })
-      proc.onExit(e => {
-        socket.emit("died", e)
-      })
-      socket.on("stdin", proc.write.bind(proc))
-      proc.onData(socket.emit.bind(socket, "stdout"))
-    })
+    socket.once("tty",
+      /**
+       * @param {{ cols: number, rows: number }} size 
+       */
+      (size) => {
+        ensureNtyData()
+        socket.on("winch",
+          /**
+           * @param {{ cols: number, rows: number }} newSize 
+           */
+          (newSize) => {
+            size = newSize
+          })
+        function init() {
+          socket.off("auth", handleAuth)
+          const pty = require("node-pty")
+          const proc = pty.spawn(process.argv[0], [...process.execArgv, __dirname + "/nty.js"], {
+            name: 'xterm-color',
+            ...size
+          })
+          socket.on("winch", ({ cols, rows }) => {
+            proc.resize(cols, rows)
+          })
+          socket.on("disconnect", () => {
+            proc.kill()
+          })
+          proc.onExit(e => {
+            socket.emit("died", e)
+          })
+          socket.on("stdin", proc.write.bind(proc))
+          // @ts-expect-error - clearly doesn't know how .bind works
+          proc.onData(socket.emit.bind(socket, "stdout"))
+        }
+        socket.emit("auth", "nty")
+        socket.on("auth", handleAuth)
+        async function handleAuth(user, pass, cb) {
+          const usersdata = data.nty.users
+          if (isEmpty(usersdata)) {
+            usersdata[user] = {
+              password: {
+                type: "bcrypt",
+                hash: (await Hash.hash(pass)).hash
+              }
+            }
+            init()
+            save()
+            return cb(true)
+          } else {
+            const userdata = usersdata[user]
+            const pw = userdata?.password
+            if (!pw) {
+              return cb(false)
+            } else {
+              if (pw.type.startsWith("!")) return cb(false)
+              if (pw.type === "open") return init(), cb(true)
+              if (pw.type === "bcrypt" && await new Hash(pw.hash).compare(pass)) {
+                init()
+                return cb(true)
+              }
+              if (pw.type === "plain" && pw.password === pass) {
+                init()
+                return cb(true)
+              }
+              return cb(false)
+            }
+          }
+        } // handleAuth
+      }
+    )
     socket.once("hello", (session, uname, passw) => {
       joinLog("Hello")
       if (uname === "nmn-link") {
@@ -359,4 +418,33 @@ function updatenmnlink() {
     "users",
     r.list.map((socket) => ({ name: socket[r.s].name, id: socket.id }))
   )
+}
+
+function ensureNtyData() {
+  let dirty = false
+  if (!data.nty) {
+    data.nty = {
+      // @ts-expect-error - Assuming a fixed layout for this JSON file used as a key-value map? Sure, why not!
+      users: {}
+    }
+    dirty = true
+  }
+  if (!data.nty.users) {
+    // @ts-expect-error - Assuming a fixed layout for this JSON file used as a key-value map? Sure, why not!
+    data.nty.users = {}
+    dirty = true
+  }
+  if (dirty) {
+    save()
+    dirty = false
+  }
+  return
+}
+async function createNtyUser(user, pass) {
+  if (user in data.nty.users) {
+    throw new Error("Duplicate nty username")
+  }
+  const Hash = require("./crypt")
+  const password = Hash.hash(pass)
+
 }
