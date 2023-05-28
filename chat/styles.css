@@ -25,9 +25,12 @@ body {
 	grid-template:
 		"messages userlist"                  1fr
 		"send     send"                      1cm
-	  / 1fr       minmax(1in, fit-content);
+	  / 1fr       minmax(1in, min-content);
 	width: 100vw;
 	height: 100vh;
+}
+#userlist {
+	grid-area: userlist;
 }
 .psa {
   background: yellow;
@@ -92,8 +95,20 @@ ul {
 #messages li:nth-child(odd) {
 	background: rgba(238, 238, 238, 10);
 }*/
-#messages {
-  grid-area: messages;
+#message-wrapper {
+	grid-area: messages;
+	position: relative;
+}
+#message-wrapper, #messages {
+  width: 100%;
+  height: 100%;
+}
+.sizehack {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 
 dialog {
