@@ -89,15 +89,31 @@ app.get("/setup", requiresAuth(), (req, res) => {
 })
 const eaglerUrl =
   "https://raw.githubusercontent.com/PoolloverNathan/eaglercraft/main/stable-download/Offline_Download_Version.html"
-const eaglerLog = logger.extend("eagler")
 app.get(["/eagler", "/eagler/dl"], (req, res) => {
-  const r = request(eaglerUrl)
+  fget(req, res, eaglerUrl, req.originalUrl.includes("dl"))
+})
+function omit(base, ...keys) {
+  const copy = { ...base }
+  keys.flat().forEach((key) => delete copy[key])
+  return copy
+}
+function white(base, ...keys) {
+  const copy = {}
+  keys.flat().forEach((key) => (copy[key] = base[key]))
+  return copy
+}
+const fgetLog = logger.extend("fget")
+const fgetwhite = "headers:method  ".split`:`
+function fget(req, res, url, download = false) {
+  url = new URL(url)
+  const r = request(url /*, white(req, fgetwhite)*/)
+  //req.pipe(r)
   const rqToken = (Math.random().toString().split(".")[1] || "")
     .slice(0, 4)
     .padStart(4, 0)
-  const log = eaglerLog.extend(rqToken)
-  log("Downloading")
-  if (req.originalUrl.includes("dl")) {
+  const log = fgetLog.extend(rqToken)
+  log(`Downloading [${url}, download=${download}]`)
+  if (download) {
     log("Setting Content-Disposition")
     res.setHeader("Content-Disposition", 'attachment; filename="eagler.html"')
   }
@@ -106,7 +122,7 @@ app.get(["/eagler", "/eagler/dl"], (req, res) => {
     message.pipe(res)
   })
   r.end()
-})
+}
 app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
 app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS
@@ -396,6 +412,31 @@ app.get("/me", requiresAuth(), ({ oidc }, res) => {
     color3: colorsplit.map((n) => (n < 130 ? 255 : 0)),
   })
 })
+
+app.get("/cp/64/:data", cors(), (req, res) => {
+  const url = atob(req.params.data.replace("-", "/"))
+  console.log("CORS proxy v2")
+  fget(req, res, url)
+})
+app.get("/cp/x:byte([da-z]{2})/:data", cors(), (req, res, next) => {
+  const byte = parseInt(req.params.byte, 16)
+  console.log("CORS proxy v3")
+  if (byte < 0 || byte > 255) next()
+  const buf = Buffer.from(req.params.data.replace("-", "/"), "base64")
+  for (let i = 0; i < buf.length; i++) {
+    buf[i] ^= byte
+  }
+  fget(req, res, buf.toString())
+})
+app.get(
+  ["/cp/:protocol/:domain/*", "/cp/:protocol/:domain"],
+  cors(),
+  (req, res) => {
+    const { protocol, domain, 0: path = "" } = req.params
+    console.log("CORS proxy v1")
+    fget(req, res, `${protocol}://${domain}/${path}`)
+  }
+)
 
 // require("./auth0.js")(app, io)
 // app.use("/auth0", require("./auth0.js")(io))
