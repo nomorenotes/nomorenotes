@@ -14,21 +14,21 @@ const KEYBOARD = LETTERS + DIGITS + SYMBOLS
 const badword = str => str.match(BADWORDS)
 //const USER_SOURCE = new URL("https://raw.githubusercontent.com/PoolloverNathan/data/main/users-shuf/.ls")
 const invalidate = () => {
-	localStorage.clear()
+  Array(localStorage.length).fill().map((_v, i) => localStorage.key(i)).filter(k => k?.startsWith("PWFUN_")).forEach(k => localStorage.removeItem(k))
   location.reload()
 }
-const totalTarget = +(localStorage.totalTarget ??= Math.round(Math.random() * 16) + 4);
-const lowerTarget = +(localStorage.lowerTarget ??= Math.round(Math.random() * totalTarget));
+const totalTarget = +(localStorage.PWFUN_totalTarget ??= Math.round(Math.random() * 16) + 4);
+const lowerTarget = +(localStorage.PWFUN_lowerTarget ??= Math.round(Math.random() * totalTarget));
 const upperTarget = totalTarget - lowerTarget;
 if (lowerTarget > 18) {
 	invalidate();
 }
-const st = +(localStorage.st ??= Math.round(Math.random() * 5) + 7);
-//let userTarget$ = Promise.resolve(localStorage.userTarget ?? pickUserTarget().then(u => ((localStorage.userTarget = u), u)))
+const st = +(localStorage.PWFUN_st ??= Math.round(Math.random() * 5) + 7);
+//let userTarget$ = Promise.resolve(localStorage.PWFUN_userTarget ?? pickUserTarget().then(u => ((localStorage.PWFUN_userTarget = u), u)))
 //const userListList$ = fetch(USER_SOURCE).then(r => r.text()).then(t => t.trim().split("\n"))
-const ld = localStorage.ld ??= "xc" + String.fromCharCode(96 + Math.floor(Math.random() * 26))
+const ld = localStorage.PWFUN_ld ??= "xc" + String.fromCharCode(96 + Math.floor(Math.random() * 26))
 const ul$ = fetch(new URL("users.txt", location.href)).then(r => r.text()).then(t => t.trim().split("\n").map("".trim.call.bind("".trim)).filter(name => !badword(name)))
-const uis = +(localStorage.uis ??= Math.round(1/Math.random()));
+const uis = +(localStorage.PWFUN_uis ??= Math.round(1/Math.random()));
 const pwToUser = async str => {
 	let hash = uis
   console.log(uis)
@@ -54,6 +54,8 @@ const pwToUser = async str => {
 //   	console.warn(`Username count mismatch in '${filename}': expected 100000, got ${list2.length}`)
 //   }
 // }
+
+if (username.value === "" && localStorage.PWFUN_NMNname) username.value = localStorage.PWFUN_NMNname
 
 const C = {
   Lu: LETTERSU,
@@ -208,7 +210,7 @@ function checkBucketed(e, p, buckets, ord) {
 }
 
 function succeed(user = "") {
-  localStorage.loggedIn = user
+  localStorage.PWFUN_loggedIn = user
   denver.hidden = false
   denverText.innerText = user
   form.hidden = true
@@ -220,10 +222,10 @@ function timer(time) {
 
 Promise.all([ ul$, timer(1000) ]).then(() => {
 	loader.hidden = true
-	if (localStorage.loggedIn !== undefined) {
+	if (localStorage.PWFUN_loggedIn !== undefined) {
     denver.hidden = false
-    if (localStorage.loggedIn !== "") {
-    	denverText.innerText = localStorage.loggedIn
+    if (localStorage.PWFUN_loggedIn !== "") {
+    	denverText.innerText = localStorage.PWFUN_loggedIn
     }
   } else {
     form.hidden = false
