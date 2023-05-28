@@ -1,71 +1,91 @@
 <style>
-    body {
-        font-family: Verdana;
-        margin: none;
-        padding: none;
-    }
-    .holster {
-        scroll-snap-type: y mandatory;
-    }
-    .ac-bg {
-        background-image: url("https://images.unsplash.com/photo-1521714161819-15534968fc5f?ixid=Mnw3NTYyOXwwfDF8c2VhcmNofDF8fHNwaWRlcm1hbiUyMHJlYWRpbmd8ZW58MXwwfHx8MTY2MDkxMzkwNQ&ixlib=rb-1.2.1&utm_medium=referral&utm_source=canvas-prod&w=262&h=146&crop=faces%2Centropy&fit=crop&fm=jpg&cs=tinysrgb&q=80");
-        z-index: -100;
-        margin: none;
-        position: fixed;
-        width: 100%;
-        left: 0px;
-        top: 0px;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .page-center {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: block;
-    }
-    * {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .page {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        /* scroll-snap-stop: always; */
-        scroll-snap-align: start;
-        /* position: absolute; */
-        /* left: 0px; */
-        /* top: 0px; */
-    }
-    .ac-blue {
-        background: rgba(100, 100, 200, 0.75)
-    }
-    .ac-red {
-        background: rgba(200, 100, 100, 0.75)
-    }
+  body {
+    font-family: Verdana;
+    margin: none;
+    padding: none;
+  }
+  .holster {
+    scroll-snap-type: y mandatory;
+  }
+  .ac-bg {
+    background-image: url("https://images.unsplash.com/photo-1521714161819-15534968fc5f?ixid=Mnw3NTYyOXwwfDF8c2VhcmNofDF8fHNwaWRlcm1hbiUyMHJlYWRpbmd8ZW58MXwwfHx8MTY2MDkxMzkwNQ&ixlib=rb-1.2.1&utm_medium=referral&utm_source=canvas-prod&w=262&h=146&crop=faces%2Centropy&fit=crop&fm=jpg&cs=tinysrgb&q=80");
+    z-index: -100;
+    margin: none;
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .page-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+  }
+  * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .page {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* scroll-snap-stop: always; */
+    scroll-snap-align: start;
+    /* position: absolute; */
+    /* left: 0px; */
+    /* top: 0px; */
+  }
+  .ac-blue {
+    background: rgba(100, 100, 200, 0.75);
+  }
+  .ac-red {
+    background: rgba(200, 100, 100, 0.75);
+  }
 </style>
 <div class="ac-bg"></div>
 <div class="holster">
-<div class="page ac-blue" style="--page: 0">
-    <center><svg width="1400" height="250" text-anchor="middle" dominant-baseline="middle">
-        <path d="M0 25h1400l-100 100l100 100h-1400l100-100z" fill="cyan" stroke="red" stroke-width="25" />
+  <div class="page ac-blue" style="--page: 0">
+    <center>
+      <svg
+        width="1400"
+        height="250"
+        text-anchor="middle"
+        dominant-baseline="middle"
+      >
+        <path
+          d="M0 25h1400l-100 100l100 100h-1400l100-100z"
+          fill="cyan"
+          stroke="red"
+          stroke-width="25"
+        />
         <text x="50%" y="50%" font-weight="600" font-size="55">
-            So Long, and Thanks for All the Fish
+          So Long, and Thanks for All the Fish
         </text>
         <text x="50%" y="50">Douglas Adams presents:</text>
-    </svg>
-</center>
-<noscript><center>Hey, you disabled javascript. This page doesn't use javascript, but almost the entire modern web does.</center></noscript>
-<div class="page-center">Scroll down to continue, or use the sidebar to jump.</div>
-</div>
-<div class="page ac-red" style="--page: 1">
-<h1><center><q>We apologize for the inconvenience.</q></center></h1>
-<center>&mdash;God, final message to His Creation</center>
-</div>
-<div class="page ac-purple" style="--page: 2">
-<h1><center>How did Arthur have his mind drift?</center></h1>
-</div>
+      </svg>
+    </center>
+    <noscript
+      ><center>
+        Hey, you disabled javascript. This page doesn't use javascript, but
+        almost the entire modern web does.
+      </center></noscript
+    >
+    <div class="page-center">
+      Scroll down to continue, or use the sidebar to jump.
+    </div>
+  </div>
+  <div class="page ac-red" style="--page: 1">
+    <h1>
+      <center><q>We apologize for the inconvenience.</q></center>
+    </h1>
+    <center>&mdash;God, final message to His Creation</center>
+  </div>
+  <div class="page ac-purple" style="--page: 2">
+    <h1><center>How did Arthur have his mind drift?</center></h1>
+  </div>
 </div>

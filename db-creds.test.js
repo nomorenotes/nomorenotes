@@ -3,11 +3,11 @@ const puppeteer = require("puppeteer")
 const SELECTORS = {
   USERNAME: "input#identification",
   PASSWORD: "input#pwd",
-  CONTINUE: "button#authn-go-button"
+  CONTINUE: "button#authn-go-button",
 }
 
 xdescribe("'db.json'.creds", () => {
-  let creds = require('./db.json').creds
+  let creds = require("./db.json").creds
   let puppet
   let page
   beforeAll(async () => {
@@ -18,7 +18,7 @@ xdescribe("'db.json'.creds", () => {
     await page.goto("https://my.ccpsnet.net")
   })
   for (let id in creds) {
-    if (id === 'username') continue;
+    if (id === "username") continue
     let cred = creds[id]
     for (let i = 0; i < cred.length; i++) {
       test(`${id}[${i}]`, async () => {
@@ -28,8 +28,12 @@ xdescribe("'db.json'.creds", () => {
         await page.type(SELECTORS.PASSWORD, cred[i])
         await page.waitForSelector(SELECTORS.CONTINUE)
         const wf = Promise.race([
-          page.waitForSelector('.cs-error', { timeout: 5000 }).then(() => false),
-          page.waitForNavigation({waitUntil: 'domcontentloaded', timeout: 5000 }).then(() => true)
+          page
+            .waitForSelector(".cs-error", { timeout: 5000 })
+            .then(() => false),
+          page
+            .waitForNavigation({ waitUntil: "domcontentloaded", timeout: 5000 })
+            .then(() => true),
         ])
         await page.click(SELECTORS.CONTINUE)
         expect(await wf).toBe(true)

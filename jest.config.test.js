@@ -1,4 +1,4 @@
-const target = require('./jest.config.js')
+const target = require("./jest.config.js")
 
 describe("'jest.config'", () => {
   it.concurrent("should be an object", () => {

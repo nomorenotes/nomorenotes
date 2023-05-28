@@ -1,1 +1,1 @@
-console.log("Stub page visited");
+console.log("Stub page visited")
