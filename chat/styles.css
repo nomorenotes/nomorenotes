@@ -21,16 +21,16 @@ body {
   background: rgb(var(--shade), var(--shade), var(--shade));
 }
 #chat {
-	display: grid;
-	grid-template:
-		"messages userlist"                  1fr
-		"send     send"                      1cm
-	  / 1fr       minmax(1in, min-content);
-	width: 100vw;
-	height: 100vh;
+  display: grid;
+  grid-template:
+    "messages userlist" 1fr
+    "send     send" 1cm
+    / 1fr minmax(1in, min-content);
+  width: 100vw;
+  height: 100vh;
 }
 #userlist {
-	grid-area: userlist;
+  grid-area: userlist;
 }
 .psa {
   background: yellow;
@@ -40,7 +40,7 @@ body {
   right: 0; /* for transition */
 }
 #send {
-	grid-area: send;
+  grid-area: send;
 }
 .psa.closed {
   right: calc(100% - 16Q) !important;
@@ -96,7 +96,7 @@ ul {
 	background: rgba(238, 238, 238, 10);
 }*/
 #messages {
-	grid-area: messages;
+  grid-area: messages;
 }
 
 dialog {
