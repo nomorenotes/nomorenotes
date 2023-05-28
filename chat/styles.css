@@ -21,8 +21,16 @@ body {
   background: rgb(var(--shade), var(--shade), var(--shade));
 }
 #chat {
+  display: grid;
+  grid-template:
+    "messages userlist" 1fr
+    "send     send" 1cm
+    / 1fr minmax(1in, min-content);
   width: 100vw;
   height: 100vh;
+}
+#userlist {
+  grid-area: userlist;
 }
 .psa {
   background: yellow;
@@ -30,6 +38,9 @@ body {
   color: black;
   transition: right 0.5s;
   right: 0; /* for transition */
+}
+#send {
+  grid-area: send;
 }
 .psa.closed {
   right: calc(100% - 16Q) !important;
@@ -54,13 +65,13 @@ body {
   border: none;
   outline: none;
   padding: 10px;
-  width: 90%;
+  width: calc(100% - 1in);
   margin: 0px;
   color: inherit;
   background: inherit;
 }
 #send button {
-  width: 10%;
+  width: 1in;
   /*/ background: rgb(130, 224, 255); /**/
   border: none;
   padding: 0px;
@@ -85,8 +96,7 @@ ul {
 	background: rgba(238, 238, 238, 10);
 }*/
 #messages {
-  margin-bottom: 40px;
-  margin-right: 1in;
+  grid-area: messages;
 }
 
 dialog {
