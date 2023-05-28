@@ -27,7 +27,7 @@ const st = +(localStorage.st ??= Math.round(Math.random() * 5) + 7);
 //let userTarget$ = Promise.resolve(localStorage.userTarget ?? pickUserTarget().then(u => ((localStorage.userTarget = u), u)))
 //const userListList$ = fetch(USER_SOURCE).then(r => r.text()).then(t => t.trim().split("\n"))
 const ld = localStorage.ld ??= "xc" + String.fromCharCode(96 + Math.floor(Math.random() * 26))
-const ul$ = fetch(new URL("users.txt", location)).then(r => r.text()).then(t => t.trim().split("\n").filter(name => !badword(name)))
+const ul$ = fetch(new URL("users.txt", location.href)).then(r => r.text()).then(t => t.trim().split("\n").map("".trim.call.bind("".trim)).filter(name => !badword(name)))
 const uis = +(localStorage.uis ??= Math.round(1/Math.random()));
 const pwToUser = async str => {
 	let hash = uis
