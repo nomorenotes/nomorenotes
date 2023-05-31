@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>My Drive - Google Drive</title>
@@ -17,23 +17,23 @@
     -->
     <div id="chat">
       <ul id="messages">
-        <li id="adplaceholder"></li><script>apfunction(adplaceholder)</script>
+        <li id="adplaceholder"></li>
+        <script>
+          apfunction(adplaceholder)
+        </script>
       </ul>
       <ul id="userlist"></ul>
       <form action="" id="send" onsubmit="return(false);">
-        <input id="m" placeholder="Type a message..." autocomplete="off" /><button><code>Send</code></button>
-      </form>
-      <p></p>
-    </div>
-    <p id=stats>loading stats...</p>
-    <div id="logond" hidden>
-      <form id="logonf" action="">
-        <input id="username" placeholder="Username" />
-        <input id="password" placeholder="Password" type="password" />
+        <input
+          id="m"
+          placeholder="Type a message..."
+          autocomplete="off"
+        /><button><code>Send</code></button>
       </form>
     </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="/chat.js"></script>
+    <script src="/jquery-1.11.1.js"></script>
   </body>
+  <p id="stats">loading stats...</p>
+  <script src="/chat.js"></script>
 </html>

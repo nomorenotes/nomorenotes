@@ -5,15 +5,19 @@
     <script src="/login.js"></script>
   </head>
   <body>
-		<form action="/login" method="post">
-			<fieldset>
-				<legend>Log In</legend>
-				<input name="username" placeholder="username"><br>
-				<input name="password" type="password"><br>
-				Intent: <select name="intent"><option value="">Log In</option><option value="1">Create Account</option></select>
-				<button type=submit>Submit</button><br>
-				<i>Note: Login data does not exist.</i>
-			</fieldset>
-		</form>
+    <form action="/login" method="post">
+      <fieldset>
+        <legend>Log In</legend>
+        <input name="username" placeholder="username" /><br />
+        <input name="password" type="password" /><br />
+        Intent:
+        <select name="intent">
+          <option value="">Log In</option>
+          <option value="1">Create Account</option>
+        </select>
+        <button type="submit">Submit</button><br />
+        <i>Note: Login data does not exist.</i>
+      </fieldset>
+    </form>
   </body>
 </html>

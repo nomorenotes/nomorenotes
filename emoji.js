@@ -1,4 +1,4 @@
 module.exports = {
-  "thinking": "🤔",
-  "smiley": "😃"
+  thinking: "🤔",
+  smiley: "😃",
 }

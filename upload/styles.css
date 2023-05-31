@@ -1,7 +1,7 @@
 .content table {
-	margin: 1em 0;
+  margin: 1em 0;
   /* following 4 rules are needed for scrolling */
-	overflow: auto;
+  overflow: auto;
   /* for browsers that don't support overflow-y */
   overflow-y: hidden;
   overflow-x: auto;
@@ -20,5 +20,5 @@
 .content table.wikitable > * > tr > th,
 .content table.wikitable > * > tr > td {
   border: 1px solid gray;
-  padding: .2em;
+  padding: 0.2em;
 }

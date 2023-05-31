@@ -1,9 +1,9 @@
 /* @type {object} */ let data = require("./db.json")
 const { promises: fsp } = require("fs")
 
-let file = './db.json'
+let file = "./db.json"
 exports.data = data
-Object.defineProperty(exports, 'filename', {
+Object.defineProperty(exports, "filename", {
   configurable: true,
   enumerable: true,
   get() {
@@ -11,8 +11,8 @@ Object.defineProperty(exports, 'filename', {
   },
   set($event) {
     file = $event
-    data = require('./' + file)
-  }
+    data = require("./" + file)
+  },
 })
 
 exports.save = () => {
@@ -25,7 +25,7 @@ exports.touch = (...keys) => {
   if (key in data) {
     return data[key]
   } else {
-    const val = data[key] = {}
+    const val = (data[key] = {})
     exports.save()
     return val
   }

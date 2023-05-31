@@ -1,0 +1,40 @@
+@import url("../bootstrap.min.css");
+
+#err {
+  color: red;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.border-demo-05 {
+  --a: 10em;
+  --border-bottom: calc(0.866 * var(--a));
+  border-bottom: var(--border-bottom) solid #64ffcb;
+  border-left: calc(var(--a) / 2) solid transparent;
+  border-right: calc(var(--a) / 2) solid transparent;
+  border-top: 0;
+  height: 0;
+  /* Add to position at centroid:  translateY(calc(-1 * 0.2887 * var(--border-bottom) * 0.5)) */
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: spin 1s linear infinite;
+  width: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: top left;
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+    transform-origin: bottom right;
+  }
+}

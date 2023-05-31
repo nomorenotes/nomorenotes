@@ -1,55 +1,79 @@
-
-<div class=venter>
+<div class="venter">
   <script src="https://unpkg.com/lz-string"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <center><img src="https://cdn1.iconfinder.com/data/icons/medieval-7/128/medieval_hammer_barbarian_power_weapon-512.png" height=96 width=96></center>
   <center>
-    <p class=head>Banned</p>
-    <b id="hasExpired" hidden>Your ban has expired! <a onclick="localStorage.removeItem('banExpiry2')" href="/chat">Click to return.</a></b>
+    <img
+      src="https://cdn1.iconfinder.com/data/icons/medieval-7/128/medieval_hammer_barbarian_power_weapon-512.png"
+      height="96"
+      width="96"
+    />
+  </center>
+  <center>
+    <p class="head">Banned</p>
+    <b id="hasExpired" hidden
+      >Your ban has expired!
+      <a onclick="localStorage.removeItem('banExpiry2')" href="/chat"
+        >Click to return.</a
+      ></b
+    >
     <p>
-      Your ability to use NoMoreNotes has been removed by <b id=banner></b>. This will expire on <b id=unbant></b>.
+      Your ability to use NoMoreNotes has been removed by <b id="banner"></b>.
+      This will expire on <b id="unbant"></b>.
     </p>
     <b id="banAppeal"></b>
-    <p>
-      (Reason: <span id=reason></span>)
-    </p>
+    <p>(Reason: <span id="reason"></span>)</p>
     <!--
     <h3>
     If you talk to an admin, please send them this code:
     </h3>
     <textarea readonly id="banid"></textarea>
     -->
-    <a id=appeallink>Request appeal</a>
-    
+    <a id="appeallink">Request appeal</a>
   </center>
   <script>
-    if (localStorage.banExpiry2 === undefined) location.pathname = "/chat";
-    $("#banner").html(localStorage.banner);
-    $("#unbant").text(new Date(+localStorage.banExpiry2));
-    $("#reason").html(localStorage.banReason);
-    
+    if (localStorage.banExpiry2 === undefined) location.pathname = "/chat"
+    $("#banner").html(localStorage.banner)
+    $("#unbant").text(new Date(+localStorage.banExpiry2))
+    $("#reason").html(localStorage.banReason)
+
     const checkBanExpiry = () => {
-    	if (+localStorage.banExpiry2 < Date.now()) {
-      	clearInterval(expInt);
-        hasExpired.hidden = false;
+      if (+localStorage.banExpiry2 < Date.now()) {
+        clearInterval(expInt)
+        hasExpired.hidden = false
       }
     }
-    
-    let expInt = setInterval(checkBanExpiry, 5000);
-    checkBanExpiry();
-    
-    const banId = btoa(LZString.compressToBase64(btoa(JSON.stringify({victim: {session: localStorage.session, name: localStorage.NMNname}, ban: {sender: localStorage.banner, expiry: localStorage.banExpiry2, reason: +localStorage.banReason}, site: location.origin}))))
+
+    let expInt = setInterval(checkBanExpiry, 5000)
+    checkBanExpiry()
+
+    const banId = btoa(
+      LZString.compressToBase64(
+        btoa(
+          JSON.stringify({
+            victim: {
+              session: localStorage.session,
+              name: localStorage.NMNname,
+            },
+            ban: {
+              sender: localStorage.banner,
+              expiry: localStorage.banExpiry2,
+              reason: +localStorage.banReason,
+            },
+            site: location.origin,
+          })
+        )
+      )
+    )
     appeallink.href = `https://docs.google.com/forms/d/e/1FAIpQLSeNt3T1FlA67hbfkclv_-e_Qjwh760IwwQWQZsu0vLK747iQw/viewform?usp=pp_url&entry.207118108=${banId}`
-    
+
     if (location.fragment) {
-    	let f = location.fragment.slice(1);
+      let f = location.fragment.slice(1)
       if (f) {
-      	try {
-        	let json = JSON.parse(atob(LZString.decompressFromBase64(atob(f))))
+        try {
+          let json = JSON.parse(atob(LZString.decompressFromBase64(atob(f))))
           console.log(json)
-        }
-        catch (e) {
-        	console.warn(e);
+        } catch (e) {
+          console.warn(e)
         }
       }
     }
@@ -78,6 +102,5 @@
       margin: 0;
       padding: 0;
     }
-
   </style>
 </div>

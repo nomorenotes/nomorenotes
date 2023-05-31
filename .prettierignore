@@ -1,0 +1,7 @@
+.uploaded/
+public/bootstrap*
+public/jquery-1.11.1.js
+public/trimps/
+.projects/
+coverage/
+node_modules/
