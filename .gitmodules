@@ -10,3 +10,6 @@
 [submodule ".projects/webpanel"]
 	path = .projects/webpanel
 	url = https://github.com/PoolloverNathan/webpanel
+[submodule "public/cors/appye"]
+	path = public/cors/appye
+	url = https://github.com/KUKHUA/CHC-TESTING
