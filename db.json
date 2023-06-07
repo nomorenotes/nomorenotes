@@ -1,4 +1,5 @@
 {
+  "$schema": "./db-schema.json",
   "auth0|631b2a65a916d532f06ada48": {
     "app": {
       "admin": true,
@@ -11,6 +12,66 @@
       "username": "PoolloverNathan"
     }
   },
+  "apps": [
+    {
+      "id": "chat",
+      "name": "Chat",
+      "description": "A simple chat app.",
+      "location": "/chat",
+      "icon": "appicons/chat.svg",
+      "inputs": [
+        {
+          "id": "username",
+          "label": "Username",
+          "reflect": {
+            "saveable": "NMNname"
+          },
+          "match": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 16
+          }
+        }
+      ]
+    },
+    {
+      "id": "upload",
+      "name": "Uploader",
+      "description": "A file uploader that is guaranteed to be unusable.",
+      "location": "/upload",
+      "icon": "appicons/upload.svg"
+    },
+    {
+      "id": "upload-admin",
+      "name": "Uploader Admin",
+      "description": "Allows listing and deleting uploaded files.",
+      "icon": "appicons/upload-admin.svg",
+      "location": "/upload/admin"
+    },
+    {
+      "id": "vis",
+      "name": "Saveable Editor",
+      "description": "Allows editing saved data using a UI from 15 years ago.",
+      "icon": "appicons/vis.svg",
+      "location": "/vis"
+    },
+    {
+      "id": "embed-recieve",
+      "name": "Embed-Recieve",
+      "description": "Generates a bookmarklet to embed a linkout reciever in a page. Recieve is spelled wrong.",
+      "icon": "appicons/embed-recieve.svg",
+      "location": "/chat/embed-recieve/$reciever",
+      "inputs": [
+        {
+          "id": "reciever",
+          "label": "Reciever Name",
+          "match": {
+            "pattern": "[-A-Za-z0-9+&@%=~_|!:,.;]+"
+          }
+        }
+      ]
+    }
+  ],
   "creds": {
     "3165602": [
       "Grav@falls",

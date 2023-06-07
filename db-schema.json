@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "type": "object",
+    "properties": {
+        "creds": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "apps": {
+            "$ref": "./schemas/app.json"
+        },
+        "$schema": {
+            "type": "string",
+            "const": "./db-schema.json"
+        }
+    },
+    "patternProperties": {
+        "\\w+\\|\\w+": {
+            "properties": {
+                "app": {
+                    "properties": {
+                        "admin": { "type": "boolean" },
+                        "chatter": { "type": "boolean" },
+                        "uploader": { "type": "boolean" },
+                        "editapp": { "type": "boolean" }
+                    },
+                    "additionalProperties": false
+                },
+                "user": {
+                    "properties": {
+                        "username": { "type": "string" },
+                        "theme": { "anyOf": [{"const": "light"}, {"const": "dark"}] }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
