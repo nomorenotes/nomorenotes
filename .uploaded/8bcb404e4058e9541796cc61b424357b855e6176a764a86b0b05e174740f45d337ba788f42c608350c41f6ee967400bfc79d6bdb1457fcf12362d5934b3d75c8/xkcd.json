@@ -1,0 +1,12 @@
+{
+  "contact": "discord://poollovernathan",
+  "templates": [
+    {
+	"name": "xkcd",
+	"sources": [
+		"https://i.imgur.com/Ld81NdU.png"
+	],
+	"x": -448, "y": 235
+    }
+  ]
+}
