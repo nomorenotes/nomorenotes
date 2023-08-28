@@ -1,5 +1,5 @@
 try {
-  require.resolve("xxhash")
+  require.resolve("express")
 } catch (e) {
   console.log("installing packages")
   try {
@@ -21,7 +21,7 @@ if (existsSync("./env.json")) {
 const express = require("express")
 const cors = require("cors")
 const { execSync } = require("child_process")
-const { hash: NOCRYPT_hash } = require("xxhash")
+//const { hash: NOCRYPT_hash } = require("xxhash")
 const {
   auth,
   requiresAuth,
@@ -418,7 +418,7 @@ function getRedditMirror(oidc) {
 }
 
 function getUserRandom(oidc, base) {
-  return NOCRYPT_hash(Buffer.from(oidc.user.sub), base)
+  //return NOCRYPT_hash(Buffer.from(oidc.user.sub), base)
 }
 function getUserColor(oidc) {
   // const colordata = getUserRandom(oidc, 0xCAFEBABE)

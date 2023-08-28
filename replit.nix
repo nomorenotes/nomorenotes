@@ -4,11 +4,11 @@
     pkgs.pv
     pkgs.openssh_with_kerberos
     pkgs.lolcat
+    pkgs.wget
     pkgs.sl
     pkgs.dialog
     pkgs.jq.bin
     pkgs.less
-    pkgs.busybox
     pkgs.gnupg
     pkgs.vim
     pkgs.screen
