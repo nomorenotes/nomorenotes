@@ -2,7 +2,15 @@ try {
   require.resolve("xxhash")
 } catch (e) {
   console.log("installing packages")
-  require("child_process").execSync("npm", ["ci"])
+  try {
+    require("child_process").execSync("npm ci")
+  } catch (e) {
+    console.error("FAILED to install packages")
+    console.error("-- Dumping stdout --")
+    console.error(e.stdout.toString("utf8"))
+    console.error("-- Dumping stderr --")
+    console.error(e.stdout.toString("utf8"))
+  }
 }
 
 const { existsSync } = require("fs")
