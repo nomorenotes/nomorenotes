@@ -46,6 +46,7 @@ const apply_name = (module.exports.apply_name = (
     if (talk)
       mes(talkTo, "cmdresp", `Name ${name} applied successfully.`, r.SYS_ID)
     who.emit("saveable", "name", name)
+    r.losers()
   }
 })
 

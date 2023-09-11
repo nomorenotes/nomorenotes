@@ -181,7 +181,7 @@ function loser(sock) {
   }
   sock.emit("bbdone")
 }
-function losers() {
+r.losers = () => {
   r.list.forEach(loser)
 }
 const { inspect } = require("util")
@@ -306,7 +306,7 @@ ${inspected}`)
         imageLog(socket[r.s].name, im)
       })
       r.list.push(socket)
-      losers()
+      r.losers()
       rids[socket.id] = socket
       senderid[socket.id] = 0
       r.mail(`${socket[r.s].name} has joined.`)
@@ -321,6 +321,7 @@ ${inspected}`)
         delete senderid[socket.id]
         delete socket[r.s]
         r.list.splice(r.list.indexOf(socket), 1)
+        r.losers()
       })
     })
     setTimeout(() => socket.emit("hello"), 250)
