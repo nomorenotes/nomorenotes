@@ -40,6 +40,12 @@ else
       $("#m").val("")
       return false
     })
+    socket.on("bbstart", () => {
+      $("#userlist").empty()
+    })
+    socket.on("bbu", ([name, id]) => {
+      $("#userlist").append($("<li>", { id }).text(name))
+    })
     socket.on("chat message", function (id, msg) {
       $("#messages").append($("<li>", { id }).html(msg))
       if (notify) {

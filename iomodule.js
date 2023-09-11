@@ -174,6 +174,16 @@ const format_msg = (module.exports.format_msg = (msg) =>
 .replace(/%$/g, "<")
 .replace(/$%/g, ">")*/
 const rids = {}
+function loser(sock) {
+  sock.emit("bbstart")
+  for (const u of r.list) {
+    sock.emit("bbu", [u[r.s].name, u.id])
+  }
+  sock.emit("bbdone")
+}
+function losers() {
+  r.list.forEach(loser)
+}
 const { inspect } = require("util")
 const {
   performance: { now },
@@ -296,6 +306,7 @@ ${inspected}`)
         imageLog(socket[r.s].name, im)
       })
       r.list.push(socket)
+      losers()
       rids[socket.id] = socket
       senderid[socket.id] = 0
       r.mail(`${socket[r.s].name} has joined.`)

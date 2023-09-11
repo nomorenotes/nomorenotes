@@ -32,9 +32,10 @@ copy {
 #chat {
   display: grid;
   grid-template:
+    "messages stats" min-content
     "messages userlist" 1fr
     "send     send" 1cm
-    / 1fr minmax(1in, min-content);
+    / 1fr max-content;
   width: 100vw;
   height: 100vh;
 }
@@ -64,11 +65,16 @@ copy {
 .dark .psa {
   --shade: 60;
   border-top-color: white;
+  /* opacity: 0; */
 }
 #stats {
-  position: fixed;
-  right: 0;
-  top: 0;
+  grid-area: stats;
+  white-space: pre;
+  border-bottom: thin solid black;
+  /* outline: 1cm solid rgba(255, 0, 0); */
+}
+.dark #stats {
+  border-bottom-color: white;
 }
 #send input {
   border: none;
