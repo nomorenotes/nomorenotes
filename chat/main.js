@@ -46,7 +46,7 @@ else
         notify = manotify
         console.log(msg)
       }
-      window.scrollTo(0, document.body.scrollHeight)
+    window.scrollTo(0, $("#messages")[0].scrollHeight)
     })
     socket.on("gotping", (wasTargeted, source) => {
       alert(`${source} has pinged ${wasTargeted ? "you" : "everyone"}!`)

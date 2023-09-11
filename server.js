@@ -45,6 +45,7 @@ var io = new (require("socket.io").Server)(http, {
     credentials: true,
   },
 })
+io[Symbol.toPrimitive] = () => "[IO]"
 var port = process.env.PORT || 3000
 var iom = require("./iomodule.js")
 iom.r.commit = process.env.HEROKU_SLUG_COMMIT ?? execSync("git rev-parse HEAD")
@@ -159,7 +160,8 @@ const users = process.env.USERS
   : { admin: "adminpassword", user: "userpassword" }
 
 process.on("uncaughtException", (e) => {
-  logger("Uncaught exception!\n", e.stack, logger.ERROR)
+  logger.log("Uncaught exception!", e)
+  iom.r.mes()
 })
 
 /*
