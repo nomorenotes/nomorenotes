@@ -63,6 +63,23 @@ else
     socket.on("edit", (id, msg) => {
       $(`#${id}`).html(msg)
     })
+    socket.on("sarcastic", (id, from, to) => {
+      alert("s")
+      const el = document.getElementById(id)
+      if (el) {
+        alert("good s")
+        let [left, right] = el.innerHTML.split("&gt; ")
+        alert("slash s " + right)
+        let newRight = right.replace(new RegExp(from), to)
+        alert(":s")
+        if (right == newRight) alert("that changed NOTHING")
+        else alert("that changed SOMETHING " + newRight)
+        el.innerHTML = `${left}&gt; ${newRight}`
+        alert("rewritten")
+      } else {
+        alert("bad s")
+      }
+    })
     socket.on("ban", (banner, time, reason) => {
       localStorage.banner = banner
       localStorage.banExpiry2 = Date.now() + time * 60000
