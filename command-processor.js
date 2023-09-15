@@ -847,8 +847,8 @@ const main = (module.exports =
               r.t.message(
                 (d.getHours() + 8 + 12) % 24,
                 d.getMinutes(),
-                args.shift(),
-                [`<${from[r.s].name}>`, ...args, `(edited)`].join(" "),
+                "msg",
+                [`&lt;${from[r.s].name}>`, ...args, `(edited)`].join(" "),
                 edid
               )
             )
