@@ -1,6 +1,8 @@
 const opts = location.hash ? location.hash.slice(1).split("&") : []
 localStorage.life = localStorage.life || 0
+let mine = null
 let mesg = 0
+let global_sock = null
 if (location.protocol === "http:" && !opts.includes("noHttps"))
   location.protocol = "https:"
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now())
@@ -11,6 +13,10 @@ else
     var manotify = false
     var notify = false
     var socket = io()
+    global_sock = socket
+    socket.on("disconnect", (reason) => {
+      global_sock = null
+    })
     window.sendCommand = (cmd) => {
       socket.emit("chat message", cmd)
       //$("#m").val("");
@@ -47,7 +53,10 @@ else
       $("#userlist").append($("<li>", { id }).text(name))
     })
     socket.on("chat message", function (id, msg) {
-      $("#messages").append($("<li>", { id }).html(msg))
+      const e = $("<li>", { id }).html(msg).appendTo(messages)
+      if (id.startsWith(socket.id)) {
+        mine = e
+      }
       if (notify) {
         notify = manotify
         console.log(msg)
@@ -62,6 +71,23 @@ else
     })
     socket.on("edit", (id, msg) => {
       $(`#${id}`).html(msg)
+    })
+    socket.on("sarcastic", (id, from, to) => {
+      // alert("s")
+      const el = document.getElementById(id)
+      if (el) {
+        // alert("good s")
+        let [left, right] = el.innerHTML.split("&gt; ")
+        // alert("slash s " + right)
+        let newRight = right.replace(new RegExp(from), to)
+        // alert(":s")
+        // if (right == newRight) alert("that changed NOTHING")
+        // else alert("that changed SOMETHING " + newRight)
+        el.innerHTML = `${left}&gt; ${newRight}`
+        // alert("rewritten")
+      // } else {
+        // alert("bad s")
+      }
     })
     socket.on("ban", (banner, time, reason) => {
       localStorage.banner = banner
@@ -110,6 +136,11 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault()
     console.log("hyperactive rabbits")
     hyperactiveRabbits()
+  } else if (e.key === "ArrowUp") {
+    if (m.value === "" && mine && global_sock && mine.attr("id").startsWith(global_sock.id)) {
+      m.value = `/edit ${mine.attr("id").replace(global_sock.id, "")} ${mine.html().split("&gt; ")[1].replace(/ \(edited\)$/, "")}`
+      e.preventDefault()
+    }
   } else if (e.key.toLowerCase() === "u" && e.altKey) {
     open(`view-source:${location}`)
   }

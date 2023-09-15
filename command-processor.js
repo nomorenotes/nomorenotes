@@ -718,7 +718,7 @@ const main = (module.exports =
           case "me":
             mes(r.io, "msg", r.t.action(from[r.s].name, args.join(" ")), from)
             return true
-          case "help":
+          // case "help":
             if (args[0]) {
               let helpdocid = args[0].replace(/\.|\/|\\/g, "")
               if (!from.op) helpdocid = helpdocid.replace("#", "")
@@ -847,11 +847,18 @@ const main = (module.exports =
               r.t.message(
                 (d.getHours() + 8 + 12) % 24,
                 d.getMinutes(),
-                args.shift(),
-                [`<${from[r.s].name}>`, ...args, `(edited)`].join(" "),
+                "msg",
+                [`&lt;${from[r.s].name}>`, ...args, `(edited)`].join(" "),
                 edid
               )
             )
+            return true
+          case "s":
+            if (args.length !== 3) {
+              mes(from, "cmdresp", "Illegal arguments. Run /help for help.")
+              return false
+            }
+            r.io.emit("sarcastic", from.id + args.shift(), args.shift().replace("\\_", " "), args.shift().replace("\\_", " "))
             return true
           default:
             mes(
