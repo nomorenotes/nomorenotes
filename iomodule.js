@@ -174,10 +174,26 @@ const format_msg = (module.exports.format_msg = (msg) =>
 .replace(/%$/g, "<")
 .replace(/$%/g, ">")*/
 const rids = {}
+function panic(message) {
+  console.error(`thread 'main' panicked at '${message}'`)
+  process.exit(101)
+}
+function placement(viewer, user) {
+  if (viewer.op && user.permDeop) {
+    return "user-pdo"
+  }
+  if (user.op) {
+    return "user-op"
+  }
+  if (user[r.s].windows) {
+    return "user-windows"
+  }
+  return "user-std"
+}
 function loser(sock) {
   sock.emit("bbstart")
   for (const u of r.list) {
-    sock.emit("bbu", [u[r.s].name, u.id])
+    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u)])
   }
   sock.emit("bbdone")
 }

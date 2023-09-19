@@ -10,6 +10,26 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
+.user-pdo {
+  color: darkorange;
+}
+.dark .user-pdo {
+  color: yellow;
+}
+.user-op {
+  color: purple;
+}
+.dark .user-op {
+  color: magenta;
+}
+.user-windows {
+  color: dodgerblue;
+}
+.dark .user-windows {
+  color: lightblue;
+}
+
 #send,
 .psa {
   padding: 3px;
