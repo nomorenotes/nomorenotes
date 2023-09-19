@@ -30,6 +30,10 @@ body {
   color: lightblue;
 }
 
+#userlist > [title] {
+  text-decoration: line-through;
+}
+
 #send,
 .psa {
   padding: 3px;
