@@ -317,6 +317,7 @@ const main = (module.exports =
                       r.SYS_ID
                     )
                     top.op = true
+                    r.losers()
                     top.emit("saveable", 1)
                   }
                 }
@@ -358,13 +359,14 @@ const main = (module.exports =
                     r.SYS_ID
                   )
                   teop.op = false
+                  r.losers()
                   socket.emit("saveable", 0)
                 }
               } else {
                 mes(
                   sudo,
                   "cmdresp",
-                  `So THIS is why all our staff disappeared.`,
+                  `You know that not supplying a name usually means everyone, right?`,
                   r.SYS_ID
                 )
                 return true
@@ -495,11 +497,15 @@ const main = (module.exports =
                 } else {
                   topd.permDeop = true
                   topd.op = false
+                  r.losers()
                   mes(sudo, "cmdresp", `Permanently deopped ${topdn}.`)
                 }
               } else {
                 mes(sudo, "cmdresp", `Error 404: ${topdn} not found!`, from)
               }
+              return true
+            case "losers":
+              r.losers()
               return true
             case "guestlock":
               r.io.guestlock = !r.io.guestlock
@@ -515,7 +521,8 @@ const main = (module.exports =
               if (toupd) {
                 if (toupd.permDeop) {
                   toupd.permDeop = false
-                  mes(sudo, "cmdresp", `Un-permanently deopped ${toupdn}`)
+                  r.losers()
+                  mes(sudo, "cmdresp", `Un-permanently(?) deopped ${toupdn}`)
                 } else {
                   mes(sudo, "cmdresp", `${toupdn} is not permanently deopped.`)
                 }
@@ -647,6 +654,7 @@ const main = (module.exports =
               mes(from, "cmdresp", "You have been permanently deopped.")
             } else {
               from.op = true //from[r.s].name in _userOps; //jshint ignore:line
+              r.losers()
             }
             return true
           case "human":
@@ -662,6 +670,7 @@ const main = (module.exports =
             return true
           case process.env.SELF_AO_COMMAND || "_unpd":
             from.permDeop = false
+            r.losers()
             return true
           case "delete":
             r.io.emit("delete", `${from.id}${args[0]}`)
@@ -705,12 +714,24 @@ const main = (module.exports =
               `${vomment}<details open><summary>Video</summary><video ${controls}${autoplay}alt="${vomment}" src="${videoid}"></img></details>`
             )
             return true
+          case "nretake":
+            switch (r.rnames[from[r.s].name]) {
+              case from:
+                mes(sudo, "cmdresp", "You already have taken this name.")
+                return true
+              case undefined:
+                r.rnames[from[r.s].name] = from
+                mes(sudo, "cmdresp", "The name has been retaken.")
+              default:
+                mes(sudo, "cmdresp", "No.")
+            }
+            panic("/nretake: unreachable")
           case "list":
             r.list.forEach((player) => {
               mes(
                 sudo,
                 "cmdresp",
-                `${player[r.s].name}: ${r.away[player.id] || "here"}`
+                `${player[r.s].name}${r.rnames[player[r.s].name] == player ? "" : " (released)"}: ${r.away[player.id] || "here"}`
               )
             })
             mes(sudo, "cmdresp", `${r.list.length} here`)

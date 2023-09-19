@@ -3,6 +3,7 @@ localStorage.life = localStorage.life || 0
 let mine = null
 let mesg = 0
 let global_sock = null
+let autoscrollTo = messages.scrollTop
 if (location.protocol === "http:" && !opts.includes("noHttps"))
   location.protocol = "https:"
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now())
@@ -49,8 +50,8 @@ else
     socket.on("bbstart", () => {
       $("#userlist").empty()
     })
-    socket.on("bbu", ([name, id]) => {
-      $("#userlist").append($("<li>", { id }).text(name))
+    socket.on("bbu", ([name, id, k]) => {
+      $("#userlist").append($("<li>", { id }).text(name).addClass(k))
     })
     socket.on("chat message", function (id, msg) {
       const e = $("<li>", { id }).html(msg).appendTo(messages)
@@ -61,7 +62,9 @@ else
         notify = manotify
         console.log(msg)
       }
-    window.scrollTo(0, $("#messages")[0].scrollHeight)
+      let scrollTarget = messages.scroll
+      messages.scrollTop = messages.scrollHeight
+      autoscrollTo = messages.scrollTop
     })
     socket.on("gotping", (wasTargeted, source) => {
       alert(`${source} has pinged ${wasTargeted ? "you" : "everyone"}!`)
