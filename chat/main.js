@@ -50,8 +50,8 @@ else
     socket.on("bbstart", () => {
       $("#userlist").empty()
     })
-    socket.on("bbu", ([name, id, k]) => {
-      $("#userlist").append($("<li>", { id }).text(name).addClass(k))
+    socket.on("bbu", ([name, id, k, away]) => {
+      $("#userlist").append($("<li>", { id, name, title: away }).text(name).addClass(k))
     })
     socket.on("chat message", function (id, msg) {
       const e = $("<li>", { id }).html(msg).appendTo(messages)

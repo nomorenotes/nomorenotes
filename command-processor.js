@@ -548,10 +548,12 @@ const main = (module.exports =
             if (args[0]) {
               r.away[from.id] = args.join(" ")
               mes(r.io, "alert", `${from[r.s].name} away: ${args.join(" ")}`)
+              r.losers()
             } else {
               if (r.away[from.id]) {
                 mes(r.io, "alert", `${from[r.s].name} back: ${r.away[from.id]}`)
                 delete r.away[from.id]
+                r.losers()
               } else {
                 mes(sudo, "cmdresp", "you were never away")
               }
