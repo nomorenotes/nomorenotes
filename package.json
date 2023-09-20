@@ -14,6 +14,7 @@
     "fetch": "^1.1.0",
     "jest-magic-mock": "^1.0.0",
     "jwt-decode": "^3.1.2",
+    "markdown-it": "^13.0.1",
     "node-fetch": "^2.6.7",
     "pug": "^3.0.2",
     "puppeteer": "^19.11.1",
