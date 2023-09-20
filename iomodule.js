@@ -72,11 +72,14 @@ r.mail = (content, username = "Server") => {
   }
   return Promise.all(proms)
 }
+const md = require("markdown-it")({ html: true })
 const fetch = require("node-fetch")
 r.sendmsg = (from) => (msg) => {
   msg = format_msg(r.parse_emoji(msg))
+  msg = md.renderInline(msg.replace(/^\\\//, "\\\\/"))
   const isMagic = magic(from, msg)
   if (!isMagic) {
+    msg = msg.replace(/^\\\//, "/")
     r.mail(msg, from[r.s].name)
     return msg.split("<br/>").map((m) => {
       mes(
