@@ -35,7 +35,8 @@ else
         "hello",
         localStorage.session
           ? localStorage.session
-          : (localStorage.session = socket.id)
+          : (localStorage.session = socket.id),
+        navigator.userAgent,
       )
     })
     $("#send").submit(function () {

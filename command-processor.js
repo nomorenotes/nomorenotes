@@ -50,6 +50,13 @@ const apply_name = (module.exports.apply_name = (
   }
 })
 
+function copied(text) {
+  return `<copy>${text}</copy>`
+}
+function uncopied(text) {
+  return `<nocopy>${text}</nocopy>`
+}
+
 const main = (module.exports =
   /** @param {import("./types/server.js").R["mes"]} _mes */
   (_mes) =>
@@ -205,7 +212,22 @@ const main = (module.exports =
                 apply_name(from, args[0], !totruth, sudo)
               }
               return true
-
+            case "info": {
+              const user = args.shift()
+              const target = r.rnames[user]
+              if (!target)
+                return mes(sudo, "cmdresp", `404: ${user} not found`), true
+              mes(sudo, "cmdresp", `---- ${user} ----`)
+              const data = target[r.s]
+              function sendline(key, value) {
+                mes(sudo, "cmdresp", `${key.padStart(12).replaceAll(" ", "&nbsp;")}: ${value}`)
+              }
+              sendline("useragent", data.ua)
+              sendline("platform", data.pf)
+              sendline("sockid", copied(target.id))
+              sendline("sestn", copied(data.sestn))
+              return true
+            }
             case "_rawedit":
               d = new Date()
               edid = args.shift()
@@ -741,7 +763,7 @@ const main = (module.exports =
           case "me":
             mes(r.io, "msg", r.t.action(from[r.s].name, args.join(" ")), from)
             return true
-          // case "help":
+          case "help":
             if (args[0]) {
               let helpdocid = args[0].replace(/\.|\/|\\/g, "")
               if (!from.op) helpdocid = helpdocid.replace("#", "")
