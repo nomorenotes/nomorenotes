@@ -5,6 +5,9 @@
   color: inherit;
   background-color: inherit;
 }
+code {
+  color: green;
+}
 body {
   /*/ background-image: url(https://www.ouruniverseforkids.com/wp-content/uploads/2018/09/shooting-768x323.png); /**/
   background-repeat: no-repeat;
@@ -52,6 +55,11 @@ copy {
   user-select: all;
   color: dodgerblue;
   text-decoration: dotted underline;
+}
+nocopy {
+  user-select: none;
+  text-decoration: red dotted underline;
+  cursor: not-allowed;
 }
 #chat {
   display: grid;
