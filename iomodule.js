@@ -191,7 +191,7 @@ function placement(viewer, user) {
   if (user[r.s].windows) {
     return "user-windows"
   }
-  return "user-std"
+  return "user-pf-" + user[r.s].pf
 }
 function loser(sock) {
   sock.emit("bbstart")
@@ -281,14 +281,14 @@ ${inspected}`)
           )
       }
     })
-    socket.once("hello", (session, uname, passw) => {
+    socket.once("hello", (session, pf) => {
       joinLog("Hello")
-      if (uname === "nmn-link") {
-        return nmnlink(session)
-      }
-      if (!USERDICT[uname]) {
-        socket.emit("loginbad", `Unknown user ${uname}`)
-      }
+      // if (uname === "nmn-link") {
+      //   return nmnlink(session)
+      // }
+      // if (!USERDICT[uname]) {
+      //   socket.emit("loginbad", `Unknown user ${uname}`)
+      // }
       if (!session) socket.emit("authenticate", (session = socket.id))
       if (
         io.guestlock &&
@@ -325,6 +325,8 @@ ${inspected}`)
         imageLog(socket[r.s].name, im)
       })
       r.list.push(socket)
+      socket[r.s].ua = pf
+      socket[r.s].pf = pf.includes("CrOS") ? "cros" : pf ? "win" : "other"
       r.losers()
       rids[socket.id] = socket
       senderid[socket.id] = 0
