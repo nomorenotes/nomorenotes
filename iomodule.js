@@ -281,7 +281,7 @@ ${inspected}`)
           )
       }
     })
-    socket.once("hello", (session, pf) => {
+    socket.once("hello", (session, pf = "") => {
       joinLog("Hello")
       // if (uname === "nmn-link") {
       //   return nmnlink(session)
