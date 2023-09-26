@@ -265,10 +265,10 @@ ${inspected}`)
               socket.disconnect(true)
               break
             case 1:
-              socket[r.t].op = true
+              socket[r.s].op = true
               break
             default:
-              socket[r.t].op = false
+              socket[r.s].op = false
           }
           break
         case "userdata":
