@@ -152,6 +152,7 @@ app.post("/rapidcred", bodyParser.urlencoded(), (req, res) => {
       save()
     }
   }
+  res.redirect("/rapidcred?pw=invalid")
 })
 app.get("/eagler/:name", (req, res) => res.redirect(301, "/eagler"))
 app.get("/eagler/:name/dl", (req, res) => res.redirect(301, "/eagler/dl"))
