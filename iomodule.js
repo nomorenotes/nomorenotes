@@ -44,8 +44,8 @@ const MAIL_OPTS = {
 }
 const mailLog = baseLog.extend("mail")
 mailLog("mail url:", process.env.MAIL_URL)
-r.mail = (content, username = "Server") => {
-  mailLog(`mailing ${username}: ${content}`)
+r.mail = (content, username) => {
+  mailLog(`mailing ${username ?? process.env.SERVER_NAME}: ${content}`)
   let proms = []
   for (let url of (process.env.MAIL_URL || "").split(";")) {
     if (!url) continue
@@ -60,7 +60,8 @@ r.mail = (content, username = "Server") => {
   if (!content.startsWith("Server restarted @ ")) {
     for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
       if (!nmnurl) continue
-      let sender = username + (process.env.NMN_MAIL_SUFFIX ?? "")
+      const suffix = process.env.NMN_MAIL_NAME ?? `<a href="${process.env.URL}" target=_blank>${process.env.SERVER_NAME}</a>`
+      let sender = username ? username + (process.env.NMN_MAIL_SUFFIX ?? "@" + suffix) : suffix
       mailLog(`NMN mail: ${nmnurl}`)
       proms.push(
         fetch(nmnurl, {
