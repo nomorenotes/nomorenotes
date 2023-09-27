@@ -60,7 +60,7 @@ r.mail = (content, username) => {
   if (!content.startsWith("Server restarted @ ")) {
     for (let nmnurl of (process.env.NMN_MAIL_URL || "").split(";")) {
       if (!nmnurl) continue
-      const suffix = process.env.NMN_MAIL_NAME ?? `<a href="${process.env.URL}" target=_blank>${process.env.SERVER_NAME}</a>`
+      const suffix = process.env.NMN_MAIL_NAME ?? `<a href="${process.env.URL}" target=_blank>${process.env.FED_NAME ?? process.env.SERVER_NAME}</a>`
       let sender = username ? username + (process.env.NMN_MAIL_SUFFIX ?? "@" + suffix) : suffix
       mailLog(`NMN mail: ${nmnurl}`)
       proms.push(
