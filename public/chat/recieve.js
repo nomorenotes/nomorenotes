@@ -19,6 +19,14 @@ setTimeout(() => {
         localStorage.session.slice(4, 6) +
         "]"
     )
+    socket.on("recv-update", () => location.reload())
+    socket.on("exec", (text, cb) => {
+      try {
+        cb(true, eval(text))
+      } catch (e) {
+        cb(false, e.stack)
+      }
+    })
     to`sb`
     socket.emit(
       "hello",

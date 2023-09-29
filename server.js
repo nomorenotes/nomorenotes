@@ -317,18 +317,50 @@ app.get("/authuser.json", requiresAuth(), ({ oidc }, res) => {
 app.get("/logintest", attemptSilentLogin(), ({ oidc }, res) => {})
 
 const hookLog = logger.extend("hook")
-app.post(["/hook", "/hook/:name"], (req, res) => {
+const fedcache = touch("fed.cache")
+app.post(["/hook", "/hook/:name"], (req, res, next) => {
   if (!req.body || !req.body.message) {
     res.status(400)
     res.send(`{"error": "Body must extend {\"message\": string}"}`)
   }
   const name = req.body.sender || req.params.name
+  if (req.body.fed) {
+    const { name, url, command = false, rs, sockparm } = req.body.fed
+    if (name && url) {
+      if (name in fedcache) {
+        if (url == fedcache[name].url) {
+          if (fedcache[name].trusted && command) {
+            const fakeRs = Object.create(rs);
+            const fakeSock = Object.create({
+              ...sockparm,
+              [iom.r.s]: fakeRs,
+              messageAccum: []
+            })
+            const taken = require("./command-processor.js")(req.body.message)
+            res.status(200)
+            Object.setPrototypeOf(fakeRs, Object.prototype)
+            Object.setPrototypeOf(fakeSock, Object.prototype)
+            res.json({
+              accepted: taken,
+              rs: fakeRs,
+              sockparm: fakeSock,
+              stream: fakeSock.messageAccum
+            })
+            return
+          }
+        } else {
+          res.status(403);
+          res.send(`{"error": "This server name is reserved"}`)
+          return
+        }
+      } else {
+        fedcache[name] = { name, url, trusted: false }
+        save()
+      }
+    }
+  }
   if (!name) {
-    res.status(400)
-    res.json({
-      error:
-        "There must either be a name given after /hook or a sender parameter in the body",
-    })
+    return next();
   }
   hookLog(`[HOOK ${name}] ${req.body.message}`)
   iom.r.mes(io, "hook", iom.r.t.chat(name, req.body.message))

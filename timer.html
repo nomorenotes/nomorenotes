@@ -1,5 +1,6 @@
 <center><select id="countdowns"></select></center>
-<div id="countdown"></div>
+<div id="cd0" style="opacity: 1"></div>
+<div id="cd1" style="opacity: 0"></div>
 <input id="fore" type="color" value="#ff0000" />
 <input id="back" type="color" value="#000000" oncontextmenu="tryEgg(event);" />
 <style>
@@ -10,7 +11,7 @@
     color: red;
     overflow: hidden;
   }
-  #countdown {
+  #cd0, #cd1 {
     font-size: 50vh;
     max-width: 100%;
     text-align: center;
@@ -20,6 +21,9 @@
     top: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
+  }
+  #cd0[data-active], #cd1[data-active] {
+    transition: opacity 0.5s;
   }
   select {
     background: none;
@@ -90,23 +94,38 @@
     }
   }
 
+  let togglePair = [cd0, cd1]
+  fore.value = localStorage.Foreground || fore.value
+  back.value = localStorage.Background || back.value
   function initializeClock(id, goals) {
-    const clock = document.getElementById(id)
+    let oldText = "";
+    let olderText = "";
     const r = () => {
       const endtime = goals[selector.value]
       const t = getTimeRemaining(endtime)
       document.body.style.backgroundColor = Background
       document.body.style.color = Foreground
-      clock.textContent = `[${t.hours}:${t.minutes
+      Object.assign(localStorage, { Foreground, Background })
+      const text = `[${t.hours}:${t.minutes
         .toString()
         .padStart(2, 0)}:${t.seconds.toString().padStart(2, 0)}]`
         .replace("[0:", "[")
         .replace("[0:", "[")
         .replace("[0", "[")
+      if (text != oldText) {
+        [cd1, cd0] = [cd0, cd1]
+        cd0.style.opacity = 1
+        cd1.dataset.active = 1
+        cd1.style.opacity = 0
+        delete cd0.dataset.active
+        olderText = text
+      }
+      // cd1.textContent = oldText
+      cd0.textContent = text
+      oldText = text
       if (t.total <= 0) {
-        clock.textContent = clock.textContent
-          .replace(":-", ":")
-          .replace(":-", ":")
+        cd0.textContent = cd0.textContent
+          .replace(/:-(?=\d\d)/, ":")
         if (Math.floor(Date.now() / 500) % 2) {
           document.body.style.backgroundColor = Foreground
           document.body.style.color = Background
@@ -150,7 +169,6 @@
   }
 
   setGoal("LUNCH", 12, 10)
-  setGoal("SUNCH", 13, 13)
   setGoal("MIDAY")
   setGoal("DISMS", 13, 50)
   setGoal("DONUT", 0)

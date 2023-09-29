@@ -66,7 +66,7 @@ r.mail = (content, username) => {
       proms.push(
         fetch(nmnurl, {
           ...MAIL_OPTS,
-          body: JSON.stringify({ message: content, sender }),
+          body: JSON.stringify({ message: content, sender, fed: { url: process.env.URL, name: process.env.SERVER_NAME } }),
         })
       )
     }
@@ -108,10 +108,14 @@ const mes = (r.mes = (who, prefix, msg, sender = SYS_ID) => {
   if (who === io && prefix === "msg" && sender !== SYS_ID) {
     io.to("preview").emit(msg)
   }
-  if (who === io) who = io.to("main")
   mesLog(
     `mes: ${typeof sender} ${sender} send ${prefix} to ${typeof who} ${who}: ${msg}`
   )
+  if (who === io) who = io.to("main")
+  if (who.accumMessages) {
+    who.accumMessages.push({ prefix, msg, sender: sender + "@" + process.env.SERVER_NAME })
+    return
+  }
   var d = new Date()
   who.emit(
     "chat message",
@@ -229,7 +233,7 @@ module.exports.main = (_io) => {
       let wasPromise = false
       if (retval instanceof Promise) {
         wasPromise = true
-        retval = await retval
+        retval = await retvalf
       }
       const endTime = now()
       const inspected = inspect(retval, {
