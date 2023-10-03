@@ -216,7 +216,6 @@ const imageLog = chatLog.extend("image")
 module.exports.main = (_io) => {
   io = r.io = _io
   r.cmdmod = require("./command-processor.js")(mes)
-  require("./upload.js")(io)
   r.mail(`Server restarted @ ${r.commit}`)
   io.on("connection", (socket) => {
     joinLog("Existence", socket.id)

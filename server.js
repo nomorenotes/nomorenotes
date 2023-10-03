@@ -48,6 +48,7 @@ var io = new (require("socket.io").Server)(http, {
 io[Symbol.toPrimitive] = () => "[IO]"
 var port = process.env.PORT || 3000
 var iom = require("./iomodule.js")
+require("./upload.js")(io, app)
 iom.r.commit = process.env.HEROKU_SLUG_COMMIT ?? execSync("git rev-parse HEAD")
 iom.main(io)
 const logger = iom.r.dbg.extend("server")
@@ -197,13 +198,13 @@ app.get("/themes.json", (req, res) => {
 app.get("/unban", (req, res) => {
   res.render("unban.pug")
 })
-
-require("./site/module.js")(app) // site urls
-require("./chat/module.js")(app) // chat urls
-require("./login/module.js")(app) // login urls
-require("./test/module.js")(app) // will always give a fake error
-require("./vis/module.js")(app) // edit ALL the saveables
-require("./upload/module.js")(app) // file uploader
+                                                                        
+app.get("/chat/recieve/:name", (req, res) => {
+  res.render("recieve", req.params)
+})
+app.get("/chat/embed-recieve/:name", (req, res) => {
+  res.render("embed-recieve", req.params)
+})
 
 app.get("/banned", (req, res) => {
   res.sendFile(__dirname + "/banned.html")
