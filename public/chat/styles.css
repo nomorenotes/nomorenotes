@@ -44,6 +44,11 @@ body {
 #userlist > [title] {
   text-decoration: line-through;
 }
+#userlist > li::before {
+  content: "▲ ";
+  transform: translateX(-1ch);
+  color: var(--sestn);
+}
 
 #send,
 .psa {

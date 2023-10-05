@@ -50,8 +50,16 @@ else
     socket.on("bbstart", () => {
       $("#userlist").empty()
     })
-    socket.on("bbu", ([name, id, k, away]) => {
-      $("#userlist").append($("<li>", { id, name, title: away }).text(name).addClass(k))
+    socket.on("bbu", ([name, id, k, away, sestn]) => {
+      try {
+        let csestn = atob(sestn)
+        csestn = `rgb(${csestn.charCodeAt(0) % 256}, ${csestn.charCodeAt(1) % 256}, ${csestn.charCodeAt(2) % 256})`
+        const li = $("#userlist").append($("<li>", { id, name, title: away }).text(name).css("--sestn", csestn).addClass(k))
+        li[0].style.setProperty("--sestn", csestn)
+        // alert(JSON.stringify(li[0].style))
+      } catch (e) {
+        alert(e)
+      }
     })
     socket.on("chat message", function (id, msg) {
       const e = $("<li>", { id }).html(msg).appendTo(messages)

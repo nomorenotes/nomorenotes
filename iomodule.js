@@ -197,7 +197,7 @@ function placement(viewer, user) {
 function loser(sock) {
   sock.emit("bbstart")
   for (const u of r.list) {
-    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u), r.away[u.id]])
+    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u), r.away[u.id], u[r.s].session])
   }
   sock.emit("bbdone")
 }
