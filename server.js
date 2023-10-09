@@ -163,7 +163,7 @@ const users = process.env.USERS
 
 process.on("uncaughtException", (e) => {
   logger.log("Uncaught exception!", e)
-  iom.r.mes(io, "system", `NMN has encountered an error:\n${e.stack}`.replace("&", "&nbsp;").replace("<", "&lt;").replace("\n", "<br>"))
+  iom.r.mes(io, "alert", `<span style="color: red" title="${e.stack.replace("&", "&amp;").replace('"', "&quot;").replace("\n", "&#010;")}">${e}</span>`)
 })
 
 /*

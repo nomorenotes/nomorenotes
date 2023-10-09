@@ -304,6 +304,7 @@ ${inspected}`)
       }
       joinLog("Survived removal")
       rnames[socket[r.s].name] = socket
+      socket[r.s].session = session
       //socket.id = session ? session : socket.id;
       socket.join("main")
       mes(

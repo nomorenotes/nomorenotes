@@ -4,6 +4,7 @@ let mine = null
 let mesg = 0
 let global_sock = null
 let autoscrollTo = messages.scrollTop
+let disconnect = "waiting"
 if (location.protocol === "http:" && !opts.includes("noHttps"))
   location.protocol = "https:"
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now())
@@ -16,7 +17,7 @@ else
     var socket = io()
     global_sock = socket
     socket.on("disconnect", (reason) => {
-      global_sock = null
+      disconnect = reason
     })
     window.sendCommand = (cmd) => {
       socket.emit("chat message", cmd)
@@ -26,6 +27,7 @@ else
       $("#m").val(cmd)
     }
     socket.on("hello", () => {
+      disconnect = "connected"
       saveable.forEach((s) => {
         if (localStorage["NMN" + s]) {
           socket.emit("saveable", s, localStorage["NMN" + s])
@@ -193,5 +195,5 @@ function detectConnection() {
   }
   const connection = `${effectiveType} ${type} (${downlink})`
   const lifetime = `lifetime messages: ${localStorage.life}`
-  stats.innerHTML = `${connection}<br>${lifetime}`
+  stats.innerHTML = `${connection}<br>${lifetime}<br><span onclick="global_sock.connected ? global_sock?.close() : global_sock?.open()">${disconnect}</span>`
 }

@@ -280,14 +280,14 @@ const main = (module.exports =
                   `Ok, ${tolink} is on ${link} now.`,
                   r.SYS_ID
                 )
-                mes(
-                  tolink,
-                  "alert",
-                  `You were <a href="${link}" target=_blank>linked</a> by ${
-                    from[r.s].name
-                  }`,
-                  r.SYS_ID
-                )
+                // mes(
+                //   tolink,
+                //   "alert",
+                //   `You were <a href="${link}" target=_blank>linked</a> by ${
+                //     from[r.s].name
+                //   }`,
+                //   r.SYS_ID
+                // )
               } else {
                 mes(
                   sudo,
@@ -402,6 +402,8 @@ const main = (module.exports =
           else if (count == 0) {mes(sudo, "cmdresp", `Nothing is spammed.`, r.SYS_ID);}
           else {for (var i = 0; i <= (count < 200 ? count : 200); i++) {r.sendmsg(from)(args.join(" "));}}
           return true;/**/
+            case "throw":
+              throw new Error(args.join(" "))
             case "reload":
               let toload = r.rnames[args[0]]
               if (toload == undefined && args[0]) {
