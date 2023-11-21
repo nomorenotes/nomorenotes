@@ -249,6 +249,7 @@ const main = (module.exports =
                 tori = args.shift()
               if (!torname) {
                 mes(sudo, "cmdresp", "The reciever name must be specified.")
+                return true
               }
               const recieve$_regex = new RegExp(
                 `^${torname}\\[reciever(?:\\.\\w{5}(?<=${torque}))?\\]$`
