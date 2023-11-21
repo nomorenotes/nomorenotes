@@ -57,9 +57,41 @@ function uncopied(text) {
   return `<nocopy>${text}</nocopy>`
 }
 
+function ldcmd(dir, name) {
+  cmdjs_prefix("Loading command")
+  if (/[^a-z]/.exec(name)) return cmdjs_prefix("Nvm bad name"), null
+  const path = `./cmd/${dir}/${name}.js`
+  try {
+    require.resolve(path)
+  } catch (e) {
+    cmdjs_prefix("No such command!")
+    return null
+  }
+  cmdjs_prefix("Command found")
+  return require(path)
+}
+const cmdjs_prefix = baseLogger.extend(cmdjs)
+function cmdjs(dir, name, from, sudo, args) {
+  cmdjs_prefix("Trying " + dir)
+  const cmd = ldcmd(dir, name);
+  cmdjs_prefix(`Command fond: ${!!cmd}`)
+  if (!cmd) return false
+  global.$FROM = from
+  global.$RS = from[r.s]
+  global.$IOM = require("./iomodule.js")
+  cmdjs_prefix("Get ready to run")
+  let res = cmd(...args)
+  cmdjs_prefix("Run successful")
+  for (let msg of res) {
+    cmdjs_prefix(`Output: ${msg}`)
+    mes(sudo, "cmdresp", msg)
+  }
+  return true
+}
+
 const main = (module.exports =
   /** @param {import("./types/server.js").R["mes"]} _mes */
-  (_mes) =>
+  (_mes) => 
     /**
      * @param {string} msg
      * @param {import("./types/server.js").ClientSocket} from
@@ -80,6 +112,7 @@ const main = (module.exports =
           mes(from, "cmdresp", "Command detected!")
         }
         if (from.op) {
+          if (cmdjs("admin", cmd, from, sudo, args)) return true
           switch (
             cmd.toLowerCase() // OP COMMANDS
           ) {
@@ -109,7 +142,7 @@ const main = (module.exports =
                 } else {
                   tohotbox[r.s].hotboxed = true
                   mes(sudo, "cmdresp", `Hotboxed ${tohotboxn} successfully.`)
-                }
+                }de
               } else {
                 mes(sudo, "cmdresp", `404: ${tohotboxn} not found!`)
               }
@@ -558,6 +591,7 @@ const main = (module.exports =
             default:
           }
         }
+        if (cmdjs("user", cmd, from, sudo, args)) return true
         switch (
           cmd //NON-OP COMMANDS
         ) {
