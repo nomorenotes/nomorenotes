@@ -6,7 +6,7 @@ export default class Polyline {
     y = 0
     history = []
     lines = []
-    _bag = {}
+    bag = {}
 
     constructor(x = 0, y = 0) {
         this.x = x
@@ -28,7 +28,8 @@ export default class Polyline {
      * For example, at [100, 100], jump(50, 50) would leave the cursor at [150, 150].
     */
     line(x = 0, y = 0) {
-        const line = Object.assign(new Line(0, 0, 0, 0), this._bag)
+        const line = Object.assign(new Line(0, 0, 0, 0), this.bag)
+        this.align(this.x, this.y, this.x + x, this.y + y)
         line.setPosition(this.x, this.y)
         this.x += x
         this.y += y
@@ -86,6 +87,7 @@ export default class Polyline {
         this.lineh(-w)
         this.linev(-h)
         this.pop()
+        this.align(this.x, this.y, this.x + w, this.y + h)
         return this
     }
 
@@ -109,15 +111,38 @@ export default class Polyline {
         return this
     }
 
-    /** 
-     * Merges some properties into the property bag. Among the supported properties are `color` and `lineWidth`.
-    */
-    bag(...props) {
-      Object.assign(this.bag, ...props)
-      return this
-    }
-
     *[Symbol.iterator]() {
         yield* this.lines
     }
 }
+
+const ALIGN = Symbol("Alignment factor")
+const SHIFT = Symbol("Alignment offset")
+         
+/** 
+ * Aligns the cursor to the starting position plus an offset.
+*/
+export function start(shift = 0) {
+  return { [ALIGN]: 0, [SHIFT]: shift }
+}
+start[ALIGN] = 0
+start[SHIFT] = 0
+
+/** 
+ * Aligns the cursor halfway between the starting and ending position plus an offset.
+*/
+export function middle(shift) {
+  return { [ALIGN]: 0.5, [SHIFT]: shift }
+}
+middle[ALIGN] = 0.5
+middle[SHIFT] = 0
+
+/** 
+ * Aligns the cursor at the end positition plus an offset.
+ * Note: In most cases, you should use a negative offset.
+*/
+export function end(shift) {
+  return { [ALIGN]: 1, [SHIFT]: shift }
+}
+end[ALIGN] = 1
+end[SHIFT] = 0
