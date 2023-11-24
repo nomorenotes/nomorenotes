@@ -78,7 +78,7 @@ function cmdjs(dir, name, from, sudo, args) {
   if (!cmd) return false
   global.$FROM = from
   global.$RS = from[r.s]
-  global.$IOM = require("./iomodule.js")
+  global.r = r
   cmdjs_prefix("Get ready to run")
   let res = cmd(...args)
   cmdjs_prefix("Run successful")
@@ -142,7 +142,7 @@ const main = (module.exports =
                 } else {
                   tohotbox[r.s].hotboxed = true
                   mes(sudo, "cmdresp", `Hotboxed ${tohotboxn} successfully.`)
-                }de
+                }
               } else {
                 mes(sudo, "cmdresp", `404: ${tohotboxn} not found!`)
               }
@@ -220,9 +220,6 @@ const main = (module.exports =
                 )
               }
               return true
-            case "release":
-              delete r.rnames[args[0]]
-              return true
             case "_rawdelete":
               r.io.emit("delete", `${args[0]}`)
               return true
@@ -245,22 +242,6 @@ const main = (module.exports =
                 apply_name(from, args[0], !totruth, sudo)
               }
               return true
-            case "info": {
-              const user = args.shift()
-              const target = r.rnames[user]
-              if (!target)
-                return mes(sudo, "cmdresp", `404: ${user} not found`), true
-              mes(sudo, "cmdresp", `---- ${user} ----`)
-              const data = target[r.s]
-              function sendline(key, value) {
-                mes(sudo, "cmdresp", `${key.padStart(12).replaceAll(" ", "&nbsp;")}: ${value}`)
-              }
-              sendline("useragent", data.ua)
-              sendline("platform", data.pf)
-              sendline("sockid", copied(target.id))
-              sendline("sestn", copied(data.sestn))
-              return true
-            }
             case "_rawedit":
               d = new Date()
               edid = args.shift()
@@ -339,95 +320,6 @@ const main = (module.exports =
               )
               mes(from, "cmdresp", "You are now coding!")
               return true
-            case "op":
-              let top = r.rnames[args[0]]
-              if (top == undefined && args[0]) {
-                mes(
-                  sudo,
-                  "cmdresp",
-                  `Error 404: ${args[0]} not found!`,
-                  r.SYS_ID
-                )
-                return true
-              }
-              if (args[0]) {
-                if (top.op)
-                  mes(sudo, "cmdresp", `${args[0]} seems about the same.`)
-                else {
-                  if (top.permDeop) {
-                    mes(
-                      from,
-                      "cmdresp",
-                      `${args[0]} is permanently deopped and cannot be opped.`
-                    )
-                  } else {
-                    mes(
-                      top.broadcast,
-                      "alert",
-                      `${from[r.s].name} thinks ${args[0]} seems more powerful.`
-                    )
-                    mes(
-                      top,
-                      "alert",
-                      `${from[r.s].name} thinks you seem more powerful.`,
-                      r.SYS_ID
-                    )
-                    top.op = true
-                    r.losers()
-                    top.emit("saveable", 1)
-                  }
-                }
-                return true
-              } else {
-                mes(
-                  sudo,
-                  "cmdresp",
-                  `Dude, wtf?? You can't op EVERYONE.`,
-                  r.SYS_ID
-                )
-                return true
-              }
-              throw new Error("impossible")
-            case "deop":
-              let teop = r.rnames[args[0]]
-              if (teop == undefined && args[0]) {
-                mes(
-                  sudo,
-                  "cmdresp",
-                  `Error 404: ${args[0]} not found!`,
-                  r.SYS_ID
-                )
-                return true
-              }
-              if (args[0]) {
-                if (!teop.op)
-                  mes(sudo, "cmdresp", `${args[0]} seems about the same.`)
-                else {
-                  mes(
-                    teop.broadcast,
-                    "alert",
-                    `${from[r.s].name} thinks ${args[0]} seems less powerful.`
-                  )
-                  mes(
-                    teop,
-                    "alert",
-                    `${from[r.s].name} thinks you seem less powerful.`,
-                    r.SYS_ID
-                  )
-                  teop.op = false
-                  r.losers()
-                  socket.emit("saveable", 0)
-                }
-              } else {
-                mes(
-                  sudo,
-                  "cmdresp",
-                  `You know that not supplying a name usually means everyone, right?`,
-                  r.SYS_ID
-                )
-                return true
-              }
-              throw new Error("impossible")
             /*
         case "spam":
           let count = parseInt(args.shift());
@@ -957,3 +849,5 @@ const main = (module.exports =
       }
       return false
     })
+
+Object.assign(module.exports, { copied, uncopied })
