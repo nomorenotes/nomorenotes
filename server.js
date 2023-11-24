@@ -113,10 +113,13 @@ function white(base, ...keys) {
   return copy
 }
 const fgetLog = logger.extend("fget")
-const fgetwhite = "headers:method  ".split`:`
+const fgetwhite = "headers:method:body".split`:`
 function fget(req, res, url, download = false) {
   url = new URL(url)
-  const r = request(url /*, white(req, fgetwhite)*/)
+  const ops = white(req, fgetwhite);
+  ops.headers.host = url.host
+  ops.headers["user-agent"] += `; via cproxy @ ${process.env.HOST}`
+  const r = request(url, ops)
   //req.pipe(r)
   const rqToken = (Math.random().toString().split(".")[1] || "")
     .slice(0, 4)
@@ -129,6 +132,9 @@ function fget(req, res, url, download = false) {
   }
   r.on("response", (message) => {
     log("Piping")
+    res.status(message.statusCode)
+    for (let [k, v] of Object.entries(message.headers))
+      res.setHeader(k, v)
     message.pipe(res)
   })
   r.end()
@@ -451,7 +457,7 @@ app.get("/cp/64/:data", cors(), (req, res) => {
   console.log("CORS proxy v2")
   fget(req, res, url)
 })
-app.get("/cp/x:byte([da-z]{2})/:data", cors(), (req, res, next) => {
+app.get("/cp/x:byte([\\da-z]{2})/:data", cors(), (req, res, next) => {
   const byte = parseInt(req.params.byte, 16)
   console.log("CORS proxy v3")
   if (byte < 0 || byte > 255) next()
