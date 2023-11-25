@@ -43,9 +43,8 @@ body {
 .user-with {
   animation: user-with 0.5s linear 1 normal;
 }
-.does-blur {
-  font-style: italic;
-  color: white;
+:is(#shady, .does-blur) {
+  font-style: italic !important;
 }
 @keyframes user-with {
   from {
