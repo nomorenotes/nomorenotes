@@ -5,12 +5,28 @@ let mesg = 0
 let global_sock = null
 let autoscrollTo = messages.scrollTop
 let disconnect = "waiting"
+let peerok = "waiting"
+let peer
 if (location.protocol === "http:" && !opts.includes("noHttps"))
   location.protocol = "https:"
 else if (localStorage.banExpiry2 && +localStorage.banExpiry2 > Date.now())
   location.pathname = "/banned"
 else
   $(function () {
+    peer = new Peer()
+    peerok = "pending"
+    peer.on("open", id => {
+      peerok = "up"
+    })
+    peer.on("close", () => {
+      peerok = "down"
+      peer = null
+    })
+    peer.on("error", (e) => {
+      peerok = e?.type
+      alert(e.stack)
+      peer = null
+    })
     const saveable = ["name"]
     var manotify = false
     var notify = false
@@ -28,6 +44,12 @@ else
     }
     socket.on("hello", () => {
       disconnect = "connected"
+      peer?.on("open", id => {
+        socket.emit("peerok", id)
+      })
+      if (!(peer?.disconnected ?? true)) {
+        socket.emit("peerok", peer.id)
+      }
       saveable.forEach((s) => {
         if (localStorage["NMN" + s]) {
           socket.emit("saveable", s, localStorage["NMN" + s])
@@ -52,8 +74,11 @@ else
     socket.on("bbstart", () => {
       $("#userlist").empty()
     })
-    socket.on("bbu", ([name, id, k, away]) => {
-      $("#userlist").append($("<li>", { id, name, title: away }).text(name).addClass(k))
+    function dobbu({ ctrlKey, shiftKey }) {
+      
+    }
+    socket.on("bbu", ([name, id, k, away, peerid]) => {
+      $("#userlist").append($("<li>", { id, name, title: away }).text(name).addClass(k).attr("data-peerid", peerid).contextmenu(dobbu))
     })
     socket.on("chat message", function (id, msg) {
       const e = $("<li>", { id }).html(msg).appendTo(messages)
@@ -195,5 +220,6 @@ function detectConnection() {
   }
   const connection = `${effectiveType} ${type} (${downlink})`
   const lifetime = `lifetime messages: ${localStorage.life}`
-  stats.innerHTML = `${connection}<br>${lifetime}<br><span onclick="global_sock.connected ? global_sock?.close() : global_sock?.open()">${disconnect}</span>`
+  stats.innerHTML = `${connection}<br>${lifetime}<br><span onclick="global_sock.connected ? global_sock?.close() : global_sock?.open()">${disconnect}</span> (peer ${peerok})`
 }
+  

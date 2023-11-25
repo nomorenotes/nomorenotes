@@ -197,7 +197,7 @@ function placement(viewer, user) {
 function loser(sock) {
   sock.emit("bbstart")
   for (const u of r.list) {
-    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u), r.away[u.id]])
+    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u), r.away[u.id], u[r.s].peerid])
   }
   sock.emit("bbdone")
 }
@@ -324,6 +324,10 @@ ${inspected}`)
       socket.on("chat message", r.sendmsg(socket))
       socket.on("image", (im) => {
         imageLog(socket[r.s].name, im)
+      })
+      socket.on("peerok", peerid => {
+        socket[r.s].peerid = peerid
+        r.losers()
       })
       r.list.push(socket)
       socket[r.s].ua = pf
