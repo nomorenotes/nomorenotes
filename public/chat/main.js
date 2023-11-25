@@ -14,7 +14,13 @@ else
     const saveable = ["name"]
     var manotify = false
     var notify = false
-    var socket = io()
+    let port = "/"
+    for (let opt of opts) {
+      if (opt.startsWith("port=")) {
+        port = opt.slice(5)
+      }
+    }
+    var socket = io(port)
     global_sock = socket
     socket.on("disconnect", (reason) => {
       disconnect = reason
