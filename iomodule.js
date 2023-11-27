@@ -197,7 +197,7 @@ function placement(viewer, user) {
 function loser(sock) {
   sock.emit("bbstart")
   for (const u of r.list) {
-    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u), r.away[u.id]])
+    sock.emit("bbu", [u[r.s].name, u.id, placement(sock, u) + (u[r.s].doesblur ? " does-blur" : ""), r.away[u.id]])
   }
   sock.emit("bbdone")
 }
@@ -322,6 +322,14 @@ ${inspected}`)
       )
       socket.on("chat message", (msg) => chatLog(socket[r.s].name, msg)) // who doesn't love log spam
       socket.on("chat message", r.sendmsg(socket))
+      socket.on("fupdate", msg => {
+        chatLog(socket[r.s].name + "ℱ" + msg)
+        io.emit("fupdate", socket.id, msg)
+      })
+      socket.on("doesblur", b => {
+        socket[r.s].doesblur = b
+        r.losers()
+      })
       socket.on("image", (im) => {
         imageLog(socket[r.s].name, im)
       })

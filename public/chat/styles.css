@@ -40,6 +40,20 @@ body {
 .dark .user-pf-cros {
   color: lime;
 }
+.user-with {
+  animation: user-with 0.5s linear 1 normal;
+}
+:is(#shady, .does-blur) {
+  font-style: italic !important;
+}
+@keyframes user-with {
+  from {
+    background-color: gray;
+  }
+  to {
+    background-color: transparent;
+  }
+}
 
 #userlist > [title] {
   text-decoration: line-through;

@@ -14,7 +14,13 @@ else
     const saveable = ["name"]
     var manotify = false
     var notify = false
-    var socket = io()
+    let port = "/"
+    for (let opt of opts) {
+      if (opt.startsWith("port=")) {
+        port = opt.slice(5)
+      }
+    }
+    var socket = io(port)
     global_sock = socket
     socket.on("disconnect", (reason) => {
       disconnect = reason
@@ -27,6 +33,8 @@ else
       $("#m").val(cmd)
     }
     socket.on("hello", () => {
+      // TODO: fix
+      // socket.emit("doesblur", !document.hasFocus())
       disconnect = "connected"
       saveable.forEach((s) => {
         if (localStorage["NMN" + s]) {
@@ -40,6 +48,9 @@ else
           : (localStorage.session = socket.id)
       )
     })
+    document.getElementById("m").oninput = ({ target }) => {
+      socket.emit("fupdate", target.value)
+    }
     $("#send").submit(function () {
       socket.emit("chat message", $("#m").val())
       if (!$("#m").val().startsWith("/")) {
@@ -47,13 +58,20 @@ else
         mesg++
       }
       $("#m").val("")
+      socket.emit("fupdate", "")
       return false
+    })
+    window.addEventListener("focus", () => {
+      socket.emit("doesblur", false)
+    })
+    window.addEventListener("blur", () => {
+      socket.emit("doesblur", true)
     })
     socket.on("bbstart", () => {
       $("#userlist").empty()
     })
     socket.on("bbu", ([name, id, k, away]) => {
-      $("#userlist").append($("<li>", { id, name, title: away }).text(name).addClass(k))
+      $("#userlist").append($("<li>", { id: "user--" + id, name, title: away }).text(name).addClass(k))
     })
     socket.on("chat message", function (id, msg) {
       const e = $("<li>", { id }).html(msg).appendTo(messages)
@@ -76,6 +94,15 @@ else
     })
     socket.on("edit", (id, msg) => {
       $(`#${id}`).html(msg)
+    })
+    socket.on("fupdate", (id, msg) => {
+      // alert("fupdated")
+      const el = document.getElementById(`user--${id}`)
+      if (!el) return void alert("fupdating nonexistent user?")
+      // remove class 'user-with', reflow, and readd
+      el.classList.remove("user-with")
+      void el.offsetHeight
+      el.classList.add("user-with")
     })
     socket.on("sarcastic", (id, from, to) => {
       // alert("s")
