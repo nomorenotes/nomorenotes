@@ -1,3 +1,0 @@
-sname="$1"
-shift
-ssh -t nathan@ssh.pi.pool.bad.mn "$@" screen -DR "$sname"
